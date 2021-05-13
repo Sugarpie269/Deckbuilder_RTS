@@ -18,10 +18,10 @@ namespace DeckbuilderRTS
         void Start()
         {
             this.PlayerInventory = this.gameObject.GetComponent<Inventory>();
-            // this.MoveUp = ScriptableObject.CreateInstance(MovePlayerUp);
-            // this.MoveDown = ScriptableObject.CreateInstance(MovePlayerDown);
-            // this.MoveDown = ScriptableObject.CreateInstance(MovePlayerLeft);
-            // this.MoveDown = ScriptableObject.CreateInstance(MovePlayerRight);
+            // this.MoveUp = ScriptableObject.CreateInstance(MovePlayerUpCommand);
+            // this.MoveDown = ScriptableObject.CreateInstance(MovePlayerDownCommand);
+            // this.MoveDown = ScriptableObject.CreateInstance(MovePlayerLeftCommand);
+            // this.MoveDown = ScriptableObject.CreateInstance(MovePlayerRightCommand);
         }
 
         // Navya, this is all you!
