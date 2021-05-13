@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DeckbuilderRTS
 {
-    public class PlayerController : MonoBehavior
+    public class PlayerController : MonoBehaviour
     {
         // private Inventory PlayerInventory;
         // private IPlayerCommand MoveUp;
