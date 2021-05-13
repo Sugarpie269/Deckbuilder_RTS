@@ -11,7 +11,7 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         void Start()
         {
-            // this.CurrentCommand = ScriptableObject.CreateInstance(???);
+            // this.CurrentCommand = ScriptableObject.CreateInstance<???>();
         }
 
         void Update()
