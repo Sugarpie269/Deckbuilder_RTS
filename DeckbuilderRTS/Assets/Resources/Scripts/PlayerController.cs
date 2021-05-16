@@ -40,5 +40,10 @@ namespace DeckbuilderRTS
         {
             this.ProcessInput();
         }
+
+        public void TakeDamage(float damage)
+        {
+            Debug.Log("I took " + damage.ToString() + " damage!");
+        }
     }
 }
