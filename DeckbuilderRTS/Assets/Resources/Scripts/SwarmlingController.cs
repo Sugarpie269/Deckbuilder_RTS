@@ -16,7 +16,7 @@ namespace DeckbuilderRTS
 
         void Update()
         {
-            
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(-5.0f, 2.5f);
         }
     }
 }
