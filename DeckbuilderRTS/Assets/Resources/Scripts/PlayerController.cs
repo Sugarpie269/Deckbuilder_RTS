@@ -63,7 +63,7 @@ namespace DeckbuilderRTS
             {
                 this.LowHealthWarningText.SetActive(false);
             }
-            // If player's HP drops to 0, they lose, and the UI should reflect this. ~Liam
+            // If player's HP drops to 0, they die, and the UI should reflect this. ~Liam
             if (this.PlayerCurrentHP == 0)
             {
                 this.GameOverText.SetActive(true);
@@ -89,6 +89,12 @@ namespace DeckbuilderRTS
 
             // Update the UI health value. ~Liam
             this.SetHealthText();
+        }
+
+        // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
+        public void DisplayVictoryText()
+        {
+            this.VictoryText.SetActive(true);
         }
 
         // Navya, this is all you!
