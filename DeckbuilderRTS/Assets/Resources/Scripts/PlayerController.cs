@@ -21,6 +21,7 @@ namespace DeckbuilderRTS
         private IPlayerCommand MoveDown;
         private IPlayerCommand MoveLeft;
         private IPlayerCommand MoveRight;
+        private IPlayerCommand DrawCard;
         private IPlayerCommand PlayCard1;
         private IPlayerCommand PlayCard2;
         private IPlayerCommand PlayCard3;
@@ -33,6 +34,7 @@ namespace DeckbuilderRTS
             this.MoveDown = ScriptableObject.CreateInstance<MovePlayerDownCommand>();
             this.MoveLeft = ScriptableObject.CreateInstance<MovePlayerLeftCommand>();
             this.MoveRight = ScriptableObject.CreateInstance<MovePlayerRightCommand>();
+            this.DrawCard = ScriptableObject.CreateInstance<PlayerDrawCardCommand>();
             this.PlayCard1 = ScriptableObject.CreateInstance<PlayerCard1Command>();
             this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
             this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
