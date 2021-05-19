@@ -5,7 +5,7 @@ using DeckbuilderRTS;
 
 namespace DeckbuilderRTS
 {
-    public class FireballController : MonoBehaviour
+    public class FireballControllerOld : MonoBehaviour
     {
         private float Damage;
         private Vector2 Velocity;
@@ -20,7 +20,7 @@ namespace DeckbuilderRTS
         {
             this.Damage = damage;
             this.Velocity = velocity;
-
+            
         }
 
         public void Update()
@@ -30,14 +30,14 @@ namespace DeckbuilderRTS
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-
-            /*if (collision.collider.tag == "Player")
+            
+            if (collision.collider.name == "Player")
             {
-                Debug.Log("Fireball hit a player");
+                Debug.Log("hello2");
                 collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
-            }*/
-
+            }
+            
         }
     }
 }
