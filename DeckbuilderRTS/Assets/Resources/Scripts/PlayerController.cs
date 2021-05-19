@@ -106,9 +106,9 @@ namespace DeckbuilderRTS
         void ProcessInput()
         {
             // Temporary testing code for casting cards. ~Jackson
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
-
+                this.PlayerInventory.PlayCard1();
             }
         }
 
