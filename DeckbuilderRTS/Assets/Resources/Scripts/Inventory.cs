@@ -29,7 +29,25 @@ namespace DeckbuilderRTS
 
         public void PlayCard1()
         {
+            // If there is no card in this slot, do nothing (or draw a card?). ~Jackson
+            if (this.CardSlot1 == null)
+            {
+                return;
+            }
+
+            // Play the card in card slot 1. ~Jackson
             this.CardSlot1.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
+
+            // Destroy the card if it shoudl be destroyed, otherwise, add it to the discard. ~Jackson
+            if (this.CardSlot1.ShouldBeDestroyed() && this.CardSlot1.CanBeDestroyed())
+            {
+                this.CardSlot1 = null;
+            }
+            else
+            {
+                this.Discard.Add(this.CardSlot1);
+                this.CardSlot1 = null;
+            }
         }
 
         // Update is called once per frame

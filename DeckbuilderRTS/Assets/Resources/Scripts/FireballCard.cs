@@ -7,7 +7,7 @@ namespace DeckbuilderRTS
     public class FireballCard : ICard
     {
         private Object FireballPrefab;
-        private float SummonDistance = 5.0f;
+        private float SummonDistance = 1.0f;
 
         public FireballCard(Object prefab)
         {
