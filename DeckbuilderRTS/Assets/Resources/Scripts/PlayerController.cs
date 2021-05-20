@@ -11,11 +11,17 @@ namespace DeckbuilderRTS
         // UI elements are as follows. ~Liam
         public TextMeshProUGUI HealthText;
         public TextMeshProUGUI DrawCooldownText;
+        public TextMeshProUGUI ManaText;
+        public TextMeshProUGUI EnergyText;
+        public TextMeshProUGUI MatterText;
         public GameObject VictoryText;
         public GameObject GameOverText;
         public GameObject LowHealthWarningText;
         [SerializeField] private int PlayerCurrentHP;
         [SerializeField] private int PlayerMaxHP;
+        [SerializeField] private int PlayerCurrentMana;
+        [SerializeField] private int PlayerCurrentEnergy;
+        [SerializeField] private int PlayerCurrentMatter;
 
         private Inventory PlayerInventory;
         private IPlayerCommand MoveUp;
@@ -56,12 +62,29 @@ namespace DeckbuilderRTS
             this.GameOverText.SetActive(false);
             this.SetHealthText();
             this.SetDeckDrawCooldownText(0);
+            this.SetManaText();
+            this.SetEnergyText();
+            this.SetMatterText();
         }
 
         // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
         public void DisplayVictoryText()
         {
             this.VictoryText.SetActive(true);
+        }
+
+        // UI & PLAYER FUNCTION: Modifies the player's current Energy count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
+        // NOTE: This function will return true if the value passed in could be properly applied. However, if the value were to cause the energy to go below 0, then it will return false and fail to apply. ~Liam
+        public bool ModifyPlayerEnergy(int amount)
+        {
+            // Check to ensure that if the amount is negative, the current energy count can handle it. ~Liam
+            if (this.PlayerCurrentEnergy + amount >= 0)
+            {
+                this.PlayerCurrentEnergy += amount;
+                this.SetEnergyText();
+                return true;
+            }
+            return false;
         }
 
         // UI & PLAYER FUNCTION: Modifies the player's current health by the parameter value. Passed in integer can be positive (for healing) or negative (for damage). ~Liam
@@ -83,6 +106,32 @@ namespace DeckbuilderRTS
 
             // Update the UI health value. ~Liam
             this.SetHealthText();
+        }
+
+        // UI & PLAYER FUNCTION: Modifies the player's current Mana count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
+        public bool ModifyPlayerMana(int amount)
+        {
+            // Check to ensure that if the amount is negative, the current mana count can handle it. ~Liam
+            if (this.PlayerCurrentMana + amount >= 0)
+            {
+                this.PlayerCurrentMana += amount;
+                this.SetManaText();
+                return true;
+            }
+            return false;
+        }
+
+        // UI & PLAYER FUNCTION: Modifies the player's current Matter count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
+        public bool ModifyPlayerMatter(int amount)
+        {
+            // Check to ensure that if the amount is negative, the current matter count can handle it. ~Liam
+            if (this.PlayerCurrentMatter + amount >= 0)
+            {
+                this.PlayerCurrentMatter += amount;
+                this.SetMatterText();
+                return true;
+            }
+            return false;
         }
 
         // Navya, this is all you!
@@ -139,6 +188,12 @@ namespace DeckbuilderRTS
             }
         }
 
+        // UI FUNCTION: Updates the energy text when called. ~Liam
+        void SetEnergyText()
+        {
+            this.EnergyText.text = "Energy: " + this.PlayerCurrentEnergy.ToString();
+        }
+
         // UI FUNCTION: Updates the health text when called. Also governs whether or not low HP or game over text is displayed. ~Liam
         void SetHealthText()
         {
@@ -161,6 +216,18 @@ namespace DeckbuilderRTS
             {
                 this.GameOverText.SetActive(true);
             }
+        }
+
+        // UI FUNCTION: Updates the mana text when called. ~Liam
+        void SetManaText()
+        {
+            this.ManaText.text = "Mana:    " + this.PlayerCurrentMana.ToString();
+        }
+
+        // UI FUNCTION: Updates the matter text when called. ~Liam
+        void SetMatterText()
+        {
+            this.MatterText.text = "Matter:  " + this.PlayerCurrentMatter.ToString();
         }
 
         public void TakeDamage(float damage)
