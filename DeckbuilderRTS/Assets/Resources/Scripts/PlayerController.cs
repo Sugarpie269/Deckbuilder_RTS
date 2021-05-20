@@ -92,6 +92,7 @@ namespace DeckbuilderRTS
             if (Input.GetButtonDown("Fire1"))
             {
                 this.PlayerInventory.PlayCard1();
+                this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
             }
         }
 
@@ -160,15 +161,7 @@ namespace DeckbuilderRTS
             {
                 SetDeckDrawCooldownText(tempCooldown);
                 this.CurrentCooldownShown = tempCooldown;
-            }
-
-            // Hotkey activations for controls will go here. I've temporarily added drawing a card to Mouse1 for testing's sake, but whoever is in charge of controls can and should change it later. ~Liam
-            if(Input.GetButtonDown("Fire1"))
-            {
-                // Draw a card command will go HERE.
-                // Set the cooldown timer.
-                this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
-            }
+            }            
         }
     }
 }
