@@ -7,6 +7,8 @@ TagManager:
   - Miner
   - Zombie
   - Projectile
+  - Swarmling
+  - Worker
   layers:
   - Default
   - TransparentFX
