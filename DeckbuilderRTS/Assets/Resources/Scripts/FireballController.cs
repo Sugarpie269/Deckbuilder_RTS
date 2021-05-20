@@ -12,7 +12,7 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         public void Start()
         {
-            this.Damage = 1.0f;
+            this.Damage = 10.0f;
             this.Velocity = new Vector2(10.0f, 0.0f);
         }
 
@@ -30,14 +30,17 @@ namespace DeckbuilderRTS
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            
-
-            /*if (collision.collider.tag == "Player")
+            // If the fireball collides with a swarmling, the swarmling takes damage. Otherwise, the fireball is destroyed.
+            if (collision.collider.tag == "Swarmling")
             {
                 Debug.Log("Fireball hit a player");
-                collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
+                collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
-            }*/
+            }
+            else
+            {
+                GameObject.Destroy(this.gameObject);
+            }
 
         }
     }
