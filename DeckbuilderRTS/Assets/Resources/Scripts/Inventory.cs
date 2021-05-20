@@ -46,6 +46,11 @@ namespace DeckbuilderRTS
             this.CardSlot3 = card;
         }
 
+        public bool IsHandFull()
+        {
+            return this.CardSlot1 != null && this.CardSlot2 != null && this.CardSlot3 != null;
+        }
+
         public void DrawCard()
         {
             // If the deck is empty, then put the discard back in instead.
