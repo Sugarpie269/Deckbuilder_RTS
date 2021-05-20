@@ -30,14 +30,17 @@ namespace DeckbuilderRTS
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            
-
-            /*if (collision.collider.tag == "Player")
+            // If the fireball collides with a swarmling, the swarmling takes damage. Otherwise, the fireball is destroyed.
+            if (collision.collider.tag == "Swarmling")
             {
                 Debug.Log("Fireball hit a player");
-                collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
+                collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
-            }*/
+            }
+            else
+            {
+                GameObject.Destroy(this.gameObject);
+            }
 
         }
     }
