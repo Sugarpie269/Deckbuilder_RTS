@@ -485,7 +485,7 @@ MonoBehaviour:
   VictoryText: {fileID: 1974940740}
   GameOverText: {fileID: 879232099}
   LowHealthWarningText: {fileID: 430717579}
-  PlayerCurrentHP: 0
+  PlayerCurrentHP: 3
   PlayerMaxHP: 20
 --- !u!61 &356759382
 BoxCollider2D:

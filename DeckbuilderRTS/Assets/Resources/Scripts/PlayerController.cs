@@ -151,13 +151,13 @@ namespace DeckbuilderRTS
 
         public void TakeDamage(float damage)
         {
-            this.PlayerCurrentHP -= Mathf.FloorToInt(damage);
+            this.ModifyPlayerHealth(Mathf.FloorToInt(damage));
             Debug.Log("I took " + damage.ToString() + " damage!");
         }
 
         public void ApplyHealing(float healing)
         {
-            this.PlayerCurrentHP += Mathf.FloorToInt(healing);
+            this.ModifyPlayerHealth(Mathf.FloorToInt(healing));
             Debug.Log("I healed " + healing.ToString() + " health!");
         }
 
@@ -168,7 +168,8 @@ namespace DeckbuilderRTS
                 // Temporary code for testing fireball cards. ~Jackson
                 var gameController = GameObject.Find("GameController");
                 var fireballPrefab = gameController.GetComponent<GameController>().FireballPrefab;
-                this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
+                //this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
+                this.PlayerInventory.AddCardSlot1(new InstantHealCard());
 
                 this.LoadedResources = true;
             }
