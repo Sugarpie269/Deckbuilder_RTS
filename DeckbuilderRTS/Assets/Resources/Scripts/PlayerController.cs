@@ -55,6 +55,7 @@ namespace DeckbuilderRTS
             this.LowHealthWarningText.SetActive(false);
             this.GameOverText.SetActive(false);
             this.SetHealthText();
+            this.SetDeckDrawCooldownText(0);
         }
 
         // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
@@ -91,7 +92,18 @@ namespace DeckbuilderRTS
             if (Input.GetButtonDown("Fire1"))
             {
                 this.PlayerInventory.PlayCard1();
-                this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+            }
+
+            // Temporary code for drawing a card from the deck. ~Liam
+            if (Input.GetButtonDown("Fire2"))
+            {
+                // Only draw a card if there is not currently a cooldown. ~Liam
+                if(this.DrawCardCoolDown == 0)
+                {
+                    // Draw a card! This is placeholder text for the function call later. ~Liam
+                    // Set the draw cooldown. ~Liam
+                    this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+                }
             }
         }
 
@@ -102,6 +114,10 @@ namespace DeckbuilderRTS
             {
                 // Update the cooldown text. ~Liam
                 this.DrawCooldownText.text = cooldown.ToString();
+            }
+            else if (cooldown == 0)
+            {
+                this.DrawCooldownText.text = "";
             }
             else
             {
