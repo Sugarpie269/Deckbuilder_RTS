@@ -10,19 +10,11 @@ namespace DeckbuilderRTS
         private Collection<ICard> Cards;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
+        private int CurrentCooldownShown = 0;
         
         void Update()
         {
-            // If the deck is on cooldown, update it.
-            if (this.DrawCardCoolDown > 0.0f)
-            {
-                this.DrawCardCoolDown -= Time.deltaTime;
-            }
-            // If updating the cooldown set it to less than zero, fix it back to zero.
-            if (this.DrawCardCoolDown < 0.0f)
-            {
-                this.DrawCardCoolDown = 0.0f;
-            }
+            
         }
 
         ICard DrawCard()

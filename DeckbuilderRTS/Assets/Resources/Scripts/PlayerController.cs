@@ -10,6 +10,7 @@ namespace DeckbuilderRTS
     {
         // UI elements are as follows. ~Liam
         public TextMeshProUGUI HealthText;
+        public TextMeshProUGUI DrawCooldownText;
         public GameObject VictoryText;
         public GameObject GameOverText;
         public GameObject LowHealthWarningText;
@@ -25,6 +26,12 @@ namespace DeckbuilderRTS
         private IPlayerCommand PlayCard1;
         private IPlayerCommand PlayCard2;
         private IPlayerCommand PlayCard3;
+
+        private float DrawCardCoolDown = 0.0f;
+        private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
+        private int CurrentCooldownShown = 0;
+
+        // NOTE: All methods are listed in alphabetical order with the exception of Start().
 
         // The start function will initialize our member variables.
         void Start()
@@ -44,6 +51,53 @@ namespace DeckbuilderRTS
             this.LowHealthWarningText.SetActive(false);
             this.GameOverText.SetActive(false);
             this.SetHealthText();
+        }
+
+        // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
+        public void DisplayVictoryText()
+        {
+            this.VictoryText.SetActive(true);
+        }
+
+        // UI & PLAYER FUNCTION: Modifies the player's current health by the parameter value. Passed in integer can be positive (for healing) or negative (for damage). ~Liam
+        public void ModifyPlayerHealth(int amount)
+        {
+            // Add the parameter to the player's current health, keeping in mind max and min health values. ~Liam
+            if (this.PlayerCurrentHP + amount > this.PlayerMaxHP)
+            {
+                this.PlayerCurrentHP = this.PlayerMaxHP;
+            }
+            else if (this.PlayerCurrentHP + amount < 0)
+            {
+                this.PlayerCurrentHP = 0;
+            }
+            else
+            {
+                this.PlayerCurrentHP = this.PlayerCurrentHP + amount;
+            }
+
+            // Update the UI health value. ~Liam
+            this.SetHealthText();
+        }
+
+        // Navya, this is all you!
+        void ProcessInput()
+        {
+
+        }
+
+        // UI FUNCTION: Updates the draw cooldown text when called. Displays an int value between 1 and the max cooldown; if off cooldown, no number is displayed. ~Liam
+        void SetDeckDrawCooldownText(int cooldown)
+        {
+            if(cooldown > 0 && cooldown <= (int)this.DRAW_CARD_COOL_DOWN_BASE)
+            {
+                // Update the cooldown text. ~Liam
+                this.DrawCooldownText.text = cooldown.ToString();
+            }
+            else
+            {
+                Debug.Log("ERROR: Invalid cooldown display value requested.");
+            }
         }
 
         // UI FUNCTION: Updates the health text when called. Also governs whether or not low HP or game over text is displayed. ~Liam
@@ -70,47 +124,42 @@ namespace DeckbuilderRTS
             }
         }
 
-        // UI & PLAYER FUNCTION: Modifies the player's current health by the parameter value. Passed in integer can be positive (for healing) or negative (for damage). ~Liam
-        public void ModifyPlayerHealth(int amount)
+        public void TakeDamage(float damage)
         {
-            // Add the parameter to the player's current health, keeping in mind max and min health values. ~Liam
-            if (this.PlayerCurrentHP + amount > this.PlayerMaxHP)
-            {
-                this.PlayerCurrentHP = this.PlayerMaxHP;
-            }
-            else if (this.PlayerCurrentHP + amount < 0)
-            {
-                this.PlayerCurrentHP = 0;
-            }
-            else
-            {
-                this.PlayerCurrentHP = this.PlayerCurrentHP + amount;
-            }
-
-            // Update the UI health value. ~Liam
-            this.SetHealthText();
-        }
-
-        // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
-        public void DisplayVictoryText()
-        {
-            this.VictoryText.SetActive(true);
-        }
-
-        // Navya, this is all you!
-        void ProcessInput()
-        {
-
+            Debug.Log("I took " + damage.ToString() + " damage!");
         }
 
         void Update()
         {
             this.ProcessInput();
-        }
 
-        public void TakeDamage(float damage)
-        {
-            Debug.Log("I took " + damage.ToString() + " damage!");
+            // If the deck is on cooldown, update it.
+            if (this.DrawCardCoolDown > 0.0f)
+            {
+                this.DrawCardCoolDown -= Time.deltaTime;
+            }
+            // If updating the cooldown set it to less than zero, fix it back to zero.
+            if (this.DrawCardCoolDown < 0.0f)
+            {
+                this.DrawCardCoolDown = 0.0f;
+            }
+
+            var tempCooldown = Mathf.CeilToInt(this.DrawCardCoolDown);
+
+            // When the cooldown timer reaches a new second threshold, update the UI. ~Liam
+            if (this.CurrentCooldownShown != tempCooldown)
+            {
+                SetDeckDrawCooldownText(tempCooldown);
+                this.CurrentCooldownShown = tempCooldown;
+            }
+
+            // Hotkey activations for controls will go here. I've temporarily added drawing a card to Mouse1 for testing's sake, but whoever is in charge of controls can and should change it later. ~Liam
+            if(Input.GetButtonDown("Fire1"))
+            {
+                // Draw a card command will go HERE.
+                // Set the cooldown timer.
+                this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+            }
         }
     }
 }
