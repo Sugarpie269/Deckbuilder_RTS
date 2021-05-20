@@ -15,6 +15,9 @@ namespace DeckbuilderRTS
         private bool ErrorCardSlot1;
         private bool ErrorCardSlot2;
         private bool ErrorCardSlot3;
+        private bool CardSlot1Updated;
+        private bool CardSlot2Updated;
+        private bool CardSlot3Updated;
 
         // Start is called before the first frame update
         void Start()
@@ -143,6 +146,46 @@ namespace DeckbuilderRTS
             this.Discard.Add(card);
         }
 
+        // Getter functions for the sprites corresponding to the cards in the 3 slots (and the discard pile). ~Liam
+        public Texture2D GetCardSlot1Image()
+        {
+            // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
+            if (this.CardSlot1 != null)
+            {
+                return this.CardSlot1.GetCardImage();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Texture2D GetCardSlot2Image()
+        {
+            // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
+            if (this.CardSlot2 != null)
+            {
+                return this.CardSlot2.GetCardImage();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Texture2D GetCardSlot3Image()
+        {
+            // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
+            if (this.CardSlot3 != null)
+            {
+                return this.CardSlot3.GetCardImage();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         // Getter & setter functions for the 3 card slot error flags. ~Liam
         public bool GetErrorCardSlot1()
         {
@@ -172,7 +215,7 @@ namespace DeckbuilderRTS
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
+            //Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
         }
     }
 }

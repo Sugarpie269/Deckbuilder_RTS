@@ -360,11 +360,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthText: {fileID: 1631403376}
   DrawCooldownText: {fileID: 154499999}
+  ManaText: {fileID: 1475444602}
+  EnergyText: {fileID: 1900497964}
+  MatterText: {fileID: 739507417}
   VictoryText: {fileID: 1974940740}
   GameOverText: {fileID: 879232099}
   LowHealthWarningText: {fileID: 430717579}
   PlayerCurrentHP: 3
   PlayerMaxHP: 20
+  PlayerCurrentMana: 0
+  PlayerCurrentEnergy: 0
+  PlayerCurrentMatter: 0
 --- !u!61 &356759382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -699,6 +705,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739507417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 739507417, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &879232099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3390537262188491710, guid: 3297a4ed9cf7dd745909f378131a9d9a,
@@ -850,9 +868,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1475444602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1475444602, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1631403376 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3390537262754882662, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1900497964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1900497964, guid: 3297a4ed9cf7dd745909f378131a9d9a,
     type: 3}
   m_PrefabInstance: {fileID: 384814248}
   m_PrefabAsset: {fileID: 0}

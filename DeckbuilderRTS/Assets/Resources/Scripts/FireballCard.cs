@@ -9,11 +9,13 @@ namespace DeckbuilderRTS
         private Vector3Int Cost;
         private Object FireballPrefab;
         private float SummonDistance = 3.0f;
+        [SerializeField] private Texture2D CardImage;
 
         public FireballCard(Object prefab)
         {
             this.FireballPrefab = prefab;
             this.Cost = new Vector3Int(1, 0, 0);
+            this.CardImage = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
         }
 
         public void OnCardPlayed(GameObject player, Vector2 target)
@@ -33,6 +35,12 @@ namespace DeckbuilderRTS
         public bool CanBeDestroyed()
         {
             return true;
+        }
+
+        // Returns the image of this card, for use in the UI. ~Liam
+        public Texture2D GetCardImage()
+        {
+            return this.CardImage;
         }
     }
 }
