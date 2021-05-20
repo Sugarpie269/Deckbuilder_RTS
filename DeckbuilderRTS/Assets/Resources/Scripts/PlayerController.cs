@@ -89,9 +89,21 @@ namespace DeckbuilderRTS
         void ProcessInput()
         {
             // Temporary testing code for casting cards. ~Jackson
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("1"))
             {
                 this.PlayerInventory.PlayCard1();
+            }
+            
+            if (Input.GetButtonDown("2"))
+            {
+                Debug.Log("You tried to play card 2 but it ain't ready yet. Darn.");
+                //this.PlayerInventory.PlayCard2();
+            }
+
+            if (Input.GetButtonDown("3"))
+            {
+                Debug.Log("You tried to play card 3 but it ain't ready yet. Darn.");
+                //this.PlayerInventory.PlayCard3();
             }
 
             // Temporary code for drawing a card from the deck. ~Liam
