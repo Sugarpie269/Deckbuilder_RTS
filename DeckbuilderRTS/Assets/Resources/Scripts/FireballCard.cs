@@ -6,13 +6,14 @@ namespace DeckbuilderRTS
 {
     public class FireballCard : ICard
     {
-        private int Cost = 1;
+        private Vector3Int Cost;
         private Object FireballPrefab;
         private float SummonDistance = 1.0f;
 
         public FireballCard(Object prefab)
         {
             this.FireballPrefab = prefab;
+            this.Cost = new Vector3Int(1, 0, 0);
         }
 
         public void OnCardPlayed(GameObject player, Vector2 target)

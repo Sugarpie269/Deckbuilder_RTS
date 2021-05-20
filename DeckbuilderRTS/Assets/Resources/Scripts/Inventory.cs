@@ -32,6 +32,28 @@ namespace DeckbuilderRTS
             // If there is no card in this slot, do nothing (or draw a card?). ~Jackson
             if (this.CardSlot1 == null)
             {
+                // Draw a card from the deck and remove it from the deck. ~Jackson
+                if (this.Deck.Count > 0)
+                {
+                    this.CardSlot1 = this.Deck[0];
+                    this.Deck.RemoveAt(0);
+                }
+                else
+                {
+                    // if the discard is empty, return. ~Jackson
+                    if (this.Discard.Count == 0)
+                    {
+                        return;
+                    }
+
+                    // The deck is empty, so shuffle the discard. ~Jackson
+                    for (var discardIndex = 0; discardIndex < this.Discard.Count; discardIndex++)
+                    {
+                        this.Deck.Add(this.Discard[discardIndex]);
+                    }
+                    this.Discard.Clear();
+                    this.PlayCard1();
+                }
                 return;
             }
 
@@ -50,10 +72,15 @@ namespace DeckbuilderRTS
             }
         }
 
+        public void GainCard(ICard card)
+        {
+            this.Discard.Add(card);
+        }
+
         // Update is called once per frame
         void Update()
         {
-
+            Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
         }
     }
 }
