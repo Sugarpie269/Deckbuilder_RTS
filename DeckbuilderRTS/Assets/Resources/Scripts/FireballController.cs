@@ -20,7 +20,7 @@ namespace DeckbuilderRTS
         {
             this.Damage = damage;
             this.Velocity = velocity;
-            
+
         }
 
         public void Update()
@@ -31,13 +31,14 @@ namespace DeckbuilderRTS
         private void OnCollisionEnter2D(Collision2D collision)
         {
             
-            if (collision.collider.name == "Player")
+
+            /*if (collision.collider.tag == "Player")
             {
-                Debug.Log("hello2");
+                Debug.Log("Fireball hit a player");
                 collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
-            }
-            
+            }*/
+
         }
     }
 }

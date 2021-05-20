@@ -46,6 +46,11 @@ namespace DeckbuilderRTS
             this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
             this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
 
+            // Temporary code for testing fireball cards. ~Jackson
+            var gameConroller = GameObject.Find("GameController");
+            var fireballPrefab = gameConroller.GetComponent<GameController>().FireballPrefab;
+            this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
+
             // Initialize UI elements, player health, and player deck + cards. ~Liam
             this.VictoryText.SetActive(false);
             this.LowHealthWarningText.SetActive(false);
@@ -83,7 +88,11 @@ namespace DeckbuilderRTS
         // Navya, this is all you!
         void ProcessInput()
         {
-
+            // Temporary testing code for casting cards. ~Jackson
+            if (Input.GetButtonDown("Fire1"))
+            {
+                this.PlayerInventory.PlayCard1();
+            }
         }
 
         // UI FUNCTION: Updates the draw cooldown text when called. Displays an int value between 1 and the max cooldown; if off cooldown, no number is displayed. ~Liam
