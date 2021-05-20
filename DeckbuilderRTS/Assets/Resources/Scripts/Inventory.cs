@@ -36,6 +36,16 @@ namespace DeckbuilderRTS
             this.CardSlot1 = card;
         }
 
+        public void AddCardSlot2(ICard card)
+        {
+            this.CardSlot2 = card;
+        }
+
+        public void AddCardSlot3(ICard card)
+        {
+            this.CardSlot3 = card;
+        }
+
         public void DrawCard()
         {
             // If the deck is empty, then put the discard back in instead.
@@ -52,10 +62,11 @@ namespace DeckbuilderRTS
                 {
                     this.Deck.Add(this.Discard[discardIndex]);
                 }
+
                 this.Discard.Clear();
                 return;
             }
-
+            Debug.Log("I ran");
             // If the deck is not empty, add a card to the first available slot, if possible. ~Jackson
             if (this.CardSlot1 == null)
             {
@@ -156,7 +167,7 @@ namespace DeckbuilderRTS
         // Update is called once per frame
         void Update()
         {
-            //Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
+            Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
         }
     }
 }

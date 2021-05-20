@@ -115,6 +115,8 @@ namespace DeckbuilderRTS
                     // Draw a card! This is placeholder text for the function call later. ~Liam
                     // Set the draw cooldown. ~Liam
                     this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+
+                    this.PlayerInventory.DrawCard();
                 }
             }
         }
@@ -182,6 +184,12 @@ namespace DeckbuilderRTS
                 var fireballPrefab = gameController.GetComponent<GameController>().FireballPrefab;
                 //this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
                 this.PlayerInventory.AddCardSlot1(new InstantHealCard());
+                this.PlayerInventory.AddCardSlot2(new InstantHealCard());
+                this.PlayerInventory.AddCardSlot3(new InstantHealCard());
+
+                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
+                this.PlayerInventory.GainCard(new InstantHealCard());
+                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
 
                 this.LoadedResources = true;
             }

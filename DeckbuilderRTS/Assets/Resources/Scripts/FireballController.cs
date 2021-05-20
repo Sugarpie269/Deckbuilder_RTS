@@ -37,7 +37,7 @@ namespace DeckbuilderRTS
                 collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
-            else
+            else if (collision.collider.tag == "Worker" || collision.collider.tag == "Player")
             {
                 GameObject.Destroy(this.gameObject);
             }

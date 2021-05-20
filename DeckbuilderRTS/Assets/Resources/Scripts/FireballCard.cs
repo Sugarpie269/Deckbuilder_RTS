@@ -8,7 +8,7 @@ namespace DeckbuilderRTS
     {
         private Vector3Int Cost;
         private Object FireballPrefab;
-        private float SummonDistance = 1.0f;
+        private float SummonDistance = 3.0f;
 
         public FireballCard(Object prefab)
         {
