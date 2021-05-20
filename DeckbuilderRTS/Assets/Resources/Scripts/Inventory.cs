@@ -29,6 +29,7 @@ namespace DeckbuilderRTS
 
         public void PlayCard1()
         {
+
             // If there is no card in this slot, do nothing (or draw a card?). ~Jackson
             if (this.CardSlot1 == null)
             {
@@ -56,7 +57,6 @@ namespace DeckbuilderRTS
                 }
                 return;
             }
-
             // Play the card in card slot 1. ~Jackson
             this.CardSlot1.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -80,7 +80,7 @@ namespace DeckbuilderRTS
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
+            //Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
         }
     }
 }

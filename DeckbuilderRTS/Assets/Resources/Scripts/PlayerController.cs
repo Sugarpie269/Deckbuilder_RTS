@@ -31,6 +31,8 @@ namespace DeckbuilderRTS
         private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
         private int CurrentCooldownShown = 0;
 
+        private bool LoadedResources = false;
+
         // NOTE: All methods are listed in alphabetical order with the exception of Start().
 
         // The start function will initialize our member variables.
@@ -46,10 +48,7 @@ namespace DeckbuilderRTS
             this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
             this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
 
-            // Temporary code for testing fireball cards. ~Jackson
-            var gameConroller = GameObject.Find("GameController");
-            var fireballPrefab = gameConroller.GetComponent<GameController>().FireballPrefab;
-            this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
+            
 
             // Initialize UI elements, player health, and player deck + cards. ~Liam
             this.VictoryText.SetActive(false);
@@ -141,6 +140,15 @@ namespace DeckbuilderRTS
 
         void Update()
         {
+            if (!this.LoadedResources)
+            {
+                // Temporary code for testing fireball cards. ~Jackson
+                var gameController = GameObject.Find("GameController");
+                var fireballPrefab = gameController.GetComponent<GameController>().FireballPrefab;
+                this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
+
+                this.LoadedResources = true;
+            }
             this.ProcessInput();
 
             // If the deck is on cooldown, update it.
