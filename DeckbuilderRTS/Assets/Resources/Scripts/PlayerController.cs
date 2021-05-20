@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using DeckbuilderRTS;
 
@@ -17,6 +18,9 @@ namespace DeckbuilderRTS
         public GameObject VictoryText;
         public GameObject GameOverText;
         public GameObject LowHealthWarningText;
+        public GameObject CardSlot1Image;
+        public GameObject CardSlot2Image;
+        public GameObject CardSlot3Image;
         [SerializeField] private int PlayerCurrentHP;
         [SerializeField] private int PlayerMaxHP;
         [SerializeField] private int PlayerCurrentMana;
@@ -33,6 +37,7 @@ namespace DeckbuilderRTS
         private IPlayerCommand PlayCard2;
         private IPlayerCommand PlayCard3;
 
+        private Texture2D EmptyCardSlotImage;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
         private int CurrentCooldownShown = 0;
@@ -65,6 +70,7 @@ namespace DeckbuilderRTS
             this.SetManaText();
             this.SetEnergyText();
             this.SetMatterText();
+            this.EmptyCardSlotImage = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
         }
 
         // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
@@ -170,6 +176,23 @@ namespace DeckbuilderRTS
             }
         }
 
+        // UI FUNCTION: Updates the card image on slot 1 based on what is currently in the slot. ~Liam
+        void SetCardSlot1Image()
+        {
+            // Get the image corresponding to the card in slot 1. If it is null, render the empty slot image instead. ~Liam
+            Texture2D tempImage = this.PlayerInventory.GetCardSlot1Image();
+            if (tempImage)
+            {
+                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(0.5f, 0.5f));
+                this.CardSlot1Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+            else
+            {
+                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
+                this.CardSlot1Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+        }
+
         // UI FUNCTION: Updates the draw cooldown text when called. Displays an int value between 1 and the max cooldown; if off cooldown, no number is displayed. ~Liam
         void SetDeckDrawCooldownText(int cooldown)
         {
@@ -257,6 +280,7 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
                 this.PlayerInventory.GainCard(new InstantHealCard());
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
+                this.SetCardSlot1Image();
 
                 this.LoadedResources = true;
             }

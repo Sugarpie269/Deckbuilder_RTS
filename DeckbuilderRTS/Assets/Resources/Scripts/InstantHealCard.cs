@@ -8,11 +8,13 @@ namespace DeckbuilderRTS
     {
         private Vector3Int Cost;
         private float Value;
+        [SerializeField] private Texture2D CardImage;
 
         public InstantHealCard()
         {
             this.Cost = new Vector3Int(1, 0, 0);
             this.Value = 3.0f;
+            this.CardImage = Resources.Load<Texture2D>("Sprites/InstantHealCard_1000x1500");
         }
 
         public void OnCardPlayed(GameObject player, Vector2 target)
@@ -30,6 +32,12 @@ namespace DeckbuilderRTS
         public bool CanBeDestroyed()
         {
             return true;
+        }
+
+        // Returns the image of this card, for use in the UI. ~Liam
+        public Texture2D GetCardImage()
+        {
+            return this.CardImage;
         }
     }
 }
