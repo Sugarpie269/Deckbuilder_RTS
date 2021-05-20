@@ -11,12 +11,21 @@ namespace DeckbuilderRTS
         private Collection<ICard> Deck;
         private Collection<ICard> Discard;
 
+        // Flags. ~Liam
+        private bool ErrorCardSlot1;
+        private bool ErrorCardSlot2;
+        private bool ErrorCardSlot3;
+
         // Start is called before the first frame update
         void Start()
         {
             this.CardSlot1 = null;
             this.CardSlot2 = null;
             this.CardSlot3 = null;
+
+            this.ErrorCardSlot1 = false;
+            this.ErrorCardSlot2 = false;
+            this.ErrorCardSlot3 = false;
 
             this.Deck = new Collection<ICard>();
             this.Discard = new Collection<ICard>();
@@ -33,7 +42,10 @@ namespace DeckbuilderRTS
             // If there is no card in this slot, do nothing (or draw a card?). ~Jackson
             if (this.CardSlot1 == null)
             {
-                // Draw a card from the deck and remove it from the deck. ~Jackson
+                // Set the ErrorCardSlot1 flag to true and return. ~Liam
+                this.ErrorCardSlot1 = true;
+                return;
+                /*// Draw a card from the deck and remove it from the deck. ~Jackson
                 if (this.Deck.Count > 0)
                 {
                     this.CardSlot1 = this.Deck[0];
@@ -55,7 +67,7 @@ namespace DeckbuilderRTS
                     this.Discard.Clear();
                     this.PlayCard1();
                 }
-                return;
+                return;*/
             }
             // Play the card in card slot 1. ~Jackson
             this.CardSlot1.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
@@ -77,6 +89,32 @@ namespace DeckbuilderRTS
             this.Discard.Add(card);
         }
 
+        // Getter & setter functions for the 3 card slot error flags. ~Liam
+        public bool GetErrorCardSlot1()
+        {
+            return this.ErrorCardSlot1;
+        }
+        public bool GetErrorCardSlot2()
+        {
+            return this.ErrorCardSlot2;
+        }
+        public bool GetErrorCardSlot3()
+        {
+            return this.ErrorCardSlot3;
+        }
+
+        public void SetErrorCardSlot1(bool value)
+        {
+            this.ErrorCardSlot1 = value;
+        }
+        public void SetErrorCardSlot2(bool value)
+        {
+            this.ErrorCardSlot2 = value;
+        }
+        public void SetErrorCardSlot3(bool value)
+        {
+            this.ErrorCardSlot3 = value;
+        }
         // Update is called once per frame
         void Update()
         {
