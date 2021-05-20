@@ -36,6 +36,44 @@ namespace DeckbuilderRTS
             this.CardSlot1 = card;
         }
 
+        public void DrawCard()
+        {
+            // If the deck is empty, then put the discard back in instead.
+            if (this.Deck.Count == 0)
+            {
+                // if the discard is empty, return. ~Jackson
+                if (this.Discard.Count == 0)
+                {
+                    return;
+                }
+
+                // The deck is empty but the discard is not, so shuffle the discard. ~Jackson
+                for (var discardIndex = 0; discardIndex < this.Discard.Count; discardIndex++)
+                {
+                    this.Deck.Add(this.Discard[discardIndex]);
+                }
+                this.Discard.Clear();
+                return;
+            }
+
+            // If the deck is not empty, add a card to the first available slot, if possible. ~Jackson
+            if (this.CardSlot1 == null)
+            {
+                this.CardSlot1 = this.Deck[0];
+                this.Deck.RemoveAt(0);
+            }
+            else if (this.CardSlot2 == null)
+            {
+                this.CardSlot2 = this.Deck[0];
+                this.Deck.RemoveAt(0);
+            }
+            else if (this.CardSlot3 == null)
+            {
+                this.CardSlot3 = this.Deck[0];
+                this.Deck.RemoveAt(0);
+            }
+        }
+
         public void PlayCard1()
         {
 
