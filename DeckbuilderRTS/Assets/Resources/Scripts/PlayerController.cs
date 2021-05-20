@@ -151,7 +151,14 @@ namespace DeckbuilderRTS
 
         public void TakeDamage(float damage)
         {
+            this.PlayerCurrentHP -= Mathf.FloorToInt(damage);
             Debug.Log("I took " + damage.ToString() + " damage!");
+        }
+
+        public void ApplyHealing(float healing)
+        {
+            this.PlayerCurrentHP += Mathf.FloorToInt(healing);
+            Debug.Log("I healed " + healing.ToString() + " health!");
         }
 
         void Update()
