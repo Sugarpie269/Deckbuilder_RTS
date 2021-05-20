@@ -27,7 +27,7 @@ namespace DeckbuilderRTS
             this.CurrentHealth -= Mathf.FloorToInt(damage);
 
             // If the swarmling dies, destroy the game object.
-            if (this.CurrentHealth < 0)
+            if (this.CurrentHealth <= 0)
             {
                 GameObject.Destroy(this.gameObject);
             }
