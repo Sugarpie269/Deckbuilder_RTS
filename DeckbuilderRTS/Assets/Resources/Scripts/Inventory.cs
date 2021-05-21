@@ -20,6 +20,7 @@ namespace DeckbuilderRTS
         private bool CardSlot3Updated;
         private bool DiscardSlotUpdated;
         private bool DrawSlotUpdated;
+        private bool DrawError;
 
         // Start is called before the first frame update
         void Start()
@@ -37,6 +38,7 @@ namespace DeckbuilderRTS
             this.CardSlot3Updated = true;
             this.DiscardSlotUpdated = true;
             this.DrawSlotUpdated = true;
+            this.DrawError = false;
 
             this.Deck = new Collection<ICard>();
             this.Discard = new Collection<ICard>();
@@ -82,6 +84,7 @@ namespace DeckbuilderRTS
                 // if the discard is empty, return. ~Jackson
                 if (this.Discard.Count == 0)
                 {
+                    this.DrawError = true;
                     return false;
                 }
 
@@ -128,6 +131,11 @@ namespace DeckbuilderRTS
                 this.DrawSlotUpdated = true;
             }
 
+            // Give the player an error if they tried to draw a card but their hand was full. ~Liam
+            if (!cardAdded)
+            {
+                this.DrawError = true;
+            }
             return cardAdded;
         }
 
@@ -218,7 +226,7 @@ namespace DeckbuilderRTS
                 }
                 return;*/
             }
-            // Play the card in card slot 1. ~Jackson
+            // Play the card in card slot 2. ~Jackson
             this.CardSlot2.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
             // Destroy the card if it should be destroyed, otherwise, add it to the discard. ~Jackson
@@ -271,7 +279,7 @@ namespace DeckbuilderRTS
                 }
                 return;*/
             }
-            // Play the card in card slot 1. ~Jackson
+            // Play the card in card slot 3. ~Jackson
             this.CardSlot3.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
             // Destroy the card if it should be destroyed, otherwise, add it to the discard. ~Jackson
@@ -418,6 +426,15 @@ namespace DeckbuilderRTS
         public void SetDiscardSlotUpdated(bool value)
         {
             this.DiscardSlotUpdated = value;
+        }
+
+        public bool GetDrawError()
+        {
+            return this.DrawError;
+        }
+        public void SetDrawError(bool value)
+        {
+            this.DrawError = value;
         }
 
         // Update is called once per frame

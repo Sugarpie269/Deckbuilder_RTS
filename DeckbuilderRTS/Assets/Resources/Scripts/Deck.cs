@@ -10,7 +10,6 @@ namespace DeckbuilderRTS
         private Collection<ICard> Cards;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
-        private int CurrentCooldownShown = 0;
         
         void Update()
         {
