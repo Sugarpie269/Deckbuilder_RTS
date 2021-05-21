@@ -8,10 +8,10 @@ namespace DeckbuilderRTS
     {
         private IUnitCommand CurrentCommand;
         private int CurrentHealth;
-        private int MaxHealth = 10;
+        private int MaxHealth = 50; // 10;
 
         private Transform target;
-        private float Speed = 1.5f;
+        private float Speed = 1.0f;
 
 
         // The start function will initialize our member variables.
@@ -38,8 +38,7 @@ namespace DeckbuilderRTS
             // If the swarmling dies, destroy the game object.
             if (this.CurrentHealth <= 0)
             {
-
-                //GameObject.Destroy(this.gameObject);
+                GameObject.Destroy(this.gameObject);
             }
         }
     }

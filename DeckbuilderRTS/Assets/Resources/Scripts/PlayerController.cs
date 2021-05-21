@@ -221,9 +221,6 @@ namespace DeckbuilderRTS
                 {
                     this.MoveDown.Execute(this.gameObject);
                 }
-
-                var rigidBody = gameObject.GetComponent<Rigidbody2D>();
-                Debug.Log("Player is at " + rigidBody.position);
             }
         }
 
