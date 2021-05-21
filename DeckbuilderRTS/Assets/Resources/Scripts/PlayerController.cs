@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using DeckbuilderRTS;
 
+using System;
+
 // Temporary citation = CaptainController.cs
 
 namespace DeckbuilderRTS
@@ -56,6 +58,9 @@ namespace DeckbuilderRTS
         private bool IsGameOver = false;
 
         private bool LoadedResources = false;
+
+        private float ModifiedSpeed;
+        private Vector3 MovementDirection;
 
         // NOTE: All methods are listed in alphabetical order with the exception of Start().
 
@@ -200,24 +205,53 @@ namespace DeckbuilderRTS
                     }
                 }
 
+                /*
                 //code for player movement
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.A))
                 {
+                    Debug.Log("Key A(L)" + DateTime.Now);
                     this.MoveLeft.Execute(this.gameObject);
                 }
-                else if (Input.GetKey(KeyCode.D))
+                else if (Input.GetKeyDown(KeyCode.D))
                 {
+                    Debug.Log("Key D(R)");
                     this.MoveRight.Execute(this.gameObject);
                 }
 
-                if (Input.GetKey(KeyCode.W))
+                else if (Input.GetKeyDown(KeyCode.W))
                 {
+                    Debug.Log("Key W(U)");
                     this.MoveUp.Execute(this.gameObject);
                 }
-                else if (Input.GetKey(KeyCode.S))
+                else if (Input.GetKeyDown(KeyCode.S))
                 {
+                    Debug.Log("Key S(D)");
                     this.MoveDown.Execute(this.gameObject);
                 }
+                else {
+                    //Debug.Log("Not holding a key");
+                    var rigidBody = this.gameObject.GetComponent<Rigidbody2D>();
+                    rigidBody.velocity = new Vector2(0, 0);
+                    Debug.Log("!!Rigidbody is " + rigidBody.velocity);
+                }
+
+                */
+
+                var m_Speed = 5.0f;
+                var rb2D = GetComponent<Rigidbody2D>();
+                
+                Vector2 velocity = new Vector2(Input.GetAxis("Horizontal") * m_Speed, Input.GetAxis("Vertical") * m_Speed);
+                rb2D.MovePosition(rb2D.position + velocity * Time.fixedDeltaTime);
+                //var rigidBody = this.gameObject.GetComponent<Rigidbody2D>();
+                //Debug.Log("!!Rigidbody is " + rigidBody.velocity);
+
+                // Using transform.translate
+                /*
+                this.ModifiedSpeed = 5.0f;
+                this.MovementDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+                this.gameObject.transform.Translate(this.MovementDirection * Time.deltaTime * this.ModifiedSpeed);
+                */
+
             }
         }
 
@@ -503,6 +537,7 @@ namespace DeckbuilderRTS
                     this.SetDrawErrorText(false);
                 }
             }
+
             this.ProcessInput();
 
             // If the deck is on cooldown, update it.

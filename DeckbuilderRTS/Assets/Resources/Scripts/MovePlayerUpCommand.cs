@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
     {
 
         // FIXME: Add option for speed changes?
-        private float Speed = 5.0f;
+        private float Speed = 1.5f;
 
         public void Execute(GameObject gameObject)
         {
