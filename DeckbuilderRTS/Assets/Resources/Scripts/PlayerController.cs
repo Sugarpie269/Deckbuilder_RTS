@@ -18,6 +18,10 @@ namespace DeckbuilderRTS
         public GameObject VictoryText;
         public GameObject GameOverText;
         public GameObject LowHealthWarningText;
+        public GameObject DrawCardErrorText;
+        public GameObject CardSlot1ErrorText;
+        public GameObject CardSlot2ErrorText;
+        public GameObject CardSlot3ErrorText;
         public GameObject CardSlot1Image;
         public GameObject CardSlot2Image;
         public GameObject CardSlot3Image;
@@ -42,8 +46,9 @@ namespace DeckbuilderRTS
         private Texture2D EmptyCardSlotImage;
         private Texture2D FacedownCardImage;
         private float DrawCardCoolDown = 0.0f;
-        private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
+        private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
         private int CurrentCooldownShown = 0;
+        private bool IsGameOver = false;
 
         private bool LoadedResources = false;
 
@@ -68,6 +73,10 @@ namespace DeckbuilderRTS
             this.VictoryText.SetActive(false);
             this.LowHealthWarningText.SetActive(false);
             this.GameOverText.SetActive(false);
+            this.DrawCardErrorText.SetActive(false);
+            this.CardSlot1ErrorText.SetActive(false);
+            this.CardSlot2ErrorText.SetActive(false);
+            this.CardSlot3ErrorText.SetActive(false);
             this.SetHealthText();
             this.SetDeckDrawCooldownText(0);
             this.SetManaText();
@@ -147,32 +156,36 @@ namespace DeckbuilderRTS
         // Navya, this is all you!
         void ProcessInput()
         {
-            // Temporary testing code for casting cards. ~Jackson
-            if (Input.GetButtonDown("PlayCard1"))
+            // Input should only be recognized if the player has not died. ~Liam
+            if (!this.IsGameOver)
             {
-                this.PlayerInventory.PlayCard1();
-            }
-            
-            if (Input.GetButtonDown("PlayCard2"))
-            {
-                this.PlayerInventory.PlayCard2();
-            }
-
-            if (Input.GetButtonDown("PlayCard3"))
-            {
-                this.PlayerInventory.PlayCard3();
-            }
-
-            // Temporary code for drawing a card from the deck. ~Liam
-            if (Input.GetButtonDown("Fire2"))
-            {
-                // Only draw a card if there is not currently a cooldown. ~Liam
-                if(this.DrawCardCoolDown == 0)
+                // Temporary testing code for casting cards. ~Jackson
+                if (Input.GetButtonDown("PlayCard1"))
                 {
-                    // Set the draw cooldown if a card was drawn. ~Liam
-                    if (this.PlayerInventory.DrawCard())
+                    this.PlayerInventory.PlayCard1();
+                }
+
+                if (Input.GetButtonDown("PlayCard2"))
+                {
+                    this.PlayerInventory.PlayCard2();
+                }
+
+                if (Input.GetButtonDown("PlayCard3"))
+                {
+                    this.PlayerInventory.PlayCard3();
+                }
+
+                // Temporary code for drawing a card from the deck. ~Liam
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    // Only draw a card if there is not currently a cooldown. ~Liam
+                    if (this.DrawCardCoolDown == 0)
                     {
-                        this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+                        // Set the draw cooldown if a card was drawn. ~Liam
+                        if (this.PlayerInventory.DrawCard())
+                        {
+                            this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+                        }
                     }
                 }
             }
@@ -226,6 +239,23 @@ namespace DeckbuilderRTS
             {
                 Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
                 this.CardSlot3Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+        }
+
+        // UI FUNCTION: Updates the discard pile image when called. Displays the card on top of the discard pile, or the empty slot if the pile is empty. ~Liam
+        void SetDiscardSlotImage()
+        {
+            // Check if the discard pile has cards, or is empty, and set the image accordingly. ~Liam
+            if (this.PlayerInventory.IsDiscardEmpty())
+            {
+                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
+                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = newImage;
+            }
+            else
+            {
+                Texture2D tempImage = this.PlayerInventory.GetDiscardSlotImage();
+                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(tempImage.width / 2, tempImage.height / 2));
+                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = newImage;
             }
         }
 
@@ -290,6 +320,7 @@ namespace DeckbuilderRTS
             if (this.PlayerCurrentHP == 0)
             {
                 this.GameOverText.SetActive(true);
+                this.IsGameOver = true;
             }
         }
 
@@ -352,10 +383,15 @@ namespace DeckbuilderRTS
                 this.SetCardSlot3Image();
                 this.PlayerInventory.SetCardSlot3Updated(false);
             }
-            if(this.PlayerInventory.GetDrawSlotUpdated())
+            if (this.PlayerInventory.GetDrawSlotUpdated())
             {
                 this.SetDrawSlotImage();
                 this.PlayerInventory.SetDrawSlotUpdated(false);
+            }
+            if (this.PlayerInventory.GetDiscardSlotUpdated())
+            {
+                this.SetDiscardSlotImage();
+                this.PlayerInventory.SetDiscardSlotUpdated(false);
             }
 
             this.ProcessInput();

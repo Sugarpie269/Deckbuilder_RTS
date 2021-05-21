@@ -68,6 +68,12 @@ namespace DeckbuilderRTS
             return (this.Deck.Count == 0);
         }
 
+        // Returns true if the discard pile has no cards in it, false otherwise. ~Liam
+        public bool IsDiscardEmpty()
+        {
+            return (this.Discard.Count == 0);
+        }
+
         public bool DrawCard()
         {
             // If the deck is empty, then put the discard back in instead.
@@ -88,6 +94,7 @@ namespace DeckbuilderRTS
                 this.DrawSlotUpdated = true;
 
                 this.Discard.Clear();
+                this.DiscardSlotUpdated = true;
                 return false;
             }
             Debug.Log("I ran");
@@ -169,6 +176,7 @@ namespace DeckbuilderRTS
             else
             {
                 this.Discard.Add(this.CardSlot1);
+                this.DiscardSlotUpdated = true;
                 this.CardSlot1 = null;
             }
 
@@ -221,6 +229,7 @@ namespace DeckbuilderRTS
             else
             {
                 this.Discard.Add(this.CardSlot2);
+                this.DiscardSlotUpdated = true;
                 this.CardSlot2 = null;
             }
 
@@ -273,6 +282,7 @@ namespace DeckbuilderRTS
             else
             {
                 this.Discard.Add(this.CardSlot3);
+                this.DiscardSlotUpdated = true;
                 this.CardSlot3 = null;
             }
 
@@ -283,6 +293,7 @@ namespace DeckbuilderRTS
         public void GainCard(ICard card)
         {
             this.Discard.Add(card);
+            this.DiscardSlotUpdated = true;
         }
 
         // Getter functions for the sprites corresponding to the cards in the 3 slots (and the discard pile). ~Liam
@@ -318,6 +329,19 @@ namespace DeckbuilderRTS
             if (this.CardSlot3 != null)
             {
                 return this.CardSlot3.GetCardImage();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Texture2D GetDiscardSlotImage()
+        {
+            // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the last card in the pile's associated sprite. ~Liam
+            if (this.Discard.Count != 0)
+            {
+                return this.Discard[Discard.Count - 1].GetCardImage();
             }
             else
             {

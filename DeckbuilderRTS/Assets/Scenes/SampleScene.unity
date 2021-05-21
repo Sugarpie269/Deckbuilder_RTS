@@ -366,12 +366,16 @@ MonoBehaviour:
   VictoryText: {fileID: 1974940740}
   GameOverText: {fileID: 879232099}
   LowHealthWarningText: {fileID: 430717579}
+  DrawCardErrorText: {fileID: 1764059259}
+  CardSlot1ErrorText: {fileID: 483190952}
+  CardSlot2ErrorText: {fileID: 1376753390}
+  CardSlot3ErrorText: {fileID: 622153828}
   CardSlot1Image: {fileID: 1403864867}
   CardSlot2Image: {fileID: 1250945516}
   CardSlot3Image: {fileID: 735156714}
   DrawSlotImage: {fileID: 778636485}
   DiscardSlotImage: {fileID: 806914495}
-  PlayerCurrentHP: 3
+  PlayerCurrentHP: 1
   PlayerMaxHP: 20
   PlayerCurrentMana: 0
   PlayerCurrentEnergy: 0
@@ -627,6 +631,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 384814248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &483190952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 483190952, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +720,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &622153828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 622153828, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &735156714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3390537262921148012, guid: 3297a4ed9cf7dd745909f378131a9d9a,
@@ -1086,6 +1102,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365269004}
   m_CullTransparentMesh: 1
+--- !u!1 &1376753390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1376753390, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1403864867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3390537261962421837, guid: 3297a4ed9cf7dd745909f378131a9d9a,
@@ -1116,6 +1138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1764059259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1764059259, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 384814248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1836012251
 GameObject:
   m_ObjectHideFlags: 0
