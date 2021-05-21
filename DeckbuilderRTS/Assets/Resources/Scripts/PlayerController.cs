@@ -188,6 +188,25 @@ namespace DeckbuilderRTS
                         }
                     }
                 }
+
+                //code for player movement
+                if (Input.GetKey(KeyCode.A))
+                {
+                    this.MoveLeft.Execute(this.gameObject);
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    this.MoveRight.Execute(this.gameObject);
+                }
+
+                if (Input.GetKey(KeyCode.W))
+                {
+                    this.MoveUp.Execute(this.gameObject);
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    this.MoveDown.Execute(this.gameObject);
+                }
             }
         }
 
