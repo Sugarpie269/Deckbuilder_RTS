@@ -21,6 +21,8 @@ namespace DeckbuilderRTS
         public GameObject CardSlot1Image;
         public GameObject CardSlot2Image;
         public GameObject CardSlot3Image;
+        public GameObject DrawSlotImage;
+        public GameObject DiscardSlotImage;
         [SerializeField] private int PlayerCurrentHP;
         [SerializeField] private int PlayerMaxHP;
         [SerializeField] private int PlayerCurrentMana;
@@ -38,6 +40,7 @@ namespace DeckbuilderRTS
         private IPlayerCommand PlayCard3;
 
         private Texture2D EmptyCardSlotImage;
+        private Texture2D FacedownCardImage;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 5.0f;
         private int CurrentCooldownShown = 0;
@@ -71,6 +74,7 @@ namespace DeckbuilderRTS
             this.SetEnergyText();
             this.SetMatterText();
             this.EmptyCardSlotImage = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
+            this.FacedownCardImage = Resources.Load<Texture2D>("Sprites/FacedownCard");
         }
 
         // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
@@ -151,14 +155,12 @@ namespace DeckbuilderRTS
             
             if (Input.GetButtonDown("PlayCard2"))
             {
-                Debug.Log("You tried to play card 2 but it ain't ready yet. Darn.");
-                //this.PlayerInventory.PlayCard2();
+                this.PlayerInventory.PlayCard2();
             }
 
             if (Input.GetButtonDown("PlayCard3"))
             {
-                Debug.Log("You tried to play card 3 but it ain't ready yet. Darn.");
-                //this.PlayerInventory.PlayCard3();
+                this.PlayerInventory.PlayCard3();
             }
 
             // Temporary code for drawing a card from the deck. ~Liam
@@ -167,11 +169,11 @@ namespace DeckbuilderRTS
                 // Only draw a card if there is not currently a cooldown. ~Liam
                 if(this.DrawCardCoolDown == 0)
                 {
-                    // Draw a card! This is placeholder text for the function call later. ~Liam
-                    // Set the draw cooldown. ~Liam
-                    this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
-
-                    this.PlayerInventory.DrawCard();
+                    // Set the draw cooldown if a card was drawn. ~Liam
+                    if (this.PlayerInventory.DrawCard())
+                    {
+                        this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+                    }
                 }
             }
         }
@@ -193,6 +195,40 @@ namespace DeckbuilderRTS
             }
         }
 
+        // UI FUNCTION: Updates the card image on slot 2 based on what is currently in the slot. ~Liam
+        void SetCardSlot2Image()
+        {
+            // Get the image corresponding to the card in slot 2. If it is null, render the empty slot image instead. ~Liam
+            Texture2D tempImage = this.PlayerInventory.GetCardSlot2Image();
+            if (tempImage)
+            {
+                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(0.5f, 0.5f));
+                this.CardSlot2Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+            else
+            {
+                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
+                this.CardSlot2Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+        }
+
+        // UI FUNCTION: Updates the card image on slot 3 based on what is currently in the slot. ~Liam
+        void SetCardSlot3Image()
+        {
+            // Get the image corresponding to the card in slot 3. If it is null, render the empty slot image instead. ~Liam
+            Texture2D tempImage = this.PlayerInventory.GetCardSlot3Image();
+            if (tempImage)
+            {
+                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(0.5f, 0.5f));
+                this.CardSlot3Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+            else
+            {
+                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
+                this.CardSlot3Image.GetComponent<Image>().overrideSprite = newImage;
+            }
+        }
+
         // UI FUNCTION: Updates the draw cooldown text when called. Displays an int value between 1 and the max cooldown; if off cooldown, no number is displayed. ~Liam
         void SetDeckDrawCooldownText(int cooldown)
         {
@@ -208,6 +244,22 @@ namespace DeckbuilderRTS
             else
             {
                 Debug.Log("ERROR: Invalid cooldown display value requested.");
+            }
+        }
+
+        // UI FUNCTION: Updates the card image on the draw pile based on if there are cards in the deck. ~Liam
+        void SetDrawSlotImage()
+        {
+            // Check if the draw pile has cards, or is empty, and set the image accordingly. ~Liam
+            if (this.PlayerInventory.IsDeckEmpty())
+            {
+                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
+                this.DrawSlotImage.GetComponent<Image>().overrideSprite = newImage;
+            }
+            else
+            {
+                Sprite newImage = Sprite.Create(this.FacedownCardImage, new Rect(0f, 0f, this.FacedownCardImage.width, this.FacedownCardImage.height), new Vector2(this.FacedownCardImage.width / 2, this.FacedownCardImage.height / 2));
+                this.DrawSlotImage.GetComponent<Image>().overrideSprite = newImage;
             }
         }
 
@@ -280,10 +332,32 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
                 this.PlayerInventory.GainCard(new InstantHealCard());
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                this.SetCardSlot1Image();
 
                 this.LoadedResources = true;
             }
+
+            // Check if any of the cards in the UI need updating, and do so if necessary. ~Liam
+            if(this.PlayerInventory.GetCardSlot1Updated())
+            {
+                this.SetCardSlot1Image();
+                this.PlayerInventory.SetCardSlot1Updated(false);
+            }
+            if (this.PlayerInventory.GetCardSlot2Updated())
+            {
+                this.SetCardSlot2Image();
+                this.PlayerInventory.SetCardSlot2Updated(false);
+            }
+            if (this.PlayerInventory.GetCardSlot3Updated())
+            {
+                this.SetCardSlot3Image();
+                this.PlayerInventory.SetCardSlot3Updated(false);
+            }
+            if(this.PlayerInventory.GetDrawSlotUpdated())
+            {
+                this.SetDrawSlotImage();
+                this.PlayerInventory.SetDrawSlotUpdated(false);
+            }
+
             this.ProcessInput();
 
             // If the deck is on cooldown, update it.
