@@ -47,6 +47,11 @@ namespace DeckbuilderRTS
         private Texture2D FacedownCardImage;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
+        private float PLAYER_ERROR_MESSAGE_DURATION = 1.5f;
+        private float DrawErrorMessageDuration = 0.0f;
+        private float Slot1ErrorMessageDuration = 0.0f;
+        private float Slot2ErrorMessageDuration = 0.0f;
+        private float Slot3ErrorMessageDuration = 0.0f;
         private int CurrentCooldownShown = 0;
         private bool IsGameOver = false;
 
@@ -186,6 +191,12 @@ namespace DeckbuilderRTS
                         {
                             this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
                         }
+                    }
+                    else
+                    {
+                        this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+                        this.SetDrawErrorText(true);
+                        this.PlayerInventory.SetDrawError(false);
                     }
                 }
 
@@ -355,6 +366,24 @@ namespace DeckbuilderRTS
             this.MatterText.text = "Matter:  " + this.PlayerCurrentMatter.ToString();
         }
 
+        // UI FUNCTION: Sets the various error messages for the card UI to active or inactive. ~Liam
+        void SetDrawErrorText(bool value)
+        {
+            this.DrawCardErrorText.SetActive(value);
+        }
+        void SetCard1ErrorText(bool value)
+        {
+            this.CardSlot1ErrorText.SetActive(value);
+        }
+        void SetCard2ErrorText(bool value)
+        {
+            this.CardSlot2ErrorText.SetActive(value);
+        }
+        void SetCard3ErrorText(bool value)
+        {
+            this.CardSlot3ErrorText.SetActive(value);
+        }
+
         public void TakeDamage(float damage)
         {
             this.ModifyPlayerHealth(Mathf.FloorToInt(damage));
@@ -386,7 +415,7 @@ namespace DeckbuilderRTS
                 this.LoadedResources = true;
             }
 
-            // Check if any of the cards in the UI need updating, and do so if necessary. ~Liam
+            // Check if any of the cards or error messages in the UI need updating, and do so if necessary. ~Liam
             if(this.PlayerInventory.GetCardSlot1Updated())
             {
                 this.SetCardSlot1Image();
@@ -412,7 +441,68 @@ namespace DeckbuilderRTS
                 this.SetDiscardSlotImage();
                 this.PlayerInventory.SetDiscardSlotUpdated(false);
             }
+            if (this.PlayerInventory.GetErrorCardSlot1())
+            {
+                this.Slot1ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+                this.SetCard1ErrorText(true);
+                this.PlayerInventory.SetErrorCardSlot1(false);
+            }
+            if (this.PlayerInventory.GetErrorCardSlot2())
+            {
+                this.Slot2ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+                this.SetCard2ErrorText(true);
+                this.PlayerInventory.SetErrorCardSlot2(false);
+            }
+            if (this.PlayerInventory.GetErrorCardSlot3())
+            {
+                this.Slot3ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+                this.SetCard3ErrorText(true);
+                this.PlayerInventory.SetErrorCardSlot3(false);
+            }
+            if (this.PlayerInventory.GetDrawError())
+            {
+                this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+                this.SetDrawErrorText(true);
+                this.PlayerInventory.SetDrawError(false);
+            }
 
+            // If any error messages are currently on screen, decrement their duration. ~Liam
+            if (this.Slot1ErrorMessageDuration > 0.0f)
+            {
+                this.Slot1ErrorMessageDuration -= Time.deltaTime;
+                if(this.Slot1ErrorMessageDuration <= 0.0f)
+                {
+                    this.Slot1ErrorMessageDuration = 0.0f;
+                    this.SetCard1ErrorText(false);
+                }
+            }
+            if (this.Slot2ErrorMessageDuration > 0.0f)
+            {
+                this.Slot2ErrorMessageDuration -= Time.deltaTime;
+                if (this.Slot2ErrorMessageDuration <= 0.0f)
+                {
+                    this.Slot2ErrorMessageDuration = 0.0f;
+                    this.SetCard2ErrorText(false);
+                }
+            }
+            if (this.Slot3ErrorMessageDuration > 0.0f)
+            {
+                this.Slot3ErrorMessageDuration -= Time.deltaTime;
+                if (this.Slot3ErrorMessageDuration <= 0.0f)
+                {
+                    this.Slot3ErrorMessageDuration = 0.0f;
+                    this.SetCard3ErrorText(false);
+                }
+            }
+            if (this.DrawErrorMessageDuration > 0.0f)
+            {
+                this.DrawErrorMessageDuration -= Time.deltaTime;
+                if (this.DrawErrorMessageDuration <= 0.0f)
+                {
+                    this.DrawErrorMessageDuration = 0.0f;
+                    this.SetDrawErrorText(false);
+                }
+            }
             this.ProcessInput();
 
             // If the deck is on cooldown, update it.

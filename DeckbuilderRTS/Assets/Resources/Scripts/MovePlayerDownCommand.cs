@@ -14,6 +14,7 @@ namespace DeckbuilderRTS
 
         public void Execute(GameObject gameObject)
         {
+            Debug.Log("Moving Down!");
             var rigidBody = gameObject.GetComponent<Rigidbody2D>();
             if (rigidBody != null)
             {
