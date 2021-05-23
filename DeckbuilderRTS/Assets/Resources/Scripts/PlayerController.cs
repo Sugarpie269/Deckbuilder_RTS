@@ -34,6 +34,7 @@ namespace DeckbuilderRTS
         [SerializeField] private int PlayerCurrentMana;
         [SerializeField] private int PlayerCurrentEnergy;
         [SerializeField] private int PlayerCurrentMatter;
+        [SerializeField] private GameObject GameController;
 
         private Inventory PlayerInventory;
         private IPlayerCommand MoveUp;
