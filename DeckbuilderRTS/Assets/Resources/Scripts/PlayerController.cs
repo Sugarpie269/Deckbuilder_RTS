@@ -412,7 +412,10 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.AddCardSlot3(new InstantHealCard());
 
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                this.PlayerInventory.GainCard(new InstantHealCard());
+                //this.PlayerInventory.GainCard(new InstantHealCard());
+                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
+                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
+                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
 
                 this.LoadedResources = true;
