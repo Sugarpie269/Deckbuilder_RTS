@@ -6,23 +6,23 @@ namespace DeckbuilderRTS
 {
     public class WorkMatterCommand : IUnitCommand
     {
-        private float GenerateBasicMatterCoolDown = 5.0f;
-        private float CurrentGenerateBasicMatterCoolDown;
-        private int GenerateBasicMatterAmount = 3;
+        private float GenerateMatterCoolDown = 5.0f;
+        private float CurrentGenerateMatterCoolDown;
+        private int GenerateMatterAmount = 3;
 
         public WorkMatterCommand()
         {
-            this.CurrentGenerateBasicMatterCoolDown = this.GenerateBasicMatterCoolDown;
+            this.CurrentGenerateMatterCoolDown = this.GenerateMatterCoolDown;
         }
 
         public void Execute(GameObject gameObject)
         {
-            this.CurrentGenerateBasicMatterCoolDown -= Time.deltaTime;
-            if (this.CurrentGenerateBasicMatterCoolDown <= 0)
+            this.CurrentGenerateMatterCoolDown -= Time.deltaTime;
+            if (this.CurrentGenerateMatterCoolDown <= 0)
             {
-                this.CurrentGenerateBasicMatterCoolDown = this.GenerateBasicMatterCoolDown;
+                this.CurrentGenerateMatterCoolDown = this.GenerateMatterCoolDown;
                 var workerController = gameObject.GetComponent<WorkerController>();
-                workerController.GetPlayerController().ModifyPlayerMatter(this.GenerateBasicMatterAmount);
+                workerController.GetPlayerController().ModifyPlayerMatter(this.GenerateMatterAmount);
             }
         }
     }

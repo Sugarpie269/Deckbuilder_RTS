@@ -10,16 +10,6 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject Player;
         private PlayerController PlayerController;
 
-        
-
-        [SerializeField] private float GenerateMatterCoolDown = 5.0f;
-        private float CurrentGenerateMatterCoolDown;
-        [SerializeField] private int GenerateMatterAmount = 3;
-
-        [SerializeField] private float GenerateEnergyCoolDown = 5.0f;
-        private float CurrentGenerateEnergyCoolDown;
-        [SerializeField] private int GenerateEnergyAmount = 3;
-
         private enum WorkingMode{BasicMatter, Matter, Energy, Mana};
 
         private WorkingMode CurrentWorkingMode = WorkingMode.BasicMatter;
@@ -70,6 +60,7 @@ namespace DeckbuilderRTS
         public void SetWorkingEnergy()
         {
             this.CurrentWorkingMode = WorkingMode.Energy;
+            this.CurrentCommand = new WorkEnergyCommand();
         }
 
         public bool IsWorkingMana()
@@ -80,6 +71,7 @@ namespace DeckbuilderRTS
         public void SetWorkingMana()
         {
             this.CurrentWorkingMode = WorkingMode.Mana;
+            this.CurrentCommand = new WorkManaCommand();
         }
 
         public PlayerController GetPlayerController()
