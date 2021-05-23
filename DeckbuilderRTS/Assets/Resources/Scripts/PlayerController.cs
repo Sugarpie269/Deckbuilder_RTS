@@ -415,7 +415,7 @@ namespace DeckbuilderRTS
             if (!this.LoadedResources)
             {
                 // Temporary code for testing fireball cards. ~Jackson
-                var gameController = GameObject.Find("GameController");
+                /*var gameController = GameObject.Find("GameController");
                 var fireballPrefab = gameController.GetComponent<GameController>().FireballPrefab;
                 //this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
                 this.PlayerInventory.AddCardSlot1(new InstantHealCard());
@@ -427,7 +427,16 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
+                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));*/
+
+                // Temporary code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
+                var gameControllerObject = this.GameController.GetComponent<GameController>();
+                this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardFireball());
+                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
+                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
+
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
 
                 this.LoadedResources = true;
             }
