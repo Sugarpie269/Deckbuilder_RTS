@@ -45,6 +45,10 @@ namespace DeckbuilderRTS
                 //Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                 
             }
+            else
+            {
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+            }
 
         }
     }
