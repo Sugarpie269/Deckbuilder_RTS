@@ -9,6 +9,9 @@ namespace DeckbuilderRTS
         private Vector3Int Cost;
         private Object FireballPrefab;
         private float SummonDistance = 3.0f;
+        private float FireballDirection;
+        private float FireballSpeed = 15.0f;
+        private float FireballDamage = 5.0f;
         [SerializeField] private Texture2D CardImage;
 
         public FireballCard(Object prefab)
@@ -20,9 +23,15 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
+            var playerController = player.GetComponent<PlayerController>();
+            var playerPos = player.transform.position;
+            var fireballDirection = playerController.GetMousePosition();
+            var fireballPos = new Vector3(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance, player.transform.position.z);
             var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
-            newFireball.transform.position = new Vector3(player.transform.position.x + this.SummonDistance, player.transform.position.y, player.transform.position.z);
+            newFireball.transform.position = fireballPos;
 
+            var fireballController = newFireball.GetComponent<FireballController>();
+            fireballController.SetAttributes(this.FireballDamage, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
