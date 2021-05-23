@@ -74,7 +74,7 @@ namespace DeckbuilderRTS
             this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
             this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
 
-            
+
 
             // Initialize UI elements, player health, and player deck + cards. ~Liam
             this.VictoryText.SetActive(false);
@@ -160,7 +160,15 @@ namespace DeckbuilderRTS
             return false;
         }
 
-        // Navya, this is all you!
+        // The function gets the world mouse position and gets the direction.
+        public Vector2 getMousePosition() {
+            Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (Vector2)((worldMousePos - transform.position));
+            direction.Normalize();
+            return direction;
+        }
+
+        // Inputs for the game
         void ProcessInput()
         {
             // Input should only be recognized if the player has not died. ~Liam
@@ -203,7 +211,7 @@ namespace DeckbuilderRTS
                 }
 
                 
-                //code for player movement
+                // Code for player movement.
                 if (Input.GetKey(KeyCode.A))
                 {
                     this.MoveLeft.Execute(this.gameObject);
@@ -326,11 +334,7 @@ namespace DeckbuilderRTS
             }
         }
 
-        // UI FUNCTION: Updates the energy text when called. ~Liam
-        void SetEnergyText()
-        {
-            this.EnergyText.text = "Energy: " + this.PlayerCurrentEnergy.ToString();
-        }
+        
 
         // UI FUNCTION: Updates the health text when called. Also governs whether or not low HP or game over text is displayed. ~Liam
         void SetHealthText()
@@ -361,6 +365,12 @@ namespace DeckbuilderRTS
         void SetManaText()
         {
             this.ManaText.text = "Mana:    " + this.PlayerCurrentMana.ToString();
+        }
+
+        // UI FUNCTION: Updates the energy text when called. ~Liam
+        void SetEnergyText()
+        {
+            this.EnergyText.text = "Energy: " + this.PlayerCurrentEnergy.ToString();
         }
 
         // UI FUNCTION: Updates the matter text when called. ~Liam
@@ -530,7 +540,12 @@ namespace DeckbuilderRTS
             {
                 SetDeckDrawCooldownText(tempCooldown);
                 this.CurrentCooldownShown = tempCooldown;
-            }            
+            }
+
+            // Update the Resource text (change to every so often or use Fixed update perhaps?)
+            this.SetManaText();
+            this.SetEnergyText();
+            this.SetMatterText();
         }
     }
 }
