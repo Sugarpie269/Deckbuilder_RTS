@@ -32,7 +32,6 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         void Start()
         {
-            Debug.Log("Start! at " + transform.position);
             // this.CurrentCommand = ScriptableObject.CreateInstance<???>();
             this.CurrentHealth = this.MaxHealth;
 
@@ -41,28 +40,15 @@ namespace DeckbuilderRTS
 
             float step = this.Speed * Time.deltaTime;
 
+            // Set Default values for swarmling movement.  FIXME!!
             DefaultPositions = new Vector2[2];
             DefaultPositions[0] = new Vector2(9.0f, 2.5f);
-            DefaultPositions[1] = new Vector2(3.5f, 9.5f);
+            DefaultPositions[1] = new Vector2(1.5f, 9.5f);
             DefaultIdx = 0;
 
             // Default path: move towards Default 0.
             this.Destination = DefaultPositions[DefaultIdx];
-            Debug.Log("Path from " + transform.position + " to " + this.Destination);
             path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-            
-
-            // Move the swarmling towards the target's location.
-            //transform.position = Vector2.MoveTowards(transform.position, Target.position, step);
-            
-            // Find the path from swarmling to target.
-            //path = Pathfinder.FindPath(transform.position, Target.position, Config);
-            //Debug.Log("Path is " + path + " with " + path.Length);
-            
-            foreach (Vector2 item in path) {
-                Debug.Log("Its" + item);
-            }
-             
         }
 
         void OnEnable()
@@ -78,23 +64,20 @@ namespace DeckbuilderRTS
             // Case 1: Swarmling is within determined range of player. Enable seeking mode.
             if (Distance < this.SeekingRange)
             {
-                Debug.Log("Seeking");
+                // Switch Target position to be the player's position.
                 this.Destination = Target.position;
                 path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                 this.destPoint = 0;
 
+                // Disable Default pathfinding.
                 this.DefaultIdx = -1;
             }
             // Case 2: Swarmling is outside of determined range. Enable pathfinding mode.
             else 
-            {
-                Debug.Log("Pathfinding for " + this.DefaultIdx);
-                // Pick a random destination point within the given boundaries.
-                
-                // Case 1: Returning from Seeking stage.
+            {   
+                // Case 1: Returning to pathfinding from Seeking stage.
                 if (this.DefaultIdx == -1) 
                 {
-                    Debug.Log("Case 1");
                     this.DefaultIdx = 0;
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
@@ -103,7 +86,6 @@ namespace DeckbuilderRTS
                 // Case 2: Reached end point of Default 0. Swap to Default 1.
                 else if (this.DefaultIdx == 0 && this.destPoint == path.Length - 1) 
                 {
-                    Debug.Log("Case 2");
                     this.DefaultIdx = 1;
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
@@ -112,49 +94,38 @@ namespace DeckbuilderRTS
                 // Case 3: Reached end point of Default 1. Swap to Default 0.
                 else if (this.DefaultIdx == 1 && this.destPoint == path.Length - 1)
                 {
-                    Debug.Log("Case 3");
                     this.DefaultIdx = 0;
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
                 }
-                else 
-                {
-                    //Debug.Log("Else");
-                    //path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-                    //this.destPoint = 0;
-                }
             }
 
+            // Move the swarmling.
             this.MoveSwarmling();
 
+            // Rotate the swarmling.
             this.UpdateRotation();
         }
 
         private void MoveSwarmling()
         {
-            Debug.Log("Moving Swarmling towards" + this.Destination + " from " + transform.position + " for path " + path.Length);
-        
+            // Ignore if invaild path.
             if (path.Length == 0)
             {
-                Debug.Log("Length is 0");
                 return;
             }
 
             float step = this.Speed * Time.deltaTime;
-            Debug.Log("Destpoint is " + destPoint + " and " + path[destPoint]);
             
+            // Move towards the current step in the path.
             transform.position = Vector2.MoveTowards(transform.position, path[destPoint], step);
-            //transform.position = path[destPoint];
             
+            // Update to the following step in the path if has reached the current step.
             if (Vector2.Distance(transform.position, path[destPoint]) < 1.0f) 
             {
                 destPoint = (destPoint + 1) % path.Length;
-                Debug.Log("At " + transform.position + " updating to " + destPoint);
             }
-
-            Debug.Log("Position is " + transform.position);
-        
         }
 
         private void UpdateRotation()
