@@ -2,6 +2,8 @@ using UnityEngine;
 
 using DeckbuilderRTS;
 
+using SAP2D;
+
 namespace DeckbuilderRTS
 {
     public class SwarmlingController : MonoBehaviour
@@ -12,6 +14,13 @@ namespace DeckbuilderRTS
 
         private Transform Target;
         private float Speed = 1.0f;
+
+        private float SeekingRange = 50.0f;
+
+        // SAP2d
+        public SAP2DPathfindingConfig Config;
+        public Vector2[] path;
+        private SAP2DPathfinder Pathfinder;
 
 
         // The start function will initialize our member variables.
@@ -24,13 +33,42 @@ namespace DeckbuilderRTS
             Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
 
+        void OnEnable()
+        {
+            Pathfinder = SAP2DPathfinder.singleton;
+        }
+
         void Update()
         {
-            float step = this.Speed * Time.deltaTime;
-            // Move the swarmling towards the target's location.
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, step);
+            this.MoveSwarmling();
 
             this.UpdateRotation();
+        }
+
+        private void MoveSwarmling()
+        {
+            Debug.Log("Moving Swarmling");
+            //Vector2 Distance = Vector2.Distance(transform.position, Target.position);
+
+            // Case 1: Swarmling is within determined range of player. Enable seeking mode.
+            if (true) // (Distance < this.SeekingRange)
+            {
+                float step = this.Speed * Time.deltaTime;
+                // Move the swarmling towards the target's location.
+                //transform.position = Vector2.MoveTowards(transform.position, Target.position, step);
+                path = Pathfinder.FindPath(transform.position, Target.position, Config);
+                Debug.Log("Path is " + path);
+            }
+            /*
+            // Case 2: Swarmling is outside of determined range. Enable pathfinding mode.
+            else 
+            {
+                float step = this.Speed * Time.deltaTime;
+                // Move the swarmling towards the target's location.
+                //transform.position = Vector2.MoveTowards(transform.position, Target.position, step);
+                path = Pathfinder.FindPath(transform.position, Target.position, Config);
+            }
+            */
         }
 
         private void UpdateRotation()
