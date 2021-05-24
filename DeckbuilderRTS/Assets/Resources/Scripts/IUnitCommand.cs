@@ -4,6 +4,6 @@ namespace DeckbuilderRTS
 {
     public interface IUnitCommand
     {
-        public void Execute(GameObject gameObject);
+        void Execute(GameObject gameObject);
     }
 }

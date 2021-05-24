@@ -100,7 +100,7 @@ namespace DeckbuilderRTS
                 this.DiscardSlotUpdated = true;
                 return false;
             }
-            Debug.Log("I ran");
+            //Debug.Log("I ran");
             // If the deck is not empty, add a card to the first available slot, if possible. ~Jackson
             var cardAdded = false;
             if (this.CardSlot1 == null)

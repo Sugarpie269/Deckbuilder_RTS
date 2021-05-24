@@ -76,7 +76,7 @@ namespace DeckbuilderRTS
             this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
 
 
-
+            
             // Initialize UI elements, player health, and player deck + cards. ~Liam
             this.VictoryText.SetActive(false);
             this.LowHealthWarningText.SetActive(false);
@@ -162,7 +162,7 @@ namespace DeckbuilderRTS
         }
 
         // The function gets the world mouse position and gets the direction.
-        public Vector2 getMousePosition() {
+        public Vector2 GetMousePosition() {
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (Vector2)((worldMousePos - transform.position));
             direction.Normalize();
