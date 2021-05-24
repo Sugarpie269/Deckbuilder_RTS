@@ -111,6 +111,10 @@ namespace DeckbuilderRTS
         private void MoveSwarmling()
         {
             // Ignore if invaild path.
+            if (path == null)
+            {
+                Debug.Log("NO PATH!");
+            }
             if (path.Length == 0)
             {
                 return;

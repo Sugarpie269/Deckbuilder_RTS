@@ -46,6 +46,9 @@ namespace DeckbuilderRTS
         private IPlayerCommand PlayCard2;
         private IPlayerCommand PlayCard3;
 
+        // FIXME: Add option for speed changes?
+        private float Speed = 5.0f;
+
         private Texture2D EmptyCardSlotImage;
         private Texture2D FacedownCardImage;
         private float DrawCardCoolDown = 0.0f;
@@ -211,7 +214,7 @@ namespace DeckbuilderRTS
                     }
                 }
 
-                
+                /*
                 // Code for player movement.
                 if (Input.GetKey(KeyCode.A))
                 {
@@ -232,6 +235,15 @@ namespace DeckbuilderRTS
                 {
                     this.MoveDown.Execute(this.gameObject);
                 }
+                */
+
+                // Movement using WASD Keys. 
+                // Movement is implemented in this file to allow for simultaneous horizontal and vertical movment
+                // instead of separate horizontal or vertical movement in individual movement scripts.
+                Vector2 Movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+                var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+                rigidBody.MovePosition(rigidBody.position + Movement * this.Speed * Time.fixedDeltaTime);
             }
         }
 
