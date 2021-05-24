@@ -215,6 +215,7 @@ namespace DeckbuilderRTS
                 // Code for player movement.
                 if (Input.GetKey(KeyCode.A))
                 {
+                    Debug.Log("Left!");
                     this.MoveLeft.Execute(this.gameObject);
                 }
                 else if (Input.GetKey(KeyCode.D))
@@ -224,6 +225,7 @@ namespace DeckbuilderRTS
 
                 if (Input.GetKey(KeyCode.W))
                 {
+                    Debug.Log("Up!");
                     this.MoveUp.Execute(this.gameObject);
                 }
                 else if (Input.GetKey(KeyCode.S))
