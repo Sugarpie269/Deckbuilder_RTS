@@ -1281,6 +1281,7 @@ MonoBehaviour:
   DefaultPosition0: {x: -15.5, y: 1.5}
   DefaultPosition1: {x: 6, y: 9}
   Speed: 3
+  SeekingRange: 5
 --- !u!61 &1563532818
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1581,6 +1582,7 @@ MonoBehaviour:
   DefaultPosition0: {x: 18.5, y: 1.5}
   DefaultPosition1: {x: 2, y: 9}
   Speed: 3
+  SeekingRange: 5
 --- !u!61 &2054251241
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2130,6 +2132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370800884632310674, guid: 618d598958c16714aa91519d4c4834e3,
+        type: 3}
+      propertyPath: SeekingRange
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4370800884632310675, guid: 618d598958c16714aa91519d4c4834e3,
         type: 3}

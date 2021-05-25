@@ -16,7 +16,6 @@ namespace DeckbuilderRTS
 
         private Vector2 Destination;
 
-        private float SeekingRange = 3.0f;
         private int destPoint;
 
         private Vector2[] DefaultPositions;
@@ -34,6 +33,8 @@ namespace DeckbuilderRTS
         public Vector2 DefaultPosition1;
         [SerializeField]
         public float Speed;
+        [SerializeField]
+        public float SeekingRange;
 
 
         // The start function will initialize our member variables.
