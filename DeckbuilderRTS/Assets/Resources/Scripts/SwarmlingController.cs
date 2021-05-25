@@ -13,7 +13,6 @@ namespace DeckbuilderRTS
         private int MaxHealth = 50; // 10;
 
         private Transform Target;
-        private float Speed = 2.0f;
 
         private Vector2 Destination;
 
@@ -28,6 +27,14 @@ namespace DeckbuilderRTS
         public Vector2[] path;
         private SAP2DPathfinder Pathfinder;
 
+        // Allow user to choose properties for swarmlings.
+        [SerializeField]
+        public Vector2 DefaultPosition0;
+        [SerializeField]
+        public Vector2 DefaultPosition1;
+        [SerializeField]
+        public float Speed;
+
 
         // The start function will initialize our member variables.
         void Start()
@@ -40,10 +47,10 @@ namespace DeckbuilderRTS
 
             float step = this.Speed * Time.deltaTime;
 
-            // Set Default values for swarmling movement.  FIXME!!
+            // Set Default values for swarmling movement from SerializeField Values.
             DefaultPositions = new Vector2[2];
-            DefaultPositions[0] = new Vector2(9.0f, 2.5f);
-            DefaultPositions[1] = new Vector2(1.5f, 9.5f);
+            DefaultPositions[0] = DefaultPosition0;  //new Vector2(9.0f, 2.5f);
+            DefaultPositions[1] = DefaultPosition1;  //new Vector2(1.5f, 9.5f);
             DefaultIdx = 0;
 
             // Default path: move towards Default 0.
@@ -66,7 +73,13 @@ namespace DeckbuilderRTS
             {
                 // Switch Target position to be the player's position.
                 this.Destination = Target.position;
-                path = Pathfinder.FindPath(transform.position, this.Destination, Config);
+                var PossiblePath = Pathfinder.FindPath(transform.position, this.Destination, Config);
+                
+                // Check that this new path is valid.
+                if (PossiblePath != null) 
+                {
+                    path = PossiblePath;
+                }
                 this.destPoint = 0;
 
                 // Disable Default pathfinding.
