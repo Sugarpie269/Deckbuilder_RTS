@@ -40946,7 +40946,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1563532820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40987,7 +40987,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -44025399
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b57f73b11a178d24aa53defc082fc3f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -45888,7 +45888,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2054251243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45929,7 +45929,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -44025399
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b57f73b11a178d24aa53defc082fc3f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -47099,6 +47099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3951514500860341618, guid: 73a2105b64ac9ef4e9f0573d47234a32,
         type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3951514500860341618, guid: 73a2105b64ac9ef4e9f0573d47234a32,
+        type: 3}
       propertyPath: m_SortingLayerID
       value: -44025399
       objectReference: {fileID: 0}
@@ -47106,6 +47111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3951514500860341619, guid: 73a2105b64ac9ef4e9f0573d47234a32,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3951514500860341621, guid: 73a2105b64ac9ef4e9f0573d47234a32,
         type: 3}
@@ -47295,10 +47305,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4370800884632309871, guid: 618d598958c16714aa91519d4c4834e3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4370800884632310672, guid: 618d598958c16714aa91519d4c4834e3,
         type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370800884632310672, guid: 618d598958c16714aa91519d4c4834e3,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4370800884632310672, guid: 618d598958c16714aa91519d4c4834e3,
         type: 3}
