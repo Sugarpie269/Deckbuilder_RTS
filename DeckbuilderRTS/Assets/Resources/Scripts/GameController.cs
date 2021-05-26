@@ -9,6 +9,11 @@ namespace DeckbuilderRTS
     {
         [SerializeField] public Object FireballPrefab;
         [SerializeField] public Object WorkerPrefab;
+        [SerializeField] public Object SwarmlingPrefab;
+        [SerializeField] private bool SummonSwarmlings = true;
+        [SerializeField] public GameObject Miniboss1;
+        [SerializeField] public GameObject Miniboss2;
+        [SerializeField] public GameObject Miniboss3;
         private float GameTimerMinutes = 0.0f;
         private float GameTimerSeconds = 0.0f;
         [SerializeField] private float SummonSwarmlingDelay = 10.0f;
@@ -35,13 +40,37 @@ namespace DeckbuilderRTS
             if (this.CurrentSummonSwarmlingDelay >= this.SummonSwarmlingDelay)
             {
                 this.CurrentSummonSwarmlingDelay -= this.SummonSwarmlingDelay;
-                this.SummonNewSwarmling();
+
+                if (this.SummonSwarmlings)
+                {
+                    this.SummonNewSwarmling();
+                }
+            }
+        }
+
+        private GameObject GetRandomMiniboss()
+        {
+            var randomInt = Random.Range(0, 4);
+            if (randomInt == 0)
+            {
+                return this.Miniboss1;
+            }
+            else if (randomInt == 1)
+            {
+                return this.Miniboss2;
+            }
+            else
+            {
+                return this.Miniboss3;
             }
         }
 
         private void SummonNewSwarmling()
         {
-
+            var chosenMiniboss = this.GetRandomMiniboss();
+            var summonLoc = chosenMiniboss.transform.position;
+            var newSwarmling = Object.Instantiate(this.SwarmlingPrefab) as GameObject;
+            newSwarmling.transform.position = summonLoc;
         }
 
         public ICard GenerateCardFireball()
