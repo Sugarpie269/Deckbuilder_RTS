@@ -150,3 +150,4 @@ MonoBehaviour:
   DefaultPosition0: {x: -12.5, y: 2.5}
   DefaultPosition1: {x: 15.5, y: 5.5}
   Speed: 1.5
+  SeekingRange: 0
