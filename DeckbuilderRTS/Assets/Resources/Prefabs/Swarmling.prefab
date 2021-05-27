@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8e65f249b67d747bacd248d977f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 15
   Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
   path: []
   DefaultPosition0: {x: -12.5, y: 2.5}
@@ -153,4 +154,4 @@ MonoBehaviour:
   SeekingRange: 8
   FireballPrefab: {fileID: 722127374675723622, guid: f772e3f3ff2b04c49a3ab5fdbe6ad26e,
     type: 3}
-  AttackRate: 0.75
+  AttackRate: 2

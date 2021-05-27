@@ -87,6 +87,8 @@ namespace DeckbuilderRTS
             var summonLoc = chosenMiniboss.transform.position;
             var newSwarmling = Object.Instantiate(this.SwarmlingPrefab) as GameObject;
             newSwarmling.transform.position = summonLoc;
+            var swarmlingController = newSwarmling.GetComponent<SwarmlingController>();
+            swarmlingController.AddMaxHealth(this.GameDifficulty - 1);
         }
 
         public ICard GenerateCardFireball()

@@ -48,6 +48,10 @@ namespace DeckbuilderRTS
                 Debug.Log("Fireball hit a worker");
                 GameObject.Destroy(this.gameObject);
             }
+            else
+            {
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+            }
 
         }
     }

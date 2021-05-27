@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
         private Vector3Int Cost;
         private uint level;
         private Object FireballPrefab;
-        private float SummonDistance = 3.0f;
+        private float SummonDistance = 2.0f;
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
         private float FireballDamage = 5.0f; // use separate power to set damage based on level

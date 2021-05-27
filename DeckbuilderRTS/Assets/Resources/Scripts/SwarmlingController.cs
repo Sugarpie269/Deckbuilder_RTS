@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
     {
         private IUnitCommand CurrentCommand;
         private int CurrentHealth;
-        private int MaxHealth = 50; // 10;
+        [SerializeField] private int MaxHealth = 50; // 10;
 
         private Transform Target;
 
@@ -74,6 +74,12 @@ namespace DeckbuilderRTS
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
+        }
+
+        public void AddMaxHealth(int maxHealth)
+        {
+            this.MaxHealth += maxHealth;
+            this.CurrentHealth += maxHealth;
         }
 
         void OnEnable()
@@ -203,7 +209,6 @@ namespace DeckbuilderRTS
         public void TakeDamage(float damage)
         {
             this.CurrentHealth -= Mathf.FloorToInt(damage);
-
             // If the swarmling dies, destroy the game object.
             if (this.CurrentHealth <= 0)
             {
