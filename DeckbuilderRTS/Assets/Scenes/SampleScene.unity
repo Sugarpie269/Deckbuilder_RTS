@@ -418,8 +418,8 @@ MonoBehaviour:
   PlayerCurrentMatter: 0
   GameController: {fileID: 114025806}
   Speed: 5
-  MaxMovementAttackTime: 1
-  MaxMovementReleaseTime: 0.5
+  MaxMovementAttackTime: 0.5
+  MaxMovementReleaseTime: 0.2
 --- !u!61 &356759382
 BoxCollider2D:
   m_ObjectHideFlags: 0

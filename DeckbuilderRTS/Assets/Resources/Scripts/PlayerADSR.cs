@@ -30,9 +30,9 @@ namespace DeckbuilderRTS
             else if (this.CurrentMovementMode == MovementADSR.Attack)
             {
                 //Debug.Log("attack");
-                // We are using a logarithmic curve.~Jackson
+                // We are using a linear curve.~Jackson
                 var attackRatio = this.CurrentMovementAttackTime / this.MaxMovementAttackTime;
-                var speedPercentage = Mathf.Log(attackRatio + 1f, 2f);
+                var speedPercentage = attackRatio;//Mathf.Log(attackRatio + 1f, 2f);
                 return speedPercentage * this.Multiplier;
             }
             else if (this.CurrentMovementMode == MovementADSR.Sustain)
@@ -43,9 +43,9 @@ namespace DeckbuilderRTS
             else if (this.CurrentMovementMode == MovementADSR.Release)
             {
                 //Debug.Log("release");
-                // We are using a logarithmic curve again.~Jackson
+                // We are using a linear curve again.~Jackson
                 var releaseRatio = 1 - this.CurrentMovementReleaseTime / this.MaxMovementReleaseTime;
-                var speedPercentage = Mathf.Log(releaseRatio + 1f, 2f);
+                var speedPercentage = releaseRatio;//Mathf.Log(releaseRatio + 1f, 2f);
                 return speedPercentage * this.Multiplier;
             }
             return 0.0f;
