@@ -6,7 +6,10 @@ namespace DeckbuilderRTS
 {
     public class SummonWorkerCard : ICard
     {
+        private string Name = "Summon Worker";
         private Vector3Int Cost;
+        private uint level;
+        private int HP; // TODO: calculate based on card level and toughness/strength stat
         private Object WorkerPrefab;
         private float SummonDistance = 3.0f;
         [SerializeField] private Texture2D CardImage;
@@ -28,11 +31,31 @@ namespace DeckbuilderRTS
 
         }
 
+        public string GetName()
+        {
+            return this.Name;
+        }
+
+        public Vector3 GetCost()
+        {
+            return this.Cost;
+        }
+
+        public int GetPower()
+        {
+            return 0;
+        }
+        public int GetStrength()
+        {
+            return this.HP;
+        }
+
         // This returns true if the card should be removed from the deck after use. ~Jackson.
         public bool ShouldBeDestroyed()
         {
             return false;
         }
+
 
         // This returns true if the card can be removed from the deck after use. ~Jackson.
         public bool CanBeDestroyed()
