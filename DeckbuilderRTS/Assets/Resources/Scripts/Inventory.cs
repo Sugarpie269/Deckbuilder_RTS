@@ -174,6 +174,7 @@ namespace DeckbuilderRTS
                 return;*/
             }
             // Play the card in card slot 1. ~Jackson
+            Debug.Log("CardSlot1.OnCardPlayed()");
             this.CardSlot1.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
             // Destroy the card if it should be destroyed, otherwise, add it to the discard. ~Jackson
