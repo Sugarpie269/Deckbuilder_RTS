@@ -2670,7 +2670,7 @@ PrefabInstance:
     - target: {fileID: 4370800884632310674, guid: 618d598958c16714aa91519d4c4834e3,
         type: 3}
       propertyPath: SeekingRange
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4370800884632310674, guid: 618d598958c16714aa91519d4c4834e3,
         type: 3}

@@ -150,4 +150,7 @@ MonoBehaviour:
   DefaultPosition0: {x: -12.5, y: 2.5}
   DefaultPosition1: {x: 15.5, y: 5.5}
   Speed: 1.5
-  SeekingRange: 0
+  SeekingRange: 8
+  FireballPrefab: {fileID: 722127374675723622, guid: f772e3f3ff2b04c49a3ab5fdbe6ad26e,
+    type: 3}
+  AttackRate: 0.75

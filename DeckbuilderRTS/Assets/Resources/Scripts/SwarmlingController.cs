@@ -220,7 +220,7 @@ namespace DeckbuilderRTS
             // Shoot from swarmling towards player.
             //var fireballDirection = new Vector2(transform.position.x - Target.position.x, transform.position.y - Target.position.y);
             var fireballDirection = new Vector2(Target.position.x - transform.position.x, Target.position.y - transform.position.y);
-            
+            fireballDirection.Normalize();
             //fireballDirection = fireballDirection * 2;
 
             //var fireballPos = new Vector3(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance, player.transform.position.z);
