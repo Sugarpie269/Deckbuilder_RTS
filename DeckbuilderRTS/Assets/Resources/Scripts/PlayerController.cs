@@ -59,8 +59,8 @@ namespace DeckbuilderRTS
         //private MovementADSR CurrentMovementMode = MovementADSR.None;
         //private Vector2 LastDirectionVec = new Vector2(0.0f, 0.0f);
 
-        private Texture2D EmptyCardSlotImage;
-        private Texture2D FacedownCardImage;
+        private Sprite EmptyCardSlotImage;
+        private Sprite FacedownCardImage;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
         private float PLAYER_ERROR_MESSAGE_DURATION = 1.5f;
@@ -105,8 +105,10 @@ namespace DeckbuilderRTS
             this.SetManaText();
             this.SetEnergyText();
             this.SetMatterText();
-            this.EmptyCardSlotImage = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
-            this.FacedownCardImage = Resources.Load<Texture2D>("Sprites/FacedownCard");
+            Texture2D tempEmptyCardSlot = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
+            this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
+            Texture2D tempFacedownCard = Resources.Load<Texture2D>("Sprites/FacedownCard");
+            this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
         }
 
         private Vector2 GetPlayerSpeed()
@@ -165,7 +167,8 @@ namespace DeckbuilderRTS
             this.SetHealthText();
         }
 
-        // UI & PLAYER FUNCTION: Modifies the player's current Mana count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
+        // UI & PLAYER FUNCTION: Modifies the player's current Mana count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending).
+        // Returns true if modification was applied, false if not (e.g. when the mana cost of something is higher than the player's reserves). ~Liam
         public bool ModifyPlayerMana(int amount)
         {
             // Check to ensure that if the amount is negative, the current mana count can handle it. ~Liam
@@ -178,7 +181,8 @@ namespace DeckbuilderRTS
             return false;
         }
 
-        // UI & PLAYER FUNCTION: Modifies the player's current Matter count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
+        // UI & PLAYER FUNCTION: Modifies the player's current Matter count by the parameter value. Passed in integer can be positive (for gaining) or negative (for spending).
+        // Returns true if modification was applied, false if not (e.g. when the matter cost of something is higher than the player's reserves). ~Liam
         public bool ModifyPlayerMatter(int amount)
         {
             // Check to ensure that if the amount is negative, the current matter count can handle it. ~Liam
@@ -288,16 +292,14 @@ namespace DeckbuilderRTS
         void SetCardSlot1Image()
         {
             // Get the image corresponding to the card in slot 1. If it is null, render the empty slot image instead. ~Liam
-            Texture2D tempImage = this.PlayerInventory.GetCardSlot1Image();
+            Sprite tempImage = this.PlayerInventory.GetCardSlot1Image();
             if (tempImage)
             {
-                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(0.5f, 0.5f));
-                this.CardSlot1Image.GetComponent<Image>().overrideSprite = newImage;
+                this.CardSlot1Image.GetComponent<Image>().overrideSprite = tempImage;
             }
             else
             {
-                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
-                this.CardSlot1Image.GetComponent<Image>().overrideSprite = newImage;
+                this.CardSlot1Image.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
             }
         }
 
@@ -305,16 +307,14 @@ namespace DeckbuilderRTS
         void SetCardSlot2Image()
         {
             // Get the image corresponding to the card in slot 2. If it is null, render the empty slot image instead. ~Liam
-            Texture2D tempImage = this.PlayerInventory.GetCardSlot2Image();
+            Sprite tempImage = this.PlayerInventory.GetCardSlot2Image();
             if (tempImage)
             {
-                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(0.5f, 0.5f));
-                this.CardSlot2Image.GetComponent<Image>().overrideSprite = newImage;
+                this.CardSlot2Image.GetComponent<Image>().overrideSprite = tempImage;
             }
             else
             {
-                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
-                this.CardSlot2Image.GetComponent<Image>().overrideSprite = newImage;
+                this.CardSlot2Image.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
             }
         }
 
@@ -322,16 +322,14 @@ namespace DeckbuilderRTS
         void SetCardSlot3Image()
         {
             // Get the image corresponding to the card in slot 3. If it is null, render the empty slot image instead. ~Liam
-            Texture2D tempImage = this.PlayerInventory.GetCardSlot3Image();
+            Sprite tempImage = this.PlayerInventory.GetCardSlot3Image();
             if (tempImage)
             {
-                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(0.5f, 0.5f));
-                this.CardSlot3Image.GetComponent<Image>().overrideSprite = newImage;
+                this.CardSlot3Image.GetComponent<Image>().overrideSprite = tempImage;
             }
             else
             {
-                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
-                this.CardSlot3Image.GetComponent<Image>().overrideSprite = newImage;
+                this.CardSlot3Image.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
             }
         }
 
@@ -341,14 +339,11 @@ namespace DeckbuilderRTS
             // Check if the discard pile has cards, or is empty, and set the image accordingly. ~Liam
             if (this.PlayerInventory.IsDiscardEmpty())
             {
-                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
-                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = newImage;
+                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
             }
             else
             {
-                Texture2D tempImage = this.PlayerInventory.GetDiscardSlotImage();
-                Sprite newImage = Sprite.Create(tempImage, new Rect(0f, 0f, tempImage.width, tempImage.height), new Vector2(tempImage.width / 2, tempImage.height / 2));
-                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = newImage;
+                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = this.PlayerInventory.GetDiscardSlotImage();
             }
         }
 
@@ -376,13 +371,11 @@ namespace DeckbuilderRTS
             // Check if the draw pile has cards, or is empty, and set the image accordingly. ~Liam
             if (this.PlayerInventory.IsDeckEmpty())
             {
-                Sprite newImage = Sprite.Create(this.EmptyCardSlotImage, new Rect(0f, 0f, this.EmptyCardSlotImage.width, this.EmptyCardSlotImage.height), new Vector2(this.EmptyCardSlotImage.width / 2, this.EmptyCardSlotImage.height / 2));
-                this.DrawSlotImage.GetComponent<Image>().overrideSprite = newImage;
+                this.DrawSlotImage.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
             }
             else
             {
-                Sprite newImage = Sprite.Create(this.FacedownCardImage, new Rect(0f, 0f, this.FacedownCardImage.width, this.FacedownCardImage.height), new Vector2(this.FacedownCardImage.width / 2, this.FacedownCardImage.height / 2));
-                this.DrawSlotImage.GetComponent<Image>().overrideSprite = newImage;
+                this.DrawSlotImage.GetComponent<Image>().overrideSprite = this.FacedownCardImage;
             }
         }
 

@@ -12,13 +12,14 @@ namespace DeckbuilderRTS
         private int HP; // TODO: calculate based on card level and toughness/strength stat
         private Object WorkerPrefab;
         private float SummonDistance = 3.0f;
-        [SerializeField] private Texture2D CardImage;
+        [SerializeField] private Sprite CardImage;
 
         public SummonWorkerCard(Object prefab)
         {
             this.WorkerPrefab = prefab;
             this.Cost = new Vector3Int(1, 0, 0);
-            this.CardImage = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
+            Texture2D tempTexture = Resources.Load<Texture2D>("Sprites/SummonWorkerCard_1000x1500");
+            this.CardImage = Sprite.Create(tempTexture, new Rect(0f, 0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f));
         }
 
         public void OnCardPlayed(GameObject player, Vector2 target)
@@ -65,7 +66,7 @@ namespace DeckbuilderRTS
         }
 
         // Returns the image of this card, for use in the UI. ~Liam
-        public Texture2D GetCardImage()
+        public Sprite GetCardImage()
         {
             return this.CardImage;
         }

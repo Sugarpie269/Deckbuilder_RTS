@@ -14,14 +14,15 @@ namespace DeckbuilderRTS
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
         private float FireballDamage = 5.0f; // use separate power to set damage based on level
-        [SerializeField] private Texture2D CardImage;
+        [SerializeField] private Sprite CardImage;
 
         public FireballCard(Object prefab)
         {
             Debug.Log("New FireballCard!");
             this.FireballPrefab = prefab;
             this.Cost = new Vector3Int(1, 0, 0);
-            this.CardImage = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
+            Texture2D tempTexture = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
+            this.CardImage = Sprite.Create(tempTexture, new Rect(0f, 0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f));
         }
 
         public void OnCardPlayed(GameObject player, Vector2 target)
@@ -72,7 +73,7 @@ namespace DeckbuilderRTS
         }
 
         // Returns the image of this card, for use in the UI. ~Liam
-        public Texture2D GetCardImage()
+        public Sprite GetCardImage()
         {
             return this.CardImage;
         }

@@ -13,7 +13,7 @@ namespace DeckbuilderRTS
         void OnCardPlayed(GameObject player, Vector2 target);
         bool ShouldBeDestroyed();
         bool CanBeDestroyed();
-        Texture2D GetCardImage();
+        Sprite GetCardImage();
 
         // void DebugInfo(); // prints debug info for debugging
     }

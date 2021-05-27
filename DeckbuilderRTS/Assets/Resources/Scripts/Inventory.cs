@@ -306,7 +306,7 @@ namespace DeckbuilderRTS
         }
 
         // Getter functions for the sprites corresponding to the cards in the 3 slots (and the discard pile). ~Liam
-        public Texture2D GetCardSlot1Image()
+        public Sprite GetCardSlot1Image()
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
             if (this.CardSlot1 != null)
@@ -319,7 +319,7 @@ namespace DeckbuilderRTS
             }
         }
 
-        public Texture2D GetCardSlot2Image()
+        public Sprite GetCardSlot2Image()
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
             if (this.CardSlot2 != null)
@@ -332,7 +332,7 @@ namespace DeckbuilderRTS
             }
         }
 
-        public Texture2D GetCardSlot3Image()
+        public Sprite GetCardSlot3Image()
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
             if (this.CardSlot3 != null)
@@ -345,7 +345,7 @@ namespace DeckbuilderRTS
             }
         }
 
-        public Texture2D GetDiscardSlotImage()
+        public Sprite GetDiscardSlotImage()
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the last card in the pile's associated sprite. ~Liam
             if (this.Discard.Count != 0)
