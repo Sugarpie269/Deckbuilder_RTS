@@ -7,6 +7,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: Consumable Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5251684085525408261, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
@@ -15,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 5492570113535283711, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_Name
-      value: Card_Fireball
+      value: Card_Fireball Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -128,5 +158,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7,
         type: 3}
+    - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: Lob a fireball that travels at a medium speed and deals medium damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: 'Fireball - '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}
