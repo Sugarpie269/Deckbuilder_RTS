@@ -11,6 +11,8 @@ namespace DeckbuilderRTS
         private Camera ManagedCamera;
         private LineRenderer CameraLineRenderer;
         private float timecounter;
+        private Vector3 PreviousPosition;
+        private float ElapsedTime = 0.0f;
 
         // NOTE: Assuming hardcoded values for Z-position and cross size.
         float ZVal = 85f;
@@ -20,6 +22,7 @@ namespace DeckbuilderRTS
         {
             this.ManagedCamera = this.gameObject.GetComponent<Camera>();
             this.CameraLineRenderer = this.gameObject.GetComponent<LineRenderer>();
+            this.PreviousPosition = this.ManagedCamera.transform.position;
 
             //this.ManagedCamera.transform.position = new Vector3(0, 0, this.ManagedCamera.transform.position.z);
         }
@@ -28,13 +31,25 @@ namespace DeckbuilderRTS
         //GameObject locations are finalized.
         void LateUpdate()
         {
-            var targetPosition = this.Target.transform.position;
+
+            this.ManagedCamera.transform.position = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
+            //return;
+            /*var targetPosition = this.Target.transform.position;
             var cameraPosition = this.ManagedCamera.transform.position;
 
+            this.ElapsedTime += Time.deltaTime;
 
-            Vector3 newposition = cameraPosition;
-            newposition.y = Mathf.Lerp(cameraPosition.y, targetPosition.y,  3/LerpDuration * Time.deltaTime);
-            newposition.x = Mathf.Lerp(cameraPosition.x, targetPosition.x,  3/LerpDuration * Time.deltaTime);
+            var lerpRatio = this.ElapsedTime / this.LerpDuration;
+
+            if (targetPosition != this.PreviousPosition)
+            {
+                this.ElapsedTime = 0.0f;
+                this.PreviousPosition = targetPosition;
+            }
+
+            Vector3 newposition = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z);
+            newposition.y = Mathf.Lerp(cameraPosition.y, targetPosition.y,  lerpRatio);//3/LerpDuration * Time.deltaTime);
+            newposition.x = Mathf.Lerp(cameraPosition.x, targetPosition.x,  lerpRatio);//3/LerpDuration * Time.deltaTime);
         
             this.ManagedCamera.transform.position= newposition;
 
@@ -46,7 +61,7 @@ namespace DeckbuilderRTS
             else
             {
                 this.CameraLineRenderer.enabled = false;
-            }
+            }*/
         }
 
         public override void DrawCameraLogic()
