@@ -232,7 +232,7 @@ namespace DeckbuilderRTS
 
             var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
             newFireball.transform.position = fireballPos;
-
+            GameObject.Destroy(newFireball, 5f);
             var fireballController = newFireball.GetComponent<FireballController>();
             var fireballVelocity = new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y);
             fireballController.SetAttributes(this.FireballDamage, fireballVelocity);
