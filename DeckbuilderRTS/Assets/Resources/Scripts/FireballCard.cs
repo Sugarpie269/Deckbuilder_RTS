@@ -16,6 +16,7 @@ namespace DeckbuilderRTS
 
         public FireballCard(Object prefab)
         {
+            Debug.Log("New FireballCard!");
             this.FireballPrefab = prefab;
             this.Cost = new Vector3Int(1, 0, 0);
             this.CardImage = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
@@ -23,6 +24,7 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
+            Debug.Log("FireballCard.OnCardPlayed()");
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var fireballDirection = playerController.GetMousePosition();

@@ -37,6 +37,20 @@ namespace DeckbuilderRTS
         public float SeekingRange;
 
 
+        // Fireball content.
+        //private Object FireballPrefab;
+        private float SummonDistance = 1f;
+        private float FireballDirection;
+        private float FireballSpeed = 15.0f;
+        private float FireballDamage = 2.0f;
+
+
+        [SerializeField] public Object FireballPrefab;
+        [SerializeField] public float AttackRate;
+
+        private float ElapsedTime;
+
+
         // The start function will initialize our member variables.
         void Start()
         {
@@ -57,6 +71,9 @@ namespace DeckbuilderRTS
             // Default path: move towards Default 0.
             this.Destination = DefaultPositions[DefaultIdx];
             path = Pathfinder.FindPath(transform.position, this.Destination, Config);
+
+            // Time for intermittent attacks.
+            this.ElapsedTime = 0;
         }
 
         void OnEnable()
@@ -120,6 +137,18 @@ namespace DeckbuilderRTS
 
             // Rotate the swarmling.
             this.UpdateRotation();
+
+            // Case 1: Swarmling is within determined range of player. Enable seeking mode.
+            if (Distance < this.SeekingRange)
+            {
+                // Shoot projectiles if needed.
+                this.ElapsedTime += Time.deltaTime;
+                if (this.ElapsedTime >= this.AttackRate) 
+                {
+                    this.ShootProjectiles();
+                    this.ElapsedTime = 0;
+                }
+            }
         }
 
         private void MoveSwarmling()
@@ -180,6 +209,30 @@ namespace DeckbuilderRTS
             {
                 GameObject.Destroy(this.gameObject);
             }
+        }
+
+        private void ShootProjectiles()
+        {   
+            //var playerController = player.GetComponent<PlayerController>();
+            //var playerPos = player.transform.position;
+            var playerPos = Target.position;
+
+            var fireballDirection = new Vector2(Target.position.x - transform.position.x, Target.position.y - transform.position.y);
+            
+
+            //var fireballPos = new Vector3(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance, player.transform.position.z);
+            //var fireballPos = new Vector2(playerPos.x + 3, playerPos.y + 3);
+            var fireballPos = new Vector2(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance);
+            //var fireballPos = transform.position;
+
+            var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
+            newFireball.transform.position = fireballPos;
+
+            var fireballController = newFireball.GetComponent<FireballController>();
+            fireballController.SetAttributes(this.FireballDamage, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
+        
+
+            Debug.Log("Swarmling projectile " + transform.position + " creates " + fireballPos);
         }
     }
 }

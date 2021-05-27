@@ -91,6 +91,7 @@ namespace DeckbuilderRTS
 
         public ICard GenerateCardFireball()
         {
+            Debug.Log("Created Fireball!");
             return new FireballCard(this.FireballPrefab);
         }
 
