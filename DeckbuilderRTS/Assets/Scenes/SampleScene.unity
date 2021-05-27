@@ -355,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333554758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.04, y: 5.09, z: 0}
+  m_LocalPosition: {x: -8.08, y: -5.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -417,6 +417,9 @@ MonoBehaviour:
   PlayerCurrentEnergy: 0
   PlayerCurrentMatter: 0
   GameController: {fileID: 114025806}
+  Speed: 5
+  MaxMovementAttackTime: 0.5
+  MaxMovementReleaseTime: 1
 --- !u!61 &356759382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -619,7 +622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427159442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.81, y: 4.23, z: 0}
+  m_LocalPosition: {x: -5.93, y: 7.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1415,7 +1418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079815495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.86, y: 2.07, z: 0}
+  m_LocalPosition: {x: 8.51, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

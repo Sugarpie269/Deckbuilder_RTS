@@ -47,7 +47,17 @@ namespace DeckbuilderRTS
         private IPlayerCommand PlayCard3;
 
         // FIXME: Add option for speed changes?
-        private float Speed = 5.0f;
+        [SerializeField] private float Speed = 5.0f;
+
+        //private enum MovementADSR {None, Attack, Sustain, Release};
+        //private float CurrentMovementAttackTime = 0.0f;
+        [SerializeField] private float MaxMovementAttackTime = 1f;
+        //private float CurrentMovementReleaseTime = 0.0f;
+        [SerializeField] private float MaxMovementReleaseTime = 0.1f;
+        private PlayerADSR HorizontalADSR = null;
+        private PlayerADSR VerticalADSR = null;
+        //private MovementADSR CurrentMovementMode = MovementADSR.None;
+        //private Vector2 LastDirectionVec = new Vector2(0.0f, 0.0f);
 
         private Texture2D EmptyCardSlotImage;
         private Texture2D FacedownCardImage;
@@ -62,6 +72,7 @@ namespace DeckbuilderRTS
         private bool IsGameOver = false;
 
         private bool LoadedResources = false;
+
 
         // NOTE: All methods are listed in alphabetical order with the exception of Start().
 
@@ -78,7 +89,8 @@ namespace DeckbuilderRTS
             this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
             this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
 
-
+            this.HorizontalADSR = new PlayerADSR(this.MaxMovementAttackTime, this.MaxMovementReleaseTime);
+            this.VerticalADSR = new PlayerADSR(this.MaxMovementAttackTime, this.MaxMovementReleaseTime);
             
             // Initialize UI elements, player health, and player deck + cards. ~Liam
             this.VictoryText.SetActive(false);
@@ -95,6 +107,21 @@ namespace DeckbuilderRTS
             this.SetMatterText();
             this.EmptyCardSlotImage = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
             this.FacedownCardImage = Resources.Load<Texture2D>("Sprites/FacedownCard");
+        }
+
+        private Vector2 GetPlayerSpeed()
+        {
+            float horiSpeed = 0.0f;
+            float vertiSpeed = 0.0f;
+            if (this.HorizontalADSR != null)
+            {
+                horiSpeed = this.HorizontalADSR.GetSpeedModifier() * this.Speed;
+            }
+            if (this.VerticalADSR != null)
+            {
+                vertiSpeed = this.VerticalADSR.GetSpeedModifier() * this.Speed;
+            }
+            return new Vector2(horiSpeed, vertiSpeed);
         }
 
         // UI FUNCTION: Displays the victory text when called. Should only be called when the player has achieved victory, as such. ~Liam
@@ -172,6 +199,8 @@ namespace DeckbuilderRTS
             return direction;
         }
 
+      
+
         // Inputs for the game
         void ProcessInput()
         {
@@ -238,14 +267,20 @@ namespace DeckbuilderRTS
                     this.MoveDown.Execute(this.gameObject);
                 }
                 */
+                
 
                 // Movement using WASD Keys. 
                 // Movement is implemented in this file to allow for simultaneous horizontal and vertical movment
                 // instead of separate horizontal or vertical movement in individual movement scripts.
-                Vector2 Movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+                // Jackson's ADSR code handles the speed modifiers.~Jackson
+                this.HorizontalADSR.Update(movement.x, Time.fixedDeltaTime);
+                this.VerticalADSR.Update(movement.y, Time.fixedDeltaTime);
+                
 
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
-                rigidBody.MovePosition(rigidBody.position + Movement * this.Speed * Time.fixedDeltaTime);
+                rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
             }
         }
 
