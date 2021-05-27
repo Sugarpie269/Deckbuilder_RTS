@@ -159,10 +159,12 @@ MonoBehaviour:
   SwarmlingPrefab: {fileID: 4370800884632310675, guid: 618d598958c16714aa91519d4c4834e3,
     type: 3}
   SummonSwarmlings: 1
+  IncreaseDifficulty: 1
   Miniboss1: {fileID: 1079815495}
   Miniboss2: {fileID: 333554758}
   Miniboss3: {fileID: 427159442}
   SummonSwarmlingDelay: 10
+  IncreaseDifficultyDelay: 60
 --- !u!4 &114025808
 Transform:
   m_ObjectHideFlags: 0
@@ -718,7 +720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
