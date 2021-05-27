@@ -39,7 +39,7 @@ namespace DeckbuilderRTS
 
         // Fireball content.
         //private Object FireballPrefab;
-        private float SummonDistance = 1f;
+        private float SummonDistance = 1.5f;
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
         private float FireballDamage = 2.0f;
@@ -217,22 +217,29 @@ namespace DeckbuilderRTS
             //var playerPos = player.transform.position;
             var playerPos = Target.position;
 
+            // Shoot from swarmling towards player.
+            //var fireballDirection = new Vector2(transform.position.x - Target.position.x, transform.position.y - Target.position.y);
             var fireballDirection = new Vector2(Target.position.x - transform.position.x, Target.position.y - transform.position.y);
             
+            //fireballDirection = fireballDirection * 2;
 
             //var fireballPos = new Vector3(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance, player.transform.position.z);
             //var fireballPos = new Vector2(playerPos.x + 3, playerPos.y + 3);
-            var fireballPos = new Vector2(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance);
-            //var fireballPos = transform.position;
+            
+            // Fireball begins from swarmling's position.
+            var fireballPos = new Vector2(transform.position.x + fireballDirection.x * this.SummonDistance, transform.position.y + fireballDirection.y * this.SummonDistance);
+            //fireballPos = Target.position;
 
             var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
             newFireball.transform.position = fireballPos;
 
             var fireballController = newFireball.GetComponent<FireballController>();
-            fireballController.SetAttributes(this.FireballDamage, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
+            var fireballVelocity = new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y);
+            fireballController.SetAttributes(this.FireballDamage, fireballVelocity);
         
 
             Debug.Log("Swarmling projectile " + transform.position + " creates " + fireballPos);
+            Debug.Log("Angle " + fireballDirection + " vs " + fireballVelocity);
         }
     }
 }
