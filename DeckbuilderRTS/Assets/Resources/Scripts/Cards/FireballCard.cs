@@ -1,28 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace DeckbuilderRTS
 {
     public class FireballCard : ICard
     {
-        private string Name = "Fireball";
-        private Vector3Int Cost;
-        private uint level;
         private Object FireballPrefab;
         private float SummonDistance = 2.0f;
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
-        private float FireballDamage = 5.0f; // use separate power to set damage based on level
-        [SerializeField] private Sprite CardImage;
+
+        // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
+        private CardInfo Info;
 
         public FireballCard(Object prefab)
         {
             Debug.Log("New FireballCard!");
             this.FireballPrefab = prefab;
-            this.Cost = new Vector3Int(1, 0, 0);
-            Texture2D tempTexture = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
-            this.CardImage = Sprite.Create(tempTexture, new Rect(0f, 0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f));
+
+            // Instantiate each piece of information about the card. ~Liam
+            this.Info.CardReference = GameObject.Find("Card_Fireball");
+            this.Info.CardArt = this.Info.CardReference.transform.GetChild(1).GetComponent<Image>().sprite;
+            this.Info.CardName = this.Info.CardReference.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+            this.Info.CardType = this.Info.CardReference.transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+            this.Info.DescriptionHeader = this.Info.CardReference.transform.GetChild(4).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+            this.Info.DescriptionContent = this.Info.CardReference.transform.GetChild(4).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+            this.Info.FlavorText = this.Info.CardReference.transform.GetChild(4).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text;
+            this.Info.CardLevel = int.Parse(this.Info.CardReference.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text);
+            this.Info.CardPower = int.Parse(this.Info.CardReference.transform.GetChild(6).GetComponent<TextMeshProUGUI>().text);
+            this.Info.CardStrength = int.Parse(this.Info.CardReference.transform.GetChild(7).GetComponent<TextMeshProUGUI>().text);
+            this.Info.ManaCost = int.Parse(this.Info.CardReference.transform.GetChild(8).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+            this.Info.EnergyCost = int.Parse(this.Info.CardReference.transform.GetChild(8).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
+            this.Info.MatterCost = int.Parse(this.Info.CardReference.transform.GetChild(8).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text);
+        }
+
+        // Returns a struct of card information, for use in the UI. ~Liam
+        public CardInfo GetCardInfo()
+        {
+            return this.Info;
         }
 
         public void OnCardPlayed(GameObject player, Vector2 target)
@@ -36,28 +54,8 @@ namespace DeckbuilderRTS
             newFireball.transform.position = fireballPos;
 
             var fireballController = newFireball.GetComponent<FireballController>();
-            fireballController.SetAttributes(this.FireballDamage, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
+            fireballController.SetAttributes(this.Info.CardStrength, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
             GameObject.Destroy(newFireball, 5f);
-        }
-
-        public string GetName()
-        {
-            return this.Name;
-        }
-
-        public Vector3 GetCost()
-        {
-            return this.Cost;
-        }
-
-        public int GetPower()
-        {
-            return (int)this.FireballDamage;
-        }
-
-        public int GetStrength()
-        {
-            return 0;
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
@@ -71,13 +69,6 @@ namespace DeckbuilderRTS
         {
             return true;
         }
-
-        // Returns the image of this card, for use in the UI. ~Liam
-        public Sprite GetCardImage()
-        {
-            return this.CardImage;
-        }
-
     }
 }
 
