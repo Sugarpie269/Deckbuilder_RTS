@@ -51,6 +51,7 @@ namespace DeckbuilderRTS
 
         private float ElapsedTime;
 
+        private bool IsGameOver = false;
 
         // The start function will initialize our member variables.
         void Start()

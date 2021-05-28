@@ -165,6 +165,7 @@ namespace DeckbuilderRTS
                 this.PlayerCurrentHP = this.PlayerCurrentHP + amount;
             }
 
+            Debug.Log("Modified health to " + this.PlayerCurrentHP);
             // Update the UI health value. ~Liam
             this.SetHealthText();
         }
@@ -418,7 +419,8 @@ namespace DeckbuilderRTS
 
             // Warn the player if their health drops below 25% of the maximum. ~Liam
             float percentHP = (float)this.PlayerCurrentHP / (float)this.PlayerMaxHP;
-            Debug.Log(percentHP);
+            Debug.Log("Current HP " + this.PlayerCurrentHP + " vs max " + this.PlayerMaxHP);
+            Debug.Log("Health Percentage:" + percentHP);
             if (percentHP <= 0.25f && this.PlayerCurrentHP != 0)
             {
                 this.LowHealthWarningText.SetActive(true);
@@ -430,6 +432,7 @@ namespace DeckbuilderRTS
             // If player's HP drops to 0, they die, and the UI should reflect this. ~Liam
             if (this.PlayerCurrentHP == 0)
             {
+                Debug.Log("GAME OVER!");
                 this.GameOverText.SetActive(true);
                 this.IsGameOver = true;
             }
@@ -473,12 +476,20 @@ namespace DeckbuilderRTS
 
         public void TakeDamage(float damage)
         {
-            this.ModifyPlayerHealth(Mathf.FloorToInt(damage));
+            if (this.IsGameOver)
+            {
+                return;
+            }
+            this.ModifyPlayerHealth(Mathf.FloorToInt(damage * -1));
             Debug.Log("I took " + damage.ToString() + " damage!");
         }
 
         public void ApplyHealing(float healing)
         {
+            if (this.IsGameOver)
+            {
+                return;
+            }
             this.ModifyPlayerHealth(Mathf.FloorToInt(healing));
             Debug.Log("I healed " + healing.ToString() + " health!");
         }

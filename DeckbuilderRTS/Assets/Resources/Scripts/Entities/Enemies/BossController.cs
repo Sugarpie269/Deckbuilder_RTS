@@ -30,6 +30,9 @@ namespace DeckbuilderRTS
         // AttackRate denotes the time (in seconds) between each projectile.
         [SerializeField] public float AttackRate;
 
+
+        private bool IsGameOver = false;
+        
         private void Start()
         {
             // Get the player's posiiton.
