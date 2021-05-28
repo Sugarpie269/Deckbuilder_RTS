@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 356759382}
   - component: {fileID: 356759381}
   - component: {fileID: 356759386}
+  - component: {fileID: 356759387}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -394,32 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e5367ca72920b4c8e5d2e737d21e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthText: {fileID: 977931712}
-  DrawCooldownText: {fileID: 977931697}
-  ManaText: {fileID: 977931710}
-  EnergyText: {fileID: 977931709}
-  MatterText: {fileID: 977931708}
-  VictoryText: {fileID: 977931707}
-  GameOverText: {fileID: 977931706}
-  LowHealthWarningText: {fileID: 977931711}
-  DrawCardErrorText: {fileID: 977931698}
-  CardSlot1ErrorText: {fileID: 977931705}
-  CardSlot2ErrorText: {fileID: 977931703}
-  CardSlot3ErrorText: {fileID: 977931701}
-  CardSlot1Image: {fileID: 977931704}
-  CardSlot2Image: {fileID: 977931702}
-  CardSlot3Image: {fileID: 977931700}
-  DrawSlotImage: {fileID: 977931699}
-  DiscardSlotImage: {fileID: 977931696}
-  PlayerCurrentHP: 1
-  PlayerMaxHP: 20
-  PlayerCurrentMana: 0
-  PlayerCurrentEnergy: 0
-  PlayerCurrentMatter: 0
-  GameController: {fileID: 114025806}
-  Speed: 5
-  MaxMovementAttackTime: 0.5
-  MaxMovementReleaseTime: 0.2
 --- !u!61 &356759382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -545,6 +520,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6365d3ea6f6ab7c4198ddee33fb2ba9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &356759387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356759380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1dee22e4e5da4479ee34a33cf43ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthText: {fileID: 977931712}
+  DrawCooldownText: {fileID: 977931697}
+  ManaText: {fileID: 977931710}
+  EnergyText: {fileID: 977931709}
+  MatterText: {fileID: 977931708}
+  VictoryText: {fileID: 977931707}
+  GameOverText: {fileID: 977931706}
+  LowHealthWarningText: {fileID: 977931711}
+  DrawCardErrorText: {fileID: 977931698}
+  CardSlot1ErrorText: {fileID: 977931705}
+  CardSlot2ErrorText: {fileID: 977931703}
+  CardSlot3ErrorText: {fileID: 977931701}
+  CardSlot1Image: {fileID: 977931704}
+  CardSlot2Image: {fileID: 977931702}
+  CardSlot3Image: {fileID: 977931700}
+  DrawSlotImage: {fileID: 977931699}
+  DiscardSlotImage: {fileID: 977931696}
+  PlayerCurrentHP: 50
+  PlayerMaxHP: 100
+  PlayerCurrentMana: 50
+  PlayerCurrentEnergy: 50
+  PlayerCurrentMatter: 50
+  GameController: {fileID: 114025806}
+  Speed: 5
+  MaxMovementAttackTime: 1
+  MaxMovementReleaseTime: 0.1
 --- !u!1 &427159442
 GameObject:
   m_ObjectHideFlags: 0
