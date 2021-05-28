@@ -18,14 +18,15 @@ namespace DeckbuilderRTS
         private float ElapsedTime;
 
         // Fireball content.
-        //private Object FireballPrefab;
         private float SummonDistance = 1.5f;
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
-        private float FireballDamage = 2.0f;
 
+        // Boss projectiles issue more damage than swarmlings.
+        private float FireballDamage = 10.0f;
 
         [SerializeField] public Object FireballPrefab;
+
         // AttackRate denotes the time (in seconds) between each projectile.
         [SerializeField] public float AttackRate;
 

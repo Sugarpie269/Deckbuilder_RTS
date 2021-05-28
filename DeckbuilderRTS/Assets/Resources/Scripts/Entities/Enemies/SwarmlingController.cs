@@ -38,10 +38,11 @@ namespace DeckbuilderRTS
 
 
         // Fireball content.
-        //private Object FireballPrefab;
         private float SummonDistance = 1.5f;
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
+
+        // Swarmling projectiles issue fewer damage than Boss.
         private float FireballDamage = 2.0f;
 
 
