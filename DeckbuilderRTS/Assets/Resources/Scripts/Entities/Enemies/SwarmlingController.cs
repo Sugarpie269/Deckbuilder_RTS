@@ -144,7 +144,7 @@ namespace DeckbuilderRTS
             // Rotate the swarmling.
             this.UpdateRotation();
 
-            // Case 1: Swarmling is within determined range of player. Enable seeking mode.
+            // Swarmling is within determined range of player. Shoot projectiles.
             if (Distance < this.SeekingRange)
             {
                 // Shoot projectiles if needed.
@@ -218,22 +218,14 @@ namespace DeckbuilderRTS
 
         private void ShootProjectiles()
         {   
-            //var playerController = player.GetComponent<PlayerController>();
-            //var playerPos = player.transform.position;
             var playerPos = Target.position;
 
             // Shoot from swarmling towards player.
-            //var fireballDirection = new Vector2(transform.position.x - Target.position.x, transform.position.y - Target.position.y);
             var fireballDirection = new Vector2(Target.position.x - transform.position.x, Target.position.y - transform.position.y);
             fireballDirection.Normalize();
-            //fireballDirection = fireballDirection * 2;
-
-            //var fireballPos = new Vector3(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance, player.transform.position.z);
-            //var fireballPos = new Vector2(playerPos.x + 3, playerPos.y + 3);
-            
+         
             // Fireball begins from swarmling's position.
             var fireballPos = new Vector2(transform.position.x + fireballDirection.x * this.SummonDistance, transform.position.y + fireballDirection.y * this.SummonDistance);
-            //fireballPos = Target.position;
 
             var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
             newFireball.transform.position = fireballPos;
@@ -241,10 +233,6 @@ namespace DeckbuilderRTS
             var fireballController = newFireball.GetComponent<FireballController>();
             var fireballVelocity = new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y);
             fireballController.SetAttributes(this.FireballDamage, fireballVelocity);
-        
-
-            Debug.Log("Swarmling projectile " + transform.position + " creates " + fireballPos);
-            Debug.Log("Angle " + fireballDirection + " vs " + fireballVelocity);
         }
     }
 }
