@@ -16,6 +16,11 @@ namespace DeckbuilderRTS
         [SerializeField] public GameObject Miniboss2;
         [SerializeField] public GameObject Miniboss3;
 
+        [SerializeField] private GameObject Player;
+
+        public enum GameState { Menu, Playing, GameOver};
+        [SerializeField] private GameState CurrentState = GameState.Playing;
+
         private int GameDifficulty = 1;
         private float GameTimerMinutes = 0.0f;
         private float GameTimerSeconds = 0.0f;
@@ -27,8 +32,24 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         public void Start()
         {
-
         }
+
+        public GameState GetCurrentState()
+        {
+            return this.CurrentState;
+        }
+
+        public void SetGameOver()
+        {
+            this.CurrentState = GameState.GameOver;
+            if (this.Player != null)
+            {
+                var playerController = this.Player.GetComponent<PlayerController>();
+                playerController.SetGameOver();
+            }
+        }
+
+
 
         public void Update()
         {

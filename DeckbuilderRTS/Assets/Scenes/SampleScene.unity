@@ -163,6 +163,8 @@ MonoBehaviour:
   Miniboss1: {fileID: 1079815495}
   Miniboss2: {fileID: 333554758}
   Miniboss3: {fileID: 427159442}
+  Player: {fileID: 356759380}
+  CurrentState: 1
   SummonSwarmlingDelay: 10
   IncreaseDifficultyDelay: 60
 --- !u!4 &114025808

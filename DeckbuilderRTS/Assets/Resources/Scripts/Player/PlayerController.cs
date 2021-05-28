@@ -434,7 +434,8 @@ namespace DeckbuilderRTS
             {
                 Debug.Log("GAME OVER!");
                 this.GameOverText.SetActive(true);
-                this.IsGameOver = true;
+                var controller = this.GameController.GetComponent<GameController>();
+                controller.SetGameOver();
             }
         }
 
@@ -492,6 +493,11 @@ namespace DeckbuilderRTS
             }
             this.ModifyPlayerHealth(Mathf.FloorToInt(healing));
             Debug.Log("I healed " + healing.ToString() + " health!");
+        }
+
+        public void SetGameOver()
+        {
+            this.IsGameOver = true;
         }
 
         void Update()
