@@ -61,6 +61,7 @@ namespace DeckbuilderRTS
 
         private Sprite EmptyCardSlotImage;
         private Sprite FacedownCardImage;
+        private Sprite BlankCardTemplate;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
         private float PLAYER_ERROR_MESSAGE_DURATION = 1.5f;
@@ -109,6 +110,7 @@ namespace DeckbuilderRTS
             this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
             Texture2D tempFacedownCard = Resources.Load<Texture2D>("Sprites/FacedownCard");
             this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
+            Texture2D tempBlankCard = Resources.Load<Texture2D>("Sprites/card_base_1000x1500");
         }
 
         private Vector2 GetPlayerSpeed()
@@ -286,6 +288,31 @@ namespace DeckbuilderRTS
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
                 rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
             }
+        }
+
+        // UI FUNCTION: Renders the card on slot 1 based on what is currently in the slot. The card is modular and individual parts can be tweaked as needed. ~Liam
+        void RenderCardSlot1()
+        {
+            Sprite tempArt = this.PlayerInventory.GetCardSlot1Image();
+            /* 
+             * NOTE FOR TOMORROW: Implementing this is basically gonna require overhauling the entire way in which the UI displays cards. Here's the steps I'll need:
+             * 
+             * 1. Does the card slot have a card in it? If so, go to 2. Otherwise, render the blank card sprite by going to step A (will hopefully be some transparent outline of a card) and return.
+             * 
+             * 2. Load the blank card template sprite (empty image/card name/etc.) into the Canvas->Hand->Cards->CardX. The gameobject hierarchy in CardX should be 
+             *    identical to that of the Card_Fireball object.
+             * 
+             * 3. Load the cardArt sprite into the transparent portion of the template sprite. To do this, each Card script will need to have a [SerializeField] gameobject
+             *    for their corresponding card in the CardDisplayLibrary, and the GetImage() functions should be reworked to return the gameobject instead of a sprite. Then
+             *    this function can just call GetComponent<>() for the various image and text inputs.
+             *    
+             * 4. You'll need to use trial and error to determine where to place the TextMeshProUGUIs on the card such that they line up properly, for each slot on the screen.
+             * 
+             * A. Load the empty card slot image to the slot, and deactivate any related text in the slot.
+             * 
+             * There's probably more I'm forgetting, but that's all for now. This will have to be done manually for each of the card slots. Painstaking but worth it in the end.
+             * NOTE: This process will probably also need to be used for the "Hold ALT to examine" feature, when rendering the card in the center of the screen.
+            */
         }
 
         // UI FUNCTION: Updates the card image on slot 1 based on what is currently in the slot. ~Liam
