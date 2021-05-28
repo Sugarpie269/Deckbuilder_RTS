@@ -297,6 +297,8 @@ namespace DeckbuilderRTS
             /* 
              * NOTE FOR TOMORROW: Implementing this is basically gonna require overhauling the entire way in which the UI displays cards. Here's the steps I'll need:
              * 
+             * 0. Re-implement the CardDisplayLibrary object in the Canvas (or just in the game, that's probably fine too. It'll store each card with the hierarchy of the Card_Fireball in the zPrefab scene.
+             * 
              * 1. Does the card slot have a card in it? If so, go to 2. Otherwise, render the blank card sprite by going to step A (will hopefully be some transparent outline of a card) and return.
              * 
              * 2. Load the blank card template sprite (empty image/card name/etc.) into the Canvas->Hand->Cards->CardX. The gameobject hierarchy in CardX should be 
