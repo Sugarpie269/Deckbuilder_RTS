@@ -1852,6 +1852,11 @@ PrefabInstance:
       propertyPath: m_text
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224565055471561802, guid: 6324150ecd3f3e94595b8e5a06b4d1e5,
+        type: 3}
+      propertyPath: m_text
+      value: The most interesting and original spell any person has ever conceived.
+      objectReference: {fileID: 0}
     - target: {fileID: 1971700672764111299, guid: 6324150ecd3f3e94595b8e5a06b4d1e5,
         type: 3}
       propertyPath: m_text
