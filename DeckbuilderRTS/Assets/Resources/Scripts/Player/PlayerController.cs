@@ -294,8 +294,12 @@ namespace DeckbuilderRTS
                 Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
                 // Jackson's ADSR code handles the speed modifiers.~Jackson
-                this.HorizontalADSR.Update(movement.x, Time.fixedDeltaTime);
-                this.VerticalADSR.Update(movement.y, Time.fixedDeltaTime);
+                this.HorizontalADSR.Update(movement.x, Time.fixedDeltaTime, this.VerticalADSR.IsSustaining());
+                /*if (this.HorizontalADSR.IsSustaining() == false)
+                {
+                    Debug.Log("this ran " + Time.deltaTime.ToString());
+                }*/
+                this.VerticalADSR.Update(movement.y, Time.fixedDeltaTime, this.HorizontalADSR.IsSustaining());
                 
 
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();

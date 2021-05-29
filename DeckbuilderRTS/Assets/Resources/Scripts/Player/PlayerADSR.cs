@@ -51,8 +51,17 @@ namespace DeckbuilderRTS
             return 0.0f;
         }
 
-        public void Update(float input, float time)
+        public bool IsSustaining()
         {
+            return this.CurrentMovementMode == MovementADSR.Sustain;
+        }
+
+        public void Update(float input, float time, bool otherSustaining)
+        {
+            /*if (otherSustaining && input != 0.0f)
+            {
+                this.CurrentMovementMode = MovementADSR.Sustain;
+            }*/
             if (this.CurrentMovementMode == MovementADSR.None)
             {
                 if (input != 0.0f)
@@ -66,6 +75,10 @@ namespace DeckbuilderRTS
                 if (input != 0.0f)
                 {
                     this.CurrentMovementAttackTime += time;
+                    if (otherSustaining)
+                    {
+                        this.CurrentMovementAttackTime += time;
+                    }
                     this.SetDirection(input);
                     if (this.CurrentMovementAttackTime >= this.MaxMovementAttackTime)
                     {
@@ -77,7 +90,7 @@ namespace DeckbuilderRTS
                 else
                 {
                     this.CurrentMovementAttackTime = 0.0f;
-                    this.CurrentMovementMode = MovementADSR.None;
+                    this.CurrentMovementMode = MovementADSR.Sustain;
                 }
             }
             else if (this.CurrentMovementMode == MovementADSR.Sustain)

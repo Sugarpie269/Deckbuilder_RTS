@@ -158,8 +158,8 @@ MonoBehaviour:
     type: 3}
   SwarmlingPrefab: {fileID: 4370800884632310675, guid: 618d598958c16714aa91519d4c4834e3,
     type: 3}
-  SummonSwarmlings: 1
-  IncreaseDifficulty: 1
+  SummonSwarmlings: 0
+  IncreaseDifficulty: 0
   Miniboss1: {fileID: 1079815495}
   Miniboss2: {fileID: 333554758}
   Miniboss3: {fileID: 427159442}
@@ -535,7 +535,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3f60d140a85f5994ab32a8c5925c447e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -657,7 +657,7 @@ MonoBehaviour:
   GameController: {fileID: 114025806}
   Speed: 5
   MaxMovementAttackTime: 1
-  MaxMovementReleaseTime: 0.1
+  MaxMovementReleaseTime: 0.5
 --- !u!1 &427159442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,7 +2024,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 1
     ShowGridGraphSettigs: 0
-    ScaleLvl: 16
+    ScaleLvl: 1
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
