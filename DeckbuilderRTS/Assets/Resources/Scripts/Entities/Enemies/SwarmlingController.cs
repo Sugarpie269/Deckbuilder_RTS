@@ -58,6 +58,12 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         void Start()
         {
+            var depots = GameObject.FindGameObjectsWithTag("Depot");
+            this.DefaultPositions = new Vector2[depots.Length];
+            for (var i = 0; i < depots.Length; i++)
+            {
+                this.DefaultPositions[i] = new Vector2(depots[i].transform.position.x, depots[i].transform.position.y);
+            }
             // this.CurrentCommand = ScriptableObject.CreateInstance<???>();
             this.CurrentHealth = this.MaxHealth;
 
@@ -68,10 +74,10 @@ namespace DeckbuilderRTS
             float step = this.Speed * Time.deltaTime;
 
             // Set Default values for swarmling movement from SerializeField Values.
-            DefaultPositions = new Vector2[2];
+            /*DefaultPositions = new Vector2[2];
             DefaultPositions[0] = DefaultPosition0;  //new Vector2(9.0f, 2.5f);
-            DefaultPositions[1] = DefaultPosition1;  //new Vector2(1.5f, 9.5f);
-            DefaultIdx = 0;
+            DefaultPositions[1] = DefaultPosition1;*/  //new Vector2(1.5f, 9.5f);
+            DefaultIdx = this.GetRandomPositionID();
 
             // Default path: move towards Default 0.
             this.Destination = DefaultPositions[DefaultIdx];
@@ -105,6 +111,11 @@ namespace DeckbuilderRTS
         public void ClearTarget()
         {
             this.Target = this.PlayerTarget;
+        }
+
+        private int GetRandomPositionID()
+        {
+            return Random.Range(0, this.DefaultPositions.Length);
         }
 
         void Update()
@@ -144,13 +155,21 @@ namespace DeckbuilderRTS
                 // Case 1: Returning to pathfinding from Seeking stage.
                 if (this.DefaultIdx == -1) 
                 {
-                    this.DefaultIdx = 0;
+                    this.DefaultIdx = this.GetRandomPositionID();//0;
+                    this.Destination = DefaultPositions[this.DefaultIdx];
+                    path = Pathfinder.FindPath(transform.position, this.Destination, Config);
+                    this.destPoint = 0;
+                }
+                // Case 2: Reached end point of Default position. Swap to another Default.
+                else if (this.destPoint == path.Length - 1)
+                {
+                    this.DefaultIdx = this.GetRandomPositionID();
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
                 }
                 // Case 2: Reached end point of Default 0. Swap to Default 1.
-                else if (this.DefaultIdx == 0 && this.destPoint == path.Length - 1) 
+                /*else if (this.DefaultIdx == 0 && this.destPoint == path.Length - 1) 
                 {
                     this.DefaultIdx = 1;
                     this.Destination = DefaultPositions[this.DefaultIdx];
@@ -164,7 +183,7 @@ namespace DeckbuilderRTS
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
-                }
+                }*/
             }
 
             // Move the swarmling.
@@ -213,6 +232,11 @@ namespace DeckbuilderRTS
         private void UpdateRotation()
         {
             var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
+            if (this.DefaultIdx != -1)
+            {
+                dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
+            }
+            
             
 
             var multiplier = 0f;

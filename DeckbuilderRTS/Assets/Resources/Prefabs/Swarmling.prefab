@@ -151,7 +151,7 @@ MonoBehaviour:
   DefaultPosition0: {x: -12.5, y: 2.5}
   DefaultPosition1: {x: 15.5, y: 5.5}
   Speed: 1.5
-  SeekingRange: 8
+  SeekingRange: 3
   AttackPrefab: {fileID: 330330278010826320, guid: bcb881c3db2a65842b306bc4161c5c6f,
     type: 3}
   AttackRate: 2

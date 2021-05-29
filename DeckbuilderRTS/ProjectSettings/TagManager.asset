@@ -10,6 +10,7 @@ TagManager:
   - Swarmling
   - Worker
   - Obstacle
+  - Depot
   layers:
   - Default
   - TransparentFX

@@ -42,7 +42,6 @@ namespace DeckbuilderRTS
         public void TakeDamage(float damage)
         {
             this.CurrentHealth -= Mathf.FloorToInt(damage);
-            Debug.Log("worker took " + damage.ToString());
             if (this.CurrentHealth <= 0f)
             {
                 GameObject.Destroy(this.gameObject);
