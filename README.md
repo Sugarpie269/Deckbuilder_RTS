@@ -8,3 +8,4 @@ Citations:
 
 - https://answers.unity.com/questions/686915/how-do-i-get-some-objects-to-ignore-collision-with.html Was used to learn how to ignore collisions
 
+- https://docs.google.com/document/d/19EHWHNtg6IVCvH8amks_r92F4WkGCKlTTMcD0CvYYrQ/edit# was used for figuring out the SAP 2D asset
