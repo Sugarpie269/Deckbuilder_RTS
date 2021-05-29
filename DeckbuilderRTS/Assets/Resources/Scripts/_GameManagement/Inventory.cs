@@ -306,55 +306,59 @@ namespace DeckbuilderRTS
         }
 
         // Getter functions for the sprites corresponding to the cards in the 3 slots (and the discard pile). ~Liam
-        public Sprite GetCardSlot1Image()
+        public bool GetCardSlot1Info(ref CardInfo cInfo)
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
             if (this.CardSlot1 != null)
             {
-                return this.CardSlot1.GetCardImage();
+                cInfo = this.CardSlot1.GetCardInfo();
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 
-        public Sprite GetCardSlot2Image()
+        public bool GetCardSlot2Info(ref CardInfo cInfo)
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
             if (this.CardSlot2 != null)
             {
-                return this.CardSlot2.GetCardImage();
+                cInfo = this.CardSlot2.GetCardInfo();
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 
-        public Sprite GetCardSlot3Image()
+        public bool GetCardSlot3Info(ref CardInfo cInfo)
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the card's associated sprite. ~Liam
             if (this.CardSlot3 != null)
             {
-                return this.CardSlot3.GetCardImage();
+                cInfo = this.CardSlot3.GetCardInfo();
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 
-        public Sprite GetDiscardSlotImage()
+        public bool GetDiscardSlotImageInfo(ref CardInfo cInfo)
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the last card in the pile's associated sprite. ~Liam
             if (this.Discard.Count != 0)
             {
-                return this.Discard[Discard.Count - 1].GetCardImage();
+                cInfo = this.Discard[Discard.Count - 1].GetCardInfo();
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 

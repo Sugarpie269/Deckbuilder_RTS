@@ -19,6 +19,8 @@ namespace DeckbuilderRTS
         public TextMeshProUGUI MatterText;
         public GameObject VictoryText;
         public GameObject GameOverText;
+        public GameObject GameOverTipText;
+        public int NumTips;
         public GameObject LowHealthWarningText;
         public GameObject DrawCardErrorText;
         public GameObject CardSlot1ErrorText;
@@ -97,6 +99,11 @@ namespace DeckbuilderRTS
             this.VictoryText.SetActive(false);
             this.LowHealthWarningText.SetActive(false);
             this.GameOverText.SetActive(false);
+            // Set the randomized game over tip text. ~Liam
+            System.Random r = new System.Random();
+            int textIndex = r.Next(0, this.NumTips - 1);
+            this.GameOverTipText.GetComponent<TextMeshProUGUI>().text = GameObject.Find("DeathProtipLibrary").transform.GetChild(textIndex).gameObject.GetComponent<Text>().text;
+            this.GameOverTipText.SetActive(false);
             this.DrawCardErrorText.SetActive(false);
             this.CardSlot1ErrorText.SetActive(false);
             this.CardSlot2ErrorText.SetActive(false);
@@ -106,11 +113,16 @@ namespace DeckbuilderRTS
             this.SetManaText();
             this.SetEnergyText();
             this.SetMatterText();
+
+            
+            
+
             Texture2D tempEmptyCardSlot = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
             this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
             Texture2D tempFacedownCard = Resources.Load<Texture2D>("Sprites/FacedownCard");
             this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
             Texture2D tempBlankCard = Resources.Load<Texture2D>("Sprites/card_base_1000x1500");
+            this.BlankCardTemplate = Sprite.Create(tempBlankCard, new Rect(0f, 0f, tempBlankCard.width, tempBlankCard.height), new Vector2(tempBlankCard.width / 2, tempBlankCard.height / 2));
         }
 
         private Vector2 GetPlayerSpeed()
@@ -294,7 +306,6 @@ namespace DeckbuilderRTS
         // UI FUNCTION: Renders the card on slot 1 based on what is currently in the slot. The card is modular and individual parts can be tweaked as needed. ~Liam
         void RenderCardSlot1()
         {
-            Sprite tempArt = this.PlayerInventory.GetCardSlot1Image();
             /* 
              * NOTE FOR TOMORROW: Implementing this is basically gonna require overhauling the entire way in which the UI displays cards. Here's the steps I'll need:
              * 
@@ -321,45 +332,63 @@ namespace DeckbuilderRTS
         // UI FUNCTION: Updates the card image on slot 1 based on what is currently in the slot. ~Liam
         void SetCardSlot1Image()
         {
-            // Get the image corresponding to the card in slot 1. If it is null, render the empty slot image instead. ~Liam
-            Sprite tempImage = this.PlayerInventory.GetCardSlot1Image();
-            if (tempImage)
+            // Get the CardInfo corresponding to the card in slot 1. If it is null, render the empty slot image instead. ~Liam
+            CardInfo tempCInfo = new CardInfo();
+            if (this.PlayerInventory.GetCardSlot1Info(ref tempCInfo))
             {
-                this.CardSlot1Image.GetComponent<Image>().overrideSprite = tempImage;
+                // Render the various aspects of the card to the proper slot. ~Liam
+                this.CardSlot1Image.transform.GetChild(0).GetChild(1).GetComponent<Image>().overrideSprite = tempCInfo.CardArt;
+                this.CardSlot1Image.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardName;
+                this.CardSlot1Image.transform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardLevel.ToString();
+
+                // Set the card image to active. ~Liam
+                this.CardSlot1Image.transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
-                this.CardSlot1Image.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
+                this.CardSlot1Image.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
 
-        // UI FUNCTION: Updates the card image on slot 2 based on what is currently in the slot. ~Liam
+        // UI FUNCTION: Updates the card image on slot 1 based on what is currently in the slot. ~Liam
         void SetCardSlot2Image()
         {
-            // Get the image corresponding to the card in slot 2. If it is null, render the empty slot image instead. ~Liam
-            Sprite tempImage = this.PlayerInventory.GetCardSlot2Image();
-            if (tempImage)
+            // Get the CardInfo corresponding to the card in slot 1. If it is null, render the empty slot image instead. ~Liam
+            CardInfo tempCInfo = new CardInfo();
+            if (this.PlayerInventory.GetCardSlot2Info(ref tempCInfo))
             {
-                this.CardSlot2Image.GetComponent<Image>().overrideSprite = tempImage;
+                // Render the various aspects of the card to the proper slot. ~Liam
+                this.CardSlot2Image.transform.GetChild(0).GetChild(1).GetComponent<Image>().overrideSprite = tempCInfo.CardArt;
+                this.CardSlot2Image.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardName;
+                this.CardSlot2Image.transform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardLevel.ToString();
+
+                // Set the card image to active. ~Liam
+                this.CardSlot2Image.transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
-                this.CardSlot2Image.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
+                this.CardSlot2Image.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
 
-        // UI FUNCTION: Updates the card image on slot 3 based on what is currently in the slot. ~Liam
+        // UI FUNCTION: Updates the card image on slot 1 based on what is currently in the slot. ~Liam
         void SetCardSlot3Image()
         {
-            // Get the image corresponding to the card in slot 3. If it is null, render the empty slot image instead. ~Liam
-            Sprite tempImage = this.PlayerInventory.GetCardSlot3Image();
-            if (tempImage)
+            // Get the CardInfo corresponding to the card in slot 1. If it is null, render the empty slot image instead. ~Liam
+            CardInfo tempCInfo = new CardInfo();
+            if (this.PlayerInventory.GetCardSlot3Info(ref tempCInfo))
             {
-                this.CardSlot3Image.GetComponent<Image>().overrideSprite = tempImage;
+                // Render the various aspects of the card to the proper slot. ~Liam
+                this.CardSlot3Image.transform.GetChild(0).GetChild(1).GetComponent<Image>().overrideSprite = tempCInfo.CardArt;
+                this.CardSlot3Image.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardName;
+                this.CardSlot3Image.transform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardLevel.ToString();
+
+                // Set the card image to active. ~Liam
+                this.CardSlot3Image.transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
-                this.CardSlot3Image.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
+                this.CardSlot3Image.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
 
@@ -367,13 +396,22 @@ namespace DeckbuilderRTS
         void SetDiscardSlotImage()
         {
             // Check if the discard pile has cards, or is empty, and set the image accordingly. ~Liam
+            CardInfo tempCInfo = new CardInfo();
             if (this.PlayerInventory.IsDiscardEmpty())
             {
-                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = this.EmptyCardSlotImage;
+                this.DiscardSlotImage.transform.GetChild(0).gameObject.SetActive(false);
             }
             else
             {
-                this.DiscardSlotImage.GetComponent<Image>().overrideSprite = this.PlayerInventory.GetDiscardSlotImage();
+                bool temp = this.PlayerInventory.GetDiscardSlotImageInfo(ref tempCInfo);
+
+                // Render the various aspects of the card to the proper slot. ~Liam
+                this.DiscardSlotImage.transform.GetChild(0).GetChild(1).GetComponent<Image>().overrideSprite = tempCInfo.CardArt;
+                this.DiscardSlotImage.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardName;
+                this.DiscardSlotImage.transform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = tempCInfo.CardLevel.ToString();
+
+                // Set the card image on the discard pile to active. ~Liam
+                this.DiscardSlotImage.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
 
@@ -434,6 +472,7 @@ namespace DeckbuilderRTS
             {
                 Debug.Log("GAME OVER!");
                 this.GameOverText.SetActive(true);
+                this.GameOverTipText.SetActive(true);
                 var controller = this.GameController.GetComponent<GameController>();
                 controller.SetGameOver();
             }
@@ -524,6 +563,17 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardFireball());
                 this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
                 this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
+
+                this.SetCardSlot1Image();
+                this.PlayerInventory.SetCardSlot1Updated(false);
+                this.SetCardSlot2Image();
+                this.PlayerInventory.SetCardSlot2Updated(false);
+                this.SetCardSlot3Image();
+                this.PlayerInventory.SetCardSlot3Updated(false);
+                this.SetDrawSlotImage();
+                this.PlayerInventory.SetDrawSlotUpdated(false);
+                this.SetDiscardSlotImage();
+                this.PlayerInventory.SetDiscardSlotUpdated(false);
 
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
