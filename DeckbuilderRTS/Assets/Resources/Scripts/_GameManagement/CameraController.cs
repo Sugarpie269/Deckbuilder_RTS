@@ -7,13 +7,13 @@ namespace DeckbuilderRTS
     // PositionLockLerp CameraController Implementation.
     public class CameraController : AbstractCameraController
     {
-        [SerializeField] public float LerpDuration;
+        //[SerializeField] public float LerpDuration;
         private Camera ManagedCamera;
         private LineRenderer CameraLineRenderer;
-        private float timecounter;
-        private Vector3 PreviousPosition;
-        private float ElapsedTime = 0.0f;
-        [SerializeField] private float ComparisonDistance = .0005f;
+        //private float timecounter;
+        //private Vector3 PreviousPosition;
+        //private float ElapsedTime = 0.0f;
+        //[SerializeField] private float ComparisonDistance = .0005f;
         [SerializeField] private float DisplacementFraction = .75f;
         [SerializeField] private float MaxDistance = 5f;
 
@@ -25,7 +25,7 @@ namespace DeckbuilderRTS
         {
             this.ManagedCamera = this.gameObject.GetComponent<Camera>();
             this.CameraLineRenderer = this.gameObject.GetComponent<LineRenderer>();
-            this.PreviousPosition = this.ManagedCamera.transform.position;
+            //this.PreviousPosition = this.ManagedCamera.transform.position;
 
             //this.ManagedCamera.transform.position = new Vector3(0, 0, this.ManagedCamera.transform.position.z);
         }
