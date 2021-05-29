@@ -13,6 +13,7 @@ namespace DeckbuilderRTS
         [SerializeField] private int MaxHealth = 50; // 10;
 
         private Transform Target;
+        private Transform PlayerTarget;
 
         private Vector2 Destination;
 
@@ -61,7 +62,8 @@ namespace DeckbuilderRTS
             this.CurrentHealth = this.MaxHealth;
 
             // Get the player's posiiton.
-            Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            this.PlayerTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            this.Target = this.PlayerTarget;
 
             float step = this.Speed * Time.deltaTime;
 
@@ -95,12 +97,27 @@ namespace DeckbuilderRTS
             this.Disabled = true;
         }
 
+        public void SetTarget(Transform newTarget)
+        {
+            this.Target = newTarget;
+        }
+
+        public void ClearTarget()
+        {
+            this.Target = this.PlayerTarget;
+        }
+
         void Update()
         {           
             if (this.Disabled)
             {
                 return;
             }
+            if (this.Target == null)
+            {
+                this.Target = this.PlayerTarget;
+            }
+
             // Get the path to the target.
             float Distance = Vector2.Distance(transform.position, Target.position);
 

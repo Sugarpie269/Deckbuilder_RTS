@@ -40,6 +40,11 @@ namespace DeckbuilderRTS
                 collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
+            else if (collision.collider.tag == "Worker")
+            {
+                collision.collider.GetComponent<WorkerController>().TakeDamage(this.Damage);
+                GameObject.Destroy(this.gameObject);
+            }
             else if (collision.collider.tag == "Obstacle")
             {
                 GameObject.Destroy(this.gameObject);

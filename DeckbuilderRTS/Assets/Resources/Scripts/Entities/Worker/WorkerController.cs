@@ -9,6 +9,8 @@ namespace DeckbuilderRTS
         private IUnitCommand CurrentCommand;
         [SerializeField] private GameObject Player;
         private PlayerController PlayerController;
+        [SerializeField] private int MaxHealth = 10;
+        private int CurrentHealth;
 
         private enum WorkingMode{BasicMatter, Matter, Energy, Mana};
 
@@ -22,6 +24,7 @@ namespace DeckbuilderRTS
                 this.PlayerController = this.Player.GetComponent<PlayerController>();
             }
             this.CurrentCommand = new WorkBasicMatterCommand();
+            this.CurrentHealth = this.MaxHealth;
             
         }
 
@@ -34,6 +37,16 @@ namespace DeckbuilderRTS
                 this.CurrentCommand.Execute(this.gameObject);
             }
             
+        }
+
+        public void TakeDamage(float damage)
+        {
+            this.CurrentHealth -= Mathf.FloorToInt(damage);
+            Debug.Log("worker took " + damage.ToString());
+            if (this.CurrentHealth <= 0f)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
         }
 
         public bool IsWorkingBasicMatter()

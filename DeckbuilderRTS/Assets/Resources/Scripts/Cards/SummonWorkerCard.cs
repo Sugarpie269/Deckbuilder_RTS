@@ -43,12 +43,9 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            var newWorker = Object.Instantiate(this.WorkerPrefab) as GameObject;
-            newWorker.transform.position = player.transform.position;
-            var workerController = newWorker.GetComponent<WorkerController>();
-            workerController.SetPlayer(player);
-            // Old code: new Vector3(player.transform.position.x + this.SummonDistance, player.transform.position.y, player.transform.position.z);
-
+            var gameMaster = GameObject.Find("GameController");
+            var gameController = gameMaster.GetComponent<GameController>();
+            gameController.SummonNewWorker(player);
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.

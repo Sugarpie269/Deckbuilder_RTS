@@ -31,16 +31,29 @@ namespace DeckbuilderRTS
         private float CurrentSummonSwarmlingDelay = 0.0f;
 
         private Collection<SwarmlingController> Swarmlings;
+        private Collection<GameObject> Workers;
+        
+        [SerializeField] private float WorkerNoise = 5f;
 
         // The start function will initialize our member variables.
         public void Start()
         {
             this.Swarmlings = new Collection<SwarmlingController>();
+            this.Workers = new Collection<GameObject>();
         }
 
         public GameState GetCurrentState()
         {
             return this.CurrentState;
+        }
+
+        public void SummonNewWorker(GameObject player)
+        {
+            var newWorker = Object.Instantiate(this.WorkerPrefab) as GameObject;
+            newWorker.transform.position = player.transform.position;
+            var workerController = newWorker.GetComponent<WorkerController>();
+            workerController.SetPlayer(player);
+            this.Workers.Add(newWorker);
         }
 
         public void SetGameOver()
@@ -59,7 +72,29 @@ namespace DeckbuilderRTS
             bossController.SetDisabled();
         }
 
-
+        private void SendWorkerAlerts()
+        {
+            var foundNull = false;
+            foreach (var worker in this.Workers)
+            {
+                if (worker == null)
+                {
+                    foundNull = true;
+                    continue;
+                }
+                foreach (var swarmlingController in this.Swarmlings)
+                {
+                    if (Vector3.Distance(swarmlingController.gameObject.transform.position, worker.transform.position) <= this.WorkerNoise)
+                    {
+                        swarmlingController.SetTarget(worker.transform);
+                    }
+                }
+            }
+            if (foundNull)
+            {
+                this.Workers.Remove(null);
+            }
+        }
 
         public void Update()
         {
@@ -97,6 +132,8 @@ namespace DeckbuilderRTS
                     this.SummonNewSwarmling();
                 }
             }
+
+            this.SendWorkerAlerts();
         }
 
         private GameObject GetRandomMiniboss()
