@@ -76,6 +76,11 @@ namespace DeckbuilderRTS
 
         private bool LoadedResources = false;
 
+        public float GetCurrentSpeed()
+        {
+            var speedLen = this.GetPlayerSpeed().magnitude;
+            return speedLen;
+        }
 
         // NOTE: All methods are listed in alphabetical order with the exception of Start().
 

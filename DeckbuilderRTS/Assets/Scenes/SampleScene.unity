@@ -784,6 +784,9 @@ MonoBehaviour:
   DrawLogic: 0
   Target: {fileID: 356759380}
   LerpDuration: 0.25
+  ComparisonDistance: 0.000005
+  DisplacementFraction: 0.75
+  MaxDistance: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

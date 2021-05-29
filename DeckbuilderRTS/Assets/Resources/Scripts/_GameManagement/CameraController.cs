@@ -13,6 +13,9 @@ namespace DeckbuilderRTS
         private float timecounter;
         private Vector3 PreviousPosition;
         private float ElapsedTime = 0.0f;
+        [SerializeField] private float ComparisonDistance = .0005f;
+        [SerializeField] private float DisplacementFraction = .75f;
+        [SerializeField] private float MaxDistance = 5f;
 
         // NOTE: Assuming hardcoded values for Z-position and cross size.
         float ZVal = 85f;
@@ -27,24 +30,61 @@ namespace DeckbuilderRTS
             //this.ManagedCamera.transform.position = new Vector3(0, 0, this.ManagedCamera.transform.position.z);
         }
 
+        private float GetDistanceBetween(Vector3 pos1, Vector3 pos2)
+        {
+            var x = Mathf.Abs(pos1.x - pos2.x);
+            var y = Mathf.Abs(pos1.y - pos2.y);
+            return Mathf.Sqrt(x * x + y * y);
+        }
+
         //Use the LateUpdate message to avoid setting the camera's position before
         //GameObject locations are finalized.
         void LateUpdate()
         {
 
-            this.ManagedCamera.transform.position = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
+            //this.ManagedCamera.transform.position = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
             //return;
-            /*var targetPosition = this.Target.transform.position;
+
+            var targetPosition = this.Target.transform.position;
+            this.ManagedCamera.transform.position = new Vector3(targetPosition.x, targetPosition.y, this.ManagedCamera.transform.position.z);
             var cameraPosition = this.ManagedCamera.transform.position;
 
-            this.ElapsedTime += Time.deltaTime;
+            var playerController = this.Target.GetComponent<PlayerController>();
+            Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos = (Vector2)((worldMousePos - this.Target.transform.position));
+            //var displacement = new Vector2(mousePos.x - targetPosition.x, mousePos.y - targetPosition.y);
+            var displacedFrac = mousePos * this.DisplacementFraction;
+            var displacedFracDir = new Vector2(displacedFrac.x, displacedFrac.y);
+            displacedFracDir.Normalize();
+            if (displacedFrac.magnitude >= this.MaxDistance)
+            {
+                displacedFrac.Normalize();
+                displacedFrac = displacedFrac * this.MaxDistance;
+            }
+            var newPos = new Vector3(targetPosition.x + displacedFrac.x, targetPosition.y + displacedFrac.y, cameraPosition.z);
+
+
+            
+            this.ManagedCamera.transform.position = newPos;
+            return;
+            
+
+            /*this.ElapsedTime += Time.deltaTime;
 
             var lerpRatio = this.ElapsedTime / this.LerpDuration;
 
-            if (targetPosition != this.PreviousPosition)
+            
+            
+            //Debug.Log("Distance: " + this.GetDistanceBetween(targetPosition, this.PreviousPosition).ToString());
+            if (this.GetDistanceBetween(targetPosition, this.PreviousPosition) >= this.ComparisonDistance)//targetPosition != this.PreviousPosition)
             {
+                Debug.Log("hi " + Time.deltaTime.ToString());
                 this.ElapsedTime = 0.0f;
                 this.PreviousPosition = targetPosition;
+            }
+            else
+            {
+                Debug.Log("not hi");
             }
 
             Vector3 newposition = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z);
