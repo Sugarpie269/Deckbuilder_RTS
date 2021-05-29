@@ -30,8 +30,14 @@ namespace DeckbuilderRTS
         // AttackRate denotes the time (in seconds) between each projectile.
         [SerializeField] public float AttackRate;
 
+        private bool Disabled = false;
 
         private bool IsGameOver = false;
+
+        public void SetDisabled()
+        {
+            this.Disabled = true;
+        }
         
         private void Start()
         {
@@ -44,6 +50,10 @@ namespace DeckbuilderRTS
 
         private void Update()
         {
+            if (this.Disabled)
+            {
+                return;
+            }
             if (!this.LoadedData)
             {
                 //this.EnemyPlayerController = this.EnemyPlayer.GetComponent<PlayerController>();

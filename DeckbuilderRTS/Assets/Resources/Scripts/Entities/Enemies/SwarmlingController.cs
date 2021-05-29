@@ -35,6 +35,7 @@ namespace DeckbuilderRTS
         public float Speed;
         [SerializeField]
         public float SeekingRange;
+        private bool Disabled = false;
 
 
         // Fireball content.
@@ -89,9 +90,17 @@ namespace DeckbuilderRTS
             Pathfinder = SAP2DPathfinder.singleton;
         }
 
+        public void SetDisabled()
+        {
+            this.Disabled = true;
+        }
+
         void Update()
         {           
-            
+            if (this.Disabled)
+            {
+                return;
+            }
             // Get the path to the target.
             float Distance = Vector2.Distance(transform.position, Target.position);
 

@@ -15,6 +15,7 @@ namespace DeckbuilderRTS
         [SerializeField] public GameObject Miniboss1;
         [SerializeField] public GameObject Miniboss2;
         [SerializeField] public GameObject Miniboss3;
+        [SerializeField] public GameObject Boss;
 
         [SerializeField] private GameObject Player;
 
@@ -29,9 +30,12 @@ namespace DeckbuilderRTS
         private float CurrentIncreaseDifficultyDelay = 0.0f;
         private float CurrentSummonSwarmlingDelay = 0.0f;
 
+        private Collection<SwarmlingController> Swarmlings;
+
         // The start function will initialize our member variables.
         public void Start()
         {
+            this.Swarmlings = new Collection<SwarmlingController>();
         }
 
         public GameState GetCurrentState()
@@ -47,6 +51,12 @@ namespace DeckbuilderRTS
                 var playerController = this.Player.GetComponent<PlayerController>();
                 playerController.SetGameOver();
             }
+            foreach (var controller in this.Swarmlings)
+            {
+                controller.SetDisabled();
+            }
+            var bossController = this.Boss.GetComponent<BossController>();
+            bossController.SetDisabled();
         }
 
 
@@ -110,6 +120,7 @@ namespace DeckbuilderRTS
             newSwarmling.transform.position = summonLoc;
             var swarmlingController = newSwarmling.GetComponent<SwarmlingController>();
             swarmlingController.AddMaxHealth(this.GameDifficulty - 1);
+            this.Swarmlings.Add(swarmlingController);
         }
 
         public ICard GenerateCardFireball()
