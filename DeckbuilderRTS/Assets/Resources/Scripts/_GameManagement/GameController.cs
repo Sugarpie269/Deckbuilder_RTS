@@ -63,6 +63,10 @@ namespace DeckbuilderRTS
 
         public void Update()
         {
+            if (this.CurrentState == GameState.GameOver)
+            {
+                return;
+            }
             this.GameTimerSeconds += Time.deltaTime;
             this.CurrentSummonSwarmlingDelay += Time.deltaTime;
             this.CurrentIncreaseDifficultyDelay += Time.deltaTime;

@@ -40,14 +40,14 @@ namespace DeckbuilderRTS
 
         // Fireball content.
         private float SummonDistance = 1.5f;
-        private float FireballDirection;
-        private float FireballSpeed = 15.0f;
+        private float AttackDirection;
+        private float AttackSpeed = 15.0f;
 
         // Swarmling projectiles issue fewer damage than Boss.
-        private float FireballDamage = 2.0f;
+        private float AttackDamage = 2.0f;
 
 
-        [SerializeField] public Object FireballPrefab;
+        [SerializeField] public Object AttackPrefab;
         [SerializeField] public float AttackRate;
 
         private float ElapsedTime;
@@ -233,18 +233,18 @@ namespace DeckbuilderRTS
             var playerPos = Target.position;
 
             // Shoot from swarmling towards player.
-            var fireballDirection = new Vector2(Target.position.x - transform.position.x, Target.position.y - transform.position.y);
-            fireballDirection.Normalize();
+            var attackDirection = new Vector2(Target.position.x - transform.position.x, Target.position.y - transform.position.y);
+            attackDirection.Normalize();
          
             // Fireball begins from swarmling's position.
-            var fireballPos = new Vector2(transform.position.x + fireballDirection.x * this.SummonDistance, transform.position.y + fireballDirection.y * this.SummonDistance);
+            var attackPos = new Vector2(transform.position.x + attackDirection.x * this.SummonDistance, transform.position.y + attackDirection.y * this.SummonDistance);
 
-            var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
-            newFireball.transform.position = fireballPos;
-            GameObject.Destroy(newFireball, 5f);
-            var fireballController = newFireball.GetComponent<FireballController>();
-            var fireballVelocity = new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y);
-            fireballController.SetAttributes(this.FireballDamage, fireballVelocity);
+            var newAttack = Object.Instantiate(this.AttackPrefab) as GameObject;
+            newAttack.transform.position = attackPos;
+            GameObject.Destroy(newAttack, 5f);
+            var attackController = newAttack.GetComponent<SwarmlingBulletController>();
+            var attackVelocity = new Vector2(this.AttackSpeed * attackDirection.x, this.AttackSpeed * attackDirection.y);
+            attackController.SetAttributes(this.AttackDamage, attackVelocity);
         }
     }
 }

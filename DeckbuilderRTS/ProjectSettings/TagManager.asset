@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Swarmling
   - Worker
+  - Obstacle
   layers:
   - Default
   - TransparentFX

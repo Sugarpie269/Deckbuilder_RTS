@@ -5,12 +5,12 @@ using DeckbuilderRTS;
 
 namespace DeckbuilderRTS
 {
-    public class FireballController : MonoBehaviour
+    public class SwarmlingBulletController : MonoBehaviour
     {
         private float Damage;
         private Vector2 Velocity;
 
-        public FireballController()
+        public SwarmlingBulletController()
         {
             this.Damage = 10.0f;
             this.Velocity = new Vector2(10.0f, 0.0f);
@@ -35,16 +35,8 @@ namespace DeckbuilderRTS
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // If the fireball collides with a swarmling, the swarmling takes damage. Otherwise, the fireball is destroyed.
-            if (collision.collider.tag == "Swarmling")
+            if (collision.collider.tag == "Player")
             {
-                Debug.Log("Fireball hit a swarmling");
-                collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
-                GameObject.Destroy(this.gameObject);
-            }
-            else if (collision.collider.tag == "Player")
-            {
-                Debug.Log("Fireball hit Player");
                 collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
