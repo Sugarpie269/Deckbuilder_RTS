@@ -9,6 +9,7 @@ namespace DeckbuilderRTS
     public class GameController : MonoBehaviour
     {
         [SerializeField] public Object FireballPrefab;
+        [SerializeField] public Object LeafbladePrefab;
         [SerializeField] public Object WorkerPrefab;
         [SerializeField] public Object SwarmlingPrefab;
         [SerializeField] private bool SummonSwarmlings = true;
@@ -189,6 +190,11 @@ namespace DeckbuilderRTS
         public ICard GenerateCardSummonWorker(GameObject player = null)
         {
             return new SummonWorkerCard(this.WorkerPrefab);
+        }
+
+        public ICard GenerateCardLeafblade()
+        {
+            return new LeafbladeCard(this.LeafbladePrefab);
         }
 
         public CardInfo GetCardInfo(string cardName)

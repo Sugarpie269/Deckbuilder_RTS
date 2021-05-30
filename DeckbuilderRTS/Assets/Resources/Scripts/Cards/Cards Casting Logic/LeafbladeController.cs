@@ -5,12 +5,12 @@ using DeckbuilderRTS;
 
 namespace DeckbuilderRTS
 {
-    public class FireballController : MonoBehaviour
+    public class LeafbladeController : MonoBehaviour
     {
         private float Damage;
         private Vector2 Velocity;
 
-        public FireballController()
+        public LeafbladeController()
         {
             this.Damage = 10.0f;
             this.Velocity = new Vector2(10.0f, 0.0f);
@@ -38,21 +38,20 @@ namespace DeckbuilderRTS
             // If the fireball collides with a swarmling, the swarmling takes damage. Otherwise, the fireball is destroyed.
             if (collision.collider.tag == "Swarmling")
             {
-                Debug.Log("Fireball hit a swarmling");
                 collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
-                GameObject.Destroy(this.gameObject);
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+                //GameObject.Destroy(this.gameObject);
             }
             /*else if (collision.collider.tag == "Player")
             {
-                Debug.Log("Fireball hit Player");
-                //collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
+                collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }*/
             else if (collision.collider.tag == "Boss")
             {
-                Debug.Log("Fireball hit Boss");
                 collision.collider.GetComponent<BossController>().TakeDamage(this.Damage);
-                GameObject.Destroy(this.gameObject);
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+                //GameObject.Destroy(this.gameObject);
             }
             else if (collision.collider.tag == "Obstacle")
             {

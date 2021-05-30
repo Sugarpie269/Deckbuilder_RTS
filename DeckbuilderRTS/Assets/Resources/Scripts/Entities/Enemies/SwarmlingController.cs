@@ -232,7 +232,7 @@ namespace DeckbuilderRTS
         private void UpdateRotation()
         {
             var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
-            if (this.DefaultIdx != -1)
+            if (this.DefaultIdx != -1 && this.path.Length > 0)
             {
                 dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
             }

@@ -610,7 +610,7 @@ namespace DeckbuilderRTS
                 this.SetDiscardSlotImage();
                 this.PlayerInventory.SetDiscardSlotUpdated(false);
 
-                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardLeafblade());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
 
                 this.LoadedResources = true;
