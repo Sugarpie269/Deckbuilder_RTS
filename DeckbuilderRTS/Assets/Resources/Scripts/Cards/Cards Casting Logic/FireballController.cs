@@ -48,6 +48,12 @@ namespace DeckbuilderRTS
                 collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
+            else if (collision.collider.tag == "Boss")
+            {
+                Debug.Log("Fireball hit Boss");
+                collision.collider.GetComponent<BossController>().TakeDamage(this.Damage);
+                GameObject.Destroy(this.gameObject);
+            }
             else if (collision.collider.tag == "Obstacle")
             {
                 GameObject.Destroy(this.gameObject);

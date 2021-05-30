@@ -42,7 +42,8 @@ namespace DeckbuilderRTS {
             Debug.Log("New FireballCard!");
             this.FireballPrefab = prefab;
             // Instantiate each piece of information about the card. ~Liam
-            this.cardinfo.CardReference = GameObject.Find("Card_Fireball");
+            this.cardinfo = this.gameController.GetCardInfo("Card_Fireball");
+            /*this.cardinfo.CardReference = GameObject.Find("Card_Fireball");
             this.cardinfo.CardArt = this.cardinfo.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
             this.cardinfo.CardName = this.cardinfo.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
             this.cardinfo.CardType = this.cardinfo.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
@@ -54,7 +55,7 @@ namespace DeckbuilderRTS {
             this.cardinfo.CardStrength = int.Parse(this.cardinfo.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
             this.cardinfo.ManaCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
             this.cardinfo.EnergyCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);*/
         }
 
         void rtnSumWorkInfo() {
@@ -62,7 +63,8 @@ namespace DeckbuilderRTS {
             this.WorkerPrefab = prefab;
 
             // Instantiate each piece of information about the card. ~Liam
-            this.cardinfo.CardReference = GameObject.Find("Card_SummonWorker");
+            this.cardinfo = this.gameController.GetCardInfo("Card_SummonWorker");
+            /*this.cardinfo.CardReference = GameObject.Find("Card_SummonWorker");
             this.cardinfo.CardArt = this.cardinfo.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
             this.cardinfo.CardName = this.cardinfo.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
             this.cardinfo.CardType = this.cardinfo.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
@@ -74,12 +76,13 @@ namespace DeckbuilderRTS {
             this.cardinfo.CardStrength = int.Parse(this.cardinfo.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
             this.cardinfo.ManaCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
             this.cardinfo.EnergyCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);*/
         }
 
         void rtnInstHealInfo() {
             Debug.Log("New instant heal!");
-            this.cardinfo.CardReference = GameObject.Find("Card_InstantHeal");
+            this.cardinfo = this.gameController.GetCardInfo("Card_InstantHeal");
+            /*this.cardinfo.CardReference = GameObject.Find("Card_InstantHeal");
             this.cardinfo.CardArt = this.cardinfo.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
             this.cardinfo.CardName = this.cardinfo.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
             this.cardinfo.CardType = this.cardinfo.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
@@ -91,7 +94,7 @@ namespace DeckbuilderRTS {
             this.cardinfo.CardStrength = int.Parse(this.cardinfo.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
             this.cardinfo.ManaCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
             this.cardinfo.EnergyCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);*/
         }
         void getCardInfo() {
             switch (this.cardType) {

@@ -8,6 +8,7 @@ namespace DeckbuilderRTS
     {
         [SerializeField] private int CurrentHP;
         [SerializeField] private int MaxHP = 1000;
+        [SerializeField] private int DamageResistance = 10;
         [SerializeField] GameObject EnemyPlayer;
 
         [SerializeField] public float SeekingRange;
@@ -46,6 +47,16 @@ namespace DeckbuilderRTS
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
+        }
+
+        public void TakeDamage(float damage)
+        {
+            float newDamage = damage - this.DamageResistance > 0 ? damage - this.DamageResistance : 0f;
+            this.CurrentHP -= Mathf.FloorToInt(newDamage);
+            if (this.CurrentHP <= 0 && !this.Disabled)
+            {
+                this.SetDisabled();
+            }
         }
 
         private void Update()

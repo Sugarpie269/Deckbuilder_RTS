@@ -11,6 +11,7 @@ TagManager:
   - Worker
   - Obstacle
   - Depot
+  - Boss
   layers:
   - Default
   - TransparentFX

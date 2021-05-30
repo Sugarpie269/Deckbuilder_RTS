@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.ObjectModel;
 using DeckbuilderRTS;
-
+using UnityEngine.UI;
+using TMPro;
 
 namespace DeckbuilderRTS
 {
@@ -188,6 +189,25 @@ namespace DeckbuilderRTS
         public ICard GenerateCardSummonWorker(GameObject player = null)
         {
             return new SummonWorkerCard(this.WorkerPrefab);
+        }
+
+        public CardInfo GetCardInfo(string cardName)
+        {
+            var cardInfo = new CardInfo();
+            cardInfo.CardReference = GameObject.Find(cardName);
+            cardInfo.CardArt = cardInfo.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
+            cardInfo.CardName = cardInfo.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+            cardInfo.CardType = cardInfo.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
+            cardInfo.DescriptionHeader = cardInfo.CardReference.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+            cardInfo.DescriptionContent = cardInfo.CardReference.transform.GetChild(4).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
+            cardInfo.FlavorText = cardInfo.CardReference.transform.GetChild(4).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text;
+            cardInfo.CardLevel = int.Parse(cardInfo.CardReference.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().text);
+            cardInfo.CardPower = int.Parse(cardInfo.CardReference.transform.GetChild(6).gameObject.GetComponent<TextMeshProUGUI>().text);
+            cardInfo.CardStrength = int.Parse(cardInfo.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
+            cardInfo.ManaCost = int.Parse(cardInfo.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
+            cardInfo.EnergyCost = int.Parse(cardInfo.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
+            cardInfo.MatterCost = int.Parse(cardInfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+            return cardInfo;
         }
     }
 }
