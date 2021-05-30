@@ -16,4 +16,4 @@ Citations:
 
 - https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html https://answers.unity.com/questions/165269/how-do-i-receive-a-message.html for sending messages to game objects
 
-- 
+- https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html and https://www.studytonight.com/game-development-in-2D/changing-scene#:~:text=Changing%20Scenes%20in%20Unity%203D&text=Now%20in%20your%20Assets%20folder,a%20button%20(UI%20element). for loading new scenes
