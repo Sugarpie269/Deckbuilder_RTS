@@ -13,3 +13,7 @@ Citations:
 - https://assetstore.unity.com/packages/tools/ai/sap2d-beta-109184 for 2d pathfinding
 
 - https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605 for our map
+
+- https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html https://answers.unity.com/questions/165269/how-do-i-receive-a-message.html for sending messages to game objects
+
+- 
