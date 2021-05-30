@@ -21,4 +21,4 @@ Citations:
 
 - https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html and https://www.studytonight.com/game-development-in-2D/changing-scene#:~:text=Changing%20Scenes%20in%20Unity%203D&text=Now%20in%20your%20Assets%20folder,a%20button%20(UI%20element). for loading new scenes
 
--
+- https://forum.unity.com/threads/the-script-needs-to-derive-from-monobehavior.568876/ monobehaviors not working with objects
