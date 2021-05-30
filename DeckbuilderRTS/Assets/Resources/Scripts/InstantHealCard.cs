@@ -17,6 +17,11 @@ namespace DeckbuilderRTS
             this.CardImage = Resources.Load<Texture2D>("Sprites/InstantHealCard_1000x1500");
         }
 
+        public Vector3Int GetCost()
+        {
+            return this.Cost;
+        }
+
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
             player.GetComponent<PlayerController>().ApplyHealing(this.Value);

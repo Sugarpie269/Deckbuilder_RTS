@@ -17,7 +17,10 @@ namespace DeckbuilderRTS
             this.Cost = new Vector3Int(1, 0, 0);
             this.CardImage = Resources.Load<Texture2D>("Sprites/FireballCard_1000x1500");
         }
-
+        public Vector3Int GetCost()
+        {
+            return this.Cost;
+        }
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
             var newWorker = Object.Instantiate(this.WorkerPrefab) as GameObject;
