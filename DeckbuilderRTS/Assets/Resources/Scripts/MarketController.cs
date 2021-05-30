@@ -18,22 +18,25 @@ namespace DeckbuilderRTS {
         private GameController gameController;
 
         // Start is called before the first frame update
-        void generateCard(string cardType) {
+        private ICard generateCard(string cardType) {
+            ICard newcard;
             switch (cardType)
             {
+                
                 case "Card_Fireball":
-                    card = gameController.GenerateCardFireball();
-                    break;
+                    newcard = gameController.GenerateCardFireball();
+                    return newcard;
                 case "Card_InstantHeal":
-                    card = gameController.GenerateCardInstantHeal();
-                    break;
+                    newcard = gameController.GenerateCardInstantHeal();
+                    return newcard;
                 case "Card_SummonWorker":
-                    card = gameController.GenerateCardSummonWorker();
-                    break;
+                    newcard = gameController.GenerateCardSummonWorker();
+                    return newcard;
                 default:
                     Debug.Log("Error card not available");
-                    break;
+                    return null;
             }
+            
         }
         void rtnFireballInfo() {
             Debug.Log("New FireballCard!");
@@ -112,7 +115,7 @@ namespace DeckbuilderRTS {
             var gameMaster = GameObject.Find("GameController");
             this.gameController = gameMaster.GetComponent<GameController>();
             getCardInfo();
-            generateCard(cardinfo.CardType);
+            card = generateCard(cardType);
         }
 
         // Update is called once per frame
@@ -137,8 +140,7 @@ namespace DeckbuilderRTS {
                         playerController.DecMana(cardinfo.ManaCost);
                         playerController.DecMatter(cardinfo.MatterCost);
                         Debug.Log("Add a card");
-                        // ADD A SWITCH STATEMENT TO CREATE THE RIGHT KIND OF CARD
-                        var newcard = gameController.GenerateCardFireball();
+                        var newcard = generateCard(cardType);
                         playerController.AddCard(newcard);
                     }
                     else {
