@@ -75,6 +75,7 @@ namespace DeckbuilderRTS
         private void SendWorkerAlerts()
         {
             var foundNull = false;
+            var foundNullSwarmling = false;
             foreach (var worker in this.Workers)
             {
                 if (worker == null)
@@ -84,6 +85,11 @@ namespace DeckbuilderRTS
                 }
                 foreach (var swarmlingController in this.Swarmlings)
                 {
+                    if (swarmlingController == null)
+                    {
+                        foundNullSwarmling = true;
+                        continue;
+                    }
                     if (Vector3.Distance(swarmlingController.gameObject.transform.position, worker.transform.position) <= this.WorkerNoise)
                     {
                         swarmlingController.SetTarget(worker.transform);
@@ -93,6 +99,10 @@ namespace DeckbuilderRTS
             if (foundNull)
             {
                 this.Workers.Remove(null);
+            }
+            if (foundNullSwarmling)
+            {
+                this.Swarmlings.Remove(null);
             }
         }
 
