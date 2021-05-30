@@ -77,7 +77,7 @@ namespace DeckbuilderRTS
         private bool LoadedResources = false;
 
         public void AddCard(ICard card) {
-            this.PlayerInventory.AddCardToDeck(card);
+            this.PlayerInventory.GainCard(card);
         }
         public int GetMatter() {
             return this.PlayerCurrentMatter;
