@@ -109,6 +109,8 @@ namespace DeckbuilderRTS {
         }
         void Start()
         {
+            var gameMaster = GameObject.Find("GameController");
+            this.gameController = gameMaster.GetComponent<GameController>();
             getCardInfo();
             generateCard(cardinfo.CardType);
         }
@@ -135,7 +137,9 @@ namespace DeckbuilderRTS {
                         playerController.DecMana(cardinfo.ManaCost);
                         playerController.DecMatter(cardinfo.MatterCost);
                         Debug.Log("Add a card");
-                        playerController.AddCard(card);
+                        // ADD A SWITCH STATEMENT TO CREATE THE RIGHT KIND OF CARD
+                        var newcard = gameController.GenerateCardFireball();
+                        playerController.AddCard(newcard);
                     }
                     else {
                         Debug.Log("Insufficent funds");
