@@ -17,6 +17,9 @@ namespace DeckbuilderRTS {
         private CardInfo cardinfo;
         private GameController gameController;
 
+        [SerializeField] private float MarketCoolDown = 10f;
+        private float CurrentCoolDown;
+
         // Start is called before the first frame update
         private ICard generateCard(string cardType) {
             ICard newcard;
@@ -122,12 +125,19 @@ namespace DeckbuilderRTS {
             this.gameController = gameMaster.GetComponent<GameController>();
             getCardInfo();
             card = generateCard(cardType);
+            this.CurrentCoolDown = 0f;
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+            this.CurrentCoolDown -= Time.deltaTime;
+            if (this.CurrentCoolDown <= 0f)
+            {
+                this.CurrentCoolDown = 0f;
+            }
+
+
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -141,13 +151,15 @@ namespace DeckbuilderRTS {
 
                     if (playerController.GetMana() >= cardinfo.ManaCost
                         && playerController.GetMatter() >= cardinfo.MatterCost
-                        && playerController.GetEnery() >= cardinfo.EnergyCost){
+                        && playerController.GetEnery() >= cardinfo.EnergyCost
+                        && this.CurrentCoolDown <= 0f){
                         playerController.DecEnery(cardinfo.EnergyCost);
                         playerController.DecMana(cardinfo.ManaCost);
                         playerController.DecMatter(cardinfo.MatterCost);
                         Debug.Log("Add a card");
                         var newcard = generateCard(cardType);
                         playerController.AddCard(newcard);
+                        this.CurrentCoolDown = this.MarketCoolDown;
                     }
                     else {
                         Debug.Log("Insufficent funds");
