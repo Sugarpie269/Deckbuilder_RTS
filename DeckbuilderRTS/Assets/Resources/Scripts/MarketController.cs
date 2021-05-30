@@ -97,7 +97,10 @@ namespace DeckbuilderRTS {
             this.cardinfo.MatterCost = int.Parse(this.cardinfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);*/
         }
         void getCardInfo() {
-            switch (this.cardType) {
+            this.cardinfo = this.gameController.GetCardInfo(this.cardType);
+
+
+            /*switch (this.cardType) {
                 case "Card_Fireball":
                     rtnFireballInfo();
                     break;
@@ -110,7 +113,7 @@ namespace DeckbuilderRTS {
                 default:
                     Debug.Log("Error card not available");
                     break;
-            }
+            }*/
 
         }
         void Start()
