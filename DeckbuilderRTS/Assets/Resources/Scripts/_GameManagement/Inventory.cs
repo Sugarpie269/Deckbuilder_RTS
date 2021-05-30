@@ -43,7 +43,9 @@ namespace DeckbuilderRTS
             this.Deck = new Collection<ICard>();
             this.Discard = new Collection<ICard>();
         }
-
+        public void AddCardToDeck(ICard card) {
+            this.Deck.Add(card);
+        }
         public void AddCardSlot1(ICard card)
         {
             this.CardSlot1 = card;

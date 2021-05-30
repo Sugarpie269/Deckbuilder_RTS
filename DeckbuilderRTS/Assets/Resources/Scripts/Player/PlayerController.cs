@@ -76,6 +76,34 @@ namespace DeckbuilderRTS
 
         private bool LoadedResources = false;
 
+        public void AddCard(ICard card) {
+            this.PlayerInventory.AddCardToDeck(card);
+        }
+        public int GetMatter() {
+            return this.PlayerCurrentMatter;
+        }
+        public int GetMana() {
+            return this.PlayerCurrentMana;
+        }
+        public int GetEnery() {
+            return this.PlayerCurrentEnergy;
+        }
+
+        public void DecMatter(int matter)
+        {
+            this.PlayerCurrentMatter = this.PlayerCurrentMatter - matter;
+            this.SetMatterText();
+        }
+        public void DecMana(int mana)
+        {
+            this.PlayerCurrentMana = this.PlayerCurrentMana - mana;
+            this.SetManaText();
+        }
+        public void DecEnery(int energy)
+        {
+            this.PlayerCurrentEnergy = this.PlayerCurrentEnergy - energy;
+            this.SetEnergyText();
+        }
         public float GetCurrentSpeed()
         {
             var speedLen = this.GetPlayerSpeed().magnitude;
@@ -266,8 +294,6 @@ namespace DeckbuilderRTS
                         this.PlayerInventory.SetDrawError(false);
                     }
                 }
-
-
                 
                 /*
                 // Code for player movement.
