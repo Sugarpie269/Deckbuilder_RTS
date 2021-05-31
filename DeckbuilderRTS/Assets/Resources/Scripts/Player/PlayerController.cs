@@ -243,6 +243,27 @@ namespace DeckbuilderRTS
             return false;
         }
 
+        // Called when the game is over via player failure. Displays proper text and shuts off most functionality. ~Liam
+        private void GameOver()
+        {
+            // DEBUG
+            Debug.Log("GAME OVER!");
+
+            // Display game over text. ~Liam
+            this.GameOverText.SetActive(true);
+            this.GameOverTipText.SetActive(true);
+
+            // Disable controller input. ~Liam
+            var controller = this.GameController.GetComponent<GameController>();
+            controller.SetGameOver();
+
+            // Disable tooltips in UI. ~Liam
+            GameObject.Find("Card1").GetComponent<ExamineDisplay>().GameOver();
+            GameObject.Find("Card2").GetComponent<ExamineDisplay>().GameOver();
+            GameObject.Find("Card3").GetComponent<ExamineDisplay>().GameOver();
+            GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().GameOver();
+        }
+
         // The function gets the world mouse position and gets the direction.
         public Vector2 GetMousePosition() {
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -293,6 +314,20 @@ namespace DeckbuilderRTS
                         this.SetDrawErrorText(true);
                         this.PlayerInventory.SetDrawError(false);
                     }
+                }
+
+                // Code for examining a card in the player's hand (or on the discard pile). ~Liam
+                if (Input.GetButtonDown("ExamineCard"))
+                {
+                    // PLACEHOLDER: Check if the mouse is hovering over a card.
+                    // If so, load the higher quality image to the side of the hand.
+                    Debug.Log("Attempted to examine card.");
+                }
+
+                if (Input.GetButtonUp("ExamineCard"))
+                {
+                    // PLACEHOLDER: Set the high quality card image to inactive.
+                    Debug.Log("Stopped examining card.");
                 }
                 
                 /*
@@ -505,11 +540,7 @@ namespace DeckbuilderRTS
             // If player's HP drops to 0, they die, and the UI should reflect this. ~Liam
             if (this.PlayerCurrentHP == 0)
             {
-                Debug.Log("GAME OVER!");
-                this.GameOverText.SetActive(true);
-                this.GameOverTipText.SetActive(true);
-                var controller = this.GameController.GetComponent<GameController>();
-                controller.SetGameOver();
+                this.GameOver();
             }
         }
 
