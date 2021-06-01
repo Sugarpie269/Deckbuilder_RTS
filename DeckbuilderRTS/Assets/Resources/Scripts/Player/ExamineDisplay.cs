@@ -50,5 +50,6 @@ public class ExamineDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void GameOver()
     {
         this.isGameOver = true;
+        this.ExamineText.SetActive(false);
     }
 }
