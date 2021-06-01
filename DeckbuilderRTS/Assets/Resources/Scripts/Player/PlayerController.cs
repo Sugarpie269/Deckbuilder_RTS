@@ -99,10 +99,12 @@ namespace DeckbuilderRTS
         public int GetMana() {
             return this.PlayerCurrentMana;
         }
-        public int GetEnery() {
+        public int GetEnergy() {
             return this.PlayerCurrentEnergy;
         }
 
+        // These were used in MarketController but I updated it to use the previously integrated ModifyPlayerResource() functions. ~Liam
+        /*
         public void DecMatter(int matter)
         {
             this.PlayerCurrentMatter = this.PlayerCurrentMatter - matter;
@@ -118,6 +120,7 @@ namespace DeckbuilderRTS
             this.PlayerCurrentEnergy = this.PlayerCurrentEnergy - energy;
             this.SetEnergyText();
         }
+        */
         public float GetCurrentSpeed()
         {
             var speedLen = this.GetPlayerSpeed().magnitude;
@@ -223,6 +226,21 @@ namespace DeckbuilderRTS
             if (this.PlayerCurrentEnergy + amount >= 0)
             {
                 this.PlayerCurrentEnergy += amount;
+
+                // Update the UI energy value and display the proper update text. Make sure to remove previous update text if it is still on screen. ~Liam
+                if (amount < 0)
+                {
+                    this.EnergyAddText.gameObject.SetActive(false);
+                    this.EnergySubtractText.text = amount.ToString();
+                    this.EnergySubtractText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    this.EnergySubtractText.gameObject.SetActive(false);
+                    this.EnergyAddText.text = "+" + amount.ToString();
+                    this.EnergyAddText.gameObject.SetActive(true);
+                }
+                this.EnergyUpdateMessageDuration = this.RESOURCE_UPDATE_MESSAGE_DURATION;
                 this.SetEnergyText();
                 return true;
             }
@@ -247,7 +265,20 @@ namespace DeckbuilderRTS
             }
 
             Debug.Log("Modified health to " + this.PlayerCurrentHP);
-            // Update the UI health value. ~Liam
+            // Update the UI health value and display the proper update text. Make sure to remove previous update text if it is still on screen. ~Liam
+            if (amount < 0)
+            {
+                this.HealthAddText.gameObject.SetActive(false);
+                this.HealthSubtractText.text = amount.ToString();
+                this.HealthSubtractText.gameObject.SetActive(true);
+            }
+            else
+            {
+                this.HealthSubtractText.gameObject.SetActive(false);
+                this.HealthAddText.text = "+" + amount.ToString();
+                this.HealthAddText.gameObject.SetActive(true);
+            }
+            this.HealthUpdateMessageDuration = this.RESOURCE_UPDATE_MESSAGE_DURATION;
             this.SetHealthText();
         }
 
@@ -259,6 +290,21 @@ namespace DeckbuilderRTS
             if (this.PlayerCurrentMana + amount >= 0)
             {
                 this.PlayerCurrentMana += amount;
+
+                // Update the UI mana value and display the proper update text. Make sure to remove previous update text if it is still on screen. ~Liam
+                if (amount < 0)
+                {
+                    this.ManaAddText.gameObject.SetActive(false);
+                    this.ManaSubtractText.text = amount.ToString();
+                    this.ManaSubtractText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    this.ManaSubtractText.gameObject.SetActive(false);
+                    this.ManaAddText.text = "+" + amount.ToString();
+                    this.ManaAddText.gameObject.SetActive(true);
+                }
+                this.ManaUpdateMessageDuration = this.RESOURCE_UPDATE_MESSAGE_DURATION;
                 this.SetManaText();
                 return true;
             }
@@ -273,6 +319,21 @@ namespace DeckbuilderRTS
             if (this.PlayerCurrentMatter + amount >= 0)
             {
                 this.PlayerCurrentMatter += amount;
+
+                // Update the UI matter value and display the proper update text. Make sure to remove previous update text if it is still on screen. ~Liam
+                if (amount < 0)
+                {
+                    this.MatterAddText.gameObject.SetActive(false);
+                    this.MatterSubtractText.text = amount.ToString();
+                    this.MatterSubtractText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    this.MatterSubtractText.gameObject.SetActive(false);
+                    this.MatterAddText.text = "+" + amount.ToString();
+                    this.MatterAddText.gameObject.SetActive(true);
+                }
+                this.MatterUpdateMessageDuration = this.RESOURCE_UPDATE_MESSAGE_DURATION;
                 this.SetMatterText();
                 return true;
             }
@@ -840,6 +901,46 @@ namespace DeckbuilderRTS
                 {
                     this.DrawErrorMessageDuration = 0.0f;
                     this.SetDrawErrorText(false);
+                }
+            }
+            if (this.HealthUpdateMessageDuration > 0.0f)
+            {
+                this.HealthUpdateMessageDuration -= Time.deltaTime;
+                if (this.HealthUpdateMessageDuration <= 0.0f)
+                {
+                    this.HealthUpdateMessageDuration = 0.0f;
+                    this.HealthAddText.gameObject.SetActive(false);
+                    this.HealthSubtractText.gameObject.SetActive(false);
+                }
+            }
+            if (this.ManaUpdateMessageDuration > 0.0f)
+            {
+                this.ManaUpdateMessageDuration -= Time.deltaTime;
+                if (this.ManaUpdateMessageDuration <= 0.0f)
+                {
+                    this.ManaUpdateMessageDuration = 0.0f;
+                    this.ManaAddText.gameObject.SetActive(false);
+                    this.ManaSubtractText.gameObject.SetActive(false);
+                }
+            }
+            if (this.EnergyUpdateMessageDuration > 0.0f)
+            {
+                this.EnergyUpdateMessageDuration -= Time.deltaTime;
+                if (this.EnergyUpdateMessageDuration <= 0.0f)
+                {
+                    this.EnergyUpdateMessageDuration = 0.0f;
+                    this.EnergyAddText.gameObject.SetActive(false);
+                    this.EnergySubtractText.gameObject.SetActive(false);
+                }
+            }
+            if (this.MatterUpdateMessageDuration > 0.0f)
+            {
+                this.MatterUpdateMessageDuration -= Time.deltaTime;
+                if (this.MatterUpdateMessageDuration <= 0.0f)
+                {
+                    this.MatterUpdateMessageDuration = 0.0f;
+                    this.MatterAddText.gameObject.SetActive(false);
+                    this.MatterSubtractText.gameObject.SetActive(false);
                 }
             }
 

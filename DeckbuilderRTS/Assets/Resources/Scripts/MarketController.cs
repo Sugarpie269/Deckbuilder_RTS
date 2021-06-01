@@ -149,6 +149,22 @@ namespace DeckbuilderRTS {
                     Debug.Log("Buy card");
                     var playerController = player.GetComponent<PlayerController>();
 
+                    // Modified the code here to use the ModifyPlayerResource() functions already created in PlayerController.cs. Previous code is commented below. ~Liam
+                    if (playerController.ModifyPlayerMana(-cardinfo.ManaCost)
+                        && playerController.ModifyPlayerEnergy(-cardinfo.EnergyCost)
+                        && playerController.ModifyPlayerMatter(-cardinfo.MatterCost)
+                        && this.CurrentCoolDown <= 0f)
+                    {
+                        Debug.Log("Add a card");
+                        var newcard = generateCard(cardType);
+                        playerController.AddCard(newcard);
+                        this.CurrentCoolDown = this.MarketCoolDown;
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficent funds");
+                    }
+                    /*
                     if (playerController.GetMana() >= cardinfo.ManaCost
                         && playerController.GetMatter() >= cardinfo.MatterCost
                         && playerController.GetEnery() >= cardinfo.EnergyCost
@@ -164,7 +180,7 @@ namespace DeckbuilderRTS {
                     else {
                         Debug.Log("Insufficent funds");
                     }
-
+                    */
                 }
             }
         }
