@@ -136,14 +136,7 @@ namespace DeckbuilderRTS {
             {
                 this.CurrentCoolDown = 0f;
             }
-
-
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.collider.tag == "Player") {
-                Debug.Log("Player touched the market");
-                // disp UI
+            if ((player.transform.position - this.transform.position).sqrMagnitude < 10) {
                 if (Input.GetKey(KeyCode.B))
                 {
                     Debug.Log("Buy card");
@@ -164,25 +157,10 @@ namespace DeckbuilderRTS {
                     {
                         Debug.Log("Insufficent funds");
                     }
-                    /*
-                    if (playerController.GetMana() >= cardinfo.ManaCost
-                        && playerController.GetMatter() >= cardinfo.MatterCost
-                        && playerController.GetEnery() >= cardinfo.EnergyCost
-                        && this.CurrentCoolDown <= 0f){
-                        playerController.DecEnery(cardinfo.EnergyCost);
-                        playerController.DecMana(cardinfo.ManaCost);
-                        playerController.DecMatter(cardinfo.MatterCost);
-                        Debug.Log("Add a card");
-                        var newcard = generateCard(cardType);
-                        playerController.AddCard(newcard);
-                        this.CurrentCoolDown = this.MarketCoolDown;
-                    }
-                    else {
-                        Debug.Log("Insufficent funds");
-                    }
-                    */
                 }
             }
+
+
         }
     }
 }
