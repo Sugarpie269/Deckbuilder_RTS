@@ -269,6 +269,14 @@ namespace DeckbuilderRTS
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.tag == "Player" || collision.collider.tag == "Worker" || collision.collider.tag == "Swarmling")
+            {
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+            }
+        }
+
         private void ShootProjectiles()
         {   
             var playerPos = Target.position;
