@@ -13,10 +13,18 @@ namespace DeckbuilderRTS
     {
         // UI elements are as follows. ~Liam
         public TextMeshProUGUI HealthText;
+        public TextMeshProUGUI HealthAddText;
+        public TextMeshProUGUI HealthSubtractText;
         public TextMeshProUGUI DrawCooldownText;
         public TextMeshProUGUI ManaText;
+        public TextMeshProUGUI ManaAddText;
+        public TextMeshProUGUI ManaSubtractText;
         public TextMeshProUGUI EnergyText;
+        public TextMeshProUGUI EnergyAddText;
+        public TextMeshProUGUI EnergySubtractText;
         public TextMeshProUGUI MatterText;
+        public TextMeshProUGUI MatterAddText;
+        public TextMeshProUGUI MatterSubtractText;
         public GameObject VictoryText;
         public GameObject GameOverText;
         public GameObject GameOverTipText;
@@ -68,10 +76,15 @@ namespace DeckbuilderRTS
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
         private float PLAYER_ERROR_MESSAGE_DURATION = 1.5f;
+        private float RESOURCE_UPDATE_MESSAGE_DURATION = 1.5f;
         private float DrawErrorMessageDuration = 0.0f;
         private float Slot1ErrorMessageDuration = 0.0f;
         private float Slot2ErrorMessageDuration = 0.0f;
         private float Slot3ErrorMessageDuration = 0.0f;
+        private float HealthUpdateMessageDuration = 0.0f;
+        private float ManaUpdateMessageDuration = 0.0f;
+        private float EnergyUpdateMessageDuration = 0.0f;
+        private float MatterUpdateMessageDuration = 0.0f;
         private int CurrentCooldownShown = 0;
         private bool IsGameOver = false;
 
@@ -149,8 +162,18 @@ namespace DeckbuilderRTS
             this.SetEnergyText();
             this.SetMatterText();
 
-            
-            
+            // Set inactive the various resource modifier notifications. ~Liam
+            this.HealthAddText.gameObject.SetActive(false);
+            this.HealthSubtractText.gameObject.SetActive(false);
+            this.ManaAddText.gameObject.SetActive(false);
+            this.ManaSubtractText.gameObject.SetActive(false);
+            this.EnergyAddText.gameObject.SetActive(false);
+            this.EnergySubtractText.gameObject.SetActive(false);
+            this.MatterAddText.gameObject.SetActive(false);
+            this.MatterSubtractText.gameObject.SetActive(false);
+
+
+
 
             Texture2D tempEmptyCardSlot = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
             this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
