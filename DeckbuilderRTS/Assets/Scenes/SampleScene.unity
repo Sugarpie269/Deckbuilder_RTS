@@ -34254,8 +34254,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 781a9d9a24eca4965a926dd5464f380c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -34276,8 +34276,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224932596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.23, y: -1.7, z: 0}
-  m_LocalScale: {x: 0.70373, y: 0.70373, z: 0.70373}
+  m_LocalPosition: {x: -7.39, y: 16.32, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 18
@@ -34568,7 +34568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1264755218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34609,10 +34609,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1048576
     UserGridData: {fileID: 0}
-    gridPosition: {x: -10, y: -10, z: 0}
+    gridPosition: {x: -46.22232, y: -16.8288, z: 0}
     gridPivot: 0
-    width: 20
-    height: 20
+    width: 150
+    height: 100
     tileDiameter: 1
 --- !u!4 &1264755220
 Transform:
@@ -34622,7 +34622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264755217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
