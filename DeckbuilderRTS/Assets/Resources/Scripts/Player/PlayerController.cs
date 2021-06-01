@@ -179,6 +179,17 @@ namespace DeckbuilderRTS
         public void DisplayVictoryText()
         {
             this.VictoryText.SetActive(true);
+
+            // Disable controller input. ~Liam
+            var controller = this.GameController.GetComponent<GameController>();
+            controller.SetGameOver();
+
+            // Disable tooltips in UI. ~Liam
+            GameObject.Find("Card1").GetComponent<ExamineDisplay>().GameOver();
+            GameObject.Find("Card2").GetComponent<ExamineDisplay>().GameOver();
+            GameObject.Find("Card3").GetComponent<ExamineDisplay>().GameOver();
+            GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().GameOver();
+            this.ExamineCardImage.SetActive(false);
         }
 
         // UI & PLAYER FUNCTION: Modifies the player's current Energy count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
