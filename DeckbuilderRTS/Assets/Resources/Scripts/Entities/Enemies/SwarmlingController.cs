@@ -77,11 +77,14 @@ namespace DeckbuilderRTS
             /*DefaultPositions = new Vector2[2];
             DefaultPositions[0] = DefaultPosition0;  //new Vector2(9.0f, 2.5f);
             DefaultPositions[1] = DefaultPosition1;*/  //new Vector2(1.5f, 9.5f);
-            DefaultIdx = this.GetRandomPositionID();
 
             // Default path: move towards Default 0.
+            DefaultIdx = this.GetRandomPositionID();
             this.Destination = DefaultPositions[DefaultIdx];
+            this.destPoint = 0;
+            this.path = null;
             path = Pathfinder.FindPath(transform.position, this.Destination, Config);
+            Debug.Log("path is " + this.path);
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
@@ -160,6 +163,10 @@ namespace DeckbuilderRTS
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
                 }
+                else if (this.path == null)
+                {
+
+                }
                 // Case 2: Reached end point of Default position. Swap to another Default.
                 else if (this.destPoint == path.Length - 1)
                 {
@@ -212,7 +219,7 @@ namespace DeckbuilderRTS
             {
                 Debug.Log("NO PATH!");
             }
-            if (path.Length == 0)
+            else if (path.Length == 0)
             {
                 return;
             }
@@ -220,19 +227,26 @@ namespace DeckbuilderRTS
             float step = this.Speed * Time.deltaTime;
             
             // Move towards the current step in the path.
-            transform.position = Vector2.MoveTowards(transform.position, path[destPoint], step);
-            
-            // Update to the following step in the path if has reached the current step.
-            if (Vector2.Distance(transform.position, path[destPoint]) < 1.0f) 
+            if (path != null)
             {
-                destPoint = (destPoint + 1) % path.Length;
+                transform.position = Vector2.MoveTowards(transform.position, path[destPoint], step);
+
+                // Update to the following step in the path if has reached the current step.
+                if (Vector2.Distance(transform.position, path[destPoint]) < 1.0f)
+                {
+                    destPoint = (destPoint + 1) % path.Length;
+                }
             }
+            
+            
+            
         }
 
         private void UpdateRotation()
         {
+            
             var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
-            if (this.DefaultIdx != -1 && this.path.Length > 0)
+            if (this.path != null && this.DefaultIdx != -1 && this.path.Length > 0)
             {
                 dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
             }
