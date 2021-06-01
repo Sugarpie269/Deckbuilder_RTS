@@ -31,6 +31,7 @@ namespace DeckbuilderRTS
         public GameObject CardSlot3Image;
         public GameObject DrawSlotImage;
         public GameObject DiscardSlotImage;
+        public GameObject ExamineCardImage;
         [SerializeField] private int PlayerCurrentHP;
         [SerializeField] private int PlayerMaxHP;
         [SerializeField] private int PlayerCurrentMana;
@@ -141,6 +142,7 @@ namespace DeckbuilderRTS
             this.CardSlot1ErrorText.SetActive(false);
             this.CardSlot2ErrorText.SetActive(false);
             this.CardSlot3ErrorText.SetActive(false);
+            this.ExamineCardImage.SetActive(false);
             this.SetHealthText();
             this.SetDeckDrawCooldownText(0);
             this.SetManaText();
@@ -249,10 +251,6 @@ namespace DeckbuilderRTS
             // DEBUG
             Debug.Log("GAME OVER!");
 
-            // Display game over text. ~Liam
-            this.GameOverText.SetActive(true);
-            this.GameOverTipText.SetActive(true);
-
             // Disable controller input. ~Liam
             var controller = this.GameController.GetComponent<GameController>();
             controller.SetGameOver();
@@ -262,6 +260,11 @@ namespace DeckbuilderRTS
             GameObject.Find("Card2").GetComponent<ExamineDisplay>().GameOver();
             GameObject.Find("Card3").GetComponent<ExamineDisplay>().GameOver();
             GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().GameOver();
+            this.ExamineCardImage.SetActive(false);
+
+            // Display game over text. ~Liam
+            this.GameOverText.SetActive(true);
+            this.GameOverTipText.SetActive(true);
         }
 
         // The function gets the world mouse position and gets the direction.
@@ -319,15 +322,48 @@ namespace DeckbuilderRTS
                 // Code for examining a card in the player's hand (or on the discard pile). ~Liam
                 if (Input.GetButtonDown("ExamineCard"))
                 {
-                    // PLACEHOLDER: Check if the mouse is hovering over a card.
-                    // If so, load the higher quality image to the side of the hand.
-                    Debug.Log("Attempted to examine card.");
+                    CardInfo tempCInfo = new CardInfo();
+                    
+                    // Check what card the player is hovering over. ~Liam
+                    if (GameObject.Find("Card1").GetComponent<ExamineDisplay>().IsPointerHovering())
+                    {
+                        if (this.PlayerInventory.GetCardSlot1Info(ref tempCInfo))
+                        {
+                            this.RenderExamineCard(tempCInfo);
+                        }
+                    }
+                    else if (GameObject.Find("Card2").GetComponent<ExamineDisplay>().IsPointerHovering())
+                    {
+                        if (this.PlayerInventory.GetCardSlot2Info(ref tempCInfo))
+                        {
+                            this.RenderExamineCard(tempCInfo);
+                        }
+                    }
+                    else if (GameObject.Find("Card3").GetComponent<ExamineDisplay>().IsPointerHovering())
+                    {
+                        if (this.PlayerInventory.GetCardSlot3Info(ref tempCInfo))
+                        {
+                            this.RenderExamineCard(tempCInfo);
+                        }
+                    }
+                    else if (GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().IsPointerHovering())
+                    {
+                        if (this.PlayerInventory.GetDiscardSlotImageInfo(ref tempCInfo))
+                        {
+                            this.RenderExamineCard(tempCInfo);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Mouse not over any card to examine.");
+                    }
                 }
 
                 if (Input.GetButtonUp("ExamineCard"))
                 {
                     // PLACEHOLDER: Set the high quality card image to inactive.
-                    Debug.Log("Stopped examining card.");
+                    //Debug.Log("Stopped examining card.");
+                    this.ExamineCardImage.SetActive(false);
                 }
                 
                 /*
@@ -373,9 +409,46 @@ namespace DeckbuilderRTS
             }
         }
 
-        // UI FUNCTION: Renders the card on slot 1 based on what is currently in the slot. The card is modular and individual parts can be tweaked as needed. ~Liam
-        void RenderCardSlot1()
+        // UI FUNCTION: Renders the card that is attempting to be examined more closely by the player. ~Liam
+        void RenderExamineCard(CardInfo cINfo)
         {
+
+            Debug.Log("Attempted to examine card " + cINfo.CardName);
+
+            /*
+             * this.Info.CardReference = GameObject.Find("Card_Fireball");
+            this.Info.CardArt = this.Info.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
+            this.Info.CardName = this.Info.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+            this.Info.CardType = this.Info.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
+            this.Info.DescriptionHeader = this.Info.CardReference.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+            this.Info.DescriptionContent = this.Info.CardReference.transform.GetChild(4).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
+            this.Info.FlavorText = this.Info.CardReference.transform.GetChild(4).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text;
+            this.Info.CardLevel = int.Parse(this.Info.CardReference.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.Info.CardPower = int.Parse(this.Info.CardReference.transform.GetChild(6).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.Info.CardStrength = int.Parse(this.Info.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.Info.ManaCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.Info.EnergyCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
+            this.Info.MatterCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+             *
+             */
+
+            // Set the examine card's properties to that of the passed-in CardInfo struct. ~Liam
+            this.ExamineCardImage.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = cINfo.CardArt;
+            this.ExamineCardImage.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardName;
+            this.ExamineCardImage.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardType;
+            this.ExamineCardImage.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.DescriptionHeader;
+            this.ExamineCardImage.transform.GetChild(4).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.DescriptionContent;
+            this.ExamineCardImage.transform.GetChild(4).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.FlavorText;
+            this.ExamineCardImage.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardLevel.ToString();
+            this.ExamineCardImage.transform.GetChild(6).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardPower.ToString();
+            this.ExamineCardImage.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardStrength.ToString();
+            this.ExamineCardImage.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.ManaCost.ToString();
+            this.ExamineCardImage.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.EnergyCost.ToString();
+            this.ExamineCardImage.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.MatterCost.ToString();
+
+            // Now that all the card info is in place, render the examined card. ~Liam
+            this.ExamineCardImage.SetActive(true);
+
             /* 
              * NOTE FOR TOMORROW: Implementing this is basically gonna require overhauling the entire way in which the UI displays cards. Here's the steps I'll need:
              * 
