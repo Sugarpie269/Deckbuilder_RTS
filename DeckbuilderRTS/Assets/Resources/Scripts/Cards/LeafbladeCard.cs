@@ -8,6 +8,7 @@ namespace DeckbuilderRTS
 {
     public class LeafbladeCard : ICard
     {
+        [SerializeField]
         private Object LeafbladePrefab;
         private float SummonDistance = 1.0f;
         private float LeafbladeDirection;

@@ -9,6 +9,7 @@ namespace DeckbuilderRTS
     public class SummonWorkerCard : ICard
     {
         private int HP; // TODO: calculate based on card level and toughness/strength stat
+        [SerializeField]
         private Object WorkerPrefab;
         private float SummonDistance = 3.0f;
 

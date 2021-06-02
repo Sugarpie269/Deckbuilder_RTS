@@ -8,6 +8,8 @@ namespace DeckbuilderRTS
 {
     public class InstantHealCard : ICard
     {
+        [SerializeField]
+        private Object cardPrefab; // prefab for instantiation, 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
 
