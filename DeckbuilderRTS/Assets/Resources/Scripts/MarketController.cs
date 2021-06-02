@@ -159,8 +159,16 @@ namespace DeckbuilderRTS {
                     }
                 }
             }
+        }
 
-
+        // TEST: Does OnPointerEnter & Exit work for non UI objects? ~Liam
+        private void OnMouseEnter()
+        {
+            Debug.Log("Mouse is over the market.");
+        }
+        private void OnMouseExit()
+        {
+            Debug.Log("Mouse is no longer over the market.");
         }
     }
 }
