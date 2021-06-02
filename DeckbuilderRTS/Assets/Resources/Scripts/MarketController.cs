@@ -141,31 +141,45 @@ namespace DeckbuilderRTS {
         // Update is called once per frame
         void Update()
         {
-            this.CurrentCoolDown -= Time.deltaTime;
+            /*this.CurrentCoolDown -= Time.deltaTime;
             if (this.CurrentCoolDown <= 0f)
             {
                 this.CurrentCoolDown = 0f;
-            }
+            }*/
             if ((player.transform.position - this.transform.position).sqrMagnitude < 10) {
-                if (Input.GetKey(KeyCode.B))
+                if (Input.GetButtonDown("PurchaseCard"))
                 {
                     Debug.Log("Buy card");
                     var playerController = player.GetComponent<PlayerController>();
 
                     // Modified the code here to use the ModifyPlayerResource() functions already created in PlayerController.cs. Previous code is commented below. ~Liam
-                    if (playerController.ModifyPlayerMana(-cardinfo.ManaCost)
-                        && playerController.ModifyPlayerEnergy(-cardinfo.EnergyCost)
-                        && playerController.ModifyPlayerMatter(-cardinfo.MatterCost)
-                        && this.CurrentCoolDown <= 0f)
+                    if (!playerController.IsPurchaseCooldown()
+                        && (playerController.GetMana() - cardinfo.ManaCost >= 0)
+                        && (playerController.GetEnergy() - cardinfo.EnergyCost >= 0)
+                        && (playerController.GetMatter() - cardinfo.MatterCost >= 0))
                     {
                         Debug.Log("Add a card");
                         var newcard = generateCard(cardType);
+                        if (cardinfo.ManaCost > 0)
+                        {
+                            playerController.ModifyPlayerMana(-cardinfo.ManaCost);
+                        }
+                        if (cardinfo.EnergyCost > 0)
+                        {
+                            playerController.ModifyPlayerEnergy(-cardinfo.EnergyCost);
+                        }
+                        if (cardinfo.MatterCost > 0)
+                        {
+                            playerController.ModifyPlayerMatter(-cardinfo.MatterCost);
+                        }
                         playerController.AddCard(newcard);
-                        this.CurrentCoolDown = this.MarketCoolDown;
+                        playerController.SetPurchaseCooldown(this.MarketCoolDown);
+                        playerController.SetPurchaseSuccessText();
                     }
                     else
                     {
-                        Debug.Log("Insufficent funds");
+                        // Display error to user upon trying to purchase a card. ~Liam
+                        playerController.SetPurchaseErrorText();
                     }
                 }
             }

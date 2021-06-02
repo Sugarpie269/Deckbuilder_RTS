@@ -16,6 +16,9 @@ namespace DeckbuilderRTS
         public TextMeshProUGUI HealthAddText;
         public TextMeshProUGUI HealthSubtractText;
         public TextMeshProUGUI DrawCooldownText;
+        public TextMeshProUGUI PurchaseCooldownText;
+        public GameObject PurchaseErrorText;
+        public GameObject PurchaseSuccessText;
         public TextMeshProUGUI ManaText;
         public TextMeshProUGUI ManaAddText;
         public TextMeshProUGUI ManaSubtractText;
@@ -75,18 +78,25 @@ namespace DeckbuilderRTS
         private Sprite BlankCardTemplate;
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
+        private float PurchaseCardCooldown = 0.0f;
+        private float PURCHASE_CARD_COOL_DOWN_BASE = 10.0f;
         private float PLAYER_ERROR_MESSAGE_DURATION = 1.5f;
         private float RESOURCE_UPDATE_MESSAGE_DURATION = 1.5f;
         private float DrawErrorMessageDuration = 0.0f;
         private float Slot1ErrorMessageDuration = 0.0f;
         private float Slot2ErrorMessageDuration = 0.0f;
         private float Slot3ErrorMessageDuration = 0.0f;
+        private float PurchaseErrorMessageDuration = 0.0f;
+        private float PurchaseSuccessMessageDuration = 0.0f;
         private float HealthUpdateMessageDuration = 0.0f;
         private float ManaUpdateMessageDuration = 0.0f;
         private float EnergyUpdateMessageDuration = 0.0f;
         private float MatterUpdateMessageDuration = 0.0f;
         private int CurrentCooldownShown = 0;
+        private int CurrentPurchaseCooldownShown = 0;
         private bool IsGameOver = false;
+        private bool PurchaseCooldown = false;
+        private bool PurchaseSuccess = false;
 
         private bool LoadedResources = false;
 
@@ -161,9 +171,12 @@ namespace DeckbuilderRTS
             this.CardSlot1ErrorText.SetActive(false);
             this.CardSlot2ErrorText.SetActive(false);
             this.CardSlot3ErrorText.SetActive(false);
+            this.PurchaseErrorText.SetActive(false);
+            this.PurchaseSuccessText.SetActive(false);
             this.ExamineCardImage.SetActive(false);
             this.SetHealthText();
             this.SetDeckDrawCooldownText(0);
+            this.SetPurchaseCooldownText(0);
             this.SetManaText();
             this.SetEnergyText();
             this.SetMatterText();
@@ -645,6 +658,38 @@ namespace DeckbuilderRTS
             }
         }
 
+        // Instantiate the purchase cooldown with the given parameter. ~Liam
+        public void SetPurchaseCooldown(float cooldown)
+        {
+            this.PurchaseCardCooldown = cooldown;
+            this.PurchaseCooldown = true;
+        }
+
+        // Getter function for IsPurchaseCooldown. ~Liam
+        public bool IsPurchaseCooldown()
+        {
+            return this.PurchaseCooldown;
+        }
+
+        // UI FUNCTION: Updates the purchase cooldown text when called. Displays an int value between 1 and the max cooldown; if off cooldown, no number is displayed. ~Liam
+        void SetPurchaseCooldownText(int cooldown)
+        {
+            if (cooldown > 0 && cooldown <= (int)this.PURCHASE_CARD_COOL_DOWN_BASE)
+            {
+                // Update the cooldown text. ~Liam
+                this.PurchaseCooldownText.text = cooldown.ToString();
+            }
+            else if (cooldown == 0)
+            {
+                this.PurchaseCooldownText.text = "";
+                this.PurchaseCooldown = false;
+            }
+            else
+            {
+                Debug.Log("ERROR: Invalid purchase cooldown display value requested.");
+            }
+        }
+
         // UI FUNCTION: Updates the card image on the draw pile based on if there are cards in the deck. ~Liam
         void SetDrawSlotImage()
         {
@@ -720,6 +765,21 @@ namespace DeckbuilderRTS
         void SetCard3ErrorText(bool value)
         {
             this.CardSlot3ErrorText.SetActive(value);
+        }
+        public void SetPurchaseErrorText()
+        {
+            // Only show this error if the success message isn't present. ~Liam
+            if (!this.PurchaseSuccess)
+            {
+                this.PurchaseErrorText.SetActive(true);
+                this.PurchaseErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+            }
+        }
+        public void SetPurchaseSuccessText()
+        {
+            this.PurchaseSuccessText.SetActive(true);
+            this.PurchaseSuccessMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
+            this.PurchaseSuccess = true;
         }
 
         public void TakeDamage(float damage)
@@ -877,6 +937,25 @@ namespace DeckbuilderRTS
                     this.SetDrawErrorText(false);
                 }
             }
+            if (this.PurchaseErrorMessageDuration > 0.0f)
+            {
+                this.PurchaseErrorMessageDuration -= Time.deltaTime;
+                if (this.PurchaseErrorMessageDuration <= 0.0f)
+                {
+                    this.PurchaseErrorMessageDuration = 0.0f;
+                    this.PurchaseErrorText.SetActive(false);
+                }
+            }
+            if (this.PurchaseSuccessMessageDuration > 0.0f)
+            {
+                this.PurchaseSuccessMessageDuration -= Time.deltaTime;
+                if (this.PurchaseSuccessMessageDuration <= 0.0f)
+                {
+                    this.PurchaseSuccessMessageDuration = 0.0f;
+                    this.PurchaseSuccessText.SetActive(false);
+                    this.PurchaseSuccess = false;
+                }
+            }
             if (this.HealthUpdateMessageDuration > 0.0f)
             {
                 this.HealthUpdateMessageDuration -= Time.deltaTime;
@@ -938,6 +1017,26 @@ namespace DeckbuilderRTS
             {
                 SetDeckDrawCooldownText(tempCooldown);
                 this.CurrentCooldownShown = tempCooldown;
+            }
+
+            // If purchasing is on cooldown, update it.
+            if (this.PurchaseCardCooldown > 0.0f)
+            {
+                this.PurchaseCardCooldown -= Time.deltaTime;
+            }
+            // If updating the purchase cooldown set it to less than zero, fix it back to zero. ~Liam
+            if (this.PurchaseCardCooldown < 0.0f)
+            {
+                this.PurchaseCardCooldown = 0.0f;
+            }
+
+            var tempPurchaseCooldown = Mathf.CeilToInt(this.PurchaseCardCooldown);
+
+            // When the purchase timer reaches a new second threshold, update the UI. ~Liam
+            if (this.CurrentPurchaseCooldownShown != tempPurchaseCooldown)
+            {
+                this.SetPurchaseCooldownText(tempPurchaseCooldown);
+                this.CurrentPurchaseCooldownShown = tempPurchaseCooldown;
             }
 
             // Update the Resource text (change to every so often or use Fixed update perhaps?)
