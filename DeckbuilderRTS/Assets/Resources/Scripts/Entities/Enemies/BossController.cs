@@ -56,6 +56,7 @@ namespace DeckbuilderRTS
             if (this.CurrentHP <= 0 && !this.Disabled)
             {
                 this.SetDisabled();
+                this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
             }
         }
 
