@@ -119,7 +119,8 @@ namespace DeckbuilderRTS
         }
 
         void Update()
-        {           
+        {
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             if (this.Disabled)
             {
                 return;
