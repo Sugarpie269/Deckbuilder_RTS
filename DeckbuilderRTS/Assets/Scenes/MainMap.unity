@@ -4337,6 +4337,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 570978316}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &579429763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5492570113790106581, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017777576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &618493517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45579,7 +45585,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ExamineCardImage
       value: 
-      objectReference: {fileID: 1718425011}
+      objectReference: {fileID: 579429763}
     - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
       propertyPath: ManaSubtractText
@@ -61837,12 +61843,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b71c7cc68caaa44da8790646a799958, type: 3}
---- !u!1 &1718425011 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7447403826819517591, guid: 7b71c7cc68caaa44da8790646a799958,
-    type: 3}
-  m_PrefabInstance: {fileID: 1718425010}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1718425012 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7461387892610088934, guid: 7b71c7cc68caaa44da8790646a799958,
