@@ -186,8 +186,8 @@ namespace DeckbuilderRTS {
                 {
                     Debug.Log("Mouse is over the market, and NOT over any other UI examine elements.");
                     this.ExamineText.SetActive(true);
-                    this.PointerHovering = true;
                 }
+                this.PointerHovering = true;
             }
         }
         private void OnMouseExit()
@@ -212,6 +212,7 @@ namespace DeckbuilderRTS {
         public void GameOver()
         {
             this.isGameOver = true;
+            this.PointerHovering = false;
             this.ExamineText.SetActive(false);
         }
     }

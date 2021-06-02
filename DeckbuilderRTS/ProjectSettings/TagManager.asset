@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - Depot
   - Boss
+  - Market
   layers:
   - Default
   - TransparentFX

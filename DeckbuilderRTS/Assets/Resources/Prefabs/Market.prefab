@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7960796082874678544}
   m_Layer: 0
   m_Name: Market
-  m_TagString: Untagged
+  m_TagString: Market
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   cardType: Card_Fireball
   prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   MarketCoolDown: 10
+  ExamineText: {fileID: 0}
 --- !u!50 &7960796082874678544
 Rigidbody2D:
   serializedVersion: 4

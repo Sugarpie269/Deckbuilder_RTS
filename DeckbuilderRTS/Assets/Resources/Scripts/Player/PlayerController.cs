@@ -90,6 +90,9 @@ namespace DeckbuilderRTS
 
         private bool LoadedResources = false;
 
+        // Array of Market gameObjects for UI functionality. ~Liam
+        private GameObject[] MarketList;
+
         public void AddCard(ICard card) {
             this.PlayerInventory.GainCard(card);
         }
@@ -184,6 +187,9 @@ namespace DeckbuilderRTS
             this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
             Texture2D tempBlankCard = Resources.Load<Texture2D>("Sprites/card_base_1000x1500");
             this.BlankCardTemplate = Sprite.Create(tempBlankCard, new Rect(0f, 0f, tempBlankCard.width, tempBlankCard.height), new Vector2(tempBlankCard.width / 2, tempBlankCard.height / 2));
+
+            // Get all markets in the scene. ~Liam
+            this.MarketList = GameObject.FindGameObjectsWithTag("Market");
         }
 
         private Vector2 GetPlayerSpeed()
@@ -448,10 +454,17 @@ namespace DeckbuilderRTS
                             this.RenderExamineCard(tempCInfo);
                         }
                     }
-                    // NOTE: This will require updating when multiple markets are implemented. Perhaps additional elseifs for every market? ~Liam
-                    else if (GameObject.Find("Market").GetComponent<MarketController>().IsPointerHovering())
+                    // If the player mouse is not over any UI object, check if they are over any market. ~Liam
+                    else
                     {
-                        this.RenderExamineCard(GameObject.Find("Market").GetComponent<MarketController>().GetMarketCardInfo());
+                        for (int i = 0; i < this.MarketList.Length; i++)
+                        {
+                            if (this.MarketList[i].GetComponent<MarketController>().IsPointerHovering())
+                            {
+                                this.RenderExamineCard(this.MarketList[i].GetComponent<MarketController>().GetMarketCardInfo());
+                                break;
+                            }
+                        }
                     }
                 }
 
