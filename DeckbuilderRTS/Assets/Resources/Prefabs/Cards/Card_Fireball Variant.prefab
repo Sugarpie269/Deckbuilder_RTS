@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Consumable Attack
+      value: Projectile Attack
       objectReference: {fileID: 0}
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -167,6 +167,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 'Fireball - '
+      objectReference: {fileID: 0}
+    - target: {fileID: 9087787873851407765, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: '"Fireball."
+
+        - Mr. Worldwide'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}
