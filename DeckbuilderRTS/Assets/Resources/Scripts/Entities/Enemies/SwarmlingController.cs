@@ -1,7 +1,7 @@
 using UnityEngine;
 
 using DeckbuilderRTS;
-
+using System.Collections.ObjectModel;
 using SAP2D;
 
 namespace DeckbuilderRTS
@@ -37,7 +37,9 @@ namespace DeckbuilderRTS
         [SerializeField]
         public float SeekingRange;
         private bool Disabled = false;
-
+        [SerializeField] private float ResetPathTime = 2f;
+        private float CurrentResetPathTime = 0f;
+        private int PrevDefaultIdx;
 
         // Fireball content.
         private float SummonDistance = 1.5f;
@@ -55,20 +57,30 @@ namespace DeckbuilderRTS
 
         private bool IsGameOver = false;
 
+        private SAP2DAgent Agent;
+
+        private bool SearchingDepot = true;
+        private int CurrentDepot = 0;
+        private Collection<Transform> Depots;
+
         // The start function will initialize our member variables.
         void Start()
         {
+            this.Depots = new Collection<Transform>();
+            this.Agent = this.gameObject.GetComponent<SAP2DAgent>();
             var depots = GameObject.FindGameObjectsWithTag("Depot");
             this.DefaultPositions = new Vector2[depots.Length];
             for (var i = 0; i < depots.Length; i++)
             {
                 this.DefaultPositions[i] = new Vector2(depots[i].transform.position.x, depots[i].transform.position.y);
+                this.Depots.Add(depots[i].transform);
             }
             // this.CurrentCommand = ScriptableObject.CreateInstance<???>();
             this.CurrentHealth = this.MaxHealth;
 
             // Get the player's posiiton.
             this.PlayerTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            Debug.Assert(this.PlayerTarget != null);
             this.Target = this.PlayerTarget;
 
             float step = this.Speed * Time.deltaTime;
@@ -80,6 +92,7 @@ namespace DeckbuilderRTS
 
             // Default path: move towards Default 0.
             DefaultIdx = this.GetRandomPositionID();
+            this.PrevDefaultIdx = this.DefaultIdx;
             this.Destination = DefaultPositions[DefaultIdx];
             this.destPoint = 0;
             this.path = null;
@@ -88,6 +101,10 @@ namespace DeckbuilderRTS
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
+
+            this.CurrentDepot = this.GetRandomDepot();
+            this.Agent.Target = this.Depots[this.CurrentDepot];
+            this.SearchingDepot = true;
         }
 
         public void AddMaxHealth(int maxHealth)
@@ -101,6 +118,11 @@ namespace DeckbuilderRTS
             Pathfinder = SAP2DPathfinder.singleton;
         }
 
+        private int GetRandomDepot()
+        {
+            return Random.Range(0, this.Depots.Count);
+        }
+
         public void SetDisabled()
         {
             this.Disabled = true;
@@ -109,11 +131,13 @@ namespace DeckbuilderRTS
         public void SetTarget(Transform newTarget)
         {
             this.Target = newTarget;
+            this.Agent.Target = this.Target;
         }
 
         public void ClearTarget()
         {
             this.Target = this.PlayerTarget;
+            this.Agent.Target = this.Target;
         }
 
         private int GetRandomPositionID()
@@ -130,14 +154,41 @@ namespace DeckbuilderRTS
             if (this.Target == null)
             {
                 this.Target = this.PlayerTarget;
+                this.Agent.Target = this.Target;
             }
+            
 
             // Get the path to the target.
             float Distance = Vector2.Distance(transform.position, Target.position);
+            float depotDistance = Vector2.Distance(transform.position, this.Depots[this.CurrentDepot].position);
 
-            // Case 1: Swarmling is within determined range of player. Enable seeking mode.
-            if (Distance < this.SeekingRange)
+            if (this.SearchingDepot == false)
             {
+                if (Distance > this.SeekingRange)
+                {
+                    this.SearchingDepot = true;
+                    this.ClearTarget();
+                    this.Agent.Target = this.Depots[this.CurrentDepot];
+                }
+            }
+            else
+            {
+                if (depotDistance < this.SeekingRange / 2)
+                {
+                    this.CurrentDepot = this.GetRandomDepot();
+                    this.Agent.Target = this.Depots[this.CurrentDepot];
+                }
+                if (Distance < this.SeekingRange)
+                {
+                    this.SearchingDepot = false;
+                    this.Agent.Target = this.Target;
+                }
+            }
+            
+            // Case 1: Swarmling is within determined range of player. Enable seeking mode.
+            /*if (Distance < this.SeekingRange)
+            {
+                this.CurrentResetPathTime = 0f;
                 // Switch Target position to be the player's position.
                 this.Destination = Target.position;
                 var PossiblePath = Pathfinder.FindPath(transform.position, this.Destination, Config);
@@ -150,54 +201,52 @@ namespace DeckbuilderRTS
                 this.destPoint = 0;
 
                 // Disable Default pathfinding.
+                if (this.DefaultIdx != -1)
+                {
+                    this.PrevDefaultIdx = this.DefaultIdx;
+                }
+                
                 this.DefaultIdx = -1;
+
             }
             // Case 2: Swarmling is outside of determined range. Enable pathfinding mode.
             else 
-            {   
+            {
+                this.CurrentResetPathTime += Time.deltaTime;
+                
                 // Case 1: Returning to pathfinding from Seeking stage.
-                if (this.DefaultIdx == -1) 
+                if (this.DefaultIdx == -1 || this.CurrentResetPathTime >= this.ResetPathTime) 
                 {
-                    this.DefaultIdx = this.GetRandomPositionID();//0;
+                    this.CurrentResetPathTime = 0f;
+                    this.DefaultIdx = this.PrevDefaultIdx; 
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
                 }
                 else if (this.path == null)
                 {
-
-                }
-                // Case 2: Reached end point of Default position. Swap to another Default.
-                else if (this.destPoint == path.Length - 1)
-                {
+                    this.PrevDefaultIdx = this.DefaultIdx;
                     this.DefaultIdx = this.GetRandomPositionID();
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
                 }
-                // Case 2: Reached end point of Default 0. Swap to Default 1.
-                /*else if (this.DefaultIdx == 0 && this.destPoint == path.Length - 1) 
+                // Case 2: Reached end point of Default position. Swap to another Default.
+                else if (this.destPoint == path.Length - 1)
                 {
-                    this.DefaultIdx = 1;
+                    this.DefaultIdx = this.GetRandomPositionID();
+                    this.PrevDefaultIdx = this.DefaultIdx;
                     this.Destination = DefaultPositions[this.DefaultIdx];
                     path = Pathfinder.FindPath(transform.position, this.Destination, Config);
                     this.destPoint = 0;
                 }
-                // Case 3: Reached end point of Default 1. Swap to Default 0.
-                else if (this.DefaultIdx == 1 && this.destPoint == path.Length - 1)
-                {
-                    this.DefaultIdx = 0;
-                    this.Destination = DefaultPositions[this.DefaultIdx];
-                    path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-                    this.destPoint = 0;
-                }*/
-            }
+            }*/
 
             // Move the swarmling.
-            this.MoveSwarmling();
+            //this.MoveSwarmling();
 
             // Rotate the swarmling.
-            this.UpdateRotation();
+            //this.UpdateRotation();
 
             // Swarmling is within determined range of player. Shoot projectiles.
             if (Distance < this.SeekingRange)
