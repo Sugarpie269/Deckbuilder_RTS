@@ -638,6 +638,11 @@ PrefabInstance:
       objectReference: {fileID: 2017777578}
     - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
+      propertyPath: PurchaseErrorText
+      value: 
+      objectReference: {fileID: 2017777604}
+    - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
+        type: 3}
       propertyPath: CardSlot1ErrorText
       value: 
       objectReference: {fileID: 2017777581}
@@ -668,9 +673,19 @@ PrefabInstance:
       objectReference: {fileID: 2017777585}
     - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
+      propertyPath: PurchaseSuccessText
+      value: 
+      objectReference: {fileID: 2017777603}
+    - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
+        type: 3}
       propertyPath: LowHealthWarningText
       value: 
       objectReference: {fileID: 2017777596}
+    - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
+        type: 3}
+      propertyPath: PurchaseCooldownText
+      value: 
+      objectReference: {fileID: 2017777605}
     - target: {fileID: 767945023017781619, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2139,6 +2154,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2017777576}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2017777603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1700914878, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017777576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2017777604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1372249733, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017777576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2017777605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 259308059, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017777576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2033414434
 PrefabInstance:
   m_ObjectHideFlags: 0

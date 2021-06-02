@@ -1279,6 +1279,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &977931713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1700914878, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 977931695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &977931714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1372249733, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 977931695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &977931715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 259308059, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 977931695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1035553752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1992,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 1
     ShowGridGraphSettigs: 0
-    ScaleLvl: 8
+    ScaleLvl: 16
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
@@ -2780,6 +2804,11 @@ PrefabInstance:
       objectReference: {fileID: 977931698}
     - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
+      propertyPath: PurchaseErrorText
+      value: 
+      objectReference: {fileID: 977931714}
+    - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
+        type: 3}
       propertyPath: CardSlot1ErrorText
       value: 
       objectReference: {fileID: 977931705}
@@ -2810,9 +2839,19 @@ PrefabInstance:
       objectReference: {fileID: 1422294598}
     - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
+      propertyPath: PurchaseSuccessText
+      value: 
+      objectReference: {fileID: 977931713}
+    - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
+        type: 3}
       propertyPath: LowHealthWarningText
       value: 
       objectReference: {fileID: 977931711}
+    - target: {fileID: 767945023017781617, guid: 4b43d00e85820c74d8e9f377b1be483a,
+        type: 3}
+      propertyPath: PurchaseCooldownText
+      value: 
+      objectReference: {fileID: 977931715}
     - target: {fileID: 767945023017781619, guid: 4b43d00e85820c74d8e9f377b1be483a,
         type: 3}
       propertyPath: m_RootOrder
