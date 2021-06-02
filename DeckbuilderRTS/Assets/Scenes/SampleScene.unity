@@ -1303,6 +1303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &977931716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1159767310, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 977931695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035553752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1813,7 @@ GameObject:
   - component: {fileID: 1224932599}
   m_Layer: 0
   m_Name: Market
-  m_TagString: Untagged
+  m_TagString: Market
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1828,7 +1834,7 @@ MonoBehaviour:
   cardType: Card_Fireball
   prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   MarketCoolDown: 10
-  ExamineText: {fileID: 0}
+  ExamineText: {fileID: 977931716}
 --- !u!61 &1224932598
 BoxCollider2D:
   m_ObjectHideFlags: 0
