@@ -1094,8 +1094,13 @@ PrefabInstance:
       objectReference: {fileID: 2033414435}
     - target: {fileID: 5444012080345230589, guid: 80c712c0b4fa7cd4fa68d4a70d8d9aa8,
         type: 3}
+      propertyPath: WorkerNoise
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444012080345230589, guid: 80c712c0b4fa7cd4fa68d4a70d8d9aa8,
+        type: 3}
       propertyPath: SummonSwarmlings
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5444012080345230589, guid: 80c712c0b4fa7cd4fa68d4a70d8d9aa8,
         type: 3}
