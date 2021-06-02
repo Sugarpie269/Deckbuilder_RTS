@@ -414,7 +414,7 @@ namespace DeckbuilderRTS
                     }
                 }
 
-                // Code for examining a card in the player's hand (or on the discard pile). ~Liam
+                // Code for examining a card in the player's UI, or the market. ~Liam
                 if (Input.GetButtonDown("ExamineCard"))
                 {
                     CardInfo tempCInfo = new CardInfo();
@@ -448,16 +448,16 @@ namespace DeckbuilderRTS
                             this.RenderExamineCard(tempCInfo);
                         }
                     }
-                    else
+                    // NOTE: This will require updating when multiple markets are implemented. Perhaps additional elseifs for every market? ~Liam
+                    else if (GameObject.Find("Market").GetComponent<MarketController>().IsPointerHovering())
                     {
-                        Debug.Log("Mouse not over any card to examine.");
+                        this.RenderExamineCard(GameObject.Find("Market").GetComponent<MarketController>().GetMarketCardInfo());
                     }
                 }
 
                 if (Input.GetButtonUp("ExamineCard"))
                 {
-                    // PLACEHOLDER: Set the high quality card image to inactive.
-                    //Debug.Log("Stopped examining card.");
+                    // Set the high quality card image to inactive when the player releases the key. ~Liam
                     this.ExamineCardImage.SetActive(false);
                 }
                 
@@ -510,23 +510,6 @@ namespace DeckbuilderRTS
 
             Debug.Log("Attempted to examine card " + cINfo.CardName);
 
-            /*
-             * this.Info.CardReference = GameObject.Find("Card_Fireball");
-            this.Info.CardArt = this.Info.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
-            this.Info.CardName = this.Info.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.CardType = this.Info.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.DescriptionHeader = this.Info.CardReference.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.DescriptionContent = this.Info.CardReference.transform.GetChild(4).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.FlavorText = this.Info.CardReference.transform.GetChild(4).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.CardLevel = int.Parse(this.Info.CardReference.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.CardPower = int.Parse(this.Info.CardReference.transform.GetChild(6).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.CardStrength = int.Parse(this.Info.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.ManaCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.EnergyCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.MatterCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
-             *
-             */
-
             // Set the examine card's properties to that of the passed-in CardInfo struct. ~Liam
             this.ExamineCardImage.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = cINfo.CardArt;
             this.ExamineCardImage.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardName;
@@ -543,28 +526,6 @@ namespace DeckbuilderRTS
 
             // Now that all the card info is in place, render the examined card. ~Liam
             this.ExamineCardImage.SetActive(true);
-
-            /* 
-             * NOTE FOR TOMORROW: Implementing this is basically gonna require overhauling the entire way in which the UI displays cards. Here's the steps I'll need:
-             * 
-             * 0. Re-implement the CardDisplayLibrary object in the Canvas (or just in the game, that's probably fine too. It'll store each card with the hierarchy of the Card_Fireball in the zPrefab scene.
-             * 
-             * 1. Does the card slot have a card in it? If so, go to 2. Otherwise, render the blank card sprite by going to step A (will hopefully be some transparent outline of a card) and return.
-             * 
-             * 2. Load the blank card template sprite (empty image/card name/etc.) into the Canvas->Hand->Cards->CardX. The gameobject hierarchy in CardX should be 
-             *    identical to that of the Card_Fireball object.
-             * 
-             * 3. Load the cardArt sprite into the transparent portion of the template sprite. To do this, each Card script will need to have a [SerializeField] gameobject
-             *    for their corresponding card in the CardDisplayLibrary, and the GetImage() functions should be reworked to return the gameobject instead of a sprite. Then
-             *    this function can just call GetComponent<>() for the various image and text inputs.
-             *    
-             * 4. You'll need to use trial and error to determine where to place the TextMeshProUGUIs on the card such that they line up properly, for each slot on the screen.
-             * 
-             * A. Load the empty card slot image to the slot, and deactivate any related text in the slot.
-             * 
-             * There's probably more I'm forgetting, but that's all for now. This will have to be done manually for each of the card slots. Painstaking but worth it in the end.
-             * NOTE: This process will probably also need to be used for the "Hold ALT to examine" feature, when rendering the card in the center of the screen.
-            */
         }
 
         // UI FUNCTION: Updates the card image on slot 1 based on what is currently in the slot. ~Liam

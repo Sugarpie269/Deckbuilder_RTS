@@ -20,6 +20,11 @@ namespace DeckbuilderRTS {
         [SerializeField] private float MarketCoolDown = 10f;
         private float CurrentCoolDown;
 
+        // Variables needed for market card examine function. ~Liam
+        [SerializeField] private GameObject ExamineText;
+        private bool isGameOver;
+        private bool PointerHovering;
+
         // Start is called before the first frame update
         private ICard generateCard(string cardType) {
             ICard newcard;
@@ -126,6 +131,11 @@ namespace DeckbuilderRTS {
             getCardInfo();
             card = generateCard(cardType);
             this.CurrentCoolDown = 0f;
+
+            // Setup for market card examine function. ~Liam
+            this.ExamineText = GameObject.Find("MarketExamineText");
+            this.ExamineText.SetActive(false);
+            this.PointerHovering = false;
         }
 
         // Update is called once per frame
@@ -161,14 +171,48 @@ namespace DeckbuilderRTS {
             }
         }
 
-        // TEST: Does OnPointerEnter & Exit work for non UI objects? ~Liam
+        // UI FUNCTION: Implementation for displaying the market card at the player's discretion. ~Liam
         private void OnMouseEnter()
         {
-            Debug.Log("Mouse is over the market.");
+            
+
+            // Only render the examine text if the player is not already hovering over another UI examine function, like their hand or discard, and if the game is not over. ~Liam
+            if (!this.isGameOver)
+            {
+                if (!GameObject.Find("Card1").GetComponent<ExamineDisplay>().IsPointerHovering()
+                && !GameObject.Find("Card2").GetComponent<ExamineDisplay>().IsPointerHovering()
+                && !GameObject.Find("Card3").GetComponent<ExamineDisplay>().IsPointerHovering()
+                && !GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().IsPointerHovering())
+                {
+                    Debug.Log("Mouse is over the market, and NOT over any other UI examine elements.");
+                    this.ExamineText.SetActive(true);
+                    this.PointerHovering = true;
+                }
+            }
         }
         private void OnMouseExit()
         {
-            Debug.Log("Mouse is no longer over the market.");
+            this.ExamineText.SetActive(false);
+            this.PointerHovering = false;
+        }
+
+        // Returns true while the pointer is hovering over the market. ~Liam
+        public bool IsPointerHovering()
+        {
+            return this.PointerHovering;
+        }
+
+        // Returns the CardInfo corresponding to the card in this market. ~Liam
+        public CardInfo GetMarketCardInfo()
+        {
+            return this.cardinfo;
+        }
+
+        // Called when the player's game ends, to turn off tooltips and functionality. ~Liam
+        public void GameOver()
+        {
+            this.isGameOver = true;
+            this.ExamineText.SetActive(false);
         }
     }
 }

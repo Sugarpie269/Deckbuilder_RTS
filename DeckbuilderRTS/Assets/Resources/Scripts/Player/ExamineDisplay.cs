@@ -8,6 +8,7 @@ public class ExamineDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     [SerializeField]
     private GameObject ExamineText;
+    private GameObject MarketText;
 
     private bool PointerHovering;
     private bool isGameOver;
@@ -18,6 +19,7 @@ public class ExamineDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         this.ExamineText.SetActive(false);
         this.PointerHovering = false;
         this.isGameOver = false;
+        this.MarketText = GameObject.Find("MarketExamineText");
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -37,6 +39,9 @@ public class ExamineDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             this.ExamineText.SetActive(true);
             this.PointerHovering = true;
+
+            // Remove any market display text if it is on screen. ~Liam
+            this.MarketText.SetActive(false);
         }
     }
 

@@ -1010,22 +1010,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 411512338, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 486521724, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 942241245, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676280367, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
     - target: {fileID: 3390537262146457594, guid: 3297a4ed9cf7dd745909f378131a9d9a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1135,16 +1119,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862430417136997717, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862430417136997717, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 363
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
@@ -1615,6 +1589,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094795513}
   m_CullTransparentMesh: 1
+--- !u!1 &1159767310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1159767310, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 977931695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1216949299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1805,6 +1785,7 @@ MonoBehaviour:
   cardType: Card_Fireball
   prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   MarketCoolDown: 10
+  ExamineText: {fileID: 1159767310}
 --- !u!61 &1224932598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1968,7 +1949,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 1
     ShowGridGraphSettigs: 0
-    ScaleLvl: 16
+    ScaleLvl: 1
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
