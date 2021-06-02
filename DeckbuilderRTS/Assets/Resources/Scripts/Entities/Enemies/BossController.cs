@@ -56,6 +56,7 @@ namespace DeckbuilderRTS
             if (this.CurrentHP <= 0 && !this.Disabled)
             {
                 this.SetDisabled();
+                this.transform.position = new Vector2(-10000f, -10000f);
                 this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
             }
         }
