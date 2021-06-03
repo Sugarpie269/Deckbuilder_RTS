@@ -645,6 +645,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 5855368370251584402, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6018335302394495702, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_TagString
