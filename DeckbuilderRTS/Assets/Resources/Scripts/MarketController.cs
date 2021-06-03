@@ -211,7 +211,7 @@ namespace DeckbuilderRTS {
                 && !GameObject.Find("Card3").GetComponent<ExamineDisplay>().IsPointerHovering()
                 && !GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().IsPointerHovering())
                 {
-                    Debug.Log("Mouse is over the market, and NOT over any other UI examine elements.");
+                    //Debug.Log("Mouse is over the market, and NOT over any other UI examine elements.");
                     this.ExamineText.SetActive(true);
                 }
                 this.PointerHovering = true;
