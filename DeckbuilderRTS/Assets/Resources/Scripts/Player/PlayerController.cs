@@ -205,6 +205,11 @@ namespace DeckbuilderRTS
             this.MarketList = GameObject.FindGameObjectsWithTag("Market");
         }
 
+        public bool RecentlyTookDamage()
+        {
+            return this.HealthSubtractText.IsActive();
+        }
+
         private Vector2 GetPlayerSpeed()
         {
             float horiSpeed = 0.0f;
@@ -789,6 +794,9 @@ namespace DeckbuilderRTS
                 return;
             }
             this.ModifyPlayerHealth(Mathf.FloorToInt(damage * -1));
+            var camera = GameObject.Find("Main Camera");
+            var cameraController = camera.GetComponent<CameraController>();
+            cameraController.SetShaking();
             //Debug.Log("I took " + damage.ToString() + " damage!");
         }
 

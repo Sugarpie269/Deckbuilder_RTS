@@ -17,6 +17,10 @@ namespace DeckbuilderRTS
         [SerializeField] private float DisplacementFraction = .75f;
         [SerializeField] private float MaxDistance = 5f;
 
+        [SerializeField] private float ShakeTime = .5f;
+        private float CurrentShakeTime = 0f;
+        private bool Shaking = false;
+
         // NOTE: Assuming hardcoded values for Z-position and cross size.
         float ZVal = 85f;
         float crossSize = 4f;
@@ -35,6 +39,11 @@ namespace DeckbuilderRTS
             var x = Mathf.Abs(pos1.x - pos2.x);
             var y = Mathf.Abs(pos1.y - pos2.y);
             return Mathf.Sqrt(x * x + y * y);
+        }
+
+        public void SetShaking()
+        {
+            this.Shaking = true;
         }
 
         //Use the LateUpdate message to avoid setting the camera's position before
@@ -62,7 +71,20 @@ namespace DeckbuilderRTS
                 displacedFrac = displacedFrac * this.MaxDistance;
             }
             var newPos = new Vector3(targetPosition.x + displacedFrac.x, targetPosition.y + displacedFrac.y, cameraPosition.z);
-
+            if (this.Shaking)
+            {
+                this.CurrentShakeTime += Time.deltaTime;
+                if (this.CurrentShakeTime >= this.ShakeTime)
+                {
+                    this.CurrentShakeTime = 0f;
+                    this.Shaking = false;
+                }
+                float shakeAmount = .1f;
+                var xShake = Random.Range(-shakeAmount, shakeAmount);
+                var yShake = Random.Range(-shakeAmount, shakeAmount);
+                newPos.x += xShake;
+                newPos.y += yShake;
+            }
 
             
             this.ManagedCamera.transform.position = newPos;

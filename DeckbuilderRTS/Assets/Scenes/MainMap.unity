@@ -555,6 +555,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 1693739432334971881, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: ShakeTime
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2204075726765881719, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_LocalPosition.y
