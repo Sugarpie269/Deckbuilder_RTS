@@ -61,7 +61,7 @@ namespace DeckbuilderRTS
                 deadBoss.transform.position = this.transform.position;
                 deadBoss.transform.rotation = this.transform.rotation;
                 this.transform.position = new Vector2(-10000f, -10000f);
-
+                this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
 
             }
         }
