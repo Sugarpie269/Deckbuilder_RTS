@@ -182,6 +182,12 @@ namespace DeckbuilderRTS
             return new FireballCard(this.FireballPrefab);
         }
 
+        public ICard GenerateCardVoid()
+        {
+            //Debug.Log("Created Fireball!");
+            return new VoidCard();
+        }
+
         public ICard GenerateCardInstantHeal()
         {
             return new InstantHealCard();
