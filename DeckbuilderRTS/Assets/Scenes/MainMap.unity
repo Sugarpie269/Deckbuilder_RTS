@@ -1290,6 +1290,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 8725493902481521339, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8725493902824155353, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_fontColor.b

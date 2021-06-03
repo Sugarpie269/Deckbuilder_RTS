@@ -438,6 +438,19 @@ namespace DeckbuilderRTS
                     }
                 }
 
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    var camera = GameObject.Find("Main Camera");
+                    var cameraController = camera.GetComponent<CameraController>();
+                    cameraController.ToggleCameraControl();
+                }
+                /*else if (Input.GetButtonUp("Fire1"))
+                {
+                    var camera = GameObject.Find("Main Camera");
+                    var cameraController = camera.GetComponent<CameraController>();
+                    cameraController.ClearCameraControl();
+                }*/
+
                 // Code for examining a card in the player's UI, or the market. ~Liam
                 if (Input.GetButtonDown("ExamineCard"))
                 {

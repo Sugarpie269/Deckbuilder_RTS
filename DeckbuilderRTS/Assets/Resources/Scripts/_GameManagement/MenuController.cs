@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour
 
     public void ClickStartButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainMap");
     }
 
     
