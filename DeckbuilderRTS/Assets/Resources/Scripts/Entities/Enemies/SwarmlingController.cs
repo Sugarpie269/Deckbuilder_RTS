@@ -68,6 +68,10 @@ namespace DeckbuilderRTS
         private GameObject HealthText;
         private bool loaded = false;
 
+        [SerializeField] private float DisplayDamageTime = 1.5f;
+        private float CurrentDisplayDamageTime = 0f;
+        private bool DisplayingDamage = false;
+
         // The start function will initialize our member variables.
         void Start()
         {
@@ -167,6 +171,8 @@ namespace DeckbuilderRTS
                 var canvas = GameObject.Find("Canvas");
                 //sampleText.transform.position = new Vector3(canvas.transform.position.x - this.transform.position.x, canvas.transform.position.y - this.transform.position.y, this.transform.position.z);
                 this.HealthText = Object.Instantiate(this.HealthTextPrefab, this.transform.parent) as GameObject;
+                var damageText = this.HealthText.transform.GetChild(1);
+                damageText.GetComponent<TextMeshProUGUI>().text = "";
                 //this.HealthText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z+5);
             }
             if (this.HealthText != null)
@@ -181,6 +187,19 @@ namespace DeckbuilderRTS
                 //var rectTransform = this.HealthText.GetComponent<RectTransform>();//.position = new Vector3(this.transform.position.x - canvas.transform.position.x, this.transform.position.y - canvas.transform.position.y, this.transform.position.z);
                 //rectTransform.transform.position = new Vector3(this.transform.position.x - canvas.transform.position.x, this.transform.position.y - canvas.transform.position.y, this.transform.position.z);
             }
+
+            if (this.DisplayingDamage)
+            {
+                this.CurrentDisplayDamageTime += Time.deltaTime;
+                if (this.CurrentDisplayDamageTime >= this.DisplayDamageTime)
+                {
+                    this.CurrentDisplayDamageTime = 0f;
+                    this.DisplayingDamage = false;
+                    var text = this.HealthText.transform.GetChild(1);
+                    text.GetComponent<TextMeshProUGUI>().text = "";
+                }
+            }
+
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             if (this.Disabled)
             {
@@ -360,6 +379,9 @@ namespace DeckbuilderRTS
         public void TakeDamage(float damage)
         {
             this.CurrentHealth -= Mathf.FloorToInt(damage);
+            var text = this.HealthText.transform.GetChild(1);
+            text.GetComponent<TextMeshProUGUI>().text = Mathf.FloorToInt(-damage).ToString();
+            this.DisplayingDamage = true;
             // If the swarmling dies, destroy the game object.
             if (this.CurrentHealth <= 0)
             {

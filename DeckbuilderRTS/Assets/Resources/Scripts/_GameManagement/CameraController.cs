@@ -17,6 +17,11 @@ namespace DeckbuilderRTS
         [SerializeField] private float DisplacementFraction = .75f;
         [SerializeField] private float MaxDistance = 5f;
 
+        [SerializeField] private float ShakeTime = .5f;
+        [SerializeField] private float ShakeAmount = .1f;
+        private float CurrentShakeTime = 0f;
+        private bool Shaking = false;
+
         // NOTE: Assuming hardcoded values for Z-position and cross size.
         float ZVal = 85f;
         float crossSize = 4f;
@@ -37,15 +42,34 @@ namespace DeckbuilderRTS
             return Mathf.Sqrt(x * x + y * y);
         }
 
+        public void SetShaking()
+        {
+            this.Shaking = true;
+        }
+
         //Use the LateUpdate message to avoid setting the camera's position before
         //GameObject locations are finalized.
         void LateUpdate()
         {
+            var newPos = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
+            if (this.Shaking)
+            {
+                this.CurrentShakeTime += Time.deltaTime;
+                if (this.CurrentShakeTime >= this.ShakeTime)
+                {
+                    this.CurrentShakeTime = 0f;
+                    this.Shaking = false;
+                }
+                float shakeAmount = this.ShakeAmount;
+                var xShake = Random.Range(-shakeAmount, shakeAmount);
+                var yShake = Random.Range(-shakeAmount, shakeAmount);
+                newPos.x += xShake;
+                newPos.y += yShake;
+            }
+            this.ManagedCamera.transform.position = newPos;
+            return;
 
-            //this.ManagedCamera.transform.position = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
-            //return;
-
-            var targetPosition = this.Target.transform.position;
+            /*var targetPosition = this.Target.transform.position;
             this.ManagedCamera.transform.position = new Vector3(targetPosition.x, targetPosition.y, this.ManagedCamera.transform.position.z);
             var cameraPosition = this.ManagedCamera.transform.position;
 
@@ -62,11 +86,24 @@ namespace DeckbuilderRTS
                 displacedFrac = displacedFrac * this.MaxDistance;
             }
             var newPos = new Vector3(targetPosition.x + displacedFrac.x, targetPosition.y + displacedFrac.y, cameraPosition.z);
-
+            if (this.Shaking)
+            {
+                this.CurrentShakeTime += Time.deltaTime;
+                if (this.CurrentShakeTime >= this.ShakeTime)
+                {
+                    this.CurrentShakeTime = 0f;
+                    this.Shaking = false;
+                }
+                float shakeAmount = this.ShakeAmount;
+                var xShake = Random.Range(-shakeAmount, shakeAmount);
+                var yShake = Random.Range(-shakeAmount, shakeAmount);
+                newPos.x += xShake;
+                newPos.y += yShake;
+            }
 
             
             this.ManagedCamera.transform.position = newPos;
-            return;
+            return;*/
             
 
             /*this.ElapsedTime += Time.deltaTime;
