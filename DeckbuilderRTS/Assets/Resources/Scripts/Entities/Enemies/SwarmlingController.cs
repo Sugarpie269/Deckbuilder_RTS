@@ -97,7 +97,6 @@ namespace DeckbuilderRTS
             this.destPoint = 0;
             this.path = null;
             path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-            Debug.Log("path is " + this.path);
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
@@ -131,6 +130,10 @@ namespace DeckbuilderRTS
         public void SetTarget(Transform newTarget)
         {
             this.Target = newTarget;
+            if (this.Target == null)
+            {
+                return;
+            }
             this.Agent.Target = this.Target;
         }
 

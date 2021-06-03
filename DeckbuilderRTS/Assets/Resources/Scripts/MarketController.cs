@@ -159,7 +159,7 @@ namespace DeckbuilderRTS {
             if ((player.transform.position - this.transform.position).sqrMagnitude < 10) {
                 if (Input.GetButtonDown("PurchaseCard"))
                 {
-                    Debug.Log("Buy card");
+                    //Debug.Log("Buy card");
                     var playerController = player.GetComponent<PlayerController>();
 
                     // Modified the code here to use the ModifyPlayerResource() functions already created in PlayerController.cs. Previous code is commented below. ~Liam
@@ -168,7 +168,7 @@ namespace DeckbuilderRTS {
                         && (playerController.GetEnergy() - cardinfo.EnergyCost >= 0)
                         && (playerController.GetMatter() - cardinfo.MatterCost >= 0))
                     {
-                        Debug.Log("Add a card");
+                        //Debug.Log("Add a card");
                         var newcard = generateCard(cardType);
                         if (cardinfo.ManaCost > 0)
                         {
