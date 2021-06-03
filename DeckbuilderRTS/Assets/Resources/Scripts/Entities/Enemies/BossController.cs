@@ -58,6 +58,10 @@ namespace DeckbuilderRTS
                 this.SetDisabled();
                 this.transform.position = new Vector2(-10000f, -10000f);
                 this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
+                var spriteRenderer = this.GetComponent<SpriteRenderer>();
+                Texture2D newTexture = Resources.Load<Texture2D>("Sprites/bossdead.png");
+                spriteRenderer.sprite = Sprite.Create(newTexture, new Rect(0f, 0f, newTexture.width, newTexture.height), new Vector2(newTexture.width / 2, newTexture.height / 2));
+
             }
         }
 
