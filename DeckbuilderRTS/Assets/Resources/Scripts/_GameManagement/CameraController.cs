@@ -51,11 +51,25 @@ namespace DeckbuilderRTS
         //GameObject locations are finalized.
         void LateUpdate()
         {
+            var newPos = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
+            if (this.Shaking)
+            {
+                this.CurrentShakeTime += Time.deltaTime;
+                if (this.CurrentShakeTime >= this.ShakeTime)
+                {
+                    this.CurrentShakeTime = 0f;
+                    this.Shaking = false;
+                }
+                float shakeAmount = this.ShakeAmount;
+                var xShake = Random.Range(-shakeAmount, shakeAmount);
+                var yShake = Random.Range(-shakeAmount, shakeAmount);
+                newPos.x += xShake;
+                newPos.y += yShake;
+            }
+            this.ManagedCamera.transform.position = newPos;
+            return;
 
-            //this.ManagedCamera.transform.position = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
-            //return;
-
-            var targetPosition = this.Target.transform.position;
+            /*var targetPosition = this.Target.transform.position;
             this.ManagedCamera.transform.position = new Vector3(targetPosition.x, targetPosition.y, this.ManagedCamera.transform.position.z);
             var cameraPosition = this.ManagedCamera.transform.position;
 
@@ -89,7 +103,7 @@ namespace DeckbuilderRTS
 
             
             this.ManagedCamera.transform.position = newPos;
-            return;
+            return;*/
             
 
             /*this.ElapsedTime += Time.deltaTime;

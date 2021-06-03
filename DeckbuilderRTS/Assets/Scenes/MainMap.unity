@@ -558,7 +558,12 @@ PrefabInstance:
     - target: {fileID: 1693739432334971881, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: ShakeTime
-      value: 0.15
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693739432334971881, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: ShakeAmount
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2204075726765881719, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
