@@ -134,6 +134,10 @@ namespace DeckbuilderRTS
             {
                 return;
             }
+            if (this.Agent == null)
+            {
+                return;
+            }
             this.Agent.Target = this.Target;
         }
 
