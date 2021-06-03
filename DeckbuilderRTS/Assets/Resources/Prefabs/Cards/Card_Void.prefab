@@ -141,8 +141,8 @@ PrefabInstance:
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: The unstable energies in this card will absorb and destroy the next
-        card played from your hand after it is cast, clearing it from your deck.
+      value: The unstable energies in this card will absorb and destroy the last
+        card played from your hand after it is cast, clearing them from your deck.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
