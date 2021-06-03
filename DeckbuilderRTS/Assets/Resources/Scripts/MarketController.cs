@@ -25,6 +25,8 @@ namespace DeckbuilderRTS {
         private bool isGameOver;
         private bool PointerHovering;
 
+        private bool loaded = false;
+
         // Start is called before the first frame update
         private ICard generateCard(string cardType) {
             ICard newcard;
@@ -39,6 +41,9 @@ namespace DeckbuilderRTS {
                     return newcard;
                 case "Card_SummonWorker":
                     newcard = gameController.GenerateCardSummonWorker();
+                    return newcard;
+                case "Card_Leafblade":
+                    newcard = gameController.GenerateCardLeafblade();
                     return newcard;
                 default:
                     Debug.Log("Error card not available");
@@ -134,13 +139,18 @@ namespace DeckbuilderRTS {
 
             // Setup for market card examine function. ~Liam
             this.ExamineText = GameObject.Find("MarketExamineText");
-            this.ExamineText.SetActive(false);
             this.PointerHovering = false;
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (!this.loaded)
+            {
+                this.loaded = true;
+                this.ExamineText.SetActive(false);
+
+            }
             /*this.CurrentCoolDown -= Time.deltaTime;
             if (this.CurrentCoolDown <= 0f)
             {
