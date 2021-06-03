@@ -18,6 +18,7 @@ namespace DeckbuilderRTS
         [SerializeField] private float MaxDistance = 5f;
 
         [SerializeField] private float ShakeTime = .5f;
+        [SerializeField] private float ShakeAmount = .1f;
         private float CurrentShakeTime = 0f;
         private bool Shaking = false;
 
@@ -79,7 +80,7 @@ namespace DeckbuilderRTS
                     this.CurrentShakeTime = 0f;
                     this.Shaking = false;
                 }
-                float shakeAmount = .1f;
+                float shakeAmount = this.ShakeAmount;
                 var xShake = Random.Range(-shakeAmount, shakeAmount);
                 var yShake = Random.Range(-shakeAmount, shakeAmount);
                 newPos.x += xShake;
