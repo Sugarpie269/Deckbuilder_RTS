@@ -45,6 +45,9 @@ namespace DeckbuilderRTS {
                 case "Card_Leafblade":
                     newcard = gameController.GenerateCardLeafblade();
                     return newcard;
+                case "Card_Void":
+                    newcard = gameController.GenerateCardVoid();
+                    return newcard;
                 default:
                     Debug.Log("Error card not available");
                     return null;
