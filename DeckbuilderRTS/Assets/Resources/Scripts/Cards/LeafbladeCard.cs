@@ -19,7 +19,6 @@ namespace DeckbuilderRTS
 
         public LeafbladeCard(Object prefab)
         {
-            Debug.Log("New Leafblade Card!");
             this.LeafbladePrefab = prefab;
 
             // Instantiate each piece of information about the card. ~Liam

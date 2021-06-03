@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &427480583666770223
+--- !u!1001 &5482382288372853348
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,47 +10,22 @@ PrefabInstance:
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454492155189228902, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_text
-      value: 3
+      value: Consumable
       objectReference: {fileID: 0}
     - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5251684085525408261, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Leafblade
+      value: Void
       objectReference: {fileID: 0}
     - target: {fileID: 5492570113535283711, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_Name
-      value: Card_Leafblade
+      value: Card_Void
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -99,21 +74,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -135,17 +95,17 @@ PrefabInstance:
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -176,33 +136,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 411f88b287eb8504aa08edb04c1443c6,
+      objectReference: {fileID: 21300000, guid: ee34195976181ef4b83f98f5034ab668,
         type: 3}
-    - target: {fileID: 7376752183084726300, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_text
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Throw a piercing leaf that travels slowly and deals medium damage to
-        enemies it passes through.
+      value: The unstable energies in this card will absorb and destroy the last
+        card played from your hand after it is cast, clearing them from your deck.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Leafblade
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025560120381742849, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
-        type: 3}
-      propertyPath: m_text
-      value: 0
+      value: Void
       objectReference: {fileID: 0}
     - target: {fileID: 9087787873851407765, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: A very sharp leaf. Don't cut yourself on it.
+      value: '"Taking out the trash is a necessary chore." - your mom, probably'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}

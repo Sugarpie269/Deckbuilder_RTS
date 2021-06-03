@@ -25,6 +25,8 @@ namespace DeckbuilderRTS {
         private bool isGameOver;
         private bool PointerHovering;
 
+        private bool loaded = false;
+
         // Start is called before the first frame update
         private ICard generateCard(string cardType) {
             ICard newcard;
@@ -39,6 +41,9 @@ namespace DeckbuilderRTS {
                     return newcard;
                 case "Card_SummonWorker":
                     newcard = gameController.GenerateCardSummonWorker();
+                    return newcard;
+                case "Card_Leafblade":
+                    newcard = gameController.GenerateCardLeafblade();
                     return newcard;
                 default:
                     Debug.Log("Error card not available");
@@ -134,13 +139,18 @@ namespace DeckbuilderRTS {
 
             // Setup for market card examine function. ~Liam
             this.ExamineText = GameObject.Find("MarketExamineText");
-            this.ExamineText.SetActive(false);
             this.PointerHovering = false;
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (!this.loaded)
+            {
+                this.loaded = true;
+                this.ExamineText.SetActive(false);
+
+            }
             /*this.CurrentCoolDown -= Time.deltaTime;
             if (this.CurrentCoolDown <= 0f)
             {
@@ -149,7 +159,7 @@ namespace DeckbuilderRTS {
             if ((player.transform.position - this.transform.position).sqrMagnitude < 10) {
                 if (Input.GetButtonDown("PurchaseCard"))
                 {
-                    Debug.Log("Buy card");
+                    //Debug.Log("Buy card");
                     var playerController = player.GetComponent<PlayerController>();
 
                     // Modified the code here to use the ModifyPlayerResource() functions already created in PlayerController.cs. Previous code is commented below. ~Liam
@@ -158,7 +168,7 @@ namespace DeckbuilderRTS {
                         && (playerController.GetEnergy() - cardinfo.EnergyCost >= 0)
                         && (playerController.GetMatter() - cardinfo.MatterCost >= 0))
                     {
-                        Debug.Log("Add a card");
+                        //Debug.Log("Add a card");
                         var newcard = generateCard(cardType);
                         if (cardinfo.ManaCost > 0)
                         {

@@ -19,7 +19,6 @@ namespace DeckbuilderRTS
 
         public FireballCard(Object prefab)
         {
-            Debug.Log("New FireballCard!");
             this.FireballPrefab = prefab;
 
             // Instantiate each piece of information about the card. ~Liam
@@ -46,7 +45,6 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            Debug.Log("FireballCard.OnCardPlayed()");
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var fireballDirection = playerController.GetMousePosition();

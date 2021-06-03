@@ -38,7 +38,6 @@ namespace DeckbuilderRTS
             // If the fireball collides with a swarmling, the swarmling takes damage. Otherwise, the fireball is destroyed.
             if (collision.collider.tag == "Swarmling")
             {
-                Debug.Log("Fireball hit a swarmling");
                 collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
@@ -50,7 +49,6 @@ namespace DeckbuilderRTS
             }*/
             else if (collision.collider.tag == "Boss")
             {
-                Debug.Log("Fireball hit Boss");
                 collision.collider.GetComponent<BossController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }

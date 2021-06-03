@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using DeckbuilderRTS;
+using TMPro;
 using System.Collections.ObjectModel;
 using SAP2D;
 
@@ -63,6 +64,10 @@ namespace DeckbuilderRTS
         private int CurrentDepot = 0;
         private Collection<Transform> Depots;
 
+        [SerializeField] private Object HealthTextPrefab;
+        private GameObject HealthText;
+        private bool loaded = false;
+
         // The start function will initialize our member variables.
         void Start()
         {
@@ -97,7 +102,6 @@ namespace DeckbuilderRTS
             this.destPoint = 0;
             this.path = null;
             path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-            Debug.Log("path is " + this.path);
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
@@ -131,6 +135,14 @@ namespace DeckbuilderRTS
         public void SetTarget(Transform newTarget)
         {
             this.Target = newTarget;
+            if (this.Target == null)
+            {
+                return;
+            }
+            if (this.Agent == null)
+            {
+                return;
+            }
             this.Agent.Target = this.Target;
         }
 
@@ -147,6 +159,28 @@ namespace DeckbuilderRTS
 
         void Update()
         {
+            if (!this.loaded)
+            {
+                this.loaded = true;
+                //var sampleText = GameObject.Find("TestText");
+                //var newCanvas = Object.Instantiate(this.)
+                var canvas = GameObject.Find("Canvas");
+                //sampleText.transform.position = new Vector3(canvas.transform.position.x - this.transform.position.x, canvas.transform.position.y - this.transform.position.y, this.transform.position.z);
+                this.HealthText = Object.Instantiate(this.HealthTextPrefab, this.transform.parent) as GameObject;
+                //this.HealthText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z+5);
+            }
+            if (this.HealthText != null)
+            {
+                this.HealthText.transform.position = this.transform.position;
+                var text = this.HealthText.transform.GetChild(0);
+                text.GetComponent<TextMeshProUGUI>().text = this.CurrentHealth.ToString() + "/" + this.MaxHealth.ToString();
+                //var rectTransform = this.HealthText.GetComponent<RectTransform>();
+                //rectTransform.
+                //this.HealthText.transform.position = this.transform.position;
+                //var canvas = GameObject.Find("Canvas");
+                //var rectTransform = this.HealthText.GetComponent<RectTransform>();//.position = new Vector3(this.transform.position.x - canvas.transform.position.x, this.transform.position.y - canvas.transform.position.y, this.transform.position.z);
+                //rectTransform.transform.position = new Vector3(this.transform.position.x - canvas.transform.position.x, this.transform.position.y - canvas.transform.position.y, this.transform.position.z);
+            }
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             if (this.Disabled)
             {
@@ -329,7 +363,9 @@ namespace DeckbuilderRTS
             // If the swarmling dies, destroy the game object.
             if (this.CurrentHealth <= 0)
             {
+                GameObject.Destroy(this.HealthText);
                 GameObject.Destroy(this.gameObject);
+
             }
         }
 

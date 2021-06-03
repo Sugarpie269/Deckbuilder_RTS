@@ -283,7 +283,7 @@ namespace DeckbuilderRTS
                 this.PlayerCurrentHP = this.PlayerCurrentHP + amount;
             }
 
-            Debug.Log("Modified health to " + this.PlayerCurrentHP);
+            //Debug.Log("Modified health to " + this.PlayerCurrentHP);
             // Update the UI health value and display the proper update text. Make sure to remove previous update text if it is still on screen. ~Liam
             if (amount < 0)
             {
@@ -363,7 +363,7 @@ namespace DeckbuilderRTS
         private void GameOver()
         {
             // DEBUG
-            Debug.Log("GAME OVER!");
+            //Debug.Log("GAME OVER!");
 
             // Disable controller input. ~Liam
             var controller = this.GameController.GetComponent<GameController>();
@@ -534,7 +534,7 @@ namespace DeckbuilderRTS
         void RenderExamineCard(CardInfo cINfo)
         {
 
-            Debug.Log("Attempted to examine card " + cINfo.CardName);
+            //Debug.Log("Attempted to examine card " + cINfo.CardName);
 
             // Set the examine card's properties to that of the passed-in CardInfo struct. ~Liam
             this.ExamineCardImage.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = cINfo.CardArt;
@@ -714,8 +714,8 @@ namespace DeckbuilderRTS
 
             // Warn the player if their health drops below 25% of the maximum. ~Liam
             float percentHP = (float)this.PlayerCurrentHP / (float)this.PlayerMaxHP;
-            Debug.Log("Current HP " + this.PlayerCurrentHP + " vs max " + this.PlayerMaxHP);
-            Debug.Log("Health Percentage:" + percentHP);
+            //Debug.Log("Current HP " + this.PlayerCurrentHP + " vs max " + this.PlayerMaxHP);
+            //Debug.Log("Health Percentage:" + percentHP);
             if (percentHP <= 0.25f && this.PlayerCurrentHP != 0)
             {
                 this.LowHealthWarningText.SetActive(true);
@@ -789,7 +789,7 @@ namespace DeckbuilderRTS
                 return;
             }
             this.ModifyPlayerHealth(Mathf.FloorToInt(damage * -1));
-            Debug.Log("I took " + damage.ToString() + " damage!");
+            //Debug.Log("I took " + damage.ToString() + " damage!");
         }
 
         public void ApplyHealing(float healing)
@@ -799,7 +799,7 @@ namespace DeckbuilderRTS
                 return;
             }
             this.ModifyPlayerHealth(Mathf.FloorToInt(healing));
-            Debug.Log("I healed " + healing.ToString() + " health!");
+            //Debug.Log("I healed " + healing.ToString() + " health!");
         }
 
         public void SetGameOver()
@@ -828,7 +828,7 @@ namespace DeckbuilderRTS
 
                 // Temporary code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
                 var gameControllerObject = this.GameController.GetComponent<GameController>();
-                this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardFireball());
+                this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardVoid());
                 this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
                 this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
 
@@ -848,6 +848,7 @@ namespace DeckbuilderRTS
 
                 this.LoadedResources = true;
             }
+            
 
             // Check if any of the cards or error messages in the UI need updating, and do so if necessary. ~Liam
             if(this.PlayerInventory.GetCardSlot1Updated())

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3351986976163064482, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -20,12 +20,12 @@ PrefabInstance:
     - target: {fileID: 4454492155189228902, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5251684085525408261, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -45,7 +45,12 @@ PrefabInstance:
     - target: {fileID: 5492570113535283711, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_Name
-      value: Card_InstantHeal Variant
+      value: Card_InstantHeal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492570113535283711, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -176,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 7376752183084726300, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 5492570113535283711, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_Name
-      value: Card_SummonWorker Variant
+      value: Card_SummonWorker
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -172,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Summon Worker -
+      value: Summon Worker
       objectReference: {fileID: 0}
     - target: {fileID: 9025560120381742849, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

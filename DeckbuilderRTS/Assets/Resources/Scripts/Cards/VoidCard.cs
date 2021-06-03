@@ -6,22 +6,17 @@ using TMPro;
 
 namespace DeckbuilderRTS
 {
-    public class SummonWorkerCard : ICard
+    public class VoidCard : ICard
     {
-        private int HP; // TODO: calculate based on card level and toughness/strength stat
         [SerializeField]
-        private Object WorkerPrefab;
-        private float SummonDistance = 3.0f;
-
+        private Object cardPrefab; // prefab for instantiation, 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
 
-        public SummonWorkerCard(Object prefab)
+        public VoidCard()
         {
-            this.WorkerPrefab = prefab;
-
             // Instantiate each piece of information about the card. ~Liam
-            this.Info.CardReference = GameObject.Find("Card_SummonWorker");
+            this.Info.CardReference = GameObject.Find("Card_Void");
             this.Info.CardArt = this.Info.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
             this.Info.CardName = this.Info.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
             this.Info.CardType = this.Info.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
@@ -44,23 +39,28 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            var gameMaster = GameObject.Find("GameController");
-            var gameController = gameMaster.GetComponent<GameController>();
-            gameController.SummonNewWorker(player);
+            var inventory = player.GetComponent<Inventory>();
+            var card = inventory.GetDiscardTop();
+            if (card == null)
+            {
+                return;
+            }
+            if (card.CanBeDestroyed())
+            {
+                inventory.DestroyDiscardTop();
+            }
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
         public bool ShouldBeDestroyed()
         {
-            return false;
+            return true;
         }
-
 
         // This returns true if the card can be removed from the deck after use. ~Jackson.
         public bool CanBeDestroyed()
         {
-            // TODO: SHOULD THE PLAYER BE ABLE TO DESTROY THEIR WORKER CARD?
-            return false;
+            return true;
         }
     }
 }

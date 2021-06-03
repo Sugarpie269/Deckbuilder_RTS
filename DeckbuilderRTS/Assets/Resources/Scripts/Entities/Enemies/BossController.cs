@@ -47,6 +47,7 @@ namespace DeckbuilderRTS
 
             // Time for intermittent attacks.
             this.ElapsedTime = 0;
+            
         }
 
         public void TakeDamage(float damage)
@@ -56,8 +57,12 @@ namespace DeckbuilderRTS
             if (this.CurrentHP <= 0 && !this.Disabled)
             {
                 this.SetDisabled();
+                var deadBoss = GameObject.Find("DeadBoss");
+                deadBoss.transform.position = this.transform.position;
+                deadBoss.transform.rotation = this.transform.rotation;
                 this.transform.position = new Vector2(-10000f, -10000f);
                 this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
+
             }
         }
 

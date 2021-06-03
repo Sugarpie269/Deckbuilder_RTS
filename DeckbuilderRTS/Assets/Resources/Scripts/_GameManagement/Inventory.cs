@@ -66,6 +66,25 @@ namespace DeckbuilderRTS
             return this.CardSlot1 != null && this.CardSlot2 != null && this.CardSlot3 != null;
         }
 
+        public ICard GetDiscardTop()
+        {
+            if (this.Discard.Count <= 0)
+            {
+                return null;
+            }
+            return this.Discard[this.Discard.Count-1];
+        }
+
+        public void DestroyDiscardTop()
+        { 
+            if (this.Discard.Count <= 0)
+            {
+                return;
+            }
+            this.DiscardSlotUpdated = true;
+            this.Discard.RemoveAt(this.Discard.Count-1);
+        }
+
         // Returns true if the draw pile has no cards in it, false otherwise. ~Liam
         public bool IsDeckEmpty()
         {
@@ -176,7 +195,6 @@ namespace DeckbuilderRTS
                 return;*/
             }
             // Play the card in card slot 1. ~Jackson
-            Debug.Log("CardSlot1.OnCardPlayed()");
             this.CardSlot1.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
             // Destroy the card if it should be destroyed, otherwise, add it to the discard. ~Jackson
