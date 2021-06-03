@@ -60061,7 +60061,7 @@ GameObject:
   - component: {fileID: 1400303183}
   m_Layer: 0
   m_Name: Market
-  m_TagString: Untagged
+  m_TagString: Market
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63928,12 +63928,12 @@ PrefabInstance:
     - target: {fileID: 1340021100807197952, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.575432
+      value: -12.55
       objectReference: {fileID: 0}
     - target: {fileID: 1340021100807197952, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.450565
+      value: -16.57
       objectReference: {fileID: 0}
     - target: {fileID: 1340021100807197952, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
