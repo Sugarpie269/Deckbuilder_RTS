@@ -848,6 +848,7 @@ namespace DeckbuilderRTS
 
                 this.LoadedResources = true;
             }
+            
 
             // Check if any of the cards or error messages in the UI need updating, and do so if necessary. ~Liam
             if(this.PlayerInventory.GetCardSlot1Updated())
