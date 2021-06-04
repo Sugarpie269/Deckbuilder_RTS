@@ -146,7 +146,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  GenerateMatterCoolDown: 5
-  GenerateMatterAmount: 3
-  GenerateEnergyCoolDown: 5
-  GenerateEnergyAmount: 3
+  MaxHealth: 3

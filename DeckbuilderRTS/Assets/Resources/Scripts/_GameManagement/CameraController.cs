@@ -22,6 +22,9 @@ namespace DeckbuilderRTS
         private float CurrentShakeTime = 0f;
         private bool Shaking = false;
 
+        private bool ControlCamera = false;
+        private Vector2 DisplacementPos;
+
         // NOTE: Assuming hardcoded values for Z-position and cross size.
         float ZVal = 85f;
         float crossSize = 4f;
@@ -30,6 +33,7 @@ namespace DeckbuilderRTS
         {
             this.ManagedCamera = this.gameObject.GetComponent<Camera>();
             this.CameraLineRenderer = this.gameObject.GetComponent<LineRenderer>();
+            this.DisplacementPos = new Vector2(0f, 0f);
             //this.PreviousPosition = this.ManagedCamera.transform.position;
 
             //this.ManagedCamera.transform.position = new Vector3(0, 0, this.ManagedCamera.transform.position.z);
@@ -47,63 +51,85 @@ namespace DeckbuilderRTS
             this.Shaking = true;
         }
 
+        public void SetCameraControl()
+        {
+            this.ControlCamera = true;
+        }
+
+        public void ClearCameraControl()
+        {
+            this.ControlCamera = false;
+        }
+
+        public void ToggleCameraControl()
+        {
+            this.ControlCamera = !this.ControlCamera;
+        }
+
         //Use the LateUpdate message to avoid setting the camera's position before
         //GameObject locations are finalized.
         void LateUpdate()
         {
-            var newPos = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.ManagedCamera.transform.position.z);
-            if (this.Shaking)
+            if (!this.ControlCamera)
             {
-                this.CurrentShakeTime += Time.deltaTime;
-                if (this.CurrentShakeTime >= this.ShakeTime)
+                var newPos = new Vector3(this.Target.transform.position.x + this.DisplacementPos.x, this.Target.transform.position.y + this.DisplacementPos.y, this.ManagedCamera.transform.position.z);
+                if (this.Shaking)
                 {
-                    this.CurrentShakeTime = 0f;
-                    this.Shaking = false;
+                    this.CurrentShakeTime += Time.deltaTime;
+                    if (this.CurrentShakeTime >= this.ShakeTime)
+                    {
+                        this.CurrentShakeTime = 0f;
+                        this.Shaking = false;
+                    }
+                    float shakeAmount = this.ShakeAmount;
+                    var xShake = Random.Range(-shakeAmount, shakeAmount);
+                    var yShake = Random.Range(-shakeAmount, shakeAmount);
+                    newPos.x += xShake;
+                    newPos.y += yShake;
                 }
-                float shakeAmount = this.ShakeAmount;
-                var xShake = Random.Range(-shakeAmount, shakeAmount);
-                var yShake = Random.Range(-shakeAmount, shakeAmount);
-                newPos.x += xShake;
-                newPos.y += yShake;
+                this.ManagedCamera.transform.position = newPos;
+                return;
             }
-            this.ManagedCamera.transform.position = newPos;
-            return;
-
-            /*var targetPosition = this.Target.transform.position;
-            this.ManagedCamera.transform.position = new Vector3(targetPosition.x, targetPosition.y, this.ManagedCamera.transform.position.z);
-            var cameraPosition = this.ManagedCamera.transform.position;
-
-            var playerController = this.Target.GetComponent<PlayerController>();
-            Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos = (Vector2)((worldMousePos - this.Target.transform.position));
-            //var displacement = new Vector2(mousePos.x - targetPosition.x, mousePos.y - targetPosition.y);
-            var displacedFrac = mousePos * this.DisplacementFraction;
-            var displacedFracDir = new Vector2(displacedFrac.x, displacedFrac.y);
-            displacedFracDir.Normalize();
-            if (displacedFrac.magnitude >= this.MaxDistance)
+            else
             {
-                displacedFrac.Normalize();
-                displacedFrac = displacedFrac * this.MaxDistance;
-            }
-            var newPos = new Vector3(targetPosition.x + displacedFrac.x, targetPosition.y + displacedFrac.y, cameraPosition.z);
-            if (this.Shaking)
-            {
-                this.CurrentShakeTime += Time.deltaTime;
-                if (this.CurrentShakeTime >= this.ShakeTime)
+                var targetPosition = this.Target.transform.position;
+                this.ManagedCamera.transform.position = new Vector3(targetPosition.x, targetPosition.y, this.ManagedCamera.transform.position.z);
+                var cameraPosition = this.ManagedCamera.transform.position;
+
+                var playerController = this.Target.GetComponent<PlayerController>();
+                Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos = (Vector2)((worldMousePos - this.Target.transform.position));
+                //var displacement = new Vector2(mousePos.x - targetPosition.x, mousePos.y - targetPosition.y);
+                var displacedFrac = mousePos * this.DisplacementFraction;
+                var displacedFracDir = new Vector2(displacedFrac.x, displacedFrac.y);
+                displacedFracDir.Normalize();
+                if (displacedFrac.magnitude >= this.MaxDistance)
                 {
-                    this.CurrentShakeTime = 0f;
-                    this.Shaking = false;
+                    displacedFrac.Normalize();
+                    displacedFrac = displacedFrac * this.MaxDistance;
                 }
-                float shakeAmount = this.ShakeAmount;
-                var xShake = Random.Range(-shakeAmount, shakeAmount);
-                var yShake = Random.Range(-shakeAmount, shakeAmount);
-                newPos.x += xShake;
-                newPos.y += yShake;
-            }
+                this.DisplacementPos = displacedFrac;
+                var newPos = new Vector3(targetPosition.x + displacedFrac.x, targetPosition.y + displacedFrac.y, cameraPosition.z);
+                if (this.Shaking)
+                {
+                    this.CurrentShakeTime += Time.deltaTime;
+                    if (this.CurrentShakeTime >= this.ShakeTime)
+                    {
+                        this.CurrentShakeTime = 0f;
+                        this.Shaking = false;
+                    }
+                    float shakeAmount = this.ShakeAmount;
+                    var xShake = Random.Range(-shakeAmount, shakeAmount);
+                    var yShake = Random.Range(-shakeAmount, shakeAmount);
+                    newPos.x += xShake;
+                    newPos.y += yShake;
+                }
 
+
+                this.ManagedCamera.transform.position = newPos;
+                return;
+            }
             
-            this.ManagedCamera.transform.position = newPos;
-            return;*/
             
 
             /*this.ElapsedTime += Time.deltaTime;

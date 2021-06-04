@@ -44,7 +44,7 @@ namespace DeckbuilderRTS
             newLeafblade.transform.position = leafbladePos;
 
             var leafbladeController = newLeafblade.GetComponent<LeafbladeController>();
-            leafbladeController.SetAttributes(this.Info.CardStrength, new Vector2(this.LeafbladeSpeed * leafBladeDirection.x, this.LeafbladeSpeed * leafBladeDirection.y));
+            leafbladeController.SetAttributes(this.Info.CardPower, new Vector2(this.LeafbladeSpeed * leafBladeDirection.x, this.LeafbladeSpeed * leafBladeDirection.y));
             GameObject.Destroy(newLeafblade, 5f);
         }
 
