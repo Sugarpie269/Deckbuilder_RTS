@@ -8,6 +8,7 @@ namespace DeckbuilderRTS
     {
         private enum DepotType {Matter, Energy, Mana};
         [SerializeField] private DepotType CurrentType;
+        private GameObject Worker = null;
 
         // Start is called before the first frame update
         void Start()
@@ -26,7 +27,15 @@ namespace DeckbuilderRTS
             //Debug.Log(collision.collider.name + " is the thing");
             if (collision.collider.tag == "Worker")
             {
+                
                 var workerController = collision.collider.GetComponent<WorkerController>();
+                if (this.Worker != null)
+                {
+                    workerController.SetWorkingBasic();
+                    return;
+                }
+
+                this.Worker = workerController.gameObject;
 
                 // If the worker isn't working matter, switch it to work matter.
                 if (this.CurrentType == DepotType.Matter && !workerController.IsWorkingMatter())

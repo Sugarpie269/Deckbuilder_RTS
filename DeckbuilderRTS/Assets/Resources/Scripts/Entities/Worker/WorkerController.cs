@@ -75,6 +75,12 @@ namespace DeckbuilderRTS
             this.CurrentCommand = new WorkEnergyCommand();
         }
 
+        public void SetWorkingBasic()
+        {
+            this.CurrentWorkingMode = WorkingMode.BasicMatter;
+            this.CurrentCommand = new WorkBasicMatterCommand();
+        }
+
         public bool IsWorkingMana()
         {
             return this.CurrentWorkingMode == WorkingMode.Mana;

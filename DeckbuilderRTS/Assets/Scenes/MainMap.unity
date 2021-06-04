@@ -575,6 +575,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: WorkerNoise
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4557182658155932982, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_TagString
