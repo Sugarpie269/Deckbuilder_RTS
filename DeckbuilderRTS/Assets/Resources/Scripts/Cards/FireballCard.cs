@@ -53,7 +53,7 @@ namespace DeckbuilderRTS
             newFireball.transform.position = fireballPos;
 
             var fireballController = newFireball.GetComponent<FireballController>();
-            fireballController.SetAttributes(this.Info.CardStrength, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
+            fireballController.SetAttributes(this.Info.CardPower, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
             GameObject.Destroy(newFireball, 5f);
         }
 

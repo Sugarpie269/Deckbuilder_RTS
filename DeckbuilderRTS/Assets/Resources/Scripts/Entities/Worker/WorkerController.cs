@@ -9,7 +9,7 @@ namespace DeckbuilderRTS
         private IUnitCommand CurrentCommand;
         [SerializeField] private GameObject Player;
         private PlayerController PlayerController;
-        [SerializeField] private int MaxHealth = 10;
+        [SerializeField] private int MaxHealth = 1;
         private int CurrentHealth;
 
         private enum WorkingMode{BasicMatter, Matter, Energy, Mana};

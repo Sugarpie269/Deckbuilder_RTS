@@ -162,6 +162,9 @@ MonoBehaviour:
   HealthAddText: {fileID: 0}
   HealthSubtractText: {fileID: 0}
   DrawCooldownText: {fileID: 0}
+  PurchaseCooldownText: {fileID: 0}
+  PurchaseErrorText: {fileID: 0}
+  PurchaseSuccessText: {fileID: 0}
   ManaText: {fileID: 0}
   ManaAddText: {fileID: 0}
   ManaSubtractText: {fileID: 0}
@@ -186,11 +189,11 @@ MonoBehaviour:
   DrawSlotImage: {fileID: 0}
   DiscardSlotImage: {fileID: 0}
   ExamineCardImage: {fileID: 0}
-  PlayerCurrentHP: 40
-  PlayerMaxHP: 80
-  PlayerCurrentMana: 50
-  PlayerCurrentEnergy: 50
-  PlayerCurrentMatter: 50
+  PlayerCurrentHP: 20
+  PlayerMaxHP: 30
+  PlayerCurrentMana: 0
+  PlayerCurrentEnergy: 0
+  PlayerCurrentMatter: 0
   GameController: {fileID: 0}
   Speed: 5
   MaxMovementAttackTime: 1
