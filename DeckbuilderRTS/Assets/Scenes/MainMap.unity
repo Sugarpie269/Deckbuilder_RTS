@@ -1392,6 +1392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8725493903680027852, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
+      propertyPath: m_Name
+      value: Market_Void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725493903680027852, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
       propertyPath: m_TagString
       value: Market
       objectReference: {fileID: 0}
