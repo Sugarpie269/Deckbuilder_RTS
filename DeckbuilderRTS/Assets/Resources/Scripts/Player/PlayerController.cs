@@ -194,12 +194,14 @@ namespace DeckbuilderRTS
 
 
 
-            Texture2D tempEmptyCardSlot = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
-            this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
-            Texture2D tempFacedownCard = Resources.Load<Texture2D>("Sprites/FacedownCard");
-            this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
-            Texture2D tempBlankCard = Resources.Load<Texture2D>("Sprites/card_base_1000x1500");
-            this.BlankCardTemplate = Sprite.Create(tempBlankCard, new Rect(0f, 0f, tempBlankCard.width, tempBlankCard.height), new Vector2(tempBlankCard.width / 2, tempBlankCard.height / 2));
+            //Texture2D tempEmptyCardSlot = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
+            this.EmptyCardSlotImage = GameObject.Find("EmptyCardSlot").GetComponent<Image>().sprite;
+            //this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
+            //Texture2D tempFacedownCard = Resources.Load<Texture2D>("Sprites/FacedownCard");
+            this.FacedownCardImage = GameObject.Find("FacedownCard").GetComponent<Image>().sprite;
+            //this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
+            //Texture2D tempBlankCard = Resources.Load<Texture2D>("Sprites/card_base_1000x1500");
+            //this.BlankCardTemplate = Sprite.Create(tempBlankCard, new Rect(0f, 0f, tempBlankCard.width, tempBlankCard.height), new Vector2(tempBlankCard.width / 2, tempBlankCard.height / 2));
 
             // Get all markets in the scene. ~Liam
             this.MarketList = GameObject.FindGameObjectsWithTag("Market");
