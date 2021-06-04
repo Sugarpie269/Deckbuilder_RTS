@@ -164,5 +164,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Laser therapy cleanses the soul.
       objectReference: {fileID: 0}
+    - target: {fileID: 9136182909721026179, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}
