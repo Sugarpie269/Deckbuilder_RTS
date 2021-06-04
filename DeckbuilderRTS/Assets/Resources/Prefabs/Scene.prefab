@@ -1,5 +1,455 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &105070393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105070394}
+  - component: {fileID: 105070398}
+  - component: {fileID: 105070397}
+  - component: {fileID: 105070396}
+  - component: {fileID: 105070395}
+  m_Layer: 0
+  m_Name: Market_iceSpike
+  m_TagString: Market
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &105070394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105070393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.69, y: -7.55, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 8725493903015280012}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &105070398
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105070393}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -44025399
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 781a9d9a24eca4965a926dd5464f380c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6, y: 8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &105070397
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105070393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.021168709, y: -0.037746668}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 8}
+    newSize: {x: 6, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.5342884, y: 5.653521}
+  m_EdgeRadius: 0
+--- !u!114 &105070396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105070393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b970dc4664b9940779482e30525a88ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8340498935974062350}
+  cardType: Card_IceSpike
+  prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  MarketCoolDown: 10
+  ExamineText: {fileID: 8725493903027618299}
+--- !u!50 &105070395
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105070393}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!1 &1053083409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053083410}
+  - component: {fileID: 1053083414}
+  - component: {fileID: 1053083413}
+  - component: {fileID: 1053083412}
+  - component: {fileID: 1053083411}
+  m_Layer: 0
+  m_Name: Market_laserBeam
+  m_TagString: Market
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053083410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053083409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.13, y: -17.54, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 8725493903015280012}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1053083414
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053083409}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -44025399
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 781a9d9a24eca4965a926dd5464f380c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6, y: 8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &1053083413
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053083409}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.021168709, y: -0.037746668}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 8}
+    newSize: {x: 6, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.5342884, y: 5.653521}
+  m_EdgeRadius: 0
+--- !u!114 &1053083412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053083409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b970dc4664b9940779482e30525a88ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8340498935974062350}
+  cardType: Card_LaserBeam
+  prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  MarketCoolDown: 10
+  ExamineText: {fileID: 8725493903027618299}
+--- !u!50 &1053083411
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053083409}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!1 &1827586717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827586718}
+  - component: {fileID: 1827586722}
+  - component: {fileID: 1827586721}
+  - component: {fileID: 1827586720}
+  - component: {fileID: 1827586719}
+  m_Layer: 0
+  m_Name: Market_heal
+  m_TagString: Market
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1827586718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827586717}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.01, y: -12.78, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 8725493903015280012}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1827586722
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827586717}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -44025399
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 781a9d9a24eca4965a926dd5464f380c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6, y: 8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &1827586721
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827586717}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.021168709, y: -0.037746668}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 8}
+    newSize: {x: 6, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.5342884, y: 5.653521}
+  m_EdgeRadius: 0
+--- !u!114 &1827586720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827586717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b970dc4664b9940779482e30525a88ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8340498935974062350}
+  cardType: Card_InstantHeal
+  prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  MarketCoolDown: 10
+  ExamineText: {fileID: 8725493903027618299}
+--- !u!50 &1827586719
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827586717}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &8725493902434518807
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +764,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8725493903733480718}
+  - {fileID: 1827586718}
+  - {fileID: 105070394}
+  - {fileID: 1053083410}
   - {fileID: 8725493903818463601}
   - {fileID: 8725493903680027855}
   m_Father: {fileID: 8725493903387209927}
@@ -38426,7 +38879,7 @@ Transform:
   m_Children:
   - {fileID: 1693739432334971671}
   - {fileID: 8340498935974062339}
-  - {fileID: 5025764600841367539}
+  - {fileID: 5855368370251584402}
   - {fileID: 6204471362906221327}
   - {fileID: 4746524499611767998}
   - {fileID: 2205359433681836297}
@@ -38626,8 +39079,8 @@ GameObject:
   - component: {fileID: 8725493903680027849}
   - component: {fileID: 8725493903680027854}
   m_Layer: 0
-  m_Name: Market_fireBall (2)
-  m_TagString: Untagged
+  m_Name: Market_void
+  m_TagString: Market
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38640,11 +39093,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8725493903680027852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.7, y: 53.3, z: 0}
+  m_LocalPosition: {x: 16.71, y: -12.16, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8725493903015280012}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8725493903680027851
 SpriteRenderer:
@@ -38737,7 +39190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8340498935974062350}
-  cardType: Card_Fireball
+  cardType: Card_Void
   prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   MarketCoolDown: 10
   ExamineText: {fileID: 8725493903027618299}
@@ -39014,8 +39467,8 @@ GameObject:
   - component: {fileID: 8725493903733480717}
   - component: {fileID: 8725493903733480722}
   m_Layer: 0
-  m_Name: Market_fireBall
-  m_TagString: Untagged
+  m_Name: Market_fireball
+  m_TagString: Market
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39028,7 +39481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8725493903733480723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.015432, y: -8.930564, z: 0}
+  m_LocalPosition: {x: 3.51, y: -7.43, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8725493903015280012}
@@ -50587,8 +51040,8 @@ GameObject:
   - component: {fileID: 8725493903818463603}
   - component: {fileID: 8725493903818463600}
   m_Layer: 0
-  m_Name: Market_fireBall (1)
-  m_TagString: Untagged
+  m_Name: Market_lightningBolt
+  m_TagString: Market
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50601,11 +51054,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8725493903818463606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.36, y: 16.47, z: 0}
+  m_LocalPosition: {x: 8.11, y: -6.29, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8725493903015280012}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8725493903818463597
 SpriteRenderer:
@@ -50698,7 +51151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8340498935974062350}
-  cardType: Card_Fireball
+  cardType: Card_LightningBolt
   prefab: {fileID: 2800000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   MarketCoolDown: 10
   ExamineText: {fileID: 8725493903027618299}
@@ -51256,6 +51709,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
       propertyPath: m_RootOrder
@@ -51360,6 +51818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -51516,6 +51979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -51646,6 +52114,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Bench W (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb546cfc24c8c24196899cee5797135, type: 3}
 --- !u!4 &1683089648091154653 stripped
@@ -51740,6 +52213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -51897,6 +52375,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -52047,6 +52530,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -52122,6 +52610,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Rune Pillar X2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
       propertyPath: m_RootOrder
@@ -52196,6 +52689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Bush T2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 5b94bf9107369684a8153921f763da38,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 5b94bf9107369684a8153921f763da38,
         type: 3}
@@ -52351,6 +52849,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -52572,6 +53075,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d730038d263986f4dac93230e1dd62b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 7947911505844789836, guid: d730038d263986f4dac93230e1dd62b0,
         type: 3}
       propertyPath: m_Layer
@@ -52761,6 +53269,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: ac719b1d0f58391469cc19fd947ca44c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: ac719b1d0f58391469cc19fd947ca44c,
         type: 3}
@@ -53047,6 +53560,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648003697922 stripped
@@ -53216,6 +53734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Coffin Vert
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: e54d3c80cde4e314eae0912eca6a93ae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: e54d3c80cde4e314eae0912eca6a93ae,
         type: 3}
@@ -53497,6 +54020,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 6d69371a87148ee4dac7b2b814437ffd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d69371a87148ee4dac7b2b814437ffd, type: 3}
 --- !u!4 &1683089648181500427 stripped
@@ -53572,6 +54100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Rune Pillar Broken
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8728cc48d2747494893fd60426c06f6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8728cc48d2747494893fd60426c06f6e, type: 3}
 --- !u!4 &1683089648172485306 stripped
@@ -53591,6 +54124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -53666,6 +54204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -53802,6 +54345,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6644944589867386885, guid: 4be821d0b78ad5043985b57b738e951b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 6644944589878580092, guid: 4be821d0b78ad5043985b57b738e951b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53912,6 +54460,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -53986,6 +54539,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -54062,6 +54620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -54136,6 +54699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -54212,6 +54780,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot B (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: 63ee4b6a40c55fd429759b807832ded1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: 63ee4b6a40c55fd429759b807832ded1,
         type: 3}
       propertyPath: m_RootOrder
@@ -54286,6 +54859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -54487,6 +55065,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -54617,6 +55200,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648121313699 stripped
@@ -54717,6 +55305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -54791,6 +55384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -54921,6 +55519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone T1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 6d69371a87148ee4dac7b2b814437ffd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d69371a87148ee4dac7b2b814437ffd, type: 3}
@@ -55297,6 +55900,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648141559398 stripped
@@ -55447,6 +56055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Bench W (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb546cfc24c8c24196899cee5797135, type: 3}
 --- !u!4 &1683089648133812872 stripped
@@ -55522,6 +56135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 6d69371a87148ee4dac7b2b814437ffd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d69371a87148ee4dac7b2b814437ffd, type: 3}
 --- !u!4 &1683089648133439420 stripped
@@ -55541,6 +56159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -55616,6 +56239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -55827,6 +56455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T1
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 6d69371a87148ee4dac7b2b814437ffd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d69371a87148ee4dac7b2b814437ffd, type: 3}
 --- !u!4 &1683089647773191523 stripped
@@ -55921,6 +56554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -56057,6 +56695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T7
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: f826bf48ad5bedc4ab6cabe6c4e498e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f826bf48ad5bedc4ab6cabe6c4e498e8, type: 3}
 --- !u!4 &1683089647775185818 stripped
@@ -56076,6 +56719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Bush A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 39562e88b536753438a3153c5fbdf7b8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 39562e88b536753438a3153c5fbdf7b8,
         type: 3}
@@ -56207,6 +56855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089647820399967 stripped
@@ -56281,6 +56934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Lantern (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
@@ -56512,6 +57170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089647802761554 stripped
@@ -56531,6 +57194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Rune Pillar X2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
@@ -56662,6 +57330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089647723635469 stripped
@@ -56757,6 +57430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -56831,6 +57509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -57062,6 +57745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -57137,6 +57825,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -57211,6 +57904,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -57347,6 +58045,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MySAP2D
       objectReference: {fileID: 0}
+    - target: {fileID: 6897958354023038671, guid: 5341810a0c37dcf4aae6afc84b5e7325,
+        type: 3}
+      propertyPath: GraphDrawers.Array.data[0].ScaleLvl
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5341810a0c37dcf4aae6afc84b5e7325, type: 3}
 --- !u!4 &2786979311220503848 stripped
@@ -57366,6 +58069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -57652,6 +58360,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089647929742711 stripped
@@ -57832,6 +58545,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -57906,6 +58624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot C (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
@@ -58112,6 +58835,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089647911572919 stripped
@@ -58131,6 +58859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -58417,6 +59150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pillar Broken
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: cfa0a5ef94fb05d4f97d095a05dc55c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa0a5ef94fb05d4f97d095a05dc55c5, type: 3}
 --- !u!4 &1683089647953831278 stripped
@@ -58567,6 +59305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Brick T2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 5d42979a3c318c341b37b4b1f2c85750,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d42979a3c318c341b37b4b1f2c85750, type: 3}
 --- !u!4 &1683089647856463291 stripped
@@ -58641,6 +59384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pillar Broken (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: cfa0a5ef94fb05d4f97d095a05dc55c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa0a5ef94fb05d4f97d095a05dc55c5, type: 3}
@@ -58732,6 +59480,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8725493903387209927}
     m_Modifications:
+    - target: {fileID: 2906331371477560335, guid: 618d598958c16714aa91519d4c4834e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906331371477560335, guid: 618d598958c16714aa91519d4c4834e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13.95
+      objectReference: {fileID: 0}
     - target: {fileID: 4370800884632309870, guid: 618d598958c16714aa91519d4c4834e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -58794,9 +59552,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 618d598958c16714aa91519d4c4834e3, type: 3}
---- !u!4 &5025764600841367539 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4370800884632309870, guid: 618d598958c16714aa91519d4c4834e3,
+--- !u!224 &5855368370251584402 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2906331371477560335, guid: 618d598958c16714aa91519d4c4834e3,
     type: 3}
   m_PrefabInstance: {fileID: 8725493902923612061}
   m_PrefabAsset: {fileID: 0}
@@ -58972,6 +59730,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone T3
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 3fcd8726c7cd53345947949baefbab35,
         type: 3}
       propertyPath: m_RootOrder
@@ -59106,6 +59869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone T3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: ba7fef4c928d8c4459466bf93171730e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7fef4c928d8c4459466bf93171730e, type: 3}
@@ -59332,6 +60100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Bench W (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb546cfc24c8c24196899cee5797135, type: 3}
 --- !u!4 &1683089648585440083 stripped
@@ -59462,6 +60235,16 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 8340498935974062350}
+    - target: {fileID: 7968681331942747911, guid: 50c59c9c0bfda22408928cabeb9f02fe,
+        type: 3}
+      propertyPath: ShakeTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968681331942747911, guid: 50c59c9c0bfda22408928cabeb9f02fe,
+        type: 3}
+      propertyPath: ShakeAmount
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7968681331942748152, guid: 50c59c9c0bfda22408928cabeb9f02fe,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -59622,6 +60405,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
       propertyPath: m_RootOrder
@@ -59696,6 +60484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -59827,6 +60620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648630795506 stripped
@@ -59922,6 +60720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
       propertyPath: m_RootOrder
@@ -59996,6 +60799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
@@ -60072,6 +60880,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -60146,6 +60959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -60527,6 +61345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
       propertyPath: m_RootOrder
@@ -60601,6 +61424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Chest (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
@@ -60752,6 +61580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -60826,6 +61659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -60957,6 +61795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648502634346 stripped
@@ -61051,6 +61894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -61593,6 +62441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -61743,6 +62596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Rune Pillar X2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
       propertyPath: m_RootOrder
@@ -61818,6 +62676,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot C (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
       propertyPath: m_RootOrder
@@ -61892,6 +62755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -62043,6 +62911,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T3
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
       propertyPath: m_RootOrder
@@ -62117,6 +62990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -62428,6 +63306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Road Sign W
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 5c635e5bc09c93043a53ee0e17e89d0f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 5c635e5bc09c93043a53ee0e17e89d0f,
         type: 3}
       propertyPath: m_RootOrder
@@ -62652,6 +63535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -63193,6 +64081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Grass A
       objectReference: {fileID: 0}
+    - target: {fileID: 3067587326924003671, guid: a0a66c9b152e801409fc26c4ca493d18,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 7509736641193634087, guid: a0a66c9b152e801409fc26c4ca493d18,
         type: 3}
       propertyPath: m_RootOrder
@@ -63267,6 +64160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Chest (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
@@ -63503,6 +64401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -63577,6 +64480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -63933,6 +64841,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T3
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: ba7fef4c928d8c4459466bf93171730e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7fef4c928d8c4459466bf93171730e, type: 3}
 --- !u!4 &1683089648331284430 stripped
@@ -64103,6 +65016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Chest (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_RootOrder
@@ -64177,6 +65095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
@@ -64307,6 +65230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Lantern (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
@@ -64478,6 +65406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -64553,6 +65486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot B (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: 63ee4b6a40c55fd429759b807832ded1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: 63ee4b6a40c55fd429759b807832ded1,
         type: 3}
       propertyPath: m_RootOrder
@@ -64627,6 +65565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -65068,6 +66011,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Bench S
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8fd7cba4384381e4aad6dc90158fc9d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fd7cba4384381e4aad6dc90158fc9d5, type: 3}
 --- !u!4 &1683089648345020379 stripped
@@ -65218,6 +66166,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648333810816 stripped
@@ -65313,6 +66266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -65388,6 +66346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -65462,6 +66425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -65612,6 +66580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -65842,6 +66815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -66123,6 +67101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pillar Broken (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: cfa0a5ef94fb05d4f97d095a05dc55c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa0a5ef94fb05d4f97d095a05dc55c5, type: 3}
 --- !u!4 &1683089648278801396 stripped
@@ -66292,6 +67275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -66503,6 +67491,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T2
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 713b33322b495794e92184973ece3034,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b33322b495794e92184973ece3034, type: 3}
 --- !u!4 &1683089648452319189 stripped
@@ -66653,6 +67646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T4
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 4c4e80b50a323dc478f7c84e0b8fdad2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4e80b50a323dc478f7c84e0b8fdad2, type: 3}
 --- !u!4 &1683089648450452093 stripped
@@ -66747,6 +67745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
@@ -66898,6 +67901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -67048,6 +68056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
       propertyPath: m_RootOrder
@@ -67122,6 +68135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Rune Pillar X2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
@@ -67403,6 +68421,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648477646272 stripped
@@ -67653,6 +68676,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot C (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
       propertyPath: m_RootOrder
@@ -67802,6 +68830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Coffin Vert (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: e54d3c80cde4e314eae0912eca6a93ae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: e54d3c80cde4e314eae0912eca6a93ae,
         type: 3}
@@ -67953,6 +68986,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone T2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26,
         type: 3}
       propertyPath: m_RootOrder
@@ -68083,6 +69121,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648378712155 stripped
@@ -68117,6 +69160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -68298,6 +69346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Rune Pillar X2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
       propertyPath: m_RootOrder
@@ -68373,6 +69426,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -68447,6 +69505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot C (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
@@ -68673,6 +69736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -68897,6 +69965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -69193,6 +70266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: ba7fef4c928d8c4459466bf93171730e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7fef4c928d8c4459466bf93171730e, type: 3}
 --- !u!4 &1683089649117930189 stripped
@@ -69212,6 +70290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -69513,6 +70596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Bush F (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 0505844a909d2ea4996c19b67b2a40b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 0505844a909d2ea4996c19b67b2a40b9,
         type: 3}
       propertyPath: m_RootOrder
@@ -69668,6 +70756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T2
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -69742,6 +70835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Chest (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
@@ -69893,6 +70991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot C (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
       propertyPath: m_RootOrder
@@ -70043,6 +71146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T1
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -70172,6 +71280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone T2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 713b33322b495794e92184973ece3034,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b33322b495794e92184973ece3034, type: 3}
@@ -70658,6 +71771,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot B (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: 63ee4b6a40c55fd429759b807832ded1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: 63ee4b6a40c55fd429759b807832ded1,
         type: 3}
       propertyPath: m_RootOrder
@@ -70788,6 +71906,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649272069668 stripped
@@ -70887,6 +72010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: ac719b1d0f58391469cc19fd947ca44c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: ac719b1d0f58391469cc19fd947ca44c,
         type: 3}
@@ -71098,6 +72226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649243282219 stripped
@@ -71248,6 +72381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Brick T2
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 5d42979a3c318c341b37b4b1f2c85750,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d42979a3c318c341b37b4b1f2c85750, type: 3}
 --- !u!4 &1683089649305470817 stripped
@@ -71322,6 +72460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Bench W (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505844789837, guid: 8eb546cfc24c8c24196899cee5797135,
         type: 3}
@@ -71408,6 +72551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649302116295 stripped
@@ -71482,6 +72630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Bench W (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb546cfc24c8c24196899cee5797135, type: 3}
@@ -71558,6 +72711,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T6
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d5762f992ea3bd544bb8287f66e8f844,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5762f992ea3bd544bb8287f66e8f844, type: 3}
 --- !u!4 &1683089649289138866 stripped
@@ -71577,6 +72735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -71708,6 +72871,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649296196803 stripped
@@ -71797,6 +72965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d730038d263986f4dac93230e1dd62b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505844789836, guid: d730038d263986f4dac93230e1dd62b0,
         type: 3}
@@ -71888,6 +73061,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Bench W (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb546cfc24c8c24196899cee5797135, type: 3}
 --- !u!4 &1683089649294124432 stripped
@@ -71907,6 +73085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -72062,6 +73245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate Small (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -72453,6 +73641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Rune Pillar X3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1360264394729772843, guid: 4fad9c4de6b725a43bb1200ed9479c08,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1360264394729772852, guid: 4fad9c4de6b725a43bb1200ed9479c08,
         type: 3}
       propertyPath: m_RootOrder
@@ -72583,6 +73776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649215795395 stripped
@@ -72658,6 +73856,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Rune Pillar Broken (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8728cc48d2747494893fd60426c06f6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8728cc48d2747494893fd60426c06f6e, type: 3}
 --- !u!4 &1683089649221444428 stripped
@@ -72677,6 +73880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -72808,6 +74016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649220118884 stripped
@@ -72827,6 +74040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Rune Pillar X2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
@@ -72902,6 +74120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 7277dd75e907b27448ec1de08238d0bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb,
         type: 3}
@@ -73038,6 +74261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: ba7fef4c928d8c4459466bf93171730e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7fef4c928d8c4459466bf93171730e, type: 3}
 --- !u!4 &1683089648859327857 stripped
@@ -73113,6 +74341,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648857726451 stripped
@@ -73132,6 +74365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -73208,6 +74446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -73282,6 +74525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: ac719b1d0f58391469cc19fd947ca44c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: ac719b1d0f58391469cc19fd947ca44c,
         type: 3}
@@ -73413,6 +74661,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648849945239 stripped
@@ -73488,6 +74741,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648849677147 stripped
@@ -73562,6 +74820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Bench W (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505844789837, guid: 8eb546cfc24c8c24196899cee5797135,
         type: 3}
@@ -73727,6 +74990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pillar Broken (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: cfa0a5ef94fb05d4f97d095a05dc55c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa0a5ef94fb05d4f97d095a05dc55c5, type: 3}
@@ -74034,6 +75302,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 713b33322b495794e92184973ece3034,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b33322b495794e92184973ece3034, type: 3}
 --- !u!4 &1683089648893186157 stripped
@@ -74053,6 +75326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pot C (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
@@ -74129,15 +75407,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManaDepot
       objectReference: {fileID: 0}
+    - target: {fileID: 4334805334006803184, guid: 148292fd86ca4154998fdb9b4b122d54,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 4334805334006803188, guid: 148292fd86ca4154998fdb9b4b122d54,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334805334006803188, guid: 148292fd86ca4154998fdb9b4b122d54,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4334805334006803188, guid: 148292fd86ca4154998fdb9b4b122d54,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -44025399
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 4334805334006803189, guid: 148292fd86ca4154998fdb9b4b122d54,
         type: 3}
@@ -74213,6 +75501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -74499,6 +75792,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648790719953 stripped
@@ -74518,6 +75816,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -74879,6 +76182,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089648831216068 stripped
@@ -74898,6 +76206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -75129,6 +76442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot B
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: 63ee4b6a40c55fd429759b807832ded1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: 63ee4b6a40c55fd429759b807832ded1,
         type: 3}
       propertyPath: m_RootOrder
@@ -75259,6 +76577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T6 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d5762f992ea3bd544bb8287f66e8f844,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5762f992ea3bd544bb8287f66e8f844, type: 3}
 --- !u!4 &1683089648990530645 stripped
@@ -75278,6 +76601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Rune Pillar X2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
@@ -75409,6 +76737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T6 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d5762f992ea3bd544bb8287f66e8f844,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5762f992ea3bd544bb8287f66e8f844, type: 3}
 --- !u!4 &1683089648975082449 stripped
@@ -75443,6 +76776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -76169,6 +77507,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -76299,6 +77642,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 713b33322b495794e92184973ece3034,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b33322b495794e92184973ece3034, type: 3}
 --- !u!4 &1683089648966216553 stripped
@@ -76398,6 +77746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Bush T2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 5b94bf9107369684a8153921f763da38,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 5b94bf9107369684a8153921f763da38,
         type: 3}
@@ -76839,6 +78192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649703012888 stripped
@@ -76858,6 +78216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Gravestone T1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe,
         type: 3}
@@ -77014,6 +78377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -77163,6 +78531,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -77314,6 +78687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone T1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe,
         type: 3}
       propertyPath: m_RootOrder
@@ -77388,6 +78766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Grass A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067587326924003671, guid: a0a66c9b152e801409fc26c4ca493d18,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7509736641193634087, guid: a0a66c9b152e801409fc26c4ca493d18,
         type: 3}
@@ -77614,6 +78997,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Chest (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_RootOrder
@@ -77764,6 +79152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -77893,6 +79286,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Bench W
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 8eb546cfc24c8c24196899cee5797135,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505844789837, guid: 8eb546cfc24c8c24196899cee5797135,
         type: 3}
@@ -78154,6 +79552,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8725493903387209927}
     m_Modifications:
+    - target: {fileID: 739507417, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 739507417, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 739507417, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.105882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 739507417, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4283682075
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475444602, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475444602, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.08235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475444602, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294942485
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900497964, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900497964, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.87058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900497964, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279754495
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096354382139292448, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.05958529
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096354382139292448, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.36405513
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096354382139292448, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096354382139292448, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279197176
+      objectReference: {fileID: 0}
     - target: {fileID: 3390537262146457594, guid: 3297a4ed9cf7dd745909f378131a9d9a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -78264,251 +79722,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3390537262754882662, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.23768044
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390537262754882662, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390537262754882662, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4282200575
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3297a4ed9cf7dd745909f378131a9d9a, type: 3}
---- !u!1 &6204471362830243659 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3390537262188491710, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2974122707901018899 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5787436277157599206, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1224577487093259227 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7631838599474757422, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &6204471362905021847 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3390537262145304930, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6204471361040316488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3390537263473007805, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8725493903027618299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1159767310, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2238900544044059843 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7351284540943378486, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8725493904475950173 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 483190952, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6204471362788131512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3390537261962421837, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8725493902824155353 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1900497964, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8202390891785946759 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 631508313906995826, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6048153559295205333 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3096354382139292448, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &6834534195264424034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2868241944756350103, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6204471362532540563 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3390537262754882662, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &4741436106390201333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4097107419475576576, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8725493902486602315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1700914878, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &908518931249374277 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8470315829055635632, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8725493903251053455 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1475444602, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &7980779489572121872 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1717633771362552293, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6204471361022402914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3390537263459845527, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8725493903352281712 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1372249733, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8725493904198622958 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 259308059, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2560165791780484339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6525899756865212422, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8725493902691896462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1764059259, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6459800022728133473 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2356226603973455764, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &5123588476277472633 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4471382748466076044, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3832186232252546848 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5492570113790106581, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5462308960713489567 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3664007561107888234, guid: 3297a4ed9cf7dd745909f378131a9d9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8725493904153830645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8725493904303562602 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 154499999, guid: 3297a4ed9cf7dd745909f378131a9d9a,
     type: 3}
   m_PrefabInstance: {fileID: 8725493904153830645}
   m_PrefabAsset: {fileID: 0}
@@ -78530,15 +79763,255 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5462308960713489567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3664007561107888234, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2974122707901018899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5787436277157599206, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6459800022728133473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2356226603973455764, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1224577487093259227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7631838599474757422, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &908518931249374277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8470315829055635632, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2560165791780484339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6525899756865212422, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6204471362905021847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390537262145304930, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6204471362830243659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390537262188491710, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8725493904475950173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 483190952, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6204471362788131512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390537261962421837, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8202390891785946759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 631508313906995826, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6834534195264424034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2868241944756350103, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4741436106390201333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4097107419475576576, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7980779489572121872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717633771362552293, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6204471361022402914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390537263459845527, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8725493902691896462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1764059259, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8725493904303562602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 154499999, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6204471362341504730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390537262711169583, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3832186232252546848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5492570113790106581, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8725493903027618299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1159767310, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8725493904198622958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 259308059, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8725493903352281712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1372249733, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8725493902486602315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1700914878, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6204471362532540563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3390537262754882662, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6204471361040316488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390537263473007805, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2238900544044059843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7351284540943378486, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6048153559295205333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3096354382139292448, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6204471362906221327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3390537262146457594, guid: 3297a4ed9cf7dd745909f378131a9d9a,
     type: 3}
   m_PrefabInstance: {fileID: 8725493904153830645}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6204471362341504730 stripped
+--- !u!114 &8725493903251053455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1475444602, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8725493904153830645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5123588476277472633 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3390537262711169583, guid: 3297a4ed9cf7dd745909f378131a9d9a,
+  m_CorrespondingSourceObject: {fileID: 4471382748466076044, guid: 3297a4ed9cf7dd745909f378131a9d9a,
     type: 3}
   m_PrefabInstance: {fileID: 8725493904153830645}
   m_PrefabAsset: {fileID: 0}
@@ -78688,6 +80161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone T3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: ba7fef4c928d8c4459466bf93171730e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7fef4c928d8c4459466bf93171730e, type: 3}
@@ -79095,6 +80573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -79169,6 +80652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -79300,6 +80788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649835785743 stripped
@@ -79320,15 +80813,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: MatterDepot
       objectReference: {fileID: 0}
+    - target: {fileID: 3611993574801649749, guid: 98eb6cb56f648224591a0e96c0fa239f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 3611993574801649750, guid: 98eb6cb56f648224591a0e96c0fa239f,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611993574801649750, guid: 98eb6cb56f648224591a0e96c0fa239f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3611993574801649750, guid: 98eb6cb56f648224591a0e96c0fa239f,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -44025399
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 3611993574801649753, guid: 98eb6cb56f648224591a0e96c0fa239f,
         type: 3}
@@ -79990,6 +81493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot B
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: 63ee4b6a40c55fd429759b807832ded1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: 63ee4b6a40c55fd429759b807832ded1,
         type: 3}
       propertyPath: m_RootOrder
@@ -80214,6 +81722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Crate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -80443,12 +81956,12 @@ PrefabInstance:
     - target: {fileID: 1340021100807197952, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.05
+      value: 5.54
       objectReference: {fileID: 0}
     - target: {fileID: 1340021100807197952, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.17
+      value: 16.17
       objectReference: {fileID: 0}
     - target: {fileID: 1340021100807197952, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
@@ -80493,17 +82006,27 @@ PrefabInstance:
     - target: {fileID: 1340021100807197959, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340021100807197959, guid: ca1dccd4e25411a498a1006c4899c29b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1340021100807197959, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -44025399
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 1340021100807197979, guid: ca1dccd4e25411a498a1006c4899c29b,
         type: 3}
       propertyPath: m_Name
       value: EnergyDepot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340021100807197979, guid: ca1dccd4e25411a498a1006c4899c29b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1dccd4e25411a498a1006c4899c29b, type: 3}
@@ -80680,6 +82203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -80759,6 +82287,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Rune Pillar X3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360264394729772843, guid: 4fad9c4de6b725a43bb1200ed9479c08,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 1360264394729772852, guid: 4fad9c4de6b725a43bb1200ed9479c08,
         type: 3}
@@ -80849,6 +82382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -81165,6 +82703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone Lantern (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 84395be60ff2def43bb58fa039614eab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84395be60ff2def43bb58fa039614eab, type: 3}
 --- !u!4 &1683089649766002947 stripped
@@ -81259,6 +82802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Gravestone T2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26,
         type: 3}
@@ -81389,6 +82937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Brick T2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 5d42979a3c318c341b37b4b1f2c85750,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d42979a3c318c341b37b4b1f2c85750, type: 3}
@@ -81635,6 +83188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Chest (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_RootOrder
@@ -81784,6 +83342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Stone Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f6a5710827e32d3489da2c249e3bc400,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f6a5710827e32d3489da2c249e3bc400,
         type: 3}
@@ -81935,6 +83498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot B (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: 63ee4b6a40c55fd429759b807832ded1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: 63ee4b6a40c55fd429759b807832ded1,
         type: 3}
       propertyPath: m_RootOrder
@@ -82085,6 +83653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -82168,7 +83741,7 @@ PrefabInstance:
     - target: {fileID: 7458345038561010460, guid: 18bd31f03553b394e87b971dbe000e87,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.2105637
+      value: 44.3
       objectReference: {fileID: 0}
     - target: {fileID: 7458345038561010460, guid: 18bd31f03553b394e87b971dbe000e87,
         type: 3}
@@ -82325,6 +83898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -82631,6 +84209,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pot C (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: f3cc2373308c11848977b28d974a9de0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: f3cc2373308c11848977b28d974a9de0,
         type: 3}
       propertyPath: m_RootOrder
@@ -82780,6 +84363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Barrel (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
@@ -83314,7 +84902,7 @@ PrefabInstance:
     - target: {fileID: 5444012080345230589, guid: 80c712c0b4fa7cd4fa68d4a70d8d9aa8,
         type: 3}
       propertyPath: WorkerNoise
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5444012080345230589, guid: 80c712c0b4fa7cd4fa68d4a70d8d9aa8,
         type: 3}
@@ -83702,6 +85290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Barrel (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 413081fc53a78a043b38591243616398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 413081fc53a78a043b38591243616398,
         type: 3}
       propertyPath: m_RootOrder
@@ -83832,6 +85425,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d5762f992ea3bd544bb8287f66e8f844,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5762f992ea3bd544bb8287f66e8f844, type: 3}
 --- !u!4 &1683089649563201415 stripped
@@ -83906,6 +85504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Brick T2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 5d42979a3c318c341b37b4b1f2c85750,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d42979a3c318c341b37b4b1f2c85750, type: 3}
@@ -84152,6 +85755,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone T1
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe,
         type: 3}
       propertyPath: m_RootOrder
@@ -84382,6 +85990,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -84456,6 +86069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
@@ -84841,6 +86459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Chest (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}

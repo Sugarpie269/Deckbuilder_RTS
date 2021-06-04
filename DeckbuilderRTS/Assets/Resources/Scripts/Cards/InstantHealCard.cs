@@ -39,7 +39,7 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            player.GetComponent<PlayerController>().ApplyHealing(this.Info.CardPower);
+            player.GetComponent<PlayerController>().ApplyHealing(this.Info.CardStrength);
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
