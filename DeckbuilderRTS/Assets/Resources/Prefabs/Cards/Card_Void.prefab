@@ -7,10 +7,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3351986976163064482, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Consumable
+      value: Utility
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454492155189228902, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -141,8 +151,8 @@ PrefabInstance:
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: The unstable energies in this card will absorb and destroy the last
-        card played from your hand after it is cast, clearing them from your deck.
+      value: The unstable energies in this card will absorb and destroy itself as
+        well as the card on top of your discard pile, removing both completely.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -152,7 +162,7 @@ PrefabInstance:
     - target: {fileID: 9087787873851407765, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: '"Taking out the trash is a necessary chore." - your mom, probably'
+      value: '"Taking out the trash is a necessary chore." - your mom'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}

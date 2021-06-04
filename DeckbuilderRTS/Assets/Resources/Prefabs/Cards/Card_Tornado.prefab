@@ -10,17 +10,22 @@ PrefabInstance:
     - target: {fileID: 3351986976163064482, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: AOE Attack
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107279409990894966, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
+        type: 3}
+      propertyPath: m_text
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4454492155189228902, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -166,12 +171,12 @@ PrefabInstance:
     - target: {fileID: 7376752183084726300, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Summon a tornado to suck in and smack around enemies in an area.
+      value: Summon a tornado to suck in and rip apart enemies in an area.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

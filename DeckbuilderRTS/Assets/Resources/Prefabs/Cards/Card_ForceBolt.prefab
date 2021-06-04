@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Projectile Attack
+      value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: 5251684085525408261, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -141,13 +141,12 @@ PrefabInstance:
     - target: {fileID: 7376752183084726300, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Fires a fast-moving bolt of energy that deals a small amount of damage
-        to the first enemy it hits, forcing them back on impact.
+      value: Fires a fast-moving bolt of energy that inflicts low damage and knockback.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -157,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 9087787873851407765, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: A little bit of shock never hurt, right?
+      value: The magical equivalent of a foam dart with a thumb tack attached.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}

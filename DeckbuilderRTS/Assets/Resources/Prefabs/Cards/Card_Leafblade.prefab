@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 4454492155189228902, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -181,13 +181,13 @@ PrefabInstance:
     - target: {fileID: 7376752183084726300, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Throw a piercing leaf that travels slowly and deals medium damage to
-        enemies it passes through.
+      value: Throw a piercing leaf that travels slowly and deals low damage to enemies
+        it passes through.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

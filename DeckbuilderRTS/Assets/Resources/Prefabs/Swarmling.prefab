@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8e65f249b67d747bacd248d977f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 15
+  MaxHealth: 10
   Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
   path: []
   DefaultPosition0: {x: -12.5, y: 2.5}
@@ -164,6 +164,7 @@ MonoBehaviour:
   AttackRate: 2
   HealthTextPrefab: {fileID: 7392525086033785062, guid: abd6e7a6545c0e544b9c6bda69ffd51d,
     type: 3}
+  DisplayDamageTime: 1.5
 --- !u!114 &3868649020607491976
 MonoBehaviour:
   m_ObjectHideFlags: 0
