@@ -65,6 +65,7 @@ Keyboard and mouse: WASD movement, mouse+r for hovering over cards for informati
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 **Jackson:** This was my assigned main role
+
 Created the design and first draft for:
 - Player Controller
 - Swarmling Controller
