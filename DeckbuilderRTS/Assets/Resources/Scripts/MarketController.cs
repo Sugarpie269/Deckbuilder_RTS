@@ -46,6 +46,7 @@ namespace DeckbuilderRTS {
                     newcard = gameController.GenerateCardLeafblade();
                     return newcard;
                 case "Card_IceSpike":
+                    Debug.Log("generateCard Card_IceSpike found");
                     newcard = gameController.GenerateCardIceSpike();
                     return newcard;
                 case "Card_Void":

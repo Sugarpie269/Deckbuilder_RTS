@@ -225,6 +225,7 @@ namespace DeckbuilderRTS
             cardInfo.ManaCost = int.Parse(cardInfo.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
             cardInfo.EnergyCost = int.Parse(cardInfo.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
             cardInfo.MatterCost = int.Parse(cardInfo.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+            Debug.Log("Got card info for " + cardName);
             return cardInfo;
         }
     }

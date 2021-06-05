@@ -321,6 +321,7 @@ namespace DeckbuilderRTS
 
         public void GainCard(ICard card)
         {
+            Debug.Log("Gained card" + card.GetCardInfo().CardName);
             this.Discard.Add(card);
             this.DiscardSlotUpdated = true;
         }
@@ -371,7 +372,7 @@ namespace DeckbuilderRTS
         public bool GetDiscardSlotImageInfo(ref CardInfo cInfo)
         {
             // Check if the slot is empty, and return the blank slot sprite if so. Otherwise, return the last card in the pile's associated sprite. ~Liam
-            if (this.Discard.Count != 0)
+            if (this.Discard.Count > 0)
             {
                 cInfo = this.Discard[Discard.Count - 1].GetCardInfo();
                 return true;
