@@ -30,13 +30,13 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 
-Jackson: I added the main menu UI and the display health/damage text to the swarmlings.
+**Jackson:** I added the main menu UI and the display health/damage text to the swarmlings.
 
 ## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-Jackson: I contributed by adding the collision functions and rigidbody/boxcollider logic for the player, workers, swarmlings, fireballs, leafblades, minibosses, boss, and resource depots.
+**Jackson:** I contributed by adding the collision functions and rigidbody/boxcollider logic for the player, workers, swarmlings, fireballs, leafblades, minibosses, boss, and resource depots.
 
 We used a mix of the Unity physics system and our own scripted physics to modify it when it did not serve our purposes (ignoring collisions and rotations). The game is top down and 2d, so we had to ensure that gravity was disabled.
 
@@ -46,7 +46,7 @@ We used a mix of the Unity physics system and our own scripted physics to modify
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-Jackson: I contributed by providing the programmer art for the Swarmlings, Player (remove later if someone finds something better?), Workers, Boss/Dead-boss, Resource Depots, Fireball projectiles, Leafblade projectiles, and Miniboss. Leafblade image that I created was also used for the temporary ice spike art (remove if it gets replaced). 
+**Jackson:** I contributed by providing the programmer art for the Swarmlings, Player (remove later if someone finds something better?), Workers, Boss/Dead-boss, Resource Depots, Fireball projectiles, Leafblade projectiles, and Miniboss. Leafblade image that I created was also used for the temporary ice spike art (remove if it gets replaced). 
 
 We knew we wanted something magical, mechanical, and perhaps organic for the bad guys (and even player) so the swarmlings and boss were designed with the idea of mutated cyborgs. Bosses and swarmlings follow a similar style of green flesh and orange eyes so that the player easily recognizes the connection between the two different enemies.
 
@@ -56,7 +56,7 @@ We knew we wanted something magical, mechanical, and perhaps organic for the bad
 
 **Add an entry for each platform or input style your project supports.**
 
-Jackson: I contributed to the input role by offering my insights into how we will need our input logic to match the capabilities of the player. I created the camera controller that focuses the mouse position.
+**Jackson:** I contributed to the input role by offering my insights into how we will need our input logic to match the capabilities of the player. I created the camera controller that focuses the mouse position.
 
 Keyboard and mouse: WASD movement, mouse+r for hovering over cards for information, mouse for optional camera controller panning, left-click enable optional camera controller, right click draw card, [1,2,3] for using the corresponding card slot.
 
@@ -64,7 +64,7 @@ Keyboard and mouse: WASD movement, mouse+r for hovering over cards for informati
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
-Jackson: This was my assigned main role
+**Jackson:** This was my assigned main role
 Created the design and first draft for:
 - Player Controller
 - Swarmling Controller
@@ -106,7 +106,7 @@ The game controller that I created also provided the logic for alerting swarmlin
 
 ## Audio
 
-Jackson: I did nothing for this role.
+**Jackson:** I did nothing for this role.
 
 **List your assets including their sources and licenses.**
 
@@ -116,7 +116,7 @@ Jackson: I did nothing for this role.
 
 ## Gameplay Testing
 
-Jackson: Besides testing our builds during dev time, I did not contribute to this role (yet?).
+**Jackson:** Besides testing our builds during dev time, I did not contribute to this role (yet?).
 
 **Add a link to the full results of your gameplay tests.**
 
@@ -124,13 +124,13 @@ Jackson: Besides testing our builds during dev time, I did not contribute to thi
 
 ## Narrative Design
 
-Jackson: Gave input on names and card narrative flavor.
+**Jackson:** Gave input on names and card narrative flavor.
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer
 
-Jackson: I did nothing for this role.
+**Jackson:** I did nothing for this role.
 
 **Include links to your presskit materials and trailer.**
 
@@ -142,7 +142,7 @@ Jackson: I did nothing for this role.
 
 **Document what you added to and how you tweaked your game to improve its game feel.**
 
-Jackson: This was my assigned sub role. I implemented:
+**Jackson:** This was my assigned sub role. I implemented:
 - The ADSR class to make movement feel smoother. 
 - The health/damage display to swarmlings so that the player can see how close they are to death. 
 - The two camera controller types and their logic. We had issues with position lock limiting the player view, but the mouse-focus camera was too fast for some players and we could not get lerping to work, so we allowed the user to switch between them.
