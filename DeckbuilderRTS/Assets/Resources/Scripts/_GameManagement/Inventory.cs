@@ -321,7 +321,7 @@ namespace DeckbuilderRTS
 
         public void GainCard(ICard card)
         {
-            Debug.Log("Gained card" + card.GetCardInfo().CardName);
+            //Debug.Log("Gained card" + card.GetCardInfo().CardName);
             this.Discard.Add(card);
             this.DiscardSlotUpdated = true;
         }
