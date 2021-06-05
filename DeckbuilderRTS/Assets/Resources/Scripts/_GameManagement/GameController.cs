@@ -10,6 +10,7 @@ namespace DeckbuilderRTS
     {
         [SerializeField] public Object FireballPrefab;
         [SerializeField] public Object LeafbladePrefab;
+        [SerializeField] public Object IceSpikePrefab;
         [SerializeField] public Object WorkerPrefab;
         [SerializeField] public Object SwarmlingPrefab;
         [SerializeField] private bool SummonSwarmlings = true;
@@ -201,6 +202,11 @@ namespace DeckbuilderRTS
         public ICard GenerateCardLeafblade()
         {
             return new LeafbladeCard(this.LeafbladePrefab);
+        }
+
+        public ICard GenerateCardIceSpike()
+        {
+            return new IceSpikeCard(this.IceSpikePrefab);
         }
 
         public CardInfo GetCardInfo(string cardName)

@@ -162,7 +162,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Send a slow-moving but piercing spike of frost that deals medium damage
-        to every enemy that it passes through. Gets stuck in walls.
+        to every enemy that it passes through.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

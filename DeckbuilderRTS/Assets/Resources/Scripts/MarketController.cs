@@ -45,6 +45,9 @@ namespace DeckbuilderRTS {
                 case "Card_Leafblade":
                     newcard = gameController.GenerateCardLeafblade();
                     return newcard;
+                case "Card_IceSpike":
+                    newcard = gameController.GenerateCardIceSpike();
+                    return newcard;
                 case "Card_Void":
                     newcard = gameController.GenerateCardVoid();
                     return newcard;

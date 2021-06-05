@@ -868,6 +868,7 @@ namespace DeckbuilderRTS
 
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardLeafblade());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardIceSpike());
 
                 this.LoadedResources = true;
             }

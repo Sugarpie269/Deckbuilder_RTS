@@ -47,6 +47,8 @@ MonoBehaviour:
     type: 3}
   LeafbladePrefab: {fileID: 712601775522552532, guid: b183e8b9619eb8c4fb6a0e75e0e2dcff,
     type: 3}
+  IceSpikePrefab: {fileID: 5643473198051167940, guid: e3b4286655a881449b77c8a224c86bdf,
+    type: 3}
   WorkerPrefab: {fileID: 3951514500860341614, guid: 73a2105b64ac9ef4e9f0573d47234a32,
     type: 3}
   SwarmlingPrefab: {fileID: 4370800884632310675, guid: 618d598958c16714aa91519d4c4834e3,
