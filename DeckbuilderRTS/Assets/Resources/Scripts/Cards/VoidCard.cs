@@ -16,19 +16,10 @@ namespace DeckbuilderRTS
         public VoidCard()
         {
             // Instantiate each piece of information about the card. ~Liam
-            this.Info.CardReference = GameObject.Find("Card_Void");
-            this.Info.CardArt = this.Info.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
-            this.Info.CardName = this.Info.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.CardType = this.Info.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.DescriptionHeader = this.Info.CardReference.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.DescriptionContent = this.Info.CardReference.transform.GetChild(4).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.FlavorText = this.Info.CardReference.transform.GetChild(4).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text;
-            this.Info.CardLevel = int.Parse(this.Info.CardReference.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.CardPower = int.Parse(this.Info.CardReference.transform.GetChild(6).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.CardStrength = int.Parse(this.Info.CardReference.transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.ManaCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.EnergyCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text);
-            this.Info.MatterCost = int.Parse(this.Info.CardReference.transform.GetChild(8).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text);
+            var gameMaster = GameObject.Find("GameController");
+            var gameController = gameMaster.GetComponent<GameController>();
+
+            this.Info = gameController.GetCardInfo("Card_Void");
         }
 
         // Returns a struct of card information, for use in the UI. ~Liam

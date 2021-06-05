@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &460374284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6314147510800468347, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 1025729283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &707307618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8675601350926126947, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 1025729283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1025729283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,11 +158,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -18.52
       objectReference: {fileID: 0}
+    - target: {fileID: 6086672525326833151, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: DrawCardSound
+      value: 
+      objectReference: {fileID: 1112066586}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: VictoryFanfare
+      value: 
+      objectReference: {fileID: 1239597368}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: GameOverFanfare
+      value: 
+      objectReference: {fileID: 707307618}
     - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: PlayerCurrentMana
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PurchaseCardSound
+      value: 
+      objectReference: {fileID: 460374284}
     - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: PlayerCurrentEnergy
@@ -160,6 +197,16 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayerCurrentMatter
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: ReplaceDiscardSound
+      value: 
+      objectReference: {fileID: 1662580575}
+    - target: {fileID: 8725493902481521338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
@@ -253,3 +300,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7d656352248ddbd3ab287db2de59, type: 3}
+--- !u!1 &1112066586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1025149628647626918, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 1025729283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1239597368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1532359273961140242, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 1025729283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1662580575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 293272548854873752, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 1025729283}
+  m_PrefabAsset: {fileID: 0}

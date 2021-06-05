@@ -22,6 +22,9 @@ namespace DeckbuilderRTS
         private bool DrawSlotUpdated;
         private bool DrawError;
 
+        // Audio for replacing the draw deck. ~Liam
+        private AudioSource ReplaceDrawSound;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -194,6 +197,10 @@ namespace DeckbuilderRTS
                 }
                 return;*/
             }
+
+            // Play the sound corresponding to the card in slot 1. ~Liam
+            this.CardSlot1.GetCardInfo().PlaySound.Play();
+
             // Play the card in card slot 1. ~Jackson
             this.CardSlot1.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -247,6 +254,10 @@ namespace DeckbuilderRTS
                 }
                 return;*/
             }
+
+            // Play the sound corresponding to the card in slot 2. ~Liam
+            this.CardSlot2.GetCardInfo().PlaySound.Play();
+
             // Play the card in card slot 2. ~Jackson
             this.CardSlot2.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -300,6 +311,10 @@ namespace DeckbuilderRTS
                 }
                 return;*/
             }
+
+            // Play the sound corresponding to the card in slot 3. ~Liam
+            this.CardSlot3.GetCardInfo().PlaySound.Play();
+
             // Play the card in card slot 3. ~Jackson
             this.CardSlot3.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 

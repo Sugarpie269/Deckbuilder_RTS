@@ -21,5 +21,7 @@ namespace DeckbuilderRTS
         public int ManaCost;
         public int EnergyCost;
         public int MatterCost;
+
+        public AudioSource PlaySound;
     }
 }

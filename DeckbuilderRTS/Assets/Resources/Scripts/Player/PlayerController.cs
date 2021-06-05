@@ -103,8 +103,34 @@ namespace DeckbuilderRTS
         // Array of Market gameObjects for UI functionality. ~Liam
         private GameObject[] MarketList;
 
+        // Audio clips used for UI sound effects. ~Liam
+        [SerializeField] private GameObject DrawCardSound;
+        [SerializeField] private GameObject ReplaceDiscardSound;
+        [SerializeField] private GameObject PurchaseCardSound;
+        [SerializeField] private GameObject GameOverFanfare;
+        [SerializeField] private GameObject VictoryFanfare;
+        private AudioSource[] AudioSources;
+
+        private void Awake()
+        {
+            // Add all audio sources to a list. ~Liam
+            AudioSources = FindObjectsOfType<AudioSource>();
+        }
+
+        // Shuts off all sounds currently playing. ~Liam
+        private void StopAllSounds()
+        {
+            foreach (AudioSource audio in this.AudioSources)
+            {
+                audio.Stop();
+            }
+        }
+
         public void AddCard(ICard card) {
             this.PlayerInventory.GainCard(card);
+
+            // Play audio corresponding to purchasing a card. ~Liam
+            this.PurchaseCardSound.GetComponent<AudioSource>().Play();
         }
         public int GetMatter() {
             return this.PlayerCurrentMatter;
@@ -231,6 +257,10 @@ namespace DeckbuilderRTS
         public void DisplayVictoryText()
         {
             this.VictoryText.SetActive(true);
+
+            // Disable all previously playing sounds, and play the victory fanfare. ~Liam
+            this.StopAllSounds();
+            this.VictoryFanfare.GetComponent<AudioSource>().Play();
 
             // Disable controller input. ~Liam
             var controller = this.GameController.GetComponent<GameController>();
@@ -376,6 +406,10 @@ namespace DeckbuilderRTS
             var controller = this.GameController.GetComponent<GameController>();
             controller.SetGameOver();
 
+            // Disable all sounds, and play the game over fanfare. ~Liam
+            this.StopAllSounds();
+            this.GameOverFanfare.GetComponent<AudioSource>().Play();
+
             // Disable tooltips in UI. ~Liam
             GameObject.Find("Card1").GetComponent<ExamineDisplay>().GameOver();
             GameObject.Find("Card2").GetComponent<ExamineDisplay>().GameOver();
@@ -404,7 +438,7 @@ namespace DeckbuilderRTS
             // Input should only be recognized if the player has not died. ~Liam
             if (!this.IsGameOver)
             {
-                // Temporary testing code for casting cards. ~Jackson
+                // Basic input code for casting cards. ~Jackson
                 if (Input.GetButtonDown("PlayCard1"))
                 {
                     this.PlayerInventory.PlayCard1();
@@ -420,7 +454,7 @@ namespace DeckbuilderRTS
                     this.PlayerInventory.PlayCard3();
                 }
 
-                // Temporary code for drawing a card from the deck. ~Liam
+                // Code for drawing a card from the deck. ~Liam
                 if (Input.GetButtonDown("Fire2"))
                 {
                     // Only draw a card if there is not currently a cooldown. ~Liam
@@ -429,11 +463,22 @@ namespace DeckbuilderRTS
                         // Set the draw cooldown if a card was drawn. ~Liam
                         if (this.PlayerInventory.DrawCard())
                         {
+                            // Play audio for drawing a card. ~Liam
+                            this.DrawCardSound.GetComponent<AudioSource>().Play();
+
                             this.DrawCardCoolDown = this.DRAW_CARD_COOL_DOWN_BASE;
+                        }
+                        else if (!this.PlayerInventory.GetDrawError())
+                        {
+                            // Play audio for replacing the deck. ~Liam
+                            this.ReplaceDiscardSound.GetComponent<AudioSource>().Play();
                         }
                     }
                     else
                     {
+                        // TODO: Play audio for attempting an invalid command. ~Liam
+                        //this.ErrorSound.GetComponent<AudioSource>().Play();
+
                         this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                         this.SetDrawErrorText(true);
                         this.PlayerInventory.SetDrawError(false);
@@ -902,24 +947,36 @@ namespace DeckbuilderRTS
             }
             if (this.PlayerInventory.GetErrorCardSlot1())
             {
+                // TODO: Play audio for attempting an invalid command. ~Liam
+                //this.ErrorSound.GetComponent<AudioSource>().Play();
+
                 this.Slot1ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard1ErrorText(true);
                 this.PlayerInventory.SetErrorCardSlot1(false);
             }
             if (this.PlayerInventory.GetErrorCardSlot2())
             {
+                // TODO: Play audio for attempting an invalid command. ~Liam
+                //this.ErrorSound.GetComponent<AudioSource>().Play();
+
                 this.Slot2ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard2ErrorText(true);
                 this.PlayerInventory.SetErrorCardSlot2(false);
             }
             if (this.PlayerInventory.GetErrorCardSlot3())
             {
+                // TODO: Play audio for attempting an invalid command. ~Liam
+                //this.ErrorSound.GetComponent<AudioSource>().Play();
+
                 this.Slot3ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard3ErrorText(true);
                 this.PlayerInventory.SetErrorCardSlot3(false);
             }
             if (this.PlayerInventory.GetDrawError())
             {
+                // TODO: Play audio for attempting an invalid command. ~Liam
+                //this.ErrorSound.GetComponent<AudioSource>().Play();
+
                 this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetDrawErrorText(true);
                 this.PlayerInventory.SetDrawError(false);
@@ -1065,9 +1122,9 @@ namespace DeckbuilderRTS
             }
 
             // Update the Resource text (change to every so often or use Fixed update perhaps?)
-            this.SetManaText();
-            this.SetEnergyText();
-            this.SetMatterText();
+            //this.SetManaText();
+            //this.SetEnergyText();
+            //this.SetMatterText();
         }
     }
 }
