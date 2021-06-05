@@ -485,7 +485,7 @@ namespace DeckbuilderRTS
                     }
                 }
 
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Jump"))
                 {
                     var camera = GameObject.Find("Main Camera");
                     var cameraController = camera.GetComponent<CameraController>();

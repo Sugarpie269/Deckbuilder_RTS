@@ -72,9 +72,17 @@ namespace DeckbuilderRTS
         private float CurrentDisplayDamageTime = 0f;
         private bool DisplayingDamage = false;
 
+        // Audio objects. ~Liam
+        [SerializeField] private GameObject HurtNoise;
+        [SerializeField] private GameObject DeathNoise;
+
         // The start function will initialize our member variables.
         void Start()
         {
+            // Get the game objects for hurt and death noises.
+            this.HurtNoise = GameObject.Find("SwarmlingHurtNoise");
+            this.DeathNoise = GameObject.Find("SwarmlingDeathNoise");
+
             this.Depots = new Collection<Transform>();
             this.Agent = this.gameObject.GetComponent<SAP2DAgent>();
             var depots = GameObject.FindGameObjectsWithTag("Depot");
@@ -385,9 +393,17 @@ namespace DeckbuilderRTS
             // If the swarmling dies, destroy the game object.
             if (this.CurrentHealth <= 0)
             {
+                // Play audio corresponding to the swarmling's death. ~Liam
+                this.DeathNoise.GetComponent<AudioSource>().Play();
+
                 GameObject.Destroy(this.HealthText);
                 GameObject.Destroy(this.gameObject);
 
+            }
+            else
+            {
+                // If the swarmling didn't die, play the hurt noise. ~Liam
+                this.HurtNoise.GetComponent<AudioSource>().Play();
             }
         }
 

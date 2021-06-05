@@ -165,6 +165,8 @@ MonoBehaviour:
   HealthTextPrefab: {fileID: 7392525086033785062, guid: abd6e7a6545c0e544b9c6bda69ffd51d,
     type: 3}
   DisplayDamageTime: 1.5
+  HurtNoise: {fileID: 0}
+  DeathNoise: {fileID: 0}
 --- !u!114 &3868649020607491976
 MonoBehaviour:
   m_ObjectHideFlags: 0
