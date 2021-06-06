@@ -484,6 +484,7 @@ namespace DeckbuilderRTS
             {
                 // Basic input code for casting cards. ~Jackson
                 if (Input.GetButtonDown("PlayCard1"))
+                {
                     this.PlayerInventory.PlayCard1();
                 }
 
@@ -545,7 +546,7 @@ namespace DeckbuilderRTS
                 if (Input.GetButtonDown("ExamineCard"))
                 {
                     CardInfo tempCInfo = new CardInfo();
-                    
+
                     // Check what card the player is hovering over. ~Liam
                     if (GameObject.Find("Card1").GetComponent<ExamineDisplay>().IsPointerHovering())
                     {
@@ -594,7 +595,7 @@ namespace DeckbuilderRTS
                     // Set the high quality card image to inactive when the player releases the key. ~Liam
                     this.ExamineCardImage.SetActive(false);
                 }
-                
+
                 /*
                 // Code for player movement.
                 if (Input.GetKey(KeyCode.A))
@@ -617,7 +618,7 @@ namespace DeckbuilderRTS
                     this.MoveDown.Execute(this.gameObject);
                 }
                 */
-                
+
 
                 // Movement using WASD Keys. 
                 // Movement is implemented in this file to allow for simultaneous horizontal and vertical movment
@@ -631,7 +632,7 @@ namespace DeckbuilderRTS
                     Debug.Log("this ran " + Time.deltaTime.ToString());
                 }*/
                 this.VerticalADSR.Update(movement.y, Time.fixedDeltaTime, this.HorizontalADSR.IsSustaining());
-                
+
 
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
                 rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
@@ -639,27 +640,28 @@ namespace DeckbuilderRTS
                 //rb2D.MoveRotation(rb2D.rotation + revSpeed * Time.fixedDeltaTime);
                 var val = this.GetPlayerSpeed() * Time.fixedDeltaTime;
                 //Debug.Log("Rotation is " + rigidBody.rotation + " and " + val);
-                
+
                 // Get angle to rotate
                 var curDir = rigidBody.position;
                 //curDir.Normalize();
-                
+
                 var angleBtwn = AngleBetweenVector2(new Vector2(0f, 0f), movement);  // float
-                
+
                 //Debug.Log("From " + CurrentDirection + " to " + movement);
                 //Debug.Log("AngleBtwn is " + angleBtwn + " vs " + rigidBody.rotation);
 
                 var angleChange = AngleBetweenVector2(CurrentDirection, movement);
                 //Debug.Log("Anglechange is " + angleChange);
 
-                if (angleChange != 0f) {
+                if (angleChange != 0f)
+                {
                     rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
                     CurrentDirection = rotate(CurrentDirection, angleBtwn * Time.fixedDeltaTime);
                     //Debug.Log("CurrentDir is now " + CurrentDirection);
                 }
 
                 //rigidBody.MoveRotation(1f);
-                
+
                 /*
                 if (CurrentDirection != movement && angleBtwn < 180f && angleBtwn > -180f) 
                 {
@@ -672,6 +674,7 @@ namespace DeckbuilderRTS
 
                 //rigidBody.MoveRotation(angleBtwn * this.GetPlayerSpeed() * Time.deltaTime);    
                 //rigidBody.rotation += angleBtwn * this.GetPlayerSpeed() * Time.deltaTime;
+            }
         }
 
         private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)

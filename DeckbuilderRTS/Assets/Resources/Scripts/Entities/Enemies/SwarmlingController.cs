@@ -171,6 +171,10 @@ namespace DeckbuilderRTS
 
         void Update()
         {
+            if (this.Disabled)
+            {
+                return;
+            }
             if (!this.loaded)
             {
                 this.loaded = true;
