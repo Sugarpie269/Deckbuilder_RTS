@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
     {
         [SerializeField]
         private Object ForceBoltPrefab;
-        private float SummonDistance = 2.0f;
+        private float SummonDistance = 1.0f;
         private float ForceBoltDirection;
         private float ForceBoltSpeed = 25.0f;
 
