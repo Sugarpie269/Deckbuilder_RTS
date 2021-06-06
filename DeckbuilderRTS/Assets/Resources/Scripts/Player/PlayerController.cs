@@ -112,6 +112,8 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject ErrorSound;
         private AudioSource[] AudioSources;
 
+        public Vector2 CurrentDirection;
+
         private void Awake()
         {
             // Add all audio sources to a list. ~Liam
@@ -232,6 +234,8 @@ namespace DeckbuilderRTS
 
             // Get all markets in the scene. ~Liam
             this.MarketList = GameObject.FindGameObjectsWithTag("Market");
+
+            this.CurrentDirection = new Vector2(0f, 0f);
         }
 
         public bool RecentlyTookDamage()
@@ -641,15 +645,30 @@ namespace DeckbuilderRTS
                 //curDir.Normalize();
                 
                 var angleBtwn = AngleBetweenVector2(new Vector2(0f, 0f), movement);  // float
+                
+                Debug.Log("From " + CurrentDirection + " to " + movement);
                 Debug.Log("AngleBtwn is " + angleBtwn + " vs " + rigidBody.rotation);
 
+                var angleChange = AngleBetweenVector2(CurrentDirection, movement);
+                Debug.Log("Anglechange is " + angleChange);
+
+                if (angleChange != 0f) {
+                    rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
+                    CurrentDirection = rotate(CurrentDirection, angleBtwn * Time.fixedDeltaTime);
+                    Debug.Log("CurrentDir is now " + CurrentDirection);
+                }
 
                 //rigidBody.MoveRotation(1f);
                 
-                if (angleBtwn < 180f && angleBtwn > -180f) 
+                /*
+                if (CurrentDirection != movement && angleBtwn < 180f && angleBtwn > -180f) 
                 {
+                    Debug.Log("Update rotation");
+                    //CurrentDirection += angleBtwn;
+                    CurrentDirection *= angleBtwn * Time.fixedDeltaTime;
                     rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
                 }
+                */
 
                 //rigidBody.MoveRotation(angleBtwn * this.GetPlayerSpeed() * Time.deltaTime);    
                 //rigidBody.rotation += angleBtwn * this.GetPlayerSpeed() * Time.deltaTime;
@@ -660,6 +679,15 @@ namespace DeckbuilderRTS
             Vector2 diference = vec2 - vec1;
             float sign = (vec2.y < vec1.y)? -1.0f : 1.0f;
             return Vector2.Angle(Vector2.right, diference) * sign;
+        }
+
+        public static Vector2 rotate(Vector2 v, float delta) {
+            delta = delta * Mathf.Rad2Deg;
+            Debug.Log("Delta is " + delta + " v is " + v);
+            return new Vector2(
+                v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
+                v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
+            );
         }
 
         // UI FUNCTION: Renders the card that is attempting to be examined more closely by the player. ~Liam
