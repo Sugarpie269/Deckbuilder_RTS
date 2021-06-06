@@ -47,7 +47,8 @@ namespace DeckbuilderRTS
             var leafbladeController = newLeafblade.GetComponent<LeafbladeController>();
             var leafbladeVelocity = new Vector2(this.LeafbladeSpeed * leafBladeDirection.x, this.LeafbladeSpeed * leafBladeDirection.y);
             leafbladeController.SetAttributes(this.Info.CardPower, leafbladeVelocity);
-            
+
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newLeafblade.GetComponent<BoxCollider2D>());
             GameObject.Destroy(newLeafblade, 5f);
         }
 

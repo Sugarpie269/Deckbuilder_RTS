@@ -43,7 +43,7 @@ namespace DeckbuilderRTS
         private int PrevDefaultIdx;
 
         // Fireball content.
-        private float SummonDistance = 1.5f;
+        private float SummonDistance = .5f;
         private float AttackDirection;
         private float AttackSpeed = 15.0f;
 

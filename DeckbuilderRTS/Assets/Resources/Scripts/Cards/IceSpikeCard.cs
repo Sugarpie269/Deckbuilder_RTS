@@ -46,6 +46,8 @@ namespace DeckbuilderRTS
 
             var iceSpikeController = newIceSpike.GetComponent<IceSpikeController>();
             iceSpikeController.SetAttributes(this.Info.CardPower, new Vector2(this.IceSpikeSpeed * iceSpikeDirection.x, this.IceSpikeSpeed * iceSpikeDirection.y));
+
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newIceSpike.GetComponent<BoxCollider2D>());
             GameObject.Destroy(newIceSpike, 2f);
         }
 

@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
     {
         [SerializeField]
         private Object FireballPrefab;
-        private float SummonDistance = 2.0f;
+        private float SummonDistance = .5f;
         private float FireballDirection;
         private float FireballSpeed = 15.0f;
 
@@ -46,6 +46,8 @@ namespace DeckbuilderRTS
 
             var fireballController = newFireball.GetComponent<FireballController>();
             fireballController.SetAttributes(this.Info.CardPower, new Vector2(this.FireballSpeed * fireballDirection.x, this.FireballSpeed * fireballDirection.y));
+
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newFireball.GetComponent<BoxCollider2D>());
             GameObject.Destroy(newFireball, 5f);
         }
 

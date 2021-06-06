@@ -49,6 +49,7 @@ namespace DeckbuilderRTS
 
             var forceBoltController = newForceBolt.GetComponent<ForceBoltController>();
             forceBoltController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * forceBoltDirection.x, this.ForceBoltSpeed * forceBoltDirection.y), angle);
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newForceBolt.GetComponent<BoxCollider2D>());
             GameObject.Destroy(newForceBolt, .1f); // Lifetime of the bolt?
         }
 
