@@ -39,6 +39,7 @@ namespace DeckbuilderRTS
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var fireballDirection = playerController.GetMousePosition();
+
             var fireballPos = new Vector3(playerPos.x + fireballDirection.x * this.SummonDistance, playerPos.y + fireballDirection.y * this.SummonDistance, player.transform.position.z);
             var newFireball = Object.Instantiate(this.FireballPrefab) as GameObject;
             newFireball.transform.position = fireballPos;

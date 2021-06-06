@@ -321,7 +321,6 @@ namespace DeckbuilderRTS
                 this.PlayerCurrentHP = this.PlayerCurrentHP + amount;
             }
 
-            //Debug.Log("Modified health to " + this.PlayerCurrentHP);
             // Update the UI health value and display the proper update text. Make sure to remove previous update text if it is still on screen. ~Liam
             if (amount < 0)
             {
@@ -432,6 +431,46 @@ namespace DeckbuilderRTS
         }
 
       
+        private void UpdateRotation()
+        {
+            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            // rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
+            
+            //var mousePosition = GetMousePosition();
+
+            //Debug.Log("Player Rotation");
+            //var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
+            //var dirVec = new Vector2(rigidBody.position.x - mousePosition.x, rigidBody.position.y - mousePosition.y);
+            
+            /*
+            if (this.path != null && this.DefaultIdx != -1 && this.path.Length > 0)
+            {
+                //dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
+                dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
+            }
+            
+
+            var multiplier = 0f;
+            if (dirVec.x > 0)
+            {
+                multiplier = 1f;
+            }
+            if (dirVec.x != 0)
+            {
+                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90);
+            }
+            else if (dirVec.y > 0)
+            {
+                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 0);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 180);
+            }
+            */
+
+
+        }
 
         // Inputs for the game
         void ProcessInput()
@@ -441,7 +480,6 @@ namespace DeckbuilderRTS
             {
                 // Basic input code for casting cards. ~Jackson
                 if (Input.GetButtonDown("PlayCard1"))
-                {
                     this.PlayerInventory.PlayCard1();
                 }
 
@@ -593,7 +631,35 @@ namespace DeckbuilderRTS
 
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
                 rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
-            }
+
+                //rb2D.MoveRotation(rb2D.rotation + revSpeed * Time.fixedDeltaTime);
+                var val = this.GetPlayerSpeed() * Time.fixedDeltaTime;
+                //Debug.Log("Rotation is " + rigidBody.rotation + " and " + val);
+                
+                // Get angle to rotate
+                var curDir = rigidBody.position;
+                //curDir.Normalize();
+                
+                var angleBtwn = AngleBetweenVector2(new Vector2(0f, 0f), movement);  // float
+                Debug.Log("AngleBtwn is " + angleBtwn + " vs " + rigidBody.rotation);
+
+
+                //rigidBody.MoveRotation(1f);
+                
+                if (angleBtwn < 180f && angleBtwn > -180f) 
+                {
+                    rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
+                }
+
+                //rigidBody.MoveRotation(angleBtwn * this.GetPlayerSpeed() * Time.deltaTime);    
+                //rigidBody.rotation += angleBtwn * this.GetPlayerSpeed() * Time.deltaTime;
+        }
+
+        private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
+        {
+            Vector2 diference = vec2 - vec1;
+            float sign = (vec2.y < vec1.y)? -1.0f : 1.0f;
+            return Vector2.Angle(Vector2.right, diference) * sign;
         }
 
         // UI FUNCTION: Renders the card that is attempting to be examined more closely by the player. ~Liam
@@ -780,8 +846,7 @@ namespace DeckbuilderRTS
 
             // Warn the player if their health drops below 25% of the maximum. ~Liam
             float percentHP = (float)this.PlayerCurrentHP / (float)this.PlayerMaxHP;
-            //Debug.Log("Current HP " + this.PlayerCurrentHP + " vs max " + this.PlayerMaxHP);
-            //Debug.Log("Health Percentage:" + percentHP);
+            
             if (percentHP <= 0.25f && this.PlayerCurrentHP != 0)
             {
                 this.LowHealthWarningText.SetActive(true);
@@ -860,7 +925,6 @@ namespace DeckbuilderRTS
             var camera = GameObject.Find("Main Camera");
             var cameraController = camera.GetComponent<CameraController>();
             cameraController.SetShaking();
-            //Debug.Log("I took " + damage.ToString() + " damage!");
         }
 
         public void ApplyHealing(float healing)
@@ -870,7 +934,6 @@ namespace DeckbuilderRTS
                 return;
             }
             this.ModifyPlayerHealth(Mathf.FloorToInt(healing));
-            //Debug.Log("I healed " + healing.ToString() + " health!");
         }
 
         public void SetGameOver()
@@ -1085,6 +1148,7 @@ namespace DeckbuilderRTS
             }
 
             this.ProcessInput();
+            this.UpdateRotation();
 
             // If the deck is on cooldown, update it.
             if (this.DrawCardCoolDown > 0.0f)

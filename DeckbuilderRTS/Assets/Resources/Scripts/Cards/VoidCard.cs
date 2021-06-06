@@ -30,6 +30,7 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
+            Debug.Log("Playing void");
             var inventory = player.GetComponent<Inventory>();
             var card = inventory.GetDiscardTop();
             if (card == null)
