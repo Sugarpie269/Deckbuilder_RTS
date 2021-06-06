@@ -437,35 +437,11 @@ namespace DeckbuilderRTS
       
         private void UpdateRotation()
         {
-            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
-
-            // rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
-            
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //GetMousePosition();
-
-
-            Debug.Log("Player Position" + this.gameObject.transform.position + " vs mouse " + mousePosition);
-            
-            //var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
             var dirVec = new Vector2(mousePosition.x - this.gameObject.transform.position.x, mousePosition.y - this.gameObject.transform.position.y);
-            //var dirVec = new Vector2(this.gameObject.transform.position.x - mousePosition.x, this.gameObject.transform.position.y - mousePosition.y);
+
+            var multiplier = 0f;
             
-            Debug.Log("Dir " + dirVec);
-
-            /*
-            if (this.path != null && this.DefaultIdx != -1 && this.path.Length > 0)
-            {
-                //dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
-                dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
-            }
-            */
-
-            var multiplier = 1.5f;
-
-            transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90);
-            
-            /*
             if (dirVec.x > 0)
             {
                 multiplier = 1f;
@@ -483,9 +459,7 @@ namespace DeckbuilderRTS
             {
                 transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 180);
             }
-            */
-
-
+            
         }
 
         // Inputs for the game
@@ -652,45 +626,6 @@ namespace DeckbuilderRTS
 
                 this.UpdateRotation();
 
-                /*
-                //rb2D.MoveRotation(rb2D.rotation + revSpeed * Time.fixedDeltaTime);
-                var val = this.GetPlayerSpeed() * Time.fixedDeltaTime;
-                //Debug.Log("Rotation is " + rigidBody.rotation + " and " + val);
-
-                // Get angle to rotate
-                var curDir = rigidBody.position;
-                //curDir.Normalize();
-
-                var angleBtwn = AngleBetweenVector2(new Vector2(0f, 0f), movement);  // float
-
-                //Debug.Log("From " + CurrentDirection + " to " + movement);
-                //Debug.Log("AngleBtwn is " + angleBtwn + " vs " + rigidBody.rotation);
-
-                var angleChange = AngleBetweenVector2(CurrentDirection, movement);
-                //Debug.Log("Anglechange is " + angleChange);
-
-                
-                if (angleChange != 0f)
-                {
-                    rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
-                    CurrentDirection = rotate(CurrentDirection, angleBtwn * Time.fixedDeltaTime);
-                    //Debug.Log("CurrentDir is now " + CurrentDirection);
-                }
-                */
-                //rigidBody.MoveRotation(1f);
-
-                /*
-                if (CurrentDirection != movement && angleBtwn < 180f && angleBtwn > -180f) 
-                {
-                    Debug.Log("Update rotation");
-                    //CurrentDirection += angleBtwn;
-                    CurrentDirection *= angleBtwn * Time.fixedDeltaTime;
-                    rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
-                }
-                */
-
-                //rigidBody.MoveRotation(angleBtwn * this.GetPlayerSpeed() * Time.deltaTime);    
-                //rigidBody.rotation += angleBtwn * this.GetPlayerSpeed() * Time.deltaTime;
             }
         }
 
