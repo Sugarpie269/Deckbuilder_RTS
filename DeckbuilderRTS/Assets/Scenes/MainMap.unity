@@ -192,17 +192,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163b4e2009ee8ef4a8f38875bdcc684b, type: 3}
---- !u!1001 &6676957091538672382
+--- !u!1001 &3317898240222791084
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
-      propertyPath: CurrentHP
-      value: 100
+      propertyPath: PlayerCurrentHP
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}

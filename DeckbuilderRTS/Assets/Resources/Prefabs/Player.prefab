@@ -177,7 +177,7 @@ MonoBehaviour:
   VictoryText: {fileID: 0}
   GameOverText: {fileID: 0}
   GameOverTipText: {fileID: 0}
-  NumTips: 3
+  NumTips: 7
   LowHealthWarningText: {fileID: 0}
   DrawCardErrorText: {fileID: 0}
   CardSlot1ErrorText: {fileID: 0}
@@ -189,11 +189,11 @@ MonoBehaviour:
   DrawSlotImage: {fileID: 0}
   DiscardSlotImage: {fileID: 0}
   ExamineCardImage: {fileID: 0}
-  PlayerCurrentHP: 20
+  PlayerCurrentHP: 30
   PlayerMaxHP: 30
-  PlayerCurrentMana: 0
-  PlayerCurrentEnergy: 0
-  PlayerCurrentMatter: 0
+  PlayerCurrentMana: 50
+  PlayerCurrentEnergy: 50
+  PlayerCurrentMatter: 50
   GameController: {fileID: 0}
   Speed: 5
   MaxMovementAttackTime: 1
@@ -204,3 +204,7 @@ MonoBehaviour:
   PurchaseCardSound: {fileID: 0}
   GameOverFanfare: {fileID: 0}
   VictoryFanfare: {fileID: 0}
+  ErrorSound: {fileID: 0}
+  LoseButton: {fileID: 0}
+  WinButton: {fileID: 0}
+  CurrentDirection: {x: 0, y: 0}
