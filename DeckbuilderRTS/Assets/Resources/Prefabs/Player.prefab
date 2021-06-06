@@ -198,3 +198,9 @@ MonoBehaviour:
   Speed: 5
   MaxMovementAttackTime: 1
   MaxMovementReleaseTime: 0.5
+  PURCHASE_CARD_COOL_DOWN_BASE: 2
+  DrawCardSound: {fileID: 0}
+  ReplaceDiscardSound: {fileID: 0}
+  PurchaseCardSound: {fileID: 0}
+  GameOverFanfare: {fileID: 0}
+  VictoryFanfare: {fileID: 0}

@@ -17,7 +17,6 @@ namespace DeckbuilderRTS {
         private CardInfo cardinfo;
         private GameController gameController;
 
-        [SerializeField] private float MarketCoolDown = 10f;
         private float CurrentCoolDown;
 
         // Variables needed for market card examine function. ~Liam
@@ -190,7 +189,7 @@ namespace DeckbuilderRTS {
                             playerController.ModifyPlayerMatter(-cardinfo.MatterCost);
                         }
                         playerController.AddCard(newcard);
-                        playerController.SetPurchaseCooldown(this.MarketCoolDown);
+                        playerController.SetPurchaseCooldown(playerController.PURCHASE_CARD_COOL_DOWN_BASE);
                         playerController.SetPurchaseSuccessText();
                     }
                     else

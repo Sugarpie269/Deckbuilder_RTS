@@ -79,7 +79,7 @@ namespace DeckbuilderRTS
         private float DrawCardCoolDown = 0.0f;
         private float DRAW_CARD_COOL_DOWN_BASE = 2.0f;
         private float PurchaseCardCooldown = 0.0f;
-        private float PURCHASE_CARD_COOL_DOWN_BASE = 10.0f;
+        public float PURCHASE_CARD_COOL_DOWN_BASE = 2.0f;
         private float PLAYER_ERROR_MESSAGE_DURATION = 1.5f;
         private float RESOURCE_UPDATE_MESSAGE_DURATION = 1.5f;
         private float DrawErrorMessageDuration = 0.0f;
@@ -842,6 +842,8 @@ namespace DeckbuilderRTS
         }
         public void SetPurchaseSuccessText()
         {
+            // Deactivate any purchase error text, if present. ~Liam
+            this.PurchaseErrorText.SetActive(false);
             this.PurchaseSuccessText.SetActive(true);
             this.PurchaseSuccessMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
             this.PurchaseSuccess = true;

@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PURCHASE_CARD_COOL_DOWN_BASE
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_Name
