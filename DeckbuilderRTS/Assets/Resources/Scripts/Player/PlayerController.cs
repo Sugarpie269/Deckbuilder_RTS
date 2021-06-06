@@ -109,6 +109,7 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject PurchaseCardSound;
         [SerializeField] private GameObject GameOverFanfare;
         [SerializeField] private GameObject VictoryFanfare;
+        [SerializeField] private GameObject ErrorSound;
         private AudioSource[] AudioSources;
 
         private void Awake()
@@ -476,8 +477,8 @@ namespace DeckbuilderRTS
                     }
                     else
                     {
-                        // TODO: Play audio for attempting an invalid command. ~Liam
-                        //this.ErrorSound.GetComponent<AudioSource>().Play();
+                        // Play audio for attempting an invalid command. ~Liam
+                        this.ErrorSound.GetComponent<AudioSource>().Play();
 
                         this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                         this.SetDrawErrorText(true);
@@ -950,7 +951,7 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetErrorCardSlot1())
             {
                 // TODO: Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
+                this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot1ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard1ErrorText(true);
@@ -959,7 +960,7 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetErrorCardSlot2())
             {
                 // TODO: Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
+                this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot2ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard2ErrorText(true);
@@ -968,7 +969,7 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetErrorCardSlot3())
             {
                 // TODO: Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
+                this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot3ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard3ErrorText(true);
@@ -977,7 +978,7 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetDrawError())
             {
                 // TODO: Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
+                this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetDrawErrorText(true);
