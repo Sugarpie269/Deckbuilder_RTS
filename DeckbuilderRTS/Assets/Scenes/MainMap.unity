@@ -197,6 +197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
+      propertyPath: ErrorSound
+      value: 
+      objectReference: {fileID: 1025729284}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
       propertyPath: PURCHASE_CARD_COOL_DOWN_BASE
       value: 2
       objectReference: {fileID: 0}
@@ -262,3 +267,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7d656352248ddbd3ab287db2de59, type: 3}
+--- !u!1 &1025729284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 534108678765593892, guid: 4e2c7d656352248ddbd3ab287db2de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 1025729283}
+  m_PrefabAsset: {fileID: 0}
