@@ -172,14 +172,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
+      propertyPath: SeekingRange
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
       propertyPath: LaserAttackTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: RestoreHPAmount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: DamageResistance
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: HealthTextPrefab
+      value: 
+      objectReference: {fileID: 7392525086033785062, guid: abd6e7a6545c0e544b9c6bda69ffd51d,
+        type: 3}
     - target: {fileID: 6544366155041830358, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_LocalPosition.x

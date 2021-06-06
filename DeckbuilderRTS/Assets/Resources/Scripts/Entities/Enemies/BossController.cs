@@ -1,6 +1,6 @@
 using UnityEngine;
 using DeckbuilderRTS;
-
+using TMPro;
 
 namespace DeckbuilderRTS
 {
@@ -42,6 +42,18 @@ namespace DeckbuilderRTS
         private float CurrentLaserTime = 0f;
         private int LaserStage = 0;
 
+        [SerializeField] private Object HealthTextPrefab;
+        private GameObject HealthText;
+        private bool loaded = false;
+
+        [SerializeField] private float DisplayDamageTime = 1.5f;
+        private float CurrentDisplayDamageTime = 0f;
+        private bool DisplayingDamage = false;
+
+        [SerializeField] private float RestoreHPDelay = 15f;
+        [SerializeField] private float RestoreHPAmount = 5f;
+        private float CurrentRestoreHPTime = 0f;
+
         private void UpdateAttackPattern()
         {
             var randInt = Random.Range(1, 101);
@@ -75,6 +87,9 @@ namespace DeckbuilderRTS
         {
             float newDamage = damage - this.DamageResistance > 0 ? damage - this.DamageResistance : 0f;
             this.CurrentHP -= Mathf.FloorToInt(newDamage);
+            var text = this.HealthText.transform.GetChild(1);
+            text.GetComponent<TextMeshProUGUI>().text = Mathf.FloorToInt(-newDamage).ToString();
+            this.DisplayingDamage = true;
             if (this.CurrentHP <= 0 && !this.Disabled)
             {
                 this.SetDisabled();
@@ -89,6 +104,35 @@ namespace DeckbuilderRTS
 
         private void Update()
         {
+            if (!this.loaded)
+            {
+                this.loaded = true;
+                //var sampleText = GameObject.Find("TestText");
+                //var newCanvas = Object.Instantiate(this.)
+                var canvas = GameObject.Find("Canvas");
+                //sampleText.transform.position = new Vector3(canvas.transform.position.x - this.transform.position.x, canvas.transform.position.y - this.transform.position.y, this.transform.position.z);
+                this.HealthText = Object.Instantiate(this.HealthTextPrefab, this.transform.parent) as GameObject;
+                var damageText = this.HealthText.transform.GetChild(1);
+                damageText.GetComponent<TextMeshProUGUI>().text = "";
+                //this.HealthText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z+5);
+            }
+            if (this.HealthText != null)
+            {
+                this.HealthText.transform.position = this.transform.position;
+                var text = this.HealthText.transform.GetChild(0);
+                text.GetComponent<TextMeshProUGUI>().text = this.CurrentHP.ToString() + "/" + this.MaxHP.ToString();
+            }
+            if (this.DisplayingDamage)
+            {
+                this.CurrentDisplayDamageTime += Time.deltaTime;
+                if (this.CurrentDisplayDamageTime >= this.DisplayDamageTime)
+                {
+                    this.CurrentDisplayDamageTime = 0f;
+                    this.DisplayingDamage = false;
+                    var text = this.HealthText.transform.GetChild(1);
+                    text.GetComponent<TextMeshProUGUI>().text = "";
+                }
+            }
             if (this.Disabled)
             {
                 return;
@@ -97,6 +141,17 @@ namespace DeckbuilderRTS
             {
                 //this.EnemyPlayerController = this.EnemyPlayer.GetComponent<PlayerController>();
                 this.LoadedData = true;
+            }
+
+            this.CurrentRestoreHPTime += Time.deltaTime;
+            if (this.CurrentRestoreHPTime >= this.RestoreHPDelay)
+            {
+                this.CurrentHP += Mathf.FloorToInt(this.RestoreHPAmount);
+                if (this.CurrentHP >= this.MaxHP)
+                {
+                    this.CurrentHP = this.MaxHP;
+                }
+                this.CurrentRestoreHPTime = 0f;
             }
 
             this.UpdateFacing();
