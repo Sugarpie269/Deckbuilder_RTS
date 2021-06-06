@@ -161,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Fires a fast-moving bolt of energy that inflicts low damage and knockback.
+      value: Fires a quick but short-ranged bolt of energy that inflicts low damage.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -171,7 +171,8 @@ PrefabInstance:
     - target: {fileID: 9087787873851407765, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: The magical equivalent of a foam dart with a thumb tack attached.
+      value: The magical equivalent of a foam dart with a thumb tack attached, but
+        arguably less powerful.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c824eb2d653c2146b48fd3e0e2a0182, type: 3}

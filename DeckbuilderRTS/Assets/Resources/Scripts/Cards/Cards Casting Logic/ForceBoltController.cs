@@ -9,13 +9,11 @@ namespace DeckbuilderRTS
     {
         private float Damage;
         private Vector2 Velocity;
-        private float Knockback; // TODO: implement knockback
 
         public ForceBoltController()
         {
             this.Damage = 10.0f;
             this.Velocity = new Vector2(10.0f, 0.0f);
-            this.Knockback = 2.5f;
         }
 
         // The start function will initialize our member variables.
@@ -23,12 +21,12 @@ namespace DeckbuilderRTS
         {
         }
 
-        public void SetAttributes(float damage, Vector2 velocity, float angle, float knockback)
+        public void SetAttributes(float damage, Vector2 velocity, float angle)
         {
             this.Damage = damage;
             this.Velocity = velocity;
-            this.Knockback = knockback;
-            this.gameObject.transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, angle);
+
+            this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         public void Update()

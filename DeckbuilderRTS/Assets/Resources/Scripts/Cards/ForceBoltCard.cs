@@ -12,9 +12,7 @@ namespace DeckbuilderRTS
         private Object ForceBoltPrefab;
         private float SummonDistance = 2.0f;
         private float ForceBoltDirection;
-        private float ForceBoltSpeed = 10.0f;
-        [SerializeField]
-        private float Knockback = 2.5f;
+        private float ForceBoltSpeed = 25.0f;
 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
@@ -46,32 +44,24 @@ namespace DeckbuilderRTS
             newForceBolt.transform.position = forceBoltPos;
 
             // Set the ForceBolt's rotation by calculating angle between the 2 points. ~Liam
-            var boltXDifference = forceBoltDirection.x - playerPos.x;
-            var boltYDifference = forceBoltDirection.y - playerPos.y;
-            Debug.Log("boltXDifference is " + boltXDifference.ToString() + " and boltYDifference is " + boltYDifference.ToString());
-            float boltAngle = 360 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x)); ;
-            /*if (boltXDifference >= 0 && boltYDifference >= 0)
+            var vec = Input.mousePosition - Camera.main.WorldToScreenPoint(player.transform.position);
+            var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
+            /*var vec = new Vector2(forceBoltDirection.x - player.transform.position.x, forceBoltDirection.y - player.transform.position.y);
+
+            var multiplier = 0f;
+            if (vec.x > 0)
             {
-                boltAngle = 360 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
-            }
-            else if (boltXDifference < 0 && boltYDifference >= 0)
-            {
-                boltAngle = 360 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
-            }
-            else if (boltXDifference >= 0 && boltYDifference < 0)
-            {
-                boltAngle = 180 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
-            }
-            else if (boltXDifference < 0 && boltYDifference < 0)
-            {
-                boltAngle = 180 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
+                multiplier = 1f;
             }*/
 
-            Debug.Log("Angle of bolt should be " + boltAngle.ToString());
+            //Debug.Log("boltXDifference is " + boltXDifference.ToString() + " and boltYDifference is " + boltYDifference.ToString());
+
+
+            //Debug.Log("Angle of bolt should be " + boltAngle.ToString());
 
             var forceBoltController = newForceBolt.GetComponent<ForceBoltController>();
-            forceBoltController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * forceBoltDirection.x, this.ForceBoltSpeed * forceBoltDirection.y), boltAngle, Knockback);
-            GameObject.Destroy(newForceBolt, 5f);
+            forceBoltController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * forceBoltDirection.x, this.ForceBoltSpeed * forceBoltDirection.y), angle);
+            GameObject.Destroy(newForceBolt, .1f); // Lifetime of the bolt?
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
