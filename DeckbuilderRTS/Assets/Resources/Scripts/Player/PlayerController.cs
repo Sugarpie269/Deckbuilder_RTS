@@ -646,16 +646,16 @@ namespace DeckbuilderRTS
                 
                 var angleBtwn = AngleBetweenVector2(new Vector2(0f, 0f), movement);  // float
                 
-                Debug.Log("From " + CurrentDirection + " to " + movement);
-                Debug.Log("AngleBtwn is " + angleBtwn + " vs " + rigidBody.rotation);
+                //Debug.Log("From " + CurrentDirection + " to " + movement);
+                //Debug.Log("AngleBtwn is " + angleBtwn + " vs " + rigidBody.rotation);
 
                 var angleChange = AngleBetweenVector2(CurrentDirection, movement);
-                Debug.Log("Anglechange is " + angleChange);
+                //Debug.Log("Anglechange is " + angleChange);
 
                 if (angleChange != 0f) {
                     rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
                     CurrentDirection = rotate(CurrentDirection, angleBtwn * Time.fixedDeltaTime);
-                    Debug.Log("CurrentDir is now " + CurrentDirection);
+                    //Debug.Log("CurrentDir is now " + CurrentDirection);
                 }
 
                 //rigidBody.MoveRotation(1f);
@@ -683,7 +683,7 @@ namespace DeckbuilderRTS
 
         public static Vector2 rotate(Vector2 v, float delta) {
             delta = delta * Mathf.Rad2Deg;
-            Debug.Log("Delta is " + delta + " v is " + v);
+            //Debug.Log("Delta is " + delta + " v is " + v);
             return new Vector2(
                 v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
                 v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)

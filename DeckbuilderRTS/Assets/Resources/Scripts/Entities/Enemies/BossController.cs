@@ -87,6 +87,7 @@ namespace DeckbuilderRTS
             this.CurrentHP -= Mathf.FloorToInt(newDamage);
             if (this.CurrentHP <= 0 && !this.Disabled)
             {
+                Debug.Log("hello");
                 this.SetDisabled();
                 var deadBoss = GameObject.Find("DeadBoss");
                 deadBoss.transform.position = this.transform.position;
