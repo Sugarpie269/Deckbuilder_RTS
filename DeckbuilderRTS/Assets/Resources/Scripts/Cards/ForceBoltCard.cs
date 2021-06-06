@@ -27,7 +27,7 @@ namespace DeckbuilderRTS
             var gameMaster = GameObject.Find("GameController");
             var gameController = gameMaster.GetComponent<GameController>();
 
-            this.Info = gameController.GetCardInfo("Card_Fireball");
+            this.Info = gameController.GetCardInfo("Card_ForceBolt");
         }
 
         // Returns a struct of card information, for use in the UI. ~Liam
@@ -45,8 +45,32 @@ namespace DeckbuilderRTS
             var newForceBolt = Object.Instantiate(this.ForceBoltPrefab) as GameObject;
             newForceBolt.transform.position = forceBoltPos;
 
+            // Set the ForceBolt's rotation by calculating angle between the 2 points. ~Liam
+            var boltXDifference = forceBoltDirection.x - playerPos.x;
+            var boltYDifference = forceBoltDirection.y - playerPos.y;
+            Debug.Log("boltXDifference is " + boltXDifference.ToString() + " and boltYDifference is " + boltYDifference.ToString());
+            float boltAngle = 360 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x)); ;
+            /*if (boltXDifference >= 0 && boltYDifference >= 0)
+            {
+                boltAngle = 360 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
+            }
+            else if (boltXDifference < 0 && boltYDifference >= 0)
+            {
+                boltAngle = 360 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
+            }
+            else if (boltXDifference >= 0 && boltYDifference < 0)
+            {
+                boltAngle = 180 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
+            }
+            else if (boltXDifference < 0 && boltYDifference < 0)
+            {
+                boltAngle = 180 - (180 / Mathf.PI) * Mathf.Atan((forceBoltDirection.y - playerPos.y) / (forceBoltDirection.x - playerPos.x));
+            }*/
+
+            Debug.Log("Angle of bolt should be " + boltAngle.ToString());
+
             var forceBoltController = newForceBolt.GetComponent<ForceBoltController>();
-            forceBoltController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * forceBoltDirection.x, this.ForceBoltSpeed * forceBoltDirection.y), Knockback);
+            forceBoltController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * forceBoltDirection.x, this.ForceBoltSpeed * forceBoltDirection.y), boltAngle, Knockback);
             GameObject.Destroy(newForceBolt, 5f);
         }
 

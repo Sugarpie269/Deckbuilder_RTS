@@ -899,9 +899,11 @@ namespace DeckbuilderRTS
 
                 // Temporary code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
                 var gameControllerObject = this.GameController.GetComponent<GameController>();
-                this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardVoid());
-                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
-                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
+                this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardForceBolt());
+                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardForceBolt());
+                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardForceBolt());
+                //this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
+                //this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
 
                 this.SetCardSlot1Image();
                 this.PlayerInventory.SetCardSlot1Updated(false);
