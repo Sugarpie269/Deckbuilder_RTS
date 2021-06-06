@@ -955,12 +955,10 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
                 this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));*/
 
-                // Temporary code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
+                // Code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
                 var gameControllerObject = this.GameController.GetComponent<GameController>();
                 this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardForceBolt());
-                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardForceBolt());
-                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardForceBolt());
-                //this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
+                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardLeafblade());
                 this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
 
                 this.SetCardSlot1Image();
@@ -974,9 +972,15 @@ namespace DeckbuilderRTS
                 this.SetDiscardSlotImage();
                 this.PlayerInventory.SetDiscardSlotUpdated(false);
 
+                // Add remaining cards in player's deck to the discard. ~Liam
+
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardInstantHeal());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardLeafblade());
-                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardFireball());
-                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardIceSpike());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardInstantHeal());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
 
                 this.LoadedResources = true;
             }
