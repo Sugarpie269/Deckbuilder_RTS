@@ -60,6 +60,7 @@ namespace DeckbuilderRTS
         {
             var newWorker = Object.Instantiate(this.WorkerPrefab) as GameObject;
             newWorker.transform.position = player.transform.position;
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newWorker.GetComponent<BoxCollider2D>());
             var workerController = newWorker.GetComponent<WorkerController>();
             workerController.SetPlayer(player);
             this.Workers.Add(newWorker);

@@ -997,7 +997,7 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardForceBolt());
                 this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardForceBolt());
                 //this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardInstantHeal());
-                //this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
+                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
 
                 this.SetCardSlot1Image();
                 this.PlayerInventory.SetCardSlot1Updated(false);

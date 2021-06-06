@@ -48,6 +48,7 @@ namespace DeckbuilderRTS
 
             var laserbeamController = laserbeam.GetComponent<LaserBeamController>();
             // laserbeamController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * direction.x, this.ForceBoltSpeed * direction.y));
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), laserbeam.GetComponent<BoxCollider2D>());
             GameObject.Destroy(laserbeam, 5f);
         }
 
