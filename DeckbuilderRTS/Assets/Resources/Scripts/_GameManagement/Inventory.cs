@@ -198,6 +198,7 @@ namespace DeckbuilderRTS
                 return;*/
             }
 
+            Debug.Log("Playing Card 1");
             // Play the sound corresponding to the card in slot 1. ~Liam
             this.CardSlot1.GetCardInfo().PlaySound.Play();
 
@@ -258,6 +259,7 @@ namespace DeckbuilderRTS
             // Play the sound corresponding to the card in slot 2. ~Liam
             this.CardSlot2.GetCardInfo().PlaySound.Play();
 
+            Debug.Log("Playing Card 2");
             // Play the card in card slot 2. ~Jackson
             this.CardSlot2.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -315,6 +317,7 @@ namespace DeckbuilderRTS
             // Play the sound corresponding to the card in slot 3. ~Liam
             this.CardSlot3.GetCardInfo().PlaySound.Play();
 
+            Debug.Log("Playing Card 3");
             // Play the card in card slot 3. ~Jackson
             this.CardSlot3.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 

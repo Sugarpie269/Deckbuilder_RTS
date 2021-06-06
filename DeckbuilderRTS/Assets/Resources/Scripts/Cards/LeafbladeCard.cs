@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
     {
         [SerializeField]
         private Object LeafbladePrefab;
-        private float SummonDistance = 1.0f;
+        private float SummonDistance = 1.5f;
         private float LeafbladeDirection;
         private float LeafbladeSpeed = 3.0f;
 
@@ -39,12 +39,15 @@ namespace DeckbuilderRTS
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var leafBladeDirection = playerController.GetMousePosition();
+
             var leafbladePos = new Vector3(playerPos.x + leafBladeDirection.x * this.SummonDistance, playerPos.y + leafBladeDirection.y * this.SummonDistance, player.transform.position.z);
             var newLeafblade = Object.Instantiate(this.LeafbladePrefab) as GameObject;
             newLeafblade.transform.position = leafbladePos;
 
             var leafbladeController = newLeafblade.GetComponent<LeafbladeController>();
-            leafbladeController.SetAttributes(this.Info.CardPower, new Vector2(this.LeafbladeSpeed * leafBladeDirection.x, this.LeafbladeSpeed * leafBladeDirection.y));
+            var leafbladeVelocity = new Vector2(this.LeafbladeSpeed * leafBladeDirection.x, this.LeafbladeSpeed * leafBladeDirection.y);
+            leafbladeController.SetAttributes(this.Info.CardPower, leafbladeVelocity);
+            
             GameObject.Destroy(newLeafblade, 5f);
         }
 

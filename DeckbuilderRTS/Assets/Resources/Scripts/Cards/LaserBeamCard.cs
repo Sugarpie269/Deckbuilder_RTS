@@ -37,6 +37,7 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
+            Debug.Log("Playing Laser Beam");
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var direction = playerController.GetMousePosition();
