@@ -28,6 +28,11 @@ public class InstructionController : MonoBehaviour
     [SerializeField] private GameObject PriceExplanationText;
 
     // Game objects for the Markets page. ~Liam
+    [SerializeField] private GameObject MarketsTitleText;
+    [SerializeField] private GameObject MarketsExplanationText;
+    [SerializeField] private GameObject MarketsImage;
+
+    // Game objects for the Resources page. ~Liam
     [SerializeField] private GameObject ResourcesTitleText;
     [SerializeField] private GameObject ResourcesExplanationText;
     [SerializeField] private GameObject ResourcesExampleImage;
@@ -79,7 +84,9 @@ public class InstructionController : MonoBehaviour
         this.DeactivateAllInfo();
 
         // Activate objects related to market information. ~Liam
-
+        this.MarketsTitleText.SetActive(true);
+        this.MarketsExplanationText.SetActive(true);
+        this.MarketsImage.SetActive(true);
     }
     
     public void ClickResourcesButton()
