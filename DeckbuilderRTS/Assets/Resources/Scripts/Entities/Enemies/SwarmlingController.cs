@@ -432,6 +432,10 @@ namespace DeckbuilderRTS
             var attackController = newAttack.GetComponent<SwarmlingBulletController>();
             var attackVelocity = new Vector2(this.AttackSpeed * attackDirection.x, this.AttackSpeed * attackDirection.y);
             attackController.SetAttributes(this.AttackDamage, attackVelocity);
+
+            var collider = attackController.GetComponent<BoxCollider2D>();
+            var swarmCollider = this.GetComponent<BoxCollider2D>();
+            Physics2D.IgnoreCollision(collider, swarmCollider);
         }
     }
 }

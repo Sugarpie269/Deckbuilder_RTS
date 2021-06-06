@@ -19,12 +19,12 @@ namespace DeckbuilderRTS
         private float ElapsedTime;
 
         // Attack content.
-        private float SummonDistance = 1.5f;
+        [SerializeField] private float SummonDistance = 1.5f;
         private float AttackDirection;
-        private float AttackSpeed = 15.0f;
+        [SerializeField] private float AttackSpeed = 15.0f;
 
         // Boss projectiles issue more damage than swarmlings.
-        private float AttackDamage = 10.0f;
+        [SerializeField] private float AttackDamage = 10.0f;
 
         [SerializeField] public Object AttackPrefab;
 
@@ -34,6 +34,37 @@ namespace DeckbuilderRTS
         private bool Disabled = false;
 
         private bool IsGameOver = false;
+
+        public enum AttackPattern {None, Basic, Laser};
+        private AttackPattern currentAttack = AttackPattern.None;
+
+        [SerializeField] private float LaserAttackTime = 5f;
+        private float CurrentLaserTime = 0f;
+        private int LaserStage = 0;
+
+        private void UpdateAttackPattern(bool disable)
+        {
+            if (this.currentAttack == AttackPattern.Laser)
+            {
+                return;
+            }
+            if (disable)
+            {
+                this.currentAttack = AttackPattern.None;
+                return;
+            }
+
+            var randInt = Random.Range(1, 101);
+
+            if (randInt <= 80)
+            {
+                this.currentAttack = AttackPattern.Basic;
+            }
+            else
+            {
+                this.currentAttack = AttackPattern.Laser;
+            }
+        }
 
         public void SetDisabled()
         {
@@ -83,16 +114,54 @@ namespace DeckbuilderRTS
             // Get the path to the target.
             float Distance = Vector2.Distance(transform.position, Target.position);
 
+            bool canAttack = false;
+
             // Player is within determined range of boss. Shoot projectiles.
             if (Distance < this.SeekingRange)
             {
+                canAttack = true;
+                
+            }
+
+            this.UpdateAttackPattern(canAttack);
+
+            if (this.currentAttack == AttackPattern.Basic && canAttack)
+            {
                 // Shoot projectiles if needed.
                 this.ElapsedTime += Time.deltaTime;
-                if (this.ElapsedTime >= this.AttackRate) 
+                if (this.ElapsedTime >= this.AttackRate)
                 {
                     this.ShootProjectiles();
                     this.ElapsedTime = 0;
                 }
+            }
+            else if (this.currentAttack == AttackPattern.Laser && canAttack)
+            {
+                this.CurrentLaserTime += Time.deltaTime;
+                if (this.CurrentLaserTime >= this.LaserAttackTime / 4 && this.LaserStage == 0)
+                {
+                    this.LaserStage++;
+                    this.ShootProjectiles();
+                }
+                else if (this.CurrentLaserTime >= this.LaserAttackTime * 2 / 4 && this.LaserStage == 1)
+                {
+                    this.LaserStage++;
+                    this.ShootProjectiles();
+                }
+                else if (this.CurrentLaserTime >= this.LaserAttackTime * 3 / 4 && this.LaserStage == 2)
+                {
+                    this.LaserStage++;
+                    // Create laser
+                }
+                else if (this.CurrentLaserTime >= this.LaserAttackTime)
+                {
+                    this.LaserStage = 0;
+                    this.CurrentLaserTime = 0f;
+                    this.currentAttack = AttackPattern.None;
+                }
+            }
+            else
+            {
             }
         }
 
@@ -140,6 +209,9 @@ namespace DeckbuilderRTS
             var AttackController = newAttack.GetComponent<SwarmlingBulletController>();
             var AttackVelocity = new Vector2(this.AttackSpeed * AttackDirection.x, this.AttackSpeed * AttackDirection.y);
             AttackController.SetAttributes(this.AttackDamage, AttackVelocity);
+            var collider = AttackController.GetComponent<BoxCollider2D>();
+            var bossCollider = this.GetComponent<BoxCollider2D>();
+            Physics2D.IgnoreCollision(collider, bossCollider);
         }
     }
 }

@@ -130,6 +130,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: AttackRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: AttackDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LaserAttackTime
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: PURCHASE_CARD_COOL_DOWN_BASE
