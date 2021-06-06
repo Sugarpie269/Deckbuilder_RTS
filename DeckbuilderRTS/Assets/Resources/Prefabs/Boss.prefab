@@ -98,18 +98,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5e0835480f91e43869211d7fa8e873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHP: 10
-  MaxHP: 1000
+  CurrentHP: 100
+  MaxHP: 100
   DamageResistance: 4
   EnemyPlayer: {fileID: 0}
-  SeekingRange: 4
+  SeekingRange: 12
   SummonDistance: 1.5
   AttackSpeed: 15
-  AttackDamage: 10
+  AttackDamage: 4
   AttackPrefab: {fileID: 330330278010826320, guid: bcb881c3db2a65842b306bc4161c5c6f,
     type: 3}
-  AttackRate: 0.5
-  LaserAttackTime: 5
+  AttackRate: 2
+  LaserAttackTime: 3
+  HealthTextPrefab: {fileID: 7392525086033785062, guid: abd6e7a6545c0e544b9c6bda69ffd51d,
+    type: 3}
+  DisplayDamageTime: 1.5
+  RestoreHPDelay: 15
+  RestoreHPAmount: 5
 --- !u!50 &7002631663465951625
 Rigidbody2D:
   serializedVersion: 4
