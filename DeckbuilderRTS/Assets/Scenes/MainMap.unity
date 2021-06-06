@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1683089648596611712, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683089648596611712, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683089649563201415, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683089649563201415, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 35.23
+      objectReference: {fileID: 0}
     - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: AttackRate
