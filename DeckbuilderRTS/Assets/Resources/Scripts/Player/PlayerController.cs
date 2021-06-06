@@ -438,23 +438,34 @@ namespace DeckbuilderRTS
         private void UpdateRotation()
         {
             var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+
             // rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
             
-            //var mousePosition = GetMousePosition();
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //GetMousePosition();
 
-            //Debug.Log("Player Rotation");
-            //var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
-            //var dirVec = new Vector2(rigidBody.position.x - mousePosition.x, rigidBody.position.y - mousePosition.y);
+
+            Debug.Log("Player Position" + this.gameObject.transform.position + " vs mouse " + mousePosition);
             
+            //var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
+            var dirVec = new Vector2(mousePosition.x - this.gameObject.transform.position.x, mousePosition.y - this.gameObject.transform.position.y);
+            //var dirVec = new Vector2(this.gameObject.transform.position.x - mousePosition.x, this.gameObject.transform.position.y - mousePosition.y);
+            
+            Debug.Log("Dir " + dirVec);
+
             /*
             if (this.path != null && this.DefaultIdx != -1 && this.path.Length > 0)
             {
                 //dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
                 dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
             }
-            
+            */
 
-            var multiplier = 0f;
+            var multiplier = 1.5f;
+
+            transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90);
+            
+            /*
             if (dirVec.x > 0)
             {
                 multiplier = 1f;
@@ -463,6 +474,7 @@ namespace DeckbuilderRTS
             {
                 transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90);
             }
+            
             else if (dirVec.y > 0)
             {
                 transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 0);
@@ -637,6 +649,10 @@ namespace DeckbuilderRTS
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
                 rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
 
+
+                this.UpdateRotation();
+
+                /*
                 //rb2D.MoveRotation(rb2D.rotation + revSpeed * Time.fixedDeltaTime);
                 var val = this.GetPlayerSpeed() * Time.fixedDeltaTime;
                 //Debug.Log("Rotation is " + rigidBody.rotation + " and " + val);
@@ -653,13 +669,14 @@ namespace DeckbuilderRTS
                 var angleChange = AngleBetweenVector2(CurrentDirection, movement);
                 //Debug.Log("Anglechange is " + angleChange);
 
+                
                 if (angleChange != 0f)
                 {
                     rigidBody.rotation += angleBtwn * Time.fixedDeltaTime;
                     CurrentDirection = rotate(CurrentDirection, angleBtwn * Time.fixedDeltaTime);
                     //Debug.Log("CurrentDir is now " + CurrentDirection);
                 }
-
+                */
                 //rigidBody.MoveRotation(1f);
 
                 /*
@@ -1179,7 +1196,6 @@ namespace DeckbuilderRTS
             }
 
             this.ProcessInput();
-            this.UpdateRotation();
 
             // If the deck is on cooldown, update it.
             if (this.DrawCardCoolDown > 0.0f)
