@@ -43,6 +43,8 @@ public class InstructionController : MonoBehaviour
         this.AllTextInstructions = GameObject.FindGameObjectsWithTag("Instruction Text");
         this.AllImageInstructions = GameObject.FindGameObjectsWithTag("Instruction Image");
         this.DeactivateAllInfo();
+        // set default to controls ~ Jarod
+        this.ClickControlsButton();
     }
 
     public void ClickStartButton()
