@@ -45,7 +45,7 @@ namespace DeckbuilderRTS
 
             var iceSpikeController = newIceSpike.GetComponent<IceSpikeController>();
             iceSpikeController.SetAttributes(this.Info.CardPower, new Vector2(this.IceSpikeSpeed * iceSpikeDirection.x, this.IceSpikeSpeed * iceSpikeDirection.y));
-            GameObject.Destroy(newIceSpike, 5f);
+            GameObject.Destroy(newIceSpike, 2f);
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
