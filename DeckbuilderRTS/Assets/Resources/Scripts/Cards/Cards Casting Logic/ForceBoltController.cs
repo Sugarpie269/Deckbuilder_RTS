@@ -23,11 +23,12 @@ namespace DeckbuilderRTS
         {
         }
 
-        public void SetAttributes(float damage, Vector2 velocity, float knockback)
+        public void SetAttributes(float damage, Vector2 velocity, float angle, float knockback)
         {
             this.Damage = damage;
             this.Velocity = velocity;
             this.Knockback = knockback;
+            this.gameObject.transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, angle);
         }
 
         public void Update()
@@ -37,13 +38,13 @@ namespace DeckbuilderRTS
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // If the fireball collides with a swarmling, the swarmling takes damage and knocks it back. Otherwise, the forcebolt is destroyed.
+            // If the forcebolt collides with a swarmling, the swarmling takes damage and gets knocked back. Otherwise, the forcebolt is destroyed.
             if (collision.collider.tag == "Swarmling")
             {
                 collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                 // TODO: Add knockback to it
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                //GameObject.Destroy(this.gameObject);
+                GameObject.Destroy(this.gameObject);
             }
             /*else if (collision.collider.tag == "Player")
             {
@@ -54,7 +55,7 @@ namespace DeckbuilderRTS
             {
                 collision.collider.GetComponent<BossController>().TakeDamage(this.Damage);
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                //GameObject.Destroy(this.gameObject);
+                GameObject.Destroy(this.gameObject);
             }
             else if (collision.collider.tag == "Obstacle")
             {

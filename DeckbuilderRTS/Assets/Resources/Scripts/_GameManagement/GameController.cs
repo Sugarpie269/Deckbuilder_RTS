@@ -11,7 +11,7 @@ namespace DeckbuilderRTS
         // Attack Card Prefabs
         [SerializeField] public Object FireballPrefab;
         [SerializeField] public Object LeafbladePrefab;
-        [SerializeField] public Object ForceBoltPrefab; // TODO 
+        [SerializeField] public Object ForceBoltPrefab;
         [SerializeField] public Object IceSpikePrefab;
         [SerializeField] public Object LightningStrikePrefab; // TODO 
         [SerializeField] public Object LaserBeamPrefab; // TODO 
@@ -211,6 +211,11 @@ namespace DeckbuilderRTS
         public ICard GenerateCardIceSpike()
         {
             return new IceSpikeCard(this.IceSpikePrefab);
+        }
+
+        public ICard GenerateCardForceBolt()
+        {
+            return new ForceBoltCard(this.ForceBoltPrefab);
         }
 
         public CardInfo GetCardInfo(string cardName)
