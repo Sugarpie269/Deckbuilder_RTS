@@ -46,18 +46,6 @@ namespace DeckbuilderRTS
             // Set the ForceBolt's rotation by calculating angle between the 2 points. ~Liam
             var vec = Input.mousePosition - Camera.main.WorldToScreenPoint(player.transform.position);
             var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
-            /*var vec = new Vector2(forceBoltDirection.x - player.transform.position.x, forceBoltDirection.y - player.transform.position.y);
-
-            var multiplier = 0f;
-            if (vec.x > 0)
-            {
-                multiplier = 1f;
-            }*/
-
-            //Debug.Log("boltXDifference is " + boltXDifference.ToString() + " and boltYDifference is " + boltYDifference.ToString());
-
-
-            //Debug.Log("Angle of bolt should be " + boltAngle.ToString());
 
             var forceBoltController = newForceBolt.GetComponent<ForceBoltController>();
             forceBoltController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * forceBoltDirection.x, this.ForceBoltSpeed * forceBoltDirection.y), angle);
