@@ -11,6 +11,12 @@ public class InstructionController : MonoBehaviour
     private GameObject[] AllTextInstructions;
     private GameObject[] AllImageInstructions;
 
+    // Game objects for the Objective page. ~Liam
+    [SerializeField] private GameObject ObjectiveTitleText;
+    [SerializeField] private GameObject ObjectiveNarrationText;
+    [SerializeField] private GameObject ObjectiveBasicText;
+    [SerializeField] private GameObject ObjectiveBossImage;
+
     // Game objects for the Basic Controls page. ~Liam
     [SerializeField] private GameObject ControlsTitleText;
     [SerializeField] private GameObject ControlText;
@@ -44,12 +50,24 @@ public class InstructionController : MonoBehaviour
         this.AllImageInstructions = GameObject.FindGameObjectsWithTag("Instruction Image");
         this.DeactivateAllInfo();
         // set default to controls ~ Jarod
-        this.ClickControlsButton();
+        this.ClickObjectiveButton();
     }
 
     public void ClickStartButton()
     {
         SceneManager.LoadScene("MainMap");
+    }
+
+    public void ClickObjectiveButton()
+    {
+        // Deactivate any text on screen. ~Liam
+        this.DeactivateAllInfo();
+
+        // Activate the objects related to objective information. ~Liam
+        this.ObjectiveTitleText.SetActive(true);
+        this.ObjectiveNarrationText.SetActive(true);
+        this.ObjectiveBasicText.SetActive(true);
+        this.ObjectiveBossImage.SetActive(true);
     }
 
     public void ClickControlsButton()
