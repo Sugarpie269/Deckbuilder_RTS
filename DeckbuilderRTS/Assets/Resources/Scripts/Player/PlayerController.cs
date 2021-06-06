@@ -112,6 +112,10 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject ErrorSound;
         private AudioSource[] AudioSources;
 
+        // Button objects for when the player wins or loses. ~Liam
+        [SerializeField] private GameObject LoseButton;
+        [SerializeField] private GameObject WinButton;
+
         public Vector2 CurrentDirection;
 
         private void Awake()
@@ -235,6 +239,10 @@ namespace DeckbuilderRTS
             // Get all markets in the scene. ~Liam
             this.MarketList = GameObject.FindGameObjectsWithTag("Market");
 
+            // Deactivate buttons. ~Liam
+            this.LoseButton.SetActive(false);
+            this.WinButton.SetActive(false);
+
             this.CurrentDirection = new Vector2(0f, 0f);
         }
 
@@ -277,6 +285,9 @@ namespace DeckbuilderRTS
             GameObject.Find("Card3").GetComponent<ExamineDisplay>().GameOver();
             GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().GameOver();
             this.ExamineCardImage.SetActive(false);
+
+            // Display the button that loads the credits. ~Liam
+            this.WinButton.SetActive(true);
         }
 
         // UI & PLAYER FUNCTION: Modifies the player's current Energy count by the paramter value. Passed in integer can be positive (for gaining) or negative (for spending). ~Liam
@@ -421,9 +432,10 @@ namespace DeckbuilderRTS
             GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().GameOver();
             this.ExamineCardImage.SetActive(false);
 
-            // Display game over text. ~Liam
+            // Display game over text and lose button. ~Liam
             this.GameOverText.SetActive(true);
             this.GameOverTipText.SetActive(true);
+            this.LoseButton.SetActive(true);
         }
 
         // The function gets the world mouse position and gets the direction.
