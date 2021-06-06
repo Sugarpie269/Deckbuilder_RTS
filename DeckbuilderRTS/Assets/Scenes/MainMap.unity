@@ -658,6 +658,16 @@ PrefabInstance:
       propertyPath: SummonSwarmlingDelay
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6544366154858696003, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544366154858696003, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.07
+      objectReference: {fileID: 0}
     - target: {fileID: 6544366155041830358, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_LocalPosition.x
