@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuController : MonoBehaviour
+public class InstructionController : MonoBehaviour
 {
     //private AssetBundle LoadedAssetBundle;
     //private string[] ScenePaths;
@@ -19,16 +19,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("MainMap");
     }
 
-    public void ClickInstructionsButton()
-    {
-        SceneManager.LoadScene("Instructions Screen");
-    }
 
-    
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
