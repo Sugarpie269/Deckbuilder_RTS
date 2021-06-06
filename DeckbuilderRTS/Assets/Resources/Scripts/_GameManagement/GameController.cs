@@ -8,9 +8,15 @@ namespace DeckbuilderRTS
 {
     public class GameController : MonoBehaviour
     {
+        // Attack Card Prefabs
         [SerializeField] public Object FireballPrefab;
         [SerializeField] public Object LeafbladePrefab;
+        [SerializeField] public Object ForceBoltPrefab; // TODO 
         [SerializeField] public Object IceSpikePrefab;
+        [SerializeField] public Object LightningStrikePrefab; // TODO 
+        [SerializeField] public Object LaserBeamPrefab; // TODO 
+
+        // Other Cards/Entities
         [SerializeField] public Object WorkerPrefab;
         [SerializeField] public Object SwarmlingPrefab;
         [SerializeField] private bool SummonSwarmlings = true;
