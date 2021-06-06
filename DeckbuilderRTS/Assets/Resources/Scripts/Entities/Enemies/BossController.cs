@@ -42,21 +42,11 @@ namespace DeckbuilderRTS
         private float CurrentLaserTime = 0f;
         private int LaserStage = 0;
 
-        private void UpdateAttackPattern(bool disable)
+        private void UpdateAttackPattern()
         {
-            if (this.currentAttack == AttackPattern.Laser)
-            {
-                return;
-            }
-            if (disable)
-            {
-                this.currentAttack = AttackPattern.None;
-                return;
-            }
-
             var randInt = Random.Range(1, 101);
 
-            if (randInt <= 80)
+            if (randInt <= 60)
             {
                 this.currentAttack = AttackPattern.Basic;
             }
@@ -119,13 +109,16 @@ namespace DeckbuilderRTS
             // Player is within determined range of boss. Shoot projectiles.
             if (Distance < this.SeekingRange)
             {
+                if (this.currentAttack == AttackPattern.None)
+                {
+                    this.UpdateAttackPattern();
+                }
                 canAttack = true;
-                
+                           
             }
 
-            this.UpdateAttackPattern(canAttack);
 
-            if (this.currentAttack == AttackPattern.Basic && canAttack)
+            if (this.currentAttack == AttackPattern.Basic)
             {
                 // Shoot projectiles if needed.
                 this.ElapsedTime += Time.deltaTime;
@@ -133,9 +126,18 @@ namespace DeckbuilderRTS
                 {
                     this.ShootProjectiles();
                     this.ElapsedTime = 0;
+                    if (canAttack)
+                    {
+                        this.UpdateAttackPattern();
+                    }
+                    else
+                    {
+                        this.currentAttack = AttackPattern.None;
+                    }
+                    
                 }
             }
-            else if (this.currentAttack == AttackPattern.Laser && canAttack)
+            else if (this.currentAttack == AttackPattern.Laser)
             {
                 this.CurrentLaserTime += Time.deltaTime;
                 if (this.CurrentLaserTime >= this.LaserAttackTime / 4 && this.LaserStage == 0)
@@ -143,7 +145,7 @@ namespace DeckbuilderRTS
                     this.LaserStage++;
                     this.ShootProjectiles();
                 }
-                else if (this.CurrentLaserTime >= this.LaserAttackTime * 2 / 4 && this.LaserStage == 1)
+                else if (this.CurrentLaserTime >= this.LaserAttackTime * 7 / 24 && this.LaserStage == 1)
                 {
                     this.LaserStage++;
                     this.ShootProjectiles();
@@ -152,12 +154,20 @@ namespace DeckbuilderRTS
                 {
                     this.LaserStage++;
                     // Create laser
+                    Debug.Log("get lasered!");
                 }
                 else if (this.CurrentLaserTime >= this.LaserAttackTime)
                 {
                     this.LaserStage = 0;
                     this.CurrentLaserTime = 0f;
-                    this.currentAttack = AttackPattern.None;
+                    if (canAttack)
+                    {
+                        this.UpdateAttackPattern();
+                    }
+                    else
+                    {
+                        this.currentAttack = AttackPattern.None;
+                    }
                 }
             }
             else
