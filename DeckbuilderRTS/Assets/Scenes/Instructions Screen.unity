@@ -2661,9 +2661,9 @@ MonoBehaviour:
     has been haphazardly infused with mechanical parts, and has since destroyed countless
     towns of innocent monsters, transmuting victims into swarmlings for his army
     or wiping them from existence outright. King Slime-mech, as it is now known,
-    threatens what remains of monsterkind with his swarmlings. Naturally, (being
-    the bigoted monster you are) you have set out to shut down the abomination that
-    was once the former King.
+    threatens what remains of monsterkind with his swarmlings. Naturally, being the
+    bigoted monster you are, you have set out to shut down the abomination that was
+    once the former King.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
