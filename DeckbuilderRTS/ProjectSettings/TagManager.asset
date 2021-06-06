@@ -13,6 +13,8 @@ TagManager:
   - Depot
   - Boss
   - Market
+  - Instruction Text
+  - Instruction Image
   layers:
   - Default
   - TransparentFX
