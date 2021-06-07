@@ -637,7 +637,7 @@ namespace DeckbuilderRTS
                 rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
 
 
-                this.UpdateRotation();
+                //this.UpdateRotation();
 
             }
         }
