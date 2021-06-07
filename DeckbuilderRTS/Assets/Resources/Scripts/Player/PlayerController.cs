@@ -897,6 +897,9 @@ namespace DeckbuilderRTS
             // Only show this error if the success message isn't present. ~Liam
             if (!this.PurchaseSuccess)
             {
+                // Play the error noise. ~Liam
+                this.ErrorSound.GetComponent<AudioSource>().Play();
+
                 this.PurchaseErrorText.SetActive(true);
                 this.PurchaseErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
             }
