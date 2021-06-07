@@ -11,6 +11,8 @@ namespace DeckbuilderRTS
         private float Delay;
         private float DamageDelay;
         private float DamageDelayCounter;
+        private float Lifetime;
+        private bool CanDamage;
 
         private Vector2 Velocity;
 
@@ -20,6 +22,8 @@ namespace DeckbuilderRTS
             this.Delay = 2.0f;
             this.DamageDelay = 0.25f;
             this.DamageDelayCounter = 0.0f;
+            this.Lifetime = 3.0f;
+            this.CanDamage = false;
 
             this.Velocity = new Vector2(10.0f, 0.0f);
         }
@@ -29,20 +33,33 @@ namespace DeckbuilderRTS
         {
         }
 
-        public void SetAttributes(float damage, float delay, Vector2 velocity)
+        public void SetAttributes(float damage, float delay, float lifetime, float angle)
         {
             this.Damage = damage;
             this.Delay = delay;
 
-            this.Velocity = velocity;
+            this.Lifetime = lifetime;
+            this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
+            //this.Velocity = velocity;
         }
 
         public void Update()
         {
+            this.DamageDelayCounter += Time.deltaTime;
+            if (this.DamageDelayCounter >= Delay && this.CanDamage == false)
+            {
+                this.CanDamage = true;
+            }
+            if (this.DamageDelayCounter >= this.Lifetime)
+            {
+                this.CanDamage = false;
+                this.gameObject.SetActive(false);
+            }
             //this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(this.Velocity.x, this.Velocity.y);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionStay2D(Collision2D collision)
         {
             // ensure that damage is only dealt every DamageDelay (0.25) seconds
             this.DamageDelayCounter += Time.deltaTime;

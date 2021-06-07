@@ -18,6 +18,8 @@ namespace DeckbuilderRTS
         private float Length = 100.0f;
         private float delay = 1.0f;
 
+        private float Lifetime = 3.0f;
+
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
 
@@ -49,24 +51,27 @@ namespace DeckbuilderRTS
             // Load Lighting Striker at mouse's position.
             var lightningStrikerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             lightningStrikerPos = new Vector3(lightningStrikerPos.x, lightningStrikerPos.y, player.transform.position.z);
-            
-
-            // TODO: Begin Lightning after delay period.
-            // TODO: Fix to recognize collisions with enemies. 
+        
             for (var i = 0; i < 4; i++) 
             {
                 var newLightningStriker = Object.Instantiate(this.LightningStrikerPrefab) as GameObject;
                 newLightningStriker.transform.position = lightningStrikerPos;
                 
+                // Set Rotation
+                var vec = Input.mousePosition - Camera.main.WorldToScreenPoint(player.transform.position);
+                var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
+
+
                 var lightningStrikerController = newLightningStriker.GetComponent<LightningStrikerController>();
                 
-                var lightningStrikerVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
-                lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, lightningStrikerVelocity);
+                //var lightningStrikerVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
+                //lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, this.Lifetime, angle);
+                lightningStrikerController.SetAttributes(2f, this.delay, this.Lifetime, angle);
 
                 Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newLightningStriker.GetComponent<BoxCollider2D>());
                 GameObject.Destroy(newLightningStriker, 5f);
-                
             }
+            
             
         }
 
