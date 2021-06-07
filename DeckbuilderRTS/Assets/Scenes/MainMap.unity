@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8725493903818463603, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: cardType
+      value: Card_LightningStriker
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7d656352248ddbd3ab287db2de59, type: 3}
 --- !u!1001 &1491045667282676219
