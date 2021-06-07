@@ -110,6 +110,7 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject GameOverFanfare;
         [SerializeField] private GameObject VictoryFanfare;
         [SerializeField] private GameObject ErrorSound;
+        [SerializeField] private GameObject PlayerHurtSound;
         private AudioSource[] AudioSources;
 
         // Button objects for when the player wins or loses. ~Liam
@@ -923,6 +924,9 @@ namespace DeckbuilderRTS
             var camera = GameObject.Find("Main Camera");
             var cameraController = camera.GetComponent<CameraController>();
             cameraController.SetShaking();
+
+            // Play injured noise. ~Liam
+            this.PlayerHurtSound.GetComponent<AudioSource>().Play();
         }
 
         public void ApplyHealing(float healing)
