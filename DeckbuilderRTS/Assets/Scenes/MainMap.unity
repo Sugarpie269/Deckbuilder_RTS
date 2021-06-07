@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 510253955, guid: 4e2c7d656352248ddbd3ab287db2de59, type: 3}
+      propertyPath: BypassEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548741618, guid: 4e2c7d656352248ddbd3ab287db2de59, type: 3}
+      propertyPath: BypassEffects
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: LaserBeamPrefab
@@ -148,6 +156,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4791496384067448545, guid: 95461526e1b464dcbb861ed31be93e28,
         type: 3}
+    - target: {fileID: 5403631239790534352, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832576903947152842, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832576903947152842, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -182530887
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849590559086748116, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725493902481521338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725493902481521338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725493902481521338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725493902481521338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725493902481521338, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_Name
