@@ -51,7 +51,7 @@ namespace DeckbuilderRTS
                 {
                     this.DamageDelayCounter += this.TimeBetweenDamageTick;
                     this.CanDamage = true;
-                    Debug.Log("set candamage to true.");
+                    //Debug.Log("set candamage to true.");
                 }
             }
 
@@ -66,7 +66,7 @@ namespace DeckbuilderRTS
                     this.EnableTickCounter = true;
                     this.DelayCounter -= Delay;
                     this.DamageDelayCounter -= this.DelayCounter;
-                    Debug.Log("Laser can start doing Damage now.");
+                    //Debug.Log("Laser can start doing Damage now.");
                 }
             }
             
@@ -124,7 +124,7 @@ namespace DeckbuilderRTS
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            Debug.Log("I am touching " + other.gameObject.name);
+            //Debug.Log("I am touching " + other.gameObject.name);
 
             if (this.CanDamage)
             {

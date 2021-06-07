@@ -58,6 +58,11 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject HurtNoise;
         [SerializeField] private GameObject DeathNoise;
 
+        [SerializeField] private float LaserDamage;
+        [SerializeField] private float LaserDelay;
+        [SerializeField] private float LaserLifetime;
+        [SerializeField] private Object LaserBeamPrefab;
+
         private void UpdateAttackPattern()
         {
             var randInt = Random.Range(1, 101);
@@ -111,6 +116,27 @@ namespace DeckbuilderRTS
             {
                 this.HurtNoise.GetComponent<AudioSource>().Play();
             }
+        }
+
+        private void ShootLaser()
+        {
+            Debug.Log("LASER BEAM");
+            var bossPos = this.transform.position;
+            var direction = this.EnemyPlayer.transform.position - bossPos;
+            direction.Normalize();
+            var position = new Vector3(bossPos.x + direction.x * 7, bossPos.y + direction.y * 7, this.transform.position.z);
+            // TODO: instantiate then use delay to prevent effects from happening until timer is up
+            var laserbeam = Object.Instantiate(this.LaserBeamPrefab) as GameObject;
+            laserbeam.transform.position = position;
+
+            // set rotation
+            var vec = this.EnemyPlayer.transform.position - this.transform.position;
+            var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
+
+            var laserbeamController = laserbeam.GetComponent<LaserBeamController>();
+            laserbeamController.SetAttributes(this.LaserDamage, this.LaserDelay, this.LaserLifetime, angle);
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), laserbeam.GetComponent<BoxCollider2D>());
+            GameObject.Destroy(laserbeam, this.LaserLifetime);
         }
 
         private void Update()
@@ -221,6 +247,7 @@ namespace DeckbuilderRTS
                     this.LaserStage++;
                     // Create laser
                     Debug.Log("get lasered!");
+                    this.ShootLaser();
                 }
                 else if (this.CurrentLaserTime >= this.LaserAttackTime)
                 {
