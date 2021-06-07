@@ -123,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.025602818, y: 0.35587525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7020588}
+  m_Size: {x: 0.7542162, y: 0.9836869}
   m_EdgeRadius: 0
 --- !u!114 &767945023017781616
 MonoBehaviour:
@@ -207,6 +207,7 @@ MonoBehaviour:
   GameOverFanfare: {fileID: 0}
   VictoryFanfare: {fileID: 0}
   ErrorSound: {fileID: 0}
+  PlayerHurtSound: {fileID: 0}
   LoseButton: {fileID: 0}
   WinButton: {fileID: 0}
   CurrentDirection: {x: 0, y: 0}
