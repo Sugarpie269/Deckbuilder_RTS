@@ -15,6 +15,7 @@ namespace DeckbuilderRTS
         private float Lifetime;
         private bool CanDamage;
         private bool EnableTickCounter;
+        private bool HurtPlayers;
 
         public LaserBeamController()
         {
@@ -26,6 +27,7 @@ namespace DeckbuilderRTS
             this.Lifetime = 3.0f; // default amount of time the game object will allow damage to be dealt
             this.CanDamage = false;
             this.EnableTickCounter = false;
+            this.HurtPlayers = false;
         }
 
         // The start function will initialize our member variables.
@@ -34,12 +36,13 @@ namespace DeckbuilderRTS
             StartCoroutine("FadeIn");
         }
 
-        public void SetAttributes(float damage, float delay, float lifetime, float angle)
+        public void SetAttributes(float damage, float delay, float lifetime, float angle, bool hurtPlayers = false)
         {
             this.Damage = damage;
             this.Delay = delay;
             this.Lifetime = lifetime;
             this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            this.HurtPlayers = hurtPlayers;
         }
 
         public void Update()
@@ -125,7 +128,6 @@ namespace DeckbuilderRTS
         private void OnTriggerStay2D(Collider2D other)
         {
             //Debug.Log("I am touching " + other.gameObject.name);
-
             if (this.CanDamage)
             {
                 if (other.gameObject.CompareTag("Swarmling"))
@@ -140,6 +142,12 @@ namespace DeckbuilderRTS
                     other.gameObject.GetComponent<BossController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
 
+                }
+                else if (other.gameObject.CompareTag("Player") && this.HurtPlayers)
+                {
+                    Debug.Log("hellofjdasljflsdajkasdfadsasda");
+                    other.gameObject.GetComponent<PlayerController>().TakeDamage(this.Damage);
+                    Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
                 }
             }
         }

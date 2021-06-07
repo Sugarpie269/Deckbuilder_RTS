@@ -124,7 +124,7 @@ namespace DeckbuilderRTS
             var bossPos = this.transform.position;
             var direction = this.EnemyPlayer.transform.position - bossPos;
             direction.Normalize();
-            var position = new Vector3(bossPos.x + direction.x * 7, bossPos.y + direction.y * 7, this.transform.position.z);
+            var position = new Vector3(bossPos.x + direction.x * 7, bossPos.y + direction.y * 7, this.EnemyPlayer.transform.position.z);
             // TODO: instantiate then use delay to prevent effects from happening until timer is up
             var laserbeam = Object.Instantiate(this.LaserBeamPrefab) as GameObject;
             laserbeam.transform.position = position;
@@ -134,7 +134,7 @@ namespace DeckbuilderRTS
             var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
 
             var laserbeamController = laserbeam.GetComponent<LaserBeamController>();
-            laserbeamController.SetAttributes(this.LaserDamage, this.LaserDelay, this.LaserLifetime, angle);
+            laserbeamController.SetAttributes(this.LaserDamage, this.LaserDelay, this.LaserLifetime, angle, true);
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), laserbeam.GetComponent<BoxCollider2D>());
             GameObject.Destroy(laserbeam, this.LaserLifetime);
         }

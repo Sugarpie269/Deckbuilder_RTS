@@ -736,7 +736,7 @@ PrefabInstance:
     - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: LaserLifetime
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
@@ -748,6 +748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Volume
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062339, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 32.61
       objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
