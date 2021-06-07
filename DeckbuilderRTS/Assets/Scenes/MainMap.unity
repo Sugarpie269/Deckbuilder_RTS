@@ -320,7 +320,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1fd1b527b51d3934ab3eaa91a2429371, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -723,6 +723,27 @@ PrefabInstance:
       propertyPath: DeathNoise
       value: 
       objectReference: {fileID: 1199197568}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LaserDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LaserDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LaserLifetime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204075726765881718, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LaserBeamPrefab
+      value: 
+      objectReference: {fileID: 4791496384067448545, guid: 5106ec64764063547bb5aeef9f588056,
+        type: 3}
     - target: {fileID: 6838948762917700255, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_Volume

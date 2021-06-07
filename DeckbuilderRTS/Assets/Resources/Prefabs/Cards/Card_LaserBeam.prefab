@@ -176,8 +176,8 @@ PrefabInstance:
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Loose a piercing ray of light that deals heavy damage to all enemies
-        caught in the beam.
+      value: Charge briefly and fire a piercing ray of light that deals heavy damage
+        to all enemies caught in the beam.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

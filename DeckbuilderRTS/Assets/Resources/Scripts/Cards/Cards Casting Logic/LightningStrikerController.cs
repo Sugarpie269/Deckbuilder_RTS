@@ -40,7 +40,7 @@ namespace DeckbuilderRTS
             this.Delay = delay;
 
             this.Lifetime = lifetime;
-            this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         
             //this.Velocity = velocity;
         }
@@ -51,6 +51,7 @@ namespace DeckbuilderRTS
             if (this.DamageDelayCounter >= Delay && this.CanDamage == false)
             {
                 this.CanDamage = true;
+                GameObject.Find("Card_LightningStriker").transform.GetChild(9).gameObject.GetComponent<AudioSource>().Play();
             }
             if (this.DamageDelayCounter >= this.Lifetime)
             {
