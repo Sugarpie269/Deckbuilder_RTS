@@ -14,6 +14,10 @@ namespace DeckbuilderRTS
         private float LightningStrikerDirection;
         private float LightningStrikerSpeed = 3.0f;
 
+        private float Direction;
+        private float Length = 100.0f;
+        private float delay = 1.0f;
+
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
 
@@ -25,7 +29,6 @@ namespace DeckbuilderRTS
             var gameMaster = GameObject.Find("GameController");
             var gameController = gameMaster.GetComponent<GameController>();
 
-            Debug.Log("Get Info for LightningStriker");
             this.Info = gameController.GetCardInfo("Card_LightningStriker");
         }
 
@@ -41,16 +44,22 @@ namespace DeckbuilderRTS
             var playerPos = player.transform.position;
             var lightningStrikerDirection = playerController.GetMousePosition();
 
-            var leafbladePos = new Vector3(playerPos.x + lightningStrikerDirection.x * this.SummonDistance, playerPos.y + lightningStrikerDirection.y * this.SummonDistance, player.transform.position.z);
-            var newLightningStriker = Object.Instantiate(this.LightningStrikerPrefab) as GameObject;
-            newLightningStriker.transform.position = leafbladePos;
+            var lightningStrikerPos = new Vector3(playerPos.x + lightningStrikerDirection.x * this.SummonDistance, playerPos.y + lightningStrikerDirection.y * this.SummonDistance, player.transform.position.z);
+            
+            for (var i = 0; i < 4; i++) 
+            {
+                var newLightningStriker = Object.Instantiate(this.LightningStrikerPrefab) as GameObject;
+                newLightningStriker.transform.position = lightningStrikerPos;
+                
+                var lightningStrikerController = newLightningStriker.GetComponent<LightningStrikerController>();
+                var lightningStrikerVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
+                lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, lightningStrikerVelocity);
 
-            var leafbladeController = newLightningStriker.GetComponent<LightningStrikerController>();
-            var leafbladeVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
-            leafbladeController.SetAttributes(this.Info.CardPower, leafbladeVelocity);
-
-            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newLightningStriker.GetComponent<BoxCollider2D>());
-            GameObject.Destroy(newLightningStriker, 5f);
+                Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newLightningStriker.GetComponent<BoxCollider2D>());
+                GameObject.Destroy(newLightningStriker, 5f);
+                
+            }
+            
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.
