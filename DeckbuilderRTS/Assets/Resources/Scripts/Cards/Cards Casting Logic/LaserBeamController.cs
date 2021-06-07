@@ -1,7 +1,7 @@
 using UnityEngine;
 
 using DeckbuilderRTS;
-
+using System.Collections;
 
 namespace DeckbuilderRTS
 {
@@ -19,7 +19,7 @@ namespace DeckbuilderRTS
         public LaserBeamController()
         {
             this.Damage = 20.0f;
-            this.Delay = 2.0f; // time before damage is dealt (charge up)
+            this.Delay = 1.0f; // time before damage is dealt (charge up)
             this.DelayCounter = 0.0f;
             this.TimeBetweenDamageTick = 0.25f;
             this.DamageDelayCounter = this.TimeBetweenDamageTick;
@@ -31,6 +31,7 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         public void Start()
         {
+            StartCoroutine("FadeIn");
         }
 
         public void SetAttributes(float damage, float delay, float lifetime, float angle)
@@ -50,6 +51,7 @@ namespace DeckbuilderRTS
                 {
                     this.DamageDelayCounter += this.TimeBetweenDamageTick;
                     this.CanDamage = true;
+                    Debug.Log("set candamage to true.");
                 }
             }
 
@@ -68,17 +70,39 @@ namespace DeckbuilderRTS
             
         }
 
+        IEnumerator FadeIn()
+        {
+            // todo change fadein effect to exponential?
+            for (float ft = 0.0f; ft <= 1f; ft += 0.1f)
+            {
+                var renderer = this.gameObject.GetComponent<Renderer>();
+                Color c = renderer.material.color;
+                c.a = ft;
+                renderer.material.color = c;
+                yield return new WaitForSeconds(this.Delay/10f); 
+                // ^ functionally this should ba 1/10th of a second
+            }
+        }
+
+        IEnumerator DamageTick()
+        {
+            yield return 0;
+            this.CanDamage = false;
+        }
+
         public void LateUpdate()
         {
             // once delay counter reaches threshold, enable damage for this frame
             if (this.CanDamage)
             {
+                // StartCoroutine("DamageTick");
                 // this.CanDamage = false;
-                Debug.Log("YAY we can damage things!");
+                // Debug.Log("YAY we can damage things!");
             }
         }
-        // TODO change the collider to a trigger only?
-        private void OnTriggerStay2D(Collider2D other)
+
+        /*
+        private void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("I am touching " + other.gameObject.name);
 
@@ -94,8 +118,30 @@ namespace DeckbuilderRTS
                     other.gameObject.GetComponent<BossController>().TakeDamage(this.Damage);
                 }
             }
-        }
+        }*/
 
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            Debug.Log("I am touching " + other.gameObject.name);
+
+            if (this.CanDamage)
+            {
+                if (other.gameObject.CompareTag("Swarmling"))
+                {
+                    other.gameObject.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
+                    Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
+
+                }
+                else if (other.gameObject.CompareTag("Boss"))
+                {
+                    //Debug.Log("Boss boi.");
+                    other.gameObject.GetComponent<BossController>().TakeDamage(this.Damage);
+                    Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
+
+                }
+            }
+        }
+        /*
         // if the things touching it are still in the collider, and the charge up has passed, deal damage
         private void OnCollisionStay2D(Collision2D collision)
         {
@@ -113,11 +159,11 @@ namespace DeckbuilderRTS
                     Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                     //GameObject.Destroy(this.gameObject);
                 }
-                /*else if (collision.collider.tag == "Player")
-                {
-                    collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
-                    GameObject.Destroy(this.gameObject);
-                }*/
+                //else if (collision.collider.tag == "Player")
+                //{
+                //    collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
+                //    GameObject.Destroy(this.gameObject);
+                //}
                 else if (collision.collider.tag == "Boss")
                 {
                     Debug.Log("Boss boi.");
@@ -135,8 +181,8 @@ namespace DeckbuilderRTS
                 {
                     //Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                 }
-            }
-        }
+            } 
+        }*/
 
         
             

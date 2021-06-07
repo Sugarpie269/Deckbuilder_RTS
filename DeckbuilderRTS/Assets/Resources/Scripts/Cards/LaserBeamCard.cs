@@ -10,7 +10,7 @@ namespace DeckbuilderRTS
     {
         [SerializeField]
         private Object LaserBeamPrefab;
-        private float SummonDistance = 8.0f;
+        private float SummonDistance = 7.0f;
         // private float Direction;
         // private float Length = 100.0f;
         [SerializeField]
