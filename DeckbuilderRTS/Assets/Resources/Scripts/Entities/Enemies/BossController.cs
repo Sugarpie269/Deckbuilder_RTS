@@ -107,7 +107,7 @@ namespace DeckbuilderRTS
                 this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
                 this.DeathNoise.GetComponent<AudioSource>().Play();
             }
-            else
+            else if (newDamage > 0)
             {
                 this.HurtNoise.GetComponent<AudioSource>().Play();
             }
