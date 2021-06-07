@@ -61,6 +61,8 @@ namespace DeckbuilderRTS
                 this.DelayCounter += Time.deltaTime;
                 if (this.DelayCounter >= Delay)
                 {
+                    GameObject.Find("Card_LaserBeam").transform.GetChild(9).gameObject.GetComponent<AudioSource>().Play();
+
                     this.EnableTickCounter = true;
                     this.DelayCounter -= Delay;
                     this.DamageDelayCounter -= this.DelayCounter;

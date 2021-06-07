@@ -16,7 +16,7 @@ namespace DeckbuilderRTS
 
         private float Direction;
         private float Length = 100.0f;
-        private float delay = 1.0f;
+        private float delay = 2.0f;
 
         private float Lifetime = 3.0f;
 
