@@ -14,6 +14,7 @@ namespace DeckbuilderRTS
         private float DamageDelayCounter;
         private float Lifetime;
         private bool CanDamage;
+        private bool EnableTickCounter;
 
         public LaserBeamController()
         {
@@ -21,9 +22,10 @@ namespace DeckbuilderRTS
             this.Delay = 2.0f; // time before damage is dealt (charge up)
             this.DelayCounter = 0.0f;
             this.TimeBetweenDamageTick = 0.25f;
-            this.DamageDelayCounter = 0.0f;
+            this.DamageDelayCounter = this.TimeBetweenDamageTick;
             this.Lifetime = 3.0f; // default amount of time the game object will allow damage to be dealt
             this.CanDamage = false;
+            this.EnableTickCounter = false;
         }
 
         // The start function will initialize our member variables.
@@ -41,26 +43,57 @@ namespace DeckbuilderRTS
 
         public void Update()
         {
+            if (this.EnableTickCounter)
+            {
+                this.DamageDelayCounter -= Time.deltaTime;
+                if (this.DamageDelayCounter <= 0.0f)
+                {
+                    this.DamageDelayCounter += this.TimeBetweenDamageTick;
+                    this.CanDamage = true;
+                }
+            }
+
             // after [Delay] seconds, enable damage
-            this.DelayCounter += Time.deltaTime;
-            if (this.DelayCounter >= Delay && this.CanDamage == false)
+            if (!this.EnableTickCounter)
             {
-                this.CanDamage = true;
-                Debug.Log("Laser can do Damage now.");
+                this.DelayCounter += Time.deltaTime;
+                if (this.DelayCounter >= Delay)
+                {
+                    this.EnableTickCounter = true;
+                    this.DelayCounter -= Delay;
+                    this.DamageDelayCounter -= this.DelayCounter;
+                    Debug.Log("Laser can start doing Damage now.");
+                }
             }
-            if (this.DelayCounter >= this.Lifetime)
-            {
-                this.CanDamage = false;
-                Debug.Log("Laser cannot do Damage anymore.");
-                this.gameObject.SetActive(false);
-            }
-            //this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(this.Velocity.x, this.Velocity.y);
+            
         }
 
-        // TODO change the collider to a trigger only?
-        private void OnTriggerStay2D(Collider2D collision)
+        public void LateUpdate()
         {
-            
+            // once delay counter reaches threshold, enable damage for this frame
+            if (this.CanDamage)
+            {
+                // this.CanDamage = false;
+                Debug.Log("YAY we can damage things!");
+            }
+        }
+        // TODO change the collider to a trigger only?
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            Debug.Log("I am touching " + other.gameObject.name);
+
+            if (this.CanDamage)
+            {
+                if (other.gameObject.CompareTag("Swarmling"))
+                {
+                    other.gameObject.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
+                }
+                else if (other.gameObject.CompareTag("Boss"))
+                {
+                    //Debug.Log("Boss boi.");
+                    other.gameObject.GetComponent<BossController>().TakeDamage(this.Damage);
+                }
+            }
         }
 
         // if the things touching it are still in the collider, and the charge up has passed, deal damage
@@ -68,15 +101,15 @@ namespace DeckbuilderRTS
         {
             Debug.Log("I am touching " + collision.collider.gameObject.name);
             // ensure that damage is only dealt every DamageDelay (0.25) seconds
-            this.DamageDelayCounter += Time.deltaTime;
-            if (this.DamageDelayCounter >= this.TimeBetweenDamageTick)
+            
+            if (this.CanDamage && this.DamageDelayCounter >= this.TimeBetweenDamageTick)
             {
                 this.DamageDelayCounter -= this.TimeBetweenDamageTick;
                 // If the fireball collides with a swarmling, the swarmling takes damage and knocks it back. Otherwise, the forcebolt is destroyed.
                 if (collision.collider.tag == "Swarmling")
                 {
                     collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
-                    // TODO: Add knockback to it
+                    
                     Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                     //GameObject.Destroy(this.gameObject);
                 }
@@ -87,6 +120,7 @@ namespace DeckbuilderRTS
                 }*/
                 else if (collision.collider.tag == "Boss")
                 {
+                    Debug.Log("Boss boi.");
                     collision.collider.GetComponent<BossController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                     //GameObject.Destroy(this.gameObject);
@@ -94,6 +128,7 @@ namespace DeckbuilderRTS
                 else if (collision.collider.tag == "Obstacle")
                 {
                     //GameObject.Destroy(collision.gameObject);
+                    Debug.Log("Disabled Obstacle " + collision.collider.gameObject.name);
                     collision.gameObject.SetActive(false);
                 }
                 else
