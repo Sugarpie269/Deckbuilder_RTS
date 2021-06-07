@@ -50,6 +50,8 @@ We used a mix of the Unity physics system and our own scripted physics to modify
 
 We knew we wanted something magical, mechanical, and perhaps organic for the bad guys (and even player) so the swarmlings and boss were designed with the idea of mutated cyborgs. Bosses and swarmlings follow a similar style of green flesh and orange eyes so that the player easily recognizes the connection between the two different enemies.
 
+**Navya:** I contributed to this role by building a tile set map for our game (basically worl-building). I got an asset from the unity store which had the feeling of an "rpg midtown". I felt like that would be the best for our game as it was quite an open-ended theme when we had not decided a story line for our game. I made the map in a way which would allow for the "SAP2D" to calculate colliders easily and kept on making changes on the map as the game progressed because of the colliders not wokring properly.
+
 ## Input
 
 **Describe the default input configuration.**
@@ -60,6 +62,7 @@ We knew we wanted something magical, mechanical, and perhaps organic for the bad
 
 Keyboard and mouse: WASD movement, mouse+r for hovering over cards for information, mouse for optional camera controller panning, left-click enable optional camera controller, right click draw card, [1,2,3] for using the corresponding card slot.
 
+**Navya:** My main role was input. I implementedd this role by implemting a WASD input for the player and a function which gets the mouse positions. Expect that, this role didn't demand much work in our game.
 ## Game Logic
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
@@ -103,18 +106,23 @@ I also managed the game data such as spawning timing and logic for swarmlings (t
 
 The game controller that I created also provided the logic for alerting swarmlings to nearby workers and switching their current target. The swarmling controller picks the nearby player as a target first, then a nearby worker, then a random resource depot to patrol to if no enemies are nearby. 
 
+**Navya:** For the game logic, I worked on the market controller which allowed for the user to buy a card from a market (when near) if the user had sufficient funds. Following that, the card was then added to the deck of the user.
+The whole logic for a market was pretty simple as each market sold only one card. Hence, we designated particular markets to particular instancs of a card statically before run.
+
 # Sub-Roles
 
 ## Audio
 
 **Jackson:** I did nothing for this role.
+**Navya:** I downloaded and created audios for the game. The sounds used were for the cards, game over, win and overall game feel. The sounds created were the error, flip a card and suffle because these sounds were not readily available online. 
+Implemented a few, rest of the implementation was done by Liam.
 
 **List your assets including their sources and licenses.**
-
+freesounds.org
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
-
+The sound style was similar to a midtown rpg fanatsy game. Hence, all the magic cards have a loud bancg and fantasy element to it. 
 ## Gameplay Testing
 
 **Jackson:** Besides testing our builds during dev time, I did not contribute to this role (yet?).
