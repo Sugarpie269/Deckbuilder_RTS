@@ -44,14 +44,22 @@ namespace DeckbuilderRTS
             var playerPos = player.transform.position;
             var lightningStrikerDirection = playerController.GetMousePosition();
 
-            var lightningStrikerPos = new Vector3(playerPos.x + lightningStrikerDirection.x * this.SummonDistance, playerPos.y + lightningStrikerDirection.y * this.SummonDistance, player.transform.position.z);
+            //var lightningStrikerPos2 = new Vector3(playerPos.x + lightningStrikerDirection.x * this.SummonDistance, playerPos.y + lightningStrikerDirection.y * this.SummonDistance, player.transform.position.z);
             
+            // Load Lighting Striker at mouse's position.
+            var lightningStrikerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            lightningStrikerPos = new Vector3(lightningStrikerPos.x, lightningStrikerPos.y, player.transform.position.z);
+            
+
+            // TODO: Begin Lightning after delay period.
+            // TODO: Fix to recognize collisions with enemies. 
             for (var i = 0; i < 4; i++) 
             {
                 var newLightningStriker = Object.Instantiate(this.LightningStrikerPrefab) as GameObject;
                 newLightningStriker.transform.position = lightningStrikerPos;
                 
                 var lightningStrikerController = newLightningStriker.GetComponent<LightningStrikerController>();
+                
                 var lightningStrikerVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
                 lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, lightningStrikerVelocity);
 
