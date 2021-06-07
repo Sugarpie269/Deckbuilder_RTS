@@ -16,7 +16,7 @@ namespace DeckbuilderRTS
         [SerializeField]
         private float Delay = 1.0f;
         [SerializeField]
-        private float Lifetime = 3.0f;
+        private float Lifetime = 2.0f;
 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
