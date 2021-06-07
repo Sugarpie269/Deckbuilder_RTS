@@ -32,7 +32,6 @@ namespace DeckbuilderRTS {
             ICard newcard;
             switch (cardType)
             {
-                
                 case "Card_Fireball":
                     newcard = gameController.GenerateCardFireball();
                     return newcard;
@@ -55,6 +54,10 @@ namespace DeckbuilderRTS {
                 case "Card_LightningStriker":
                     Debug.Log("Case LightningStriker card");
                     newcard = gameController.GenerateCardLightningStriker();
+                    return newcard;
+                case "Card_LaserBeam":
+                    Debug.Log("Case LaserBeam found");
+                    newcard = gameController.GenerateCardLaserBeam();
                     return newcard;
                 default:
                     Debug.Log("Error card not available");

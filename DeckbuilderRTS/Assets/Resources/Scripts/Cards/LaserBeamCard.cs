@@ -10,10 +10,13 @@ namespace DeckbuilderRTS
     {
         [SerializeField]
         private Object LaserBeamPrefab;
-        private float SummonDistance = 2.0f;
-        private float Direction;
-        private float Length = 100.0f;
-        private float delay = 1.0f;
+        private float SummonDistance = 8.0f;
+        // private float Direction;
+        // private float Length = 100.0f;
+        [SerializeField]
+        private float Delay = 1.0f;
+        [SerializeField]
+        private float Lifetime = 3.0f;
 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
@@ -26,7 +29,7 @@ namespace DeckbuilderRTS
             var gameMaster = GameObject.Find("GameController");
             var gameController = gameMaster.GetComponent<GameController>();
 
-            this.Info = gameController.GetCardInfo("Card_Fireball");
+            this.Info = gameController.GetCardInfo("Card_LaserBeam");
         }
 
         // Returns a struct of card information, for use in the UI. ~Liam
@@ -46,10 +49,14 @@ namespace DeckbuilderRTS
             var laserbeam = Object.Instantiate(this.LaserBeamPrefab) as GameObject;
             laserbeam.transform.position = position;
 
+            // set rotation
+            var vec = Input.mousePosition - Camera.main.WorldToScreenPoint(player.transform.position);
+            var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
+
             var laserbeamController = laserbeam.GetComponent<LaserBeamController>();
-            // laserbeamController.SetAttributes(this.Info.CardPower, new Vector2(this.ForceBoltSpeed * direction.x, this.ForceBoltSpeed * direction.y));
+            laserbeamController.SetAttributes(this.Info.CardPower, Delay, Lifetime, angle);
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), laserbeam.GetComponent<BoxCollider2D>());
-            GameObject.Destroy(laserbeam, 5f);
+            GameObject.Destroy(laserbeam, this.Lifetime);
         }
 
         // This returns true if the card should be removed from the deck after use. ~Jackson.

@@ -219,6 +219,11 @@ namespace DeckbuilderRTS
             return new ForceBoltCard(this.ForceBoltPrefab);
         }
 
+        public ICard GenerateCardLaserBeam()
+        {
+            return new LaserBeamCard(this.LaserBeamPrefab);
+        }
+
         public ICard GenerateCardLightningStriker()
         {
             return new LightningStrikerCard(this.LightningStrikerPrefab);
@@ -228,6 +233,10 @@ namespace DeckbuilderRTS
         {
             var cardInfo = new CardInfo();
             cardInfo.CardReference = GameObject.Find(cardName);
+            if(!cardInfo.CardReference)
+            {
+                Debug.Log("Could not find CardInfo in library");
+            }
             cardInfo.CardArt = cardInfo.CardReference.transform.GetChild(1).gameObject.GetComponent<Image>().sprite;
             cardInfo.CardName = cardInfo.CardReference.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
             cardInfo.CardType = cardInfo.CardReference.transform.GetChild(3).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;

@@ -51,8 +51,10 @@ MonoBehaviour:
     type: 3}
   IceSpikePrefab: {fileID: 5643473198051167940, guid: e3b4286655a881449b77c8a224c86bdf,
     type: 3}
-  LightningStrikePrefab: {fileID: 0}
-  LaserBeamPrefab: {fileID: 0}
+  LightningStrikerPrefab: {fileID: 4791496384067448545, guid: 95461526e1b464dcbb861ed31be93e28,
+    type: 3}
+  LaserBeamPrefab: {fileID: 4791496384067448545, guid: 5106ec64764063547bb5aeef9f588056,
+    type: 3}
   WorkerPrefab: {fileID: 3951514500860341614, guid: 73a2105b64ac9ef4e9f0573d47234a32,
     type: 3}
   SwarmlingPrefab: {fileID: 4370800884632310675, guid: 618d598958c16714aa91519d4c4834e3,
