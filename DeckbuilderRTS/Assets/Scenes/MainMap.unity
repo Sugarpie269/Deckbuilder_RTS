@@ -130,6 +130,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LaserBeamPrefab
+      value: 
+      objectReference: {fileID: 4791496384067448545, guid: 5106ec64764063547bb5aeef9f588056,
+        type: 3}
+    - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LightningStrikePrefab
+      value: 
+      objectReference: {fileID: 4791496384067448545, guid: 95461526e1b464dcbb861ed31be93e28,
+        type: 3}
+    - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: LightningStrikerPrefab
+      value: 
+      objectReference: {fileID: 4791496384067448545, guid: 95461526e1b464dcbb861ed31be93e28,
+        type: 3}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_Name

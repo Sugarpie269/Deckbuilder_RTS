@@ -637,7 +637,7 @@ PrefabInstance:
     - target: {fileID: 4377600066108030696, guid: 8d8485ae2aa59e241bda5b89218fa9fe,
         type: 3}
       propertyPath: m_Name
-      value: Card_LightningBolt
+      value: Card_LightningStriker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d8485ae2aa59e241bda5b89218fa9fe, type: 3}

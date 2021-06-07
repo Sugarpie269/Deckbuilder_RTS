@@ -959,6 +959,8 @@ namespace DeckbuilderRTS
                 var gameControllerObject = this.GameController.GetComponent<GameController>();
                 this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardForceBolt());
                 this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardLeafblade());
+
+                //this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardLightningStriker());
                 this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
 
                 this.SetCardSlot1Image();

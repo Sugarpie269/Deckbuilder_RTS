@@ -25,6 +25,7 @@ namespace DeckbuilderRTS
             var gameMaster = GameObject.Find("GameController");
             var gameController = gameMaster.GetComponent<GameController>();
 
+            Debug.Log("Get Info for LightningStriker");
             this.Info = gameController.GetCardInfo("Card_LightningStriker");
         }
 

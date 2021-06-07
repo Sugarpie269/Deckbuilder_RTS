@@ -28,6 +28,7 @@ namespace DeckbuilderRTS {
 
         // Start is called before the first frame update
         private ICard generateCard(string cardType) {
+            Debug.Log("Market GenerateCard");
             ICard newcard;
             switch (cardType)
             {
@@ -50,6 +51,10 @@ namespace DeckbuilderRTS {
                     return newcard;
                 case "Card_Void":
                     newcard = gameController.GenerateCardVoid();
+                    return newcard;
+                case "Card_LightningStriker":
+                    Debug.Log("Case LightningStriker card");
+                    newcard = gameController.GenerateCardLightningStriker();
                     return newcard;
                 default:
                     Debug.Log("Error card not available");
