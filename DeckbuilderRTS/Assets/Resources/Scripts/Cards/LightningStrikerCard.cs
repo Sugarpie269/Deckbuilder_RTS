@@ -65,8 +65,8 @@ namespace DeckbuilderRTS
                 var lightningStrikerController = newLightningStriker.GetComponent<LightningStrikerController>();
                 
                 //var lightningStrikerVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
-                //lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, this.Lifetime, angle);
-                lightningStrikerController.SetAttributes(2f, this.delay, this.Lifetime, angle);
+                lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, this.Lifetime, angle);
+                //lightningStrikerController.SetAttributes(2f, this.delay, this.Lifetime, angle);
 
                 Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newLightningStriker.GetComponent<BoxCollider2D>());
                 GameObject.Destroy(newLightningStriker, 5f);

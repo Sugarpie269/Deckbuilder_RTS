@@ -87,6 +87,9 @@ namespace DeckbuilderRTS
         {
             float newDamage = damage - this.DamageResistance > 0 ? damage - this.DamageResistance : 0f;
             this.CurrentHP -= Mathf.FloorToInt(newDamage);
+
+            Debug.Log("Boss TakeDamage for " + damage + " to become " + newDamage + " now health is " + this.CurrentHP);
+
             var text = this.HealthText.transform.GetChild(1);
             text.GetComponent<TextMeshProUGUI>().text = Mathf.FloorToInt(-newDamage).ToString();
             this.DisplayingDamage = true;
