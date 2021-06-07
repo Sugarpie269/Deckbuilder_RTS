@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3351986976163064482, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3984163277649299206, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -25,12 +25,12 @@ PrefabInstance:
     - target: {fileID: 5154755818167704586, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5251684085525408261, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Lightning Bolt
+      value: Lightning Blast
       objectReference: {fileID: 0}
     - target: {fileID: 5251684085525408261, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 5492570113535283711, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_Name
-      value: Card_LightningBolt
+      value: Card_LightningStriker
       objectReference: {fileID: 0}
     - target: {fileID: 6862430417922367359, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
@@ -181,13 +181,13 @@ PrefabInstance:
     - target: {fileID: 8009217501566464751, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Drop a powerful lightning bolt on the cursor in a small AoE. There is
-        a delay of 2 seconds before the bolt hits.
+      value: Drop several powerful blasts of lingering lightning bolts around the
+        cursor.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
       propertyPath: m_text
-      value: Lightning Bolt
+      value: Lightning Blast
       objectReference: {fileID: 0}
     - target: {fileID: 9087787873851407765, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}
