@@ -54,6 +54,10 @@ namespace DeckbuilderRTS
         [SerializeField] private float RestoreHPAmount = 5f;
         private float CurrentRestoreHPTime = 0f;
 
+        // Audio objects. ~Liam
+        [SerializeField] private GameObject HurtNoise;
+        [SerializeField] private GameObject DeathNoise;
+
         private void UpdateAttackPattern()
         {
             var randInt = Random.Range(1, 101);
@@ -101,7 +105,11 @@ namespace DeckbuilderRTS
                 deadBoss.transform.rotation = this.transform.rotation;
                 this.transform.position = new Vector2(-10000f, -10000f);
                 this.EnemyPlayer.GetComponent<PlayerController>().DisplayVictoryText();
-
+                this.DeathNoise.GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                this.HurtNoise.GetComponent<AudioSource>().Play();
             }
         }
 
