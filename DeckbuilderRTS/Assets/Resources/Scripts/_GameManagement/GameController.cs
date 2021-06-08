@@ -139,7 +139,13 @@ namespace DeckbuilderRTS
 
                 if (this.IncreaseDifficulty)
                 {
-                    this.GameDifficulty += 1;
+                    //this.GameDifficulty += 1;
+
+                    // Every difficulty increase tick, reduce the spawn delay of swarmlings by 1 second to a minimum of 5 seconds.
+                    if (this.SummonSwarmlingDelay > 5)
+                    {
+                        this.SummonSwarmlingDelay -= 1;
+                    }
                 }
             }
 
