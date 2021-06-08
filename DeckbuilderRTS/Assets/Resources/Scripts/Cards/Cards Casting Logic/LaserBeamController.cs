@@ -143,11 +143,24 @@ namespace DeckbuilderRTS
                     Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
 
                 }
+                else if (other.gameObject.CompareTag("Worker"))
+                {
+                    //Debug.Log("Worker");
+                    other.gameObject.GetComponent<WorkerController>().TakeDamage(this.Damage);
+                    Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
+
+                }
                 else if (other.gameObject.CompareTag("Player") && this.HurtPlayers)
                 {
                     Debug.Log("hellofjdasljflsdajkasdfadsasda");
                     other.gameObject.GetComponent<PlayerController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
+                }
+                else if (other.gameObject.CompareTag("Obstacle"))
+                {
+                    //GameObject.Destroy(collision.gameObject);
+                    Debug.Log("Disabled Obstacle " + other.gameObject.name);
+                    other.gameObject.SetActive(false);
                 }
             }
         }
