@@ -1,6 +1,6 @@
 # Deckbuilder_RTS
 
-Jackson's Citations:
+##Jackson's Citations:##
 
 - https://forum.unity.com/threads/scriptableobject-createinstance-vs-instantiate.515757/ Was used to figure how to use ScriptableObject.CreateInstance()
 
@@ -23,13 +23,13 @@ Jackson's Citations:
 - https://forum.unity.com/threads/attaching-text-to-a-gameobject.523189/ for attaching text objects to swarmlings
 
 
-Navya's Citations:
+##Navya's Citations:##
 - https://assetstore.unity.com/packages/2d/environments/tiny-rpg-town-environment-88293
 -https://freesound.org/browse/
 -https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
 
 
-Liam's Citations:
+##Liam's Citations:##
 
 - https://gamedevtraum.com/en/game-development/unity-tutorials-and-solutions/unity-fundamental-series/different-methods-to-find-the-references-of-scene-objects-from-a-script-in-unity/how-to-get-the-child-of-a-gameobject-from-a-script-in-unity/
 (How to access a child GameObject in Unity)
@@ -68,7 +68,7 @@ Assets used (I did not import any assets myself; I used those that were found by
 \* These sounds were procured by Navya, I assume under different names. Refer to her citations; I don't know where she got them from.
 
 
-Amy's Citations:
+##Amy's Citations:##
 
 - https://docs.google.com/document/d/19EHWHNtg6IVCvH8amks_r92F4WkGCKlTTMcD0CvYYrQ/mobilebasic# (SAP2D Documentation for Pathfinding.)
 - https://docs.unity3d.com/Manual/class-Rigidbody2D.html (Understanding 2D rigidbodies for player and other sprite / obstacles within the game.)
@@ -76,3 +76,21 @@ Amy's Citations:
 - https://docs.unity3d.com/ScriptReference/Rigidbody2D.MoveRotation.html (Researched into rotation for player or enemies.)
 - https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html (Utilized for player or enemy rotation.)
 - https://docs.unity3d.com/Manual/class-CircleCollider2D.html (Circle Collider for more varied and unique collisions within the game.)
+
+##Jarod's Citations:##
+
+### Assets: ###
+- https://assetstore.unity.com/packages/tools/ai/sap2d-beta-109184
+- https://assetstore.unity.com/packages/2d/gui/icons/spellbook-preface-111069
+- https://assetstore.unity.com/packages/2d/textures-materials/2d-free-crystal-set-175156
+- https://assetstore.unity.com/packages/2d/gui/icons/rpg-inventory-icons-56687
+- https://assetstore.unity.com/packages/2d/gui/icons/free-ui-pack-170878
+- https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256
+- https://assetstore.unity.com/packages/2d/gui/icons/basic-rpg-icons-181301
+- https://assetstore.unity.com/packages/2d/gui/icons/elemental-potions-175338
+- https://assetstore.unity.com/packages/2d/characters/slime-character-157405
+- https://assetstore.unity.com/packages/2d/characters/2d-monster-wizard-184692
+
+### Resources: ###
+- https://docs.unity3d.com/
+- numerous stack exchange questions
