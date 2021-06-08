@@ -20,7 +20,6 @@ public class InstructionController : MonoBehaviour
     // Game objects for the Basic Controls page. ~Liam
     [SerializeField] private GameObject ControlsTitleText;
     [SerializeField] private GameObject ControlText;
-    [SerializeField] private GameObject CameraWarningText;
 
     // Game objects for the Cards page. ~Liam
     [SerializeField] private GameObject CardUsageTitleText;
@@ -31,16 +30,19 @@ public class InstructionController : MonoBehaviour
     [SerializeField] private GameObject CardPowerText;
     [SerializeField] private GameObject CardLevelText;
     [SerializeField] private GameObject CardExplanationText;
+    [SerializeField] private GameObject CardExplanationText2;
     [SerializeField] private GameObject PriceExplanationText;
 
     // Game objects for the Markets page. ~Liam
     [SerializeField] private GameObject MarketsTitleText;
     [SerializeField] private GameObject MarketsExplanationText;
+    [SerializeField] private GameObject MarketsExplanationText2;
     [SerializeField] private GameObject MarketsImage;
 
     // Game objects for the Resources page. ~Liam
     [SerializeField] private GameObject ResourcesTitleText;
     [SerializeField] private GameObject ResourcesExplanationText;
+    [SerializeField] private GameObject ResourcesExplanationText2;
     [SerializeField] private GameObject ResourcesExampleImage;
     [SerializeField] private GameObject ResourcesImageDescriptionText;
     void Start()
@@ -78,7 +80,6 @@ public class InstructionController : MonoBehaviour
         // Activate the objects related to control information. ~Liam
         this.ControlsTitleText.SetActive(true);
         this.ControlText.SetActive(true);
-        this.CameraWarningText.SetActive(true);
     }
 
     public void ClickCardUsageButton()
@@ -95,6 +96,7 @@ public class InstructionController : MonoBehaviour
         this.CardPowerText.SetActive(true);
         this.CardLevelText.SetActive(true);
         this.CardExplanationText.SetActive(true);
+        this.CardExplanationText2.SetActive(true);
         this.PriceExplanationText.SetActive(true);
     }
 
@@ -106,6 +108,7 @@ public class InstructionController : MonoBehaviour
         // Activate objects related to market information. ~Liam
         this.MarketsTitleText.SetActive(true);
         this.MarketsExplanationText.SetActive(true);
+        this.MarketsExplanationText2.SetActive(true);
         this.MarketsImage.SetActive(true);
     }
     
@@ -117,6 +120,7 @@ public class InstructionController : MonoBehaviour
         // Activate objects related to resource information. ~Liam
         this.ResourcesTitleText.SetActive(true);
         this.ResourcesExplanationText.SetActive(true);
+        this.ResourcesExplanationText2.SetActive(true);
         this.ResourcesExampleImage.SetActive(true);
         this.ResourcesImageDescriptionText.SetActive(true);
     }
