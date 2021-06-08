@@ -28,7 +28,7 @@ namespace DeckbuilderRTS {
 
         // Start is called before the first frame update
         private ICard generateCard(string cardType) {
-            Debug.Log("Market GenerateCard");
+            //Debug.Log("Market GenerateCard");
             ICard newcard;
             switch (cardType)
             {
@@ -45,18 +45,18 @@ namespace DeckbuilderRTS {
                     newcard = gameController.GenerateCardLeafblade();
                     return newcard;
                 case "Card_IceSpike":
-                    Debug.Log("generateCard Card_IceSpike found");
+                    //Debug.Log("generateCard Card_IceSpike found");
                     newcard = gameController.GenerateCardIceSpike();
                     return newcard;
                 case "Card_Void":
                     newcard = gameController.GenerateCardVoid();
                     return newcard;
                 case "Card_LightningStriker":
-                    Debug.Log("Case LightningStriker card");
+                    //Debug.Log("Case LightningStriker card");
                     newcard = gameController.GenerateCardLightningStriker();
                     return newcard;
                 case "Card_LaserBeam":
-                    Debug.Log("Case LaserBeam found");
+                    //Debug.Log("Case LaserBeam found");
                     newcard = gameController.GenerateCardLaserBeam();
                     return newcard;
                 default:

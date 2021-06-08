@@ -83,7 +83,7 @@ namespace DeckbuilderRTS
                 // If the fireball collides with a swarmling, the swarmling takes damage and knocks it back. Otherwise, the forcebolt is destroyed.
                 if (collision.CompareTag("Swarmling"))
                 {
-                    Debug.Log("Hit Swarmling for " + this.Damage);
+                    //Debug.Log("Hit Swarmling for " + this.Damage);
                     collision.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                     // TODO: Add knockback to it
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
@@ -96,7 +96,7 @@ namespace DeckbuilderRTS
                 }*/
                 else if (collision.CompareTag("Boss"))
                 {
-                    Debug.Log("Hit Boss for " + this.Damage);
+                    //Debug.Log("Hit Boss for " + this.Damage);
                     collision.GetComponent<BossController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
                     GameObject.Destroy(this.gameObject);
