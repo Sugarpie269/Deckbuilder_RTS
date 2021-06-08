@@ -158,19 +158,33 @@ The sound style was similar to a midtown rpg fanatsy game. Hence, all the magic 
 
 **Jackson:** Besides testing our builds during dev time, I did not contribute to this role (yet?).
 
-**Add a link to the full results of your gameplay tests.**
+**Liam:** This was my subrole, so I gathered several people to test out the game and provide feedback. The results are too long to list here, and so I compiled them within this document (should be open to comment by anyone with the link): https://docs.google.com/document/d/1tpUaciaweEwHjLk7jGraNJTr-MNyhMOIsSD4SJJkF2M/edit?usp=sharing
 
 **Summarize the key findings from your gameplay tests.**
+
+**Liam:** There were 3 versions of the game we tested with outside participants (v0.1.1, v0.1.2, and v0.1.3). Going into testing, I expected runs of the game to last around 5-10 minutes.
+
+However, the first run of v0.1.1 approached around 25 minutes or higher. It was pretty clear that the game was far too difficult and resource gains far too low, so v0.1.2 introduced several sweeping balance changes to remedy this.
+The cooldown of drawing a card was halved, and the delay on a worker generating resources from a node was halved (thereby doubling the rate of resource gain). The cost of several cards was decreased to make them faster to access. 
+
+Further testing of v0.1.2 revealed that we made the game a little too easy, especially regarding purchase prices with the faster resource gain, so prices were adjusted again. More importantly, explanatory elements of the UI were enlarged because many players didn't notice them at all.
+Based on player experience, we removed the stipulation that the player could not destroy their Summon Worker cards (which are vital to game progression), and instead opted to allow them to be destroyed while providing a market that sold them for free.
+Lastly, to address the easier gameplay, we set an increasing difficulty scale so that swarmlings spawned faster as time went on, capping out at 7 minutes into a game (which should be more than enough time for the player to defeat the boss). v0.1.3 ended up containing a mix of balance and quality of life adjustments.
 
 ## Narrative Design
 
 **Jackson:** Gave input on names and card narrative flavor.
+
+**Liam:** I created and revised the majority of the descriptions and flavor text on the cards, opting for a step in the comedic direction when it came to tone. The primary narrative in the Objectives section of the instructions scene was devised by Jarod, though I tweaked and revised it a little to flow better.
+I also set up the game over and credits screens to contribute to this approach.
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer
 
 **Jackson:** I did nothing for this role.
+
+**Liam:** I did nothing for this role.
 
 **Include links to your presskit materials and trailer.**
 
