@@ -30,7 +30,7 @@ namespace DeckbuilderRTS
 
         void Update()
         {
-            if (this.Player != null)
+            if (this.Player != null && !(this.CurrentWorkingMode == WorkingMode.BasicMatter))
             {
                 transform.Rotate(Vector3.forward * (90 * Time.deltaTime));
 
