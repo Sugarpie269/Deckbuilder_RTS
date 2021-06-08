@@ -9,12 +9,19 @@ namespace DeckbuilderRTS
         private enum DepotType {Matter, Energy, Mana};
         [SerializeField] private DepotType CurrentType;
         private GameObject Worker = null;
-        private float ShineInterval;
+        [SerializeField]
+        private float ShineInterval = 2.0f;
+        [SerializeField]
+        private float upperBound = 1.0f; // between 0 and 1, > lowerbound
+        [SerializeField]
+        private float lowerBound = 0.75f; // between 0 and 1 <= uperbound
+        //[SerializeField]
+        //private GameObject Shiner;
 
         // Start is called before the first frame update
         void Start()
         {
-            
+            StartCoroutine("ShineUp");
         }
 
         // Update is called once per frame
@@ -61,10 +68,10 @@ namespace DeckbuilderRTS
 
         }
 
-        IEnumerator Shine()
+        IEnumerator ShineUp()
         {
             // todo change fadein effect to exponential?
-            for (float ft = 0.7f; ft <= 1f; ft += 0.1f)
+            for (float ft = this.lowerBound; ft < this.upperBound; ft += 0.05f)
             {
                 var renderer = this.gameObject.GetComponent<Renderer>();
                 Color c = renderer.material.color;
@@ -73,6 +80,51 @@ namespace DeckbuilderRTS
                 yield return new WaitForSeconds(this.ShineInterval / 10f);
                 // ^ functionally this should ba 1/10th of a second
             }
+            StartCoroutine("ShineDown");
+        }
+
+        IEnumerator ShineDown()
+        {
+            // todo change fadein effect to exponential?
+            for (float ft = this.upperBound; ft > this.lowerBound; ft -= 0.05f)
+            {
+                var renderer = this.gameObject.GetComponent<Renderer>();
+                Color c = renderer.material.color;
+                c.a = ft;
+                renderer.material.color = c;
+                yield return new WaitForSeconds(this.ShineInterval / 10f);
+            }
+            StartCoroutine("ShineUp");
+        }
+
+        IEnumerator ShineUpLow()
+        {
+            // todo change fadein effect to exponential?
+            for (float ft = 0.0f; ft <= .25f; ft += 0.05f)
+            {
+                var renderer = this.gameObject.GetComponent<Renderer>();
+                Color c = renderer.material.color;
+                c.a = ft;
+                renderer.material.color = c;
+                yield return new WaitForSeconds(this.ShineInterval / 10f);
+                // ^ functionally this should ba 1/10th of a second
+            }
+            StartCoroutine("ShineDownLow");
+        }
+
+        IEnumerator ShineDownLow()
+        {
+            // todo change fadein effect to exponential?
+            for (float ft = 0.25f; ft >= 0.0f; ft -= 0.05f)
+            {
+                var renderer = this.gameObject.GetComponent<Renderer>();
+                Color c = renderer.material.color;
+                c.a = ft;
+                renderer.material.color = c;
+                yield return new WaitForSeconds(this.ShineInterval / 10f);
+                // ^ functionally this should ba 1/10th of a second
+            }
+            StartCoroutine("ShineUpLow");
         }
     }
 }
