@@ -1209,6 +1209,12 @@ namespace DeckbuilderRTS
                 this.ErrorSound.GetComponent<AudioSource>().Play();
                 this.LowHealthWarningTime = 1.0f;
             }
+
+            // If the player died, make them rotate a bunch. ~Liam
+            if (this.IsGameOver)
+            {
+                this.gameObject.transform.Rotate(Vector3.forward * (720 * Time.deltaTime));
+            }
         }
     }
 }
