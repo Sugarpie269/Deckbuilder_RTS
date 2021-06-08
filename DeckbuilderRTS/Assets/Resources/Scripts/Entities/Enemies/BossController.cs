@@ -120,7 +120,7 @@ namespace DeckbuilderRTS
 
         private void ShootLaser()
         {
-            Debug.Log("LASER BEAM");
+            //Debug.Log("LASER BEAM");
             var bossPos = this.transform.position;
             var direction = this.EnemyPlayer.transform.position - bossPos;
             direction.Normalize();
@@ -246,7 +246,7 @@ namespace DeckbuilderRTS
                 {
                     this.LaserStage++;
                     // Create laser
-                    Debug.Log("get lasered!");
+                    //Debug.Log("get lasered!");
                     this.ShootLaser();
                 }
                 else if (this.CurrentLaserTime >= this.LaserAttackTime)
