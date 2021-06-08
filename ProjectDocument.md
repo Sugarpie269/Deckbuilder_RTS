@@ -22,7 +22,7 @@ Below is a template for you to highlight items of your work. These provide the e
 Here is an example:  
 *Procedural Terrain* - The background of the game consists of procedurally-generated terrain that is produced with Perlin noise. This terrain can be modified by the game at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
 
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
+You should replace any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 **Please note that our game was highly ambitious. To accommodate for this, we had to share many different duties across the different roles. This document will show who did what part of the corresponding roles.**
 
@@ -31,7 +31,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 Being a deckbuilder, the UI is a key element of game feel and flow, as the art on the cards make up the bulk of the player's primary actions.
 
-**Liam:**
+**Liam:** Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
+The majority of my scripting was done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs). To start from the beginning:
+
+I added several utilities to the UI: a facedown deck asset, three different card slots to represent the 3 cards in the player's hand, and a faceup discard pile asset. I also added most of the numerical counters, e.g. player health and resources available, and any relevant victory/failure text that would appear upon certain conditions being met. The only way to lose is to run out of health, so if the game detects the player is at 0 HP, the game over text is displayed. I made all of these functions with corresponding ModifyPlayerX() methods so that others can very easily call said functions to update the player's resources.
 
 **Jackson:** I added the main menu UI and the display health/damage text to the swarmlings.
 
