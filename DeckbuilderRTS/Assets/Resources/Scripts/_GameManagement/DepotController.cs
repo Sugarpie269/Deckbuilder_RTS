@@ -9,6 +9,7 @@ namespace DeckbuilderRTS
         private enum DepotType {Matter, Energy, Mana};
         [SerializeField] private DepotType CurrentType;
         private GameObject Worker = null;
+        private float ShineInterval;
 
         // Start is called before the first frame update
         void Start()
@@ -22,13 +23,12 @@ namespace DeckbuilderRTS
 
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             //Debug.Log(collision.collider.name + " is the thing");
-            if (collision.collider.tag == "Worker")
+            if (collision.gameObject.CompareTag("Worker"))
             {
-                
-                var workerController = collision.collider.GetComponent<WorkerController>();
+                var workerController = collision.GetComponent<WorkerController>();
                 if (this.Worker != null)
                 {
                     workerController.SetWorkingBasic();
@@ -56,9 +56,23 @@ namespace DeckbuilderRTS
             }
             else
             {
-                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+                Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
             }
 
+        }
+
+        IEnumerator Shine()
+        {
+            // todo change fadein effect to exponential?
+            for (float ft = 0.7f; ft <= 1f; ft += 0.1f)
+            {
+                var renderer = this.gameObject.GetComponent<Renderer>();
+                Color c = renderer.material.color;
+                c.a = ft;
+                renderer.material.color = c;
+                yield return new WaitForSeconds(this.ShineInterval / 10f);
+                // ^ functionally this should ba 1/10th of a second
+            }
         }
     }
 }

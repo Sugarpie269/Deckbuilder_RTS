@@ -87,7 +87,7 @@ namespace DeckbuilderRTS
                     collision.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                     // TODO: Add knockback to it
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
-                    GameObject.Destroy(this.gameObject);
+                    //GameObject.Destroy(this.gameObject);
                 }
                 /*else if (collision.collider.tag == "Player")
                 {
@@ -99,7 +99,7 @@ namespace DeckbuilderRTS
                     //Debug.Log("Hit Boss for " + this.Damage);
                     collision.GetComponent<BossController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
-                    GameObject.Destroy(this.gameObject);
+                    //GameObject.Destroy(this.gameObject);
                 }
                 else if (collision.CompareTag("Obstacle"))
                 {
