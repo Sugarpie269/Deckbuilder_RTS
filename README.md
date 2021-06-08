@@ -64,3 +64,13 @@ Assets used (I did not import any assets myself; I used those that were found by
 - Playing card sounds\* (blade, error, fireball, flipCard, flipCard2, healing, ice, laser, lightningBolt, pain_mainBoss, pain_swarmlings1, pain_swarmlings2, spike, summon1, summon2, summon_x_falling, victoryFanfare, void)
 
 \* These sounds were procured by Navya, I assume under different names. Refer to her citations; I don't know where she got them from.
+
+
+Amy's Citations:
+
+- https://docs.google.com/document/d/19EHWHNtg6IVCvH8amks_r92F4WkGCKlTTMcD0CvYYrQ/mobilebasic# (SAP2D Documentation for Pathfinding.)
+- https://docs.unity3d.com/Manual/class-Rigidbody2D.html (Understanding 2D rigidbodies for player and other sprite / obstacles within the game.)
+- https://docs.unity3d.com/ScriptReference/Rigidbody2D.MovePosition.html (Implementing movement for the player.)
+- https://docs.unity3d.com/ScriptReference/Rigidbody2D.MoveRotation.html (Researched into rotation for player or enemies.)
+- https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html (Utilized for player or enemy rotation.)
+- https://docs.unity3d.com/Manual/class-CircleCollider2D.html (Circle Collider for more varied and unique collisions within the game.)
