@@ -198,7 +198,7 @@ MonoBehaviour:
   PlayerCurrentMatter: 50
   GameController: {fileID: 0}
   Speed: 5
-  MaxMovementAttackTime: 1
+  MaxMovementAttackTime: 0.1
   MaxMovementReleaseTime: 0.5
   PURCHASE_CARD_COOL_DOWN_BASE: 2
   DrawCardSound: {fileID: 0}
