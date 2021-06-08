@@ -51,7 +51,7 @@ namespace DeckbuilderRTS
         public bool CanBeDestroyed()
         {
             // TODO: SHOULD THE PLAYER BE ABLE TO DESTROY THEIR WORKER CARD?
-            return false;
+            return true;
         }
     }
 }

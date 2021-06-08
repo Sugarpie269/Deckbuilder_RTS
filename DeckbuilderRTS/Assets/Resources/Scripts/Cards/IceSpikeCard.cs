@@ -12,7 +12,7 @@ namespace DeckbuilderRTS
         private Object IceSpikePrefab;
         private float SummonDistance = 1.0f;
         private float IceSpikeDirection;
-        private float IceSpikeSpeed = 2.0f;
+        private float IceSpikeSpeed = 10.0f;
 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;

@@ -182,7 +182,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Summon a worker at your position that will passively procure resources
-        for you based on the area it is placed. This card cannot be destroyed.
+        for you based on the area it is placed. Be careful about destroying or buying
+        this card.
       objectReference: {fileID: 0}
     - target: {fileID: 8142103323873180816, guid: 4c824eb2d653c2146b48fd3e0e2a0182,
         type: 3}

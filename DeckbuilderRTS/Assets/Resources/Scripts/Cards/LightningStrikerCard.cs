@@ -16,9 +16,9 @@ namespace DeckbuilderRTS
 
         private float Direction;
         private float Length = 100.0f;
-        private float delay = 2.0f;
+        private float delay = 0.5f;
 
-        private float Lifetime = 3.0f;
+        private float Lifetime = 1.5f;
 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;

@@ -986,7 +986,6 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardLeafblade());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardInstantHeal());
-                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardSummonWorker());
 
                 this.LoadedResources = true;
             }

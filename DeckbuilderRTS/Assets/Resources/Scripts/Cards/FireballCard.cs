@@ -12,7 +12,7 @@ namespace DeckbuilderRTS
         private Object FireballPrefab;
         private float SummonDistance = .5f;
         private float FireballDirection;
-        private float FireballSpeed = 15.0f;
+        private float FireballSpeed = 30.0f;
 
         // These are the references to the card's information within the CardDisplayLibrary gameObject. ~Liam
         private CardInfo Info;
