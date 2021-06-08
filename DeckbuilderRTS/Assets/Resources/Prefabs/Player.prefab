@@ -200,7 +200,10 @@ MonoBehaviour:
   Speed: 5
   MaxMovementAttackTime: 0.1
   MaxMovementReleaseTime: 0.5
+  DRAW_CARD_COOL_DOWN_BASE: 1
   PURCHASE_CARD_COOL_DOWN_BASE: 2
+  PLAYER_ERROR_MESSAGE_DURATION: 1.5
+  RESOURCE_UPDATE_MESSAGE_DURATION: 1.5
   DrawCardSound: {fileID: 0}
   ReplaceDiscardSound: {fileID: 0}
   PurchaseCardSound: {fileID: 0}
