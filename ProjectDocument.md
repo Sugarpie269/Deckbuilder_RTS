@@ -114,6 +114,7 @@ The whole logic for a market was pretty simple as each market sold only one card
 ## Audio
 
 **Jackson:** I did nothing for this role.
+
 **Navya:** I downloaded and created audios for the game. The sounds used were for the cards, game over, win and overall game feel. The sounds created were the error, flip a card and suffle because these sounds were not readily available online. 
 Implemented a few, rest of the implementation was done by Liam.
 
