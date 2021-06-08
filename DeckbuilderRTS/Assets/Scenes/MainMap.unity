@@ -759,6 +759,21 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PlayerCurrentMana
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PlayerCurrentEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PlayerCurrentMatter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8340498935974062339, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_LocalPosition.x
