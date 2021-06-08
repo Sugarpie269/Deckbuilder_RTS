@@ -8,7 +8,7 @@ namespace DeckbuilderRTS
     {
         private float GenerateManaCoolDown = 5.0f;
         private float CurrentGenerateManaCoolDown;
-        private int GenerateManaAmount = 3;
+        private int GenerateManaAmount = 1;
 
         public WorkManaCommand()
         {
