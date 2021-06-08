@@ -29,8 +29,14 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## User Interface
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+Being a deckbuilder, the UI is a key element of game feel and flow, as the art on the cards make up the bulk of the player's primary actions.
+
+**Liam:**
 
 **Jackson:** I added the main menu UI and the display health/damage text to the swarmlings.
+
+**Jarod:** See Animations and Visuals. I helped with UI scaling in the main scene, as well as built most of the sprites for cards.
+
 
 ## Movement/Physics
 
@@ -40,11 +46,34 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 We used a mix of the Unity physics system and our own scripted physics to modify it when it did not serve our purposes (ignoring collisions and rotations). The game is top down and 2d, so we had to ensure that gravity was disabled.
 
+**Jarod:**
+I implemented the 
 ## Animation and Visuals
 
 **List your assets including their sources and licenses.**
+TODO
+
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+
+** Jarod ** This was my primary role.
+I sourced numerous assets for use in the User Interface, Card art, map art, and more (see above). 
+After *exhaustive* searches of the free assets in the Unity Asset store, I found several assets that would eventually be used in the live build. I also worked with Liam to help build the UI, with most of my work being the tedium of formatting several canvas elements.
+With UI, card design, and asset selection or creation, I contributed to game feel and graphic design, as well as world building, giving character to the entities we build as a team.
+***Key assets***
+- Sap2d: Specialized 2-dimensional A-Star pathfinding algorithm asset free on the asset store.
+- Monster Wizard 2D: Sprites and animations used for the player character
+- Slime Asset: sprites and animations used for swarmlings
+- 
+
+I was in charge of Card Design, and custom-made the card bases and formats. 
+***Specific stuff I made***
+- laser bolt assetss/animation sprites - made using adobe after effects and adobe photoshop
+- Card Back designs (Blue and Green) traced from source images found via google and bing.
+- Card Base designs - made with adobe illustrator
+- 
+
+
 
 **Jackson:** I contributed by providing the programmer art for the Swarmlings, Player (remove later if someone finds something better?), Workers, Boss/Dead-boss, Resource Depots, Fireball projectiles, Leafblade projectiles, and Miniboss. Leafblade image that I created was also used for the temporary ice spike art (remove if it gets replaced). 
 
