@@ -1210,8 +1210,8 @@ namespace DeckbuilderRTS
                 this.LowHealthWarningTime = 1.0f;
             }
 
-            // If the player died, make them rotate a bunch. ~Liam
-            if (this.IsGameOver)
+            // If the player died, make them spin a bunch. ~Liam
+            if (this.IsGameOver && this.PlayerCurrentHP <= 0)
             {
                 this.gameObject.transform.Rotate(Vector3.forward * (720 * Time.deltaTime));
             }
