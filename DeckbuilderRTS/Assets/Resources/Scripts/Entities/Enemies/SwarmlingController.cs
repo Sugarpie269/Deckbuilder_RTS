@@ -400,6 +400,25 @@ namespace DeckbuilderRTS
                 // Play audio corresponding to the swarmling's death. ~Liam
                 this.DeathNoise.GetComponent<AudioSource>().Play();
 
+                // Give the player 2-3 of a random resource, 50% of the time.
+                System.Random r = new System.Random();
+                int resourceIndex = r.Next(1, 6);
+                GameObject player = GameObject.Find("Player");
+                switch(resourceIndex)
+                {
+                    case 1:
+                        player.GetComponent<PlayerController>().ModifyPlayerMana(r.Next(2,3));
+                        break;
+                    case 2:
+                        player.GetComponent<PlayerController>().ModifyPlayerEnergy(r.Next(2, 3));
+                        break;
+                    case 3:
+                        player.GetComponent<PlayerController>().ModifyPlayerMatter(r.Next(2, 3));
+                        break;
+                    default:
+                        break;
+                }
+
                 GameObject.Destroy(this.HealthText);
                 GameObject.Destroy(this.gameObject);
 
