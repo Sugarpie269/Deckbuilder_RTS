@@ -152,31 +152,11 @@ namespace DeckbuilderRTS
             return this.PlayerCurrentEnergy;
         }
 
-        // These were used in MarketController but I updated it to use the previously integrated ModifyPlayerResource() functions. ~Liam
-        /*
-        public void DecMatter(int matter)
-        {
-            this.PlayerCurrentMatter = this.PlayerCurrentMatter - matter;
-            this.SetMatterText();
-        }
-        public void DecMana(int mana)
-        {
-            this.PlayerCurrentMana = this.PlayerCurrentMana - mana;
-            this.SetManaText();
-        }
-        public void DecEnery(int energy)
-        {
-            this.PlayerCurrentEnergy = this.PlayerCurrentEnergy - energy;
-            this.SetEnergyText();
-        }
-        */
         public float GetCurrentSpeed()
         {
             var speedLen = this.GetPlayerSpeed().magnitude;
             return speedLen;
         }
-
-        // NOTE: All methods are listed in alphabetical order with the exception of Start().
 
         // The start function will initialize our member variables.
         void Start()
@@ -230,14 +210,9 @@ namespace DeckbuilderRTS
 
 
 
-            //Texture2D tempEmptyCardSlot = Resources.Load<Texture2D>("Sprites/EmptyCardSlot");
+            
             this.EmptyCardSlotImage = GameObject.Find("EmptyCardSlot").GetComponent<Image>().sprite;
-            //this.EmptyCardSlotImage = Sprite.Create(tempEmptyCardSlot, new Rect(0f, 0f, tempEmptyCardSlot.width, tempEmptyCardSlot.height), new Vector2(tempEmptyCardSlot.width / 2, tempEmptyCardSlot.height / 2));
-            //Texture2D tempFacedownCard = Resources.Load<Texture2D>("Sprites/FacedownCard");
             this.FacedownCardImage = GameObject.Find("FacedownCard").GetComponent<Image>().sprite;
-            //this.FacedownCardImage = Sprite.Create(tempFacedownCard, new Rect(0f, 0f, tempFacedownCard.width, tempFacedownCard.height), new Vector2(tempFacedownCard.width / 2, tempFacedownCard.height / 2));
-            //Texture2D tempBlankCard = Resources.Load<Texture2D>("Sprites/card_base_1000x1500");
-            //this.BlankCardTemplate = Sprite.Create(tempBlankCard, new Rect(0f, 0f, tempBlankCard.width, tempBlankCard.height), new Vector2(tempBlankCard.width / 2, tempBlankCard.height / 2));
 
             // Get all markets in the scene. ~Liam
             this.MarketList = GameObject.FindGameObjectsWithTag("Market");
@@ -417,8 +392,6 @@ namespace DeckbuilderRTS
         // Called when the game is over via player failure. Displays proper text and shuts off most functionality. ~Liam
         private void GameOver()
         {
-            // DEBUG
-            //Debug.Log("GAME OVER!");
 
             // Disable controller input. ~Liam
             var controller = this.GameController.GetComponent<GameController>();
@@ -536,12 +509,6 @@ namespace DeckbuilderRTS
                     var cameraController = camera.GetComponent<CameraController>();
                     cameraController.ToggleCameraControl();
                 }
-                /*else if (Input.GetButtonUp("Fire1"))
-                {
-                    var camera = GameObject.Find("Main Camera");
-                    var cameraController = camera.GetComponent<CameraController>();
-                    cameraController.ClearCameraControl();
-                }*/
 
                 // Code for examining a card in the player's UI, or the market. ~Liam
                 if (Input.GetButtonDown("ExamineCard"))
@@ -597,29 +564,6 @@ namespace DeckbuilderRTS
                     this.ExamineCardImage.SetActive(false);
                 }
 
-                /*
-                // Code for player movement.
-                if (Input.GetKey(KeyCode.A))
-                {
-                    Debug.Log("Left!");
-                    this.MoveLeft.Execute(this.gameObject);
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    this.MoveRight.Execute(this.gameObject);
-                }
-
-                if (Input.GetKey(KeyCode.W))
-                {
-                    Debug.Log("Up!");
-                    this.MoveUp.Execute(this.gameObject);
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    this.MoveDown.Execute(this.gameObject);
-                }
-                */
-
 
                 // Movement using WASD Keys. 
                 // Movement is implemented in this file to allow for simultaneous horizontal and vertical movment
@@ -628,10 +572,6 @@ namespace DeckbuilderRTS
 
                 // Jackson's ADSR code handles the speed modifiers.~Jackson
                 this.HorizontalADSR.Update(movement.x, Time.fixedDeltaTime, this.VerticalADSR.IsSustaining());
-                /*if (this.HorizontalADSR.IsSustaining() == false)
-                {
-                    Debug.Log("this ran " + Time.deltaTime.ToString());
-                }*/
                 this.VerticalADSR.Update(movement.y, Time.fixedDeltaTime, this.HorizontalADSR.IsSustaining());
 
 
@@ -653,7 +593,6 @@ namespace DeckbuilderRTS
 
         public static Vector2 rotate(Vector2 v, float delta) {
             delta = delta * Mathf.Rad2Deg;
-            //Debug.Log("Delta is " + delta + " v is " + v);
             return new Vector2(
                 v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
                 v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
@@ -663,9 +602,6 @@ namespace DeckbuilderRTS
         // UI FUNCTION: Renders the card that is attempting to be examined more closely by the player. ~Liam
         void RenderExamineCard(CardInfo cINfo)
         {
-
-            //Debug.Log("Attempted to examine card " + cINfo.CardName);
-
             // Set the examine card's properties to that of the passed-in CardInfo struct. ~Liam
             this.ExamineCardImage.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = cINfo.CardArt;
             this.ExamineCardImage.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = cINfo.CardName;
@@ -951,21 +887,6 @@ namespace DeckbuilderRTS
         {
             if (!this.LoadedResources)
             {
-                // Temporary code for testing fireball cards. ~Jackson
-                /*var gameController = GameObject.Find("GameController");
-                var fireballPrefab = gameController.GetComponent<GameController>().FireballPrefab;
-                //this.PlayerInventory.AddCardSlot1(new FireballCard(fireballPrefab));
-                this.PlayerInventory.AddCardSlot1(new InstantHealCard());
-                this.PlayerInventory.AddCardSlot2(new InstantHealCard());
-                this.PlayerInventory.AddCardSlot3(new InstantHealCard());
-
-                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                //this.PlayerInventory.GainCard(new InstantHealCard());
-                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));
-                this.PlayerInventory.GainCard(new FireballCard(fireballPrefab));*/
-
                 // Code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
                 var gameControllerObject = this.GameController.GetComponent<GameController>();
                 this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardForceBolt());
@@ -1023,7 +944,7 @@ namespace DeckbuilderRTS
             }
             if (this.PlayerInventory.GetErrorCardSlot1())
             {
-                // TODO: Play audio for attempting an invalid command. ~Liam
+                // Play audio for attempting an invalid command. ~Liam
                 //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot1ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
@@ -1032,7 +953,7 @@ namespace DeckbuilderRTS
             }
             if (this.PlayerInventory.GetErrorCardSlot2())
             {
-                // TODO: Play audio for attempting an invalid command. ~Liam
+                // Play audio for attempting an invalid command. ~Liam
                 //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot2ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
@@ -1041,7 +962,7 @@ namespace DeckbuilderRTS
             }
             if (this.PlayerInventory.GetErrorCardSlot3())
             {
-                // TODO: Play audio for attempting an invalid command. ~Liam
+                // Play audio for attempting an invalid command. ~Liam
                 //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot3ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
@@ -1196,11 +1117,6 @@ namespace DeckbuilderRTS
                 this.SetPurchaseCooldownText(tempPurchaseCooldown);
                 this.CurrentPurchaseCooldownShown = tempPurchaseCooldown;
             }
-
-            // Update the Resource text (change to every so often or use Fixed update perhaps?)
-            //this.SetManaText();
-            //this.SetEnergyText();
-            //this.SetMatterText();
 
             // If the player's health is low, play the error sound every second. ~Liam
             this.LowHealthWarningTime -= Time.deltaTime;

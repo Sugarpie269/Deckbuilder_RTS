@@ -34,7 +34,36 @@ Being a deckbuilder, the UI is a key element of game feel and flow, as the art o
 **Liam:** Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
 The majority of my scripting was done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs). To start from the beginning:
 
-I added several utilities to the UI: a facedown deck asset, three different card slots to represent the 3 cards in the player's hand, and a faceup discard pile asset. I also added most of the numerical counters, e.g. player health and resources available, and any relevant victory/failure text that would appear upon certain conditions being met. The only way to lose is to run out of health, so if the game detects the player is at 0 HP, the game over text is displayed. I made all of these functions with corresponding ModifyPlayerX() methods so that others can very easily call said functions to update the player's resources.
+I added several utilities to the UI: a facedown deck asset, three different card slots to represent the 3 cards in the player's hand, and a faceup discard pile asset. 
+I also added most of the numerical counters, e.g. player health and resources available, and any relevant victory/failure text that would appear upon certain conditions being met. 
+The only way to lose is to run out of health, so if the game detects the player is at 0 HP, the game over text is displayed. 
+I made all of these functions with corresponding [ModifyPlayerX()](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs#L298) methods so that others can very easily call said functions to update the player's resources.
+
+Utilizing Jackson's Inventory class, I added functionality for each card slot in the UI to display the proper card stored within. 
+At this point in the project, each card was saved as a single sprite, and a new sprite is created and loaded from resources every time, which caused noticeable frame freezes every time a card was played.
+I fixed this fairly quickly afterwards to just load the sprites on game launch and then access them each time the relevant card is pulled from the deck instead.
+
+Additional features were added to make the UI more responsive. When the player attempts to play a card from a slot that has no card in it, nothing happens and they are given warning text. 
+If they try to draw a card from the draw pile during the cooldown (or when they try to draw but already have a full hand), they are told they cannot draw yet. 
+Lastly, if the player's health drops below 25% of their maximum HP, a warning appears to make sure they know they are at risk of dying.
+In v0.1.1 and v0.1.2 of the game, these action fails were also accompanied by an error noise, but it was removed because it was found to be too annoying.
+
+Around this time, Jarod finished and implemented a CardTemplate prefab, which handles the displaying of any given card given the correct input parameters (e.g. card title, description, art image, price, etc.).
+To go alongside this, I created a [CardInfo struct](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/CardInfo.cs) that would store everything that is needed to fully render such a card, and integrated it into the scripts I had for the UI.
+Cards are no longer rendered as a single sprite, but instead are modular so that each aspect of a card can potentially be edited during a game.
+
+However, the cards in the UI are very small, and the vast majority of the information detailed in each card is either impossible to read or useless to the player during most points of action.
+To remedy this, I modified this template and made a simplified prefab that displays only the card title, level, and art image.
+Now the cards in the UI only display the strictly necessary information to the player, so they can easily tell from a glance what cards they have.
+
+This brought up a new issue: the player should still be able to read the detailed information on a card if they so choose to. 
+Ideally, they would be able to mouse over a card and hold down a button to display the detailed version. 
+This required a fair big of legwork, primarily involving how to tell if the player's mouse is over a card in the UI. 
+I ended up implementing this using the OnPointerEnter & OnPointerExit functions provided in UnityEngine.EventSystems. 
+While the player's mouse is over a card, an informational message appears underneath the card telling them to hold R to examine said card more closely. 
+If they choose to do so, a much larger and fully detailed version of the card will appear on the screen. 
+This image takes up a lot of the player's vision, so it is only feasible to display it when the player explicitly asks to do so. 
+The image utilizes the previously mentioned CardInfo struct to determine what information to display.
 
 **Jackson:** I added the main menu UI and the display health/damage text to the swarmlings.
 
@@ -172,6 +201,7 @@ The cooldown of drawing a card was halved, and the delay on a worker generating 
 
 Further testing of v0.1.2 revealed that we made the game a little too easy, especially regarding purchase prices with the faster resource gain, so prices were adjusted again. More importantly, explanatory elements of the UI were enlarged because many players didn't notice them at all.
 Based on player experience, we removed the stipulation that the player could not destroy their Summon Worker cards (which are vital to game progression), and instead opted to allow them to be destroyed while providing a market that sold them for free.
+We realized at this point that the error noises upon trying to draw a card while on cooldown, trying to play a card from an empty slot, or purchasing a new card on cooldown were too annoying and were often spammed, so we removed these audio effects and instead repurposed the error noise to loop while the player is on low health.
 Lastly, to address the easier gameplay, we set an increasing difficulty scale so that swarmlings spawned faster as time went on, capping out at 7 minutes into a game (which should be more than enough time for the player to defeat the boss). v0.1.3 ended up containing a mix of balance and quality of life adjustments.
 
 ## Narrative Design
