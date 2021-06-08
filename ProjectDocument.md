@@ -60,6 +60,7 @@ TODO
 I sourced numerous assets for use in the User Interface, Card art, map art, and more (see above). 
 After *exhaustive* searches of the free assets in the Unity Asset store, I found several assets that would eventually be used in the live build. I also worked with Liam to help build the UI, with most of my work being the tedium of formatting several canvas elements.
 With UI, card design, and asset selection or creation, I contributed to game feel and graphic design, as well as world building, giving character to the entities we build as a team.
+
 ***Key assets***
 - Sap2d: Specialized 2-dimensional A-Star pathfinding algorithm asset free on the asset store.
 - Monster Wizard 2D: Sprites and animations used for the player character
@@ -71,7 +72,7 @@ I was in charge of Card Design, and custom-made the card bases and formats.
 - laser bolt assetss/animation sprites - made using adobe after effects and adobe photoshop
 - Card Back designs (Blue and Green) traced from source images found via google and bing.
 - Card Base designs - made with adobe illustrator
-- 
+- Game icon and splash screen
 
 
 
