@@ -3308,19 +3308,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    Your deck starts out with a bunch of weak garbage that can''t harm
-    the boss. You''ll need to get better cards, which is where markets come in.
-
-
-    You
-    can examine a market the same way you would examine a card in your HUD to see
-    what card it sells.
+  m_text: 'Your deck starts out with a bunch of weak garbage that can''t harm the
+    boss. You''ll need to get better cards, which is where markets come in. Most
+    are near your starting location, but not all...
 
 
-    Upon buying a card, you''ll have to wait a brief moment
-    to buy another.
+    You can examine a market
+    the same way you would examine a card in your HUD to see what card it sells.
+
+
+    Upon
+    buying a card, you''ll have to wait a brief moment to buy another.
 
 '
   m_isRightToLeft: 0
