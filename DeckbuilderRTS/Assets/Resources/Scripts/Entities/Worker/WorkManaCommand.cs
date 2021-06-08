@@ -6,7 +6,7 @@ namespace DeckbuilderRTS
 {
     public class WorkManaCommand : IUnitCommand
     {
-        private float GenerateManaCoolDown = 5.0f;
+        private float GenerateManaCoolDown = 2.0f;
         private float CurrentGenerateManaCoolDown;
         private int GenerateManaAmount = 1;
 

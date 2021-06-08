@@ -6,7 +6,7 @@ namespace DeckbuilderRTS
 {
     public class WorkEnergyCommand : IUnitCommand
     {
-        private float GenerateEnergyCoolDown = 5.0f;
+        private float GenerateEnergyCoolDown = 2.0f;
         private float CurrentGenerateEnergyCoolDown;
         private int GenerateEnergyAmount = 1;
 

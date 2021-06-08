@@ -6,7 +6,7 @@ namespace DeckbuilderRTS
 {
     public class WorkMatterCommand : IUnitCommand
     {
-        private float GenerateMatterCoolDown = 5.0f;
+        private float GenerateMatterCoolDown = 2.0f;
         private float CurrentGenerateMatterCoolDown;
         private int GenerateMatterAmount = 1;
 
