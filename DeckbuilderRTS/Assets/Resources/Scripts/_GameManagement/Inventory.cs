@@ -198,7 +198,7 @@ namespace DeckbuilderRTS
                 return;*/
             }
 
-            Debug.Log("Playing Card 1");
+            //Debug.Log("Playing Card 1");
             // Play the sound corresponding to the card in slot 1. If the card is Lightning Strike or Laser Beam, do not play sound (they will be played later). ~Liam
             if (!(this.CardSlot1.GetCardInfo().CardName == "Lightning Strike" || this.CardSlot1.GetCardInfo().CardName == "Laser Beam"))
             {
@@ -265,7 +265,7 @@ namespace DeckbuilderRTS
                 this.CardSlot2.GetCardInfo().PlaySound.Play();
             }
 
-            Debug.Log("Playing Card 2");
+            //Debug.Log("Playing Card 2");
             // Play the card in card slot 2. ~Jackson
             this.CardSlot2.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -326,7 +326,7 @@ namespace DeckbuilderRTS
                 this.CardSlot3.GetCardInfo().PlaySound.Play();
             }
 
-            Debug.Log("Playing Card 3");
+            //Debug.Log("Playing Card 3");
             // Play the card in card slot 3. ~Jackson
             this.CardSlot3.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 

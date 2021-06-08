@@ -744,15 +744,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4791496384067448545, guid: 5106ec64764063547bb5aeef9f588056,
         type: 3}
+    - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: WorkerNoise
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646273428551052673, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: SummonSwarmlingDelay
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6838948762917700255, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_Volume
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PlayerCurrentMana
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PlayerCurrentEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062337, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: PlayerCurrentMatter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340498935974062339, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.91
+      objectReference: {fileID: 0}
     - target: {fileID: 8340498935974062339, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.61
+      value: -11.02
       objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}

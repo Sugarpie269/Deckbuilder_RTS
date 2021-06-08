@@ -8,7 +8,7 @@ namespace DeckbuilderRTS
     {
         private float GenerateMatterCoolDown = 5.0f;
         private float CurrentGenerateMatterCoolDown;
-        private int GenerateMatterAmount = 3;
+        private int GenerateMatterAmount = 1;
 
         public WorkMatterCommand()
         {

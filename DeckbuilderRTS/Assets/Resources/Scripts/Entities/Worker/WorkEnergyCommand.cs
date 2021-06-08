@@ -8,7 +8,7 @@ namespace DeckbuilderRTS
     {
         private float GenerateEnergyCoolDown = 5.0f;
         private float CurrentGenerateEnergyCoolDown;
-        private int GenerateEnergyAmount = 3;
+        private int GenerateEnergyAmount = 1;
 
         public WorkEnergyCommand()
         {

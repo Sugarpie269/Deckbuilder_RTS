@@ -965,11 +965,8 @@ namespace DeckbuilderRTS
                 // Code for starting hand/deck. This should be how cards are gained and created in future code. ~Jackson
                 var gameControllerObject = this.GameController.GetComponent<GameController>();
                 this.PlayerInventory.AddCardSlot1(gameControllerObject.GenerateCardForceBolt());
-                //this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardLeafblade());
-
-                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardLightningStriker());
-                //this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
-                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardLaserBeam());
+                this.PlayerInventory.AddCardSlot2(gameControllerObject.GenerateCardLeafblade());
+                this.PlayerInventory.AddCardSlot3(gameControllerObject.GenerateCardSummonWorker());
 
                 this.SetCardSlot1Image();
                 this.PlayerInventory.SetCardSlot1Updated(false);
@@ -988,9 +985,8 @@ namespace DeckbuilderRTS
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardInstantHeal());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardLeafblade());
-                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
                 this.PlayerInventory.GainCard(gameControllerObject.GenerateCardInstantHeal());
-                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardForceBolt());
+                this.PlayerInventory.GainCard(gameControllerObject.GenerateCardSummonWorker());
 
                 this.LoadedResources = true;
             }

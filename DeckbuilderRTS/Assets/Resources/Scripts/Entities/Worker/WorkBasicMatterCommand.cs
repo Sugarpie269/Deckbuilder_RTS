@@ -17,13 +17,13 @@ namespace DeckbuilderRTS
 
         public void Execute(GameObject gameObject)
         {
-            this.CurrentGenerateBasicMatterCoolDown -= Time.deltaTime;
+            /*this.CurrentGenerateBasicMatterCoolDown -= Time.deltaTime;
             if (this.CurrentGenerateBasicMatterCoolDown <= 0)
             {
                 this.CurrentGenerateBasicMatterCoolDown = this.GenerateBasicMatterCoolDown;
-                var workerController = gameObject.GetComponent<WorkerController>();
-                workerController.GetPlayerController().ModifyPlayerMatter(this.GenerateBasicMatterAmount);
-            }
+                //var workerController = gameObject.GetComponent<WorkerController>();
+                //workerController.GetPlayerController().ModifyPlayerMatter(this.GenerateBasicMatterAmount);
+            }*/
         }
     }
 }
