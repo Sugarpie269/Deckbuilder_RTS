@@ -33,6 +33,8 @@ namespace DeckbuilderRTS
         public GameObject GameOverTipText;
         public int NumTips;
         public GameObject LowHealthWarningText;
+        private bool LowHealthWarningAlarm;
+        private float LowHealthWarningTime;
         public GameObject DrawCardErrorText;
         public GameObject CardSlot1ErrorText;
         public GameObject CardSlot2ErrorText;
@@ -846,10 +848,12 @@ namespace DeckbuilderRTS
             if (percentHP <= 0.25f && this.PlayerCurrentHP != 0)
             {
                 this.LowHealthWarningText.SetActive(true);
+                this.LowHealthWarningAlarm = true;
             }
             else
             {
                 this.LowHealthWarningText.SetActive(false);
+                this.LowHealthWarningAlarm = false;
             }
             // If player's HP drops to 0, they die, and the UI should reflect this. ~Liam
             if (this.PlayerCurrentHP == 0)
@@ -899,7 +903,7 @@ namespace DeckbuilderRTS
             if (!this.PurchaseSuccess)
             {
                 // Play the error noise. ~Liam
-                this.ErrorSound.GetComponent<AudioSource>().Play();
+                //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.PurchaseErrorText.SetActive(true);
                 this.PurchaseErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
@@ -1197,6 +1201,14 @@ namespace DeckbuilderRTS
             //this.SetManaText();
             //this.SetEnergyText();
             //this.SetMatterText();
+
+            // If the player's health is low, play the error sound every second. ~Liam
+            this.LowHealthWarningTime -= Time.deltaTime;
+            if (this.LowHealthWarningAlarm && this.LowHealthWarningTime <= 0f && !this.IsGameOver)
+            {
+                this.ErrorSound.GetComponent<AudioSource>().Play();
+                this.LowHealthWarningTime = 1.0f;
+            }
         }
     }
 }
