@@ -25,8 +25,28 @@
 
 ##Navya's Citations:##
 - https://assetstore.unity.com/packages/2d/environments/tiny-rpg-town-environment-88293
--https://freesound.org/browse/
--https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
+- https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
+- https://freesound.org/people/eggdeng/sounds/502658/
+- https://freesound.org/people/VKProduktion/sounds/217502/
+- https://freesound.org/people/f4ngy/sounds/240776/
+- https://freesound.org/people/JoelAudio/sounds/77691/
+- https://freesound.org/people/EminYILDIRIM/sounds/563662/
+- https://freesound.org/people/Milky0519/sounds/506626/
+- https://freesound.org/people/lulyc/sounds/346116/
+- https://freesound.org/people/Deathscyp/sounds/443806/
+- https://freesound.org/people/Timbre/sounds/452540/
+- https://freesound.org/people/gamebalance/sounds/455228/
+- https://freesound.org/people/NewEonOrchestra/sounds/170602/
+- https://freesound.org/people/Daleonfire/sounds/376694/
+- https://freesound.org/people/ihitokage/sounds/552038/
+- https://freesound.org/people/nsstudios/sounds/321107/
+- https://freesound.org/people/humanoide9000/sounds/466133/
+- https://freesound.org/people/TheZero/sounds/368367/
+- https://freesound.org/people/Euphrosyyn/sounds/380493/
+- https://freesound.org/people/broumbroum/sounds/50543/
+- https://freesound.org/people/Hoggington/sounds/536603/
+- https://freesound.org/people/tonsil5/sounds/416839/
+- https://freesound.org/people/scorpion67890/sounds/396805/
 
 
 ##Liam's Citations:##
