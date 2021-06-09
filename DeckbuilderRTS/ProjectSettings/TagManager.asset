@@ -15,6 +15,7 @@ TagManager:
   - Market
   - Instruction Text
   - Instruction Image
+  - Slimeling
   layers:
   - Default
   - TransparentFX
