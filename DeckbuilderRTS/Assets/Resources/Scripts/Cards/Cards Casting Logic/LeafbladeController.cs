@@ -19,13 +19,13 @@ namespace DeckbuilderRTS
         // The start function will initialize our member variables.
         public void Start()
         {
+
         }
 
         public void SetAttributes(float damage, Vector2 velocity)
         {
             this.Damage = damage;
             this.Velocity = velocity;
-
         }
 
         public void Update()

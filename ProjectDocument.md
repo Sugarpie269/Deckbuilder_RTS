@@ -147,7 +147,9 @@ I also helped to implement the physics for projectile movement for the different
 
 I also implemented the physics for projectiles shot from the swarmling enemies and boss enemy towards the player. This occurs in the case that the player comes within a certain distance of the enemies, or in the case that the enemies attack the worker sprites.
 
-This relates to the movement concepts that we learned from Exercise 1, as well as the physics and projectile concepts that we learned from Exercise 4, both of which were referenced when building this game.
+I also helped to implement code for the camera controller. Currently, the user can toggle between two different camera modes.
+
+This relates to the movement concepts that we learned from Exercise 1, the Camera controller concepts from Exercise 2, as well as the physics and projectile concepts that we learned from Exercise 4, both of which were referenced when building this game.
 
 
 ## Animation and Visuals

@@ -43,6 +43,8 @@ public class InstructionController : MonoBehaviour
     [SerializeField] private GameObject ResourcesExplanationText2;
     [SerializeField] private GameObject ResourcesExampleImage;
     [SerializeField] private GameObject ResourcesImageDescriptionText;
+
+    
     void Start()
     {
         // Get all game objects with the Instructions Text tag, for deactivating quickly. ~Liam

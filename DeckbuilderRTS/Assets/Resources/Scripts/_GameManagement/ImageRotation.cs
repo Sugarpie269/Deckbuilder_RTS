@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ImageRotation : MonoBehaviour
 {
     private Image Picture;
+    
     // Start is called before the first frame update
     void Start()
     {
