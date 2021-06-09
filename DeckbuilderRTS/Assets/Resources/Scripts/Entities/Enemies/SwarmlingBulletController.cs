@@ -27,31 +27,38 @@ namespace DeckbuilderRTS
             this.Velocity = velocity;
 
         }
+        
+        public void SetAttributes(float damage, Vector2 velocity, float angle)
+        {
+            this.Damage = damage;
+            this.Velocity = velocity;
+            this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
 
         public void Update()
         {
             this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(this.Velocity.x, this.Velocity.y);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.collider.tag == "Player")
+            if (collision.CompareTag("Player"))
             {
-                collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
+                collision.gameObject.GetComponent<PlayerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
-            else if (collision.collider.tag == "Worker")
+            else if (collision.CompareTag("Worker"))
             {
-                collision.collider.GetComponent<WorkerController>().TakeDamage(this.Damage);
+                collision.gameObject.GetComponent<WorkerController>().TakeDamage(this.Damage);
                 GameObject.Destroy(this.gameObject);
             }
-            else if (collision.collider.tag == "Obstacle")
+            else if (collision.CompareTag("Obstacle"))
             {
                 GameObject.Destroy(this.gameObject);
             }
             else
             {
-                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+                Physics2D.IgnoreCollision(collision, this.gameObject.GetComponent<Collider2D>());
             }
 
         }
