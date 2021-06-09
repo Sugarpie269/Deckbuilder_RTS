@@ -53,16 +53,11 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject GameController;
 
         private Inventory PlayerInventory;
-        private IPlayerCommand MoveUp;
-        private IPlayerCommand MoveDown;
-        private IPlayerCommand MoveLeft;
-        private IPlayerCommand MoveRight;
         private IPlayerCommand DrawCard;
         private IPlayerCommand PlayCard1;
         private IPlayerCommand PlayCard2;
         private IPlayerCommand PlayCard3;
 
-        // FIXME: Add option for speed changes?
         [SerializeField] private float Speed = 5.0f;
         
         [SerializeField] private float MaxMovementAttackTime = 1f;
@@ -157,10 +152,6 @@ namespace DeckbuilderRTS
         void Start()
         {
             this.PlayerInventory = this.gameObject.GetComponent<Inventory>();
-            this.MoveUp = ScriptableObject.CreateInstance<MovePlayerUpCommand>();
-            this.MoveDown = ScriptableObject.CreateInstance<MovePlayerDownCommand>();
-            this.MoveLeft = ScriptableObject.CreateInstance<MovePlayerLeftCommand>();
-            this.MoveRight = ScriptableObject.CreateInstance<MovePlayerRightCommand>();
             this.DrawCard = ScriptableObject.CreateInstance<PlayerDrawCardCommand>();
             this.PlayCard1 = ScriptableObject.CreateInstance<PlayerCard1Command>();
             this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
