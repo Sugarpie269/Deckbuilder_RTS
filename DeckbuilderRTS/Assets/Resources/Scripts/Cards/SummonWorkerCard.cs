@@ -50,7 +50,6 @@ namespace DeckbuilderRTS
         // This returns true if the card can be removed from the deck after use. ~Jackson.
         public bool CanBeDestroyed()
         {
-            // TODO: SHOULD THE PLAYER BE ABLE TO DESTROY THEIR WORKER CARD?
             return true;
         }
     }

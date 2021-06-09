@@ -36,7 +36,6 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            //Debug.Log("Playing Ice Spike");
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var iceSpikeDirection = playerController.GetMousePosition();

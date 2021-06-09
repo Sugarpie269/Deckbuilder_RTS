@@ -45,9 +45,7 @@ namespace DeckbuilderRTS
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var lightningStrikerDirection = playerController.GetMousePosition();
-
-            //var lightningStrikerPos2 = new Vector3(playerPos.x + lightningStrikerDirection.x * this.SummonDistance, playerPos.y + lightningStrikerDirection.y * this.SummonDistance, player.transform.position.z);
-            
+           
             // Load Lighting Striker at mouse's position.
             var lightningStrikerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             lightningStrikerPos = new Vector3(lightningStrikerPos.x, lightningStrikerPos.y, player.transform.position.z);
@@ -63,9 +61,7 @@ namespace DeckbuilderRTS
 
             var lightningStrikerController = newLightningStriker.GetComponent<LightningStrikerController>();
                 
-            //var lightningStrikerVelocity = new Vector2(this.LightningStrikerSpeed * lightningStrikerDirection.x, this.LightningStrikerSpeed * lightningStrikerDirection.y);
             lightningStrikerController.SetAttributes(this.Info.CardPower, this.delay, this.Lifetime, angle);
-            //lightningStrikerController.SetAttributes(2f, this.delay, this.Lifetime, angle);
 
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newLightningStriker.GetComponent<CircleCollider2D>());
             GameObject.Destroy(newLightningStriker, 5f);

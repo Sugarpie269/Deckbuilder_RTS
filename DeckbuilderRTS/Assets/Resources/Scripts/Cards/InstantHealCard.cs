@@ -30,7 +30,6 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            //Debug.Log("Playing InstantHeal");
             player.GetComponent<PlayerController>().ApplyHealing(this.Info.CardStrength);
         }
 
