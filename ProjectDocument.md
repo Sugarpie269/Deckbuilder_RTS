@@ -31,6 +31,8 @@ You should replace any **bold text** with your relevant information. Liberally u
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 Being a deckbuilder, the UI is a key element of game feel and flow, as the art on the cards make up the bulk of the player's primary actions.
 
+**Liam:**
+
 *Resource Display* - The in-game UI contains counters for the 3 resources (Mana, Energy, & Matter), an HP counter, and the deck setup which consists of a draw pile, 3 card slots for the player's hand, and a discard pile.
 
 *Playing/Drawing Cards* - The player can right click to draw a card from the draw pile (placing it into the leftmost open hand slot), or if their draw pile is empty, the discard pile is flipped over and placed on the draw pile.
@@ -44,7 +46,7 @@ They are also notified when their mouse is over an object that can be examined.
 
 **The following section explains the general process I (Liam) underwent in creating the UI. It's quite long.**
 
-**Liam:** Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
+Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
 The majority of my scripting was done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs). To start from the beginning:
 
 I added several utilities to the UI: a facedown deck asset, three different card slots to represent the 3 cards in the player's hand, and a faceup discard pile asset. 
@@ -269,3 +271,14 @@ I also set up the game over and credits screens to contribute to this approach.
 - The two camera controller types and their logic. We had issues with position lock limiting the player view, but the mouse-focus camera was too fast for some players and we could not get lerping to work, so we allowed the user to switch between them.
 - The correspondance of colors in the UI text to the game elements (matter currency label should be in the color of matter resource nodes, for example)
 - Screen shakes on damage.
+
+**Liam:** Many of the changes I did would fall under this category, I would say:
+
+*Audio implementation in general* - While Navya procured the audio assets, I added the actual code needed to make them play at proper times. This includes 
+when a swarmling/boss/player gets hit,
+when a card is drawn or the discard is added back to the draw pile,
+and when a card is played (each card type has a unique sound).
+This kind of audio is critical for game feel, increasing the satisfaction the player gets from general input and actions.
+
+*UI indicators when resources/HP are gained/lost* - Not only is it important for the player to know exactly how much they've gained/lost of a particular resource, but it's also important for that knowledge to be imparted in such a way that the player notices it immediately.
+I added indicators near the resources/HP themselves, that show up whenever the numerical value changes. This way, the player knows exactly how much they gained/lost from a particular action.
