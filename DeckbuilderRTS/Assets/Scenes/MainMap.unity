@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: MiniBosses.Array.data[2]
       value: 
       objectReference: {fileID: 1860650440}
+    - target: {fileID: 7805965141410510768, guid: 4e2c7d656352248ddbd3ab287db2de59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8725493903566901312, guid: 4e2c7d656352248ddbd3ab287db2de59,
         type: 3}
       propertyPath: m_Name
