@@ -22,29 +22,30 @@ The goal of the game is to power down the King Slime-mech. The beginning cards o
 
 By killing swarmlings and slimelings, the player can gain little bits of the three resources: matter, energy, and mana. However, it is more efficient to use the Summon Worker card when standing over a resource node to generate the corresponding resource (green is matter, yellow is energy, blue is mana). Additional Summon Worker cards can be bought for free from corresponding market, if desired. Swarmlings that spawn from the spawn zones will patrol between the resource deposits so the player will need to place many workers across the map to keep up resource generation or defend the ones they have placed. The resource nodes can be found across the map so exporation is encouraged, though players should be careful because the King Slime-mech lurks in the northern portion of the map.
 
-Once the player has gained enough resources to buy the cards that they desire, they can return to the markets and buy the cards they desire. A commonly purchased card is Void, because it destroys the top card of the player's discard pile when it is played. This is important because it allows the player to purge themselves of the basic attack cards the clog up the deck and cannot harm the boss. It also will allow them to cut down on the number of Summon Worker if desired. Below are a list of the cards:
+Once the player has gained enough resources to buy the cards that they desire, they can return to the markets and buy the cards they desire. A commonly purchased card is Void, because it destroys the top card of the player's discard pile when it is played. This is important because it allows the player to purge themselves of the basic attack cards the clog up the deck and cannot harm the boss. It also will allow them to cut down on the number of Summon Worker if desired. Below are a list of the cards' effects:
 
-- Summon Worker: Summons a worker at the current location. If the worker stands in a resource node, it will generate resources for the player.
+- Summon Worker: Summons a worker with low HP at the current location. If the worker stands in a resource node, it will generate resources for the player.
 
-- Void: Destroys the top card of the discard pile.
+- Void: Destroys itself as well as the top card of the discard pile.
 
-- Leafblade: Deals small damage to enemies in a piercing trajectory.
+- Leafblade: A piercing projectile that travels at low speed, and deals low damage.
 
-- Force Bolt: Deals small damage to a single enemy in short range.
+- Force Bolt: A single-target projectile with a short range that travels at high speed and deals low damage.
 
 - Instant Heal: Restores a small amount of health to the player.
 
-- Fireball: Deals medium damage to a single enemy in long range.
+- Fireball: A single-target projectile that travels at high speed and deals high damage at a long range.
 
-- Ice Spike: Deals medium damage to enemies in short range piercing trajectory.
+- Ice Spike: A piercing projectile that travels at a medium speed and deals medium damage.
 
 - Lightning Strike: Deals high damage to enemies at the cursor location after a brief delay.
 
-- Laser Beam (this market is hidden): Deals high damage to enemies in a large area of effect after a long charge up delay.
+- Laser Beam (this market is placed further away from the others): Deals high damage to enemies in a large area of effect after a long charge up delay.
 
 
 Some general strategy tips:
-Buy a secondary summon worker card early. Use some starting currency to buy the Void card. Head for resource nodes immediately after. On the way, use Void to destroy a Force Bolt in the deck. Generate at least about 20 of each resource if possible, then return to the markets and buy two Fireball/Ice Spike, and use the rest of the currency to buy some Voids to destroy more of the starting damage cards (Force Bolt and Leafblade).
+
+Buy a secondary summon worker card early. Use some starting currency to either buy two Void cards, or an early Fireball or Ice Spike. Head for resource nodes immediately after. On the way, use Void to destroy a Force Bolt in the deck. Generate at least about 20 of each resource if possible, then return to the markets and buy two Fireball/Ice Spike, and use the rest of the currency to buy some Voids to destroy more of the starting damage cards (Force Bolt and Leafblade).
 
 Go generate more resources, using the new cards to kill swarmlings and slimelings that threaten your workers quicker. Then return to the markets to buy Lightning Strike cards (and Void cards to destroy the remaining starter damage cards).
 
