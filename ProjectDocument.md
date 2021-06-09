@@ -33,6 +33,8 @@ Being a deckbuilder, the UI is a key element of game feel and flow, as the art o
 
 **Liam:**
 
+(Most of my work here involves GameObjects in the scene hierarchy, so is hard to link meaningful evidence for them. Best to view the project in the Unity editor if needed.)
+
 *Resource Display* - The in-game UI contains counters for the 3 resources (Mana, Energy, & Matter), an HP counter, and the deck setup which consists of a draw pile, 3 card slots for the player's hand, and a discard pile.
 
 *Playing/Drawing Cards* - The player can right click to draw a card from the draw pile (placing it into the leftmost open hand slot), or if their draw pile is empty, the discard pile is flipped over and placed on the draw pile.
