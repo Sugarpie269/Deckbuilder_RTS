@@ -31,6 +31,19 @@ You should replace any **bold text** with your relevant information. Liberally u
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 Being a deckbuilder, the UI is a key element of game feel and flow, as the art on the cards make up the bulk of the player's primary actions.
 
+*Resource Display* - The in-game UI contains counters for the 3 resources (Mana, Energy, & Matter), an HP counter, and the deck setup which consists of a draw pile, 3 card slots for the player's hand, and a discard pile.
+
+*Playing/Drawing Cards* - The player can right click to draw a card from the draw pile (placing it into the leftmost open hand slot), or if their draw pile is empty, the discard pile is flipped over and placed on the draw pile.
+Casting a card places it on top of the discard pile.
+
+*Examining Cards* - At any time when the player mouses over a card in the UI, they can hold R to view a more detailed version of the card that explains exactly what it does and how strong the effect is.
+This functionality also extends to markets; the player can mouse over a market in the world and hold R to view a detailed version of the card being sold.
+
+*Notifications* - The player is notified in the UI when their health is low, when they take damage, or when they gain or lose the various resources.
+They are also notified when their mouse is over an object that can be examined.
+
+**The following section explains the general process I (Liam) underwent in creating the UI. It's quite long.**
+
 **Liam:** Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
 The majority of my scripting was done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs). To start from the beginning:
 
@@ -60,10 +73,31 @@ This brought up a new issue: the player should still be able to read the detaile
 Ideally, they would be able to mouse over a card and hold down a button to display the detailed version. 
 This required a fair big of legwork, primarily involving how to tell if the player's mouse is over a card in the UI. 
 I ended up implementing this using the OnPointerEnter & OnPointerExit functions provided in UnityEngine.EventSystems. 
-While the player's mouse is over a card, an informational message appears underneath the card telling them to hold R to examine said card more closely. 
+While the player's mouse is over a card, an informational message appears that tells them to hold R to examine said card more closely. 
 If they choose to do so, a much larger and fully detailed version of the card will appear on the screen. 
 This image takes up a lot of the player's vision, so it is only feasible to display it when the player explicitly asks to do so. 
 The image utilizes the previously mentioned CardInfo struct to determine what information to display.
+
+Following this, I added update numbers into the UI whenever the player gains or loses resources (via the aforementioned ModifyPlayerX() functions). 
+Now, when the player is hit by an enemy or uses a healing card of some kind, an appropriate number appears in the UI to signify just how much they gained or lost. 
+This also applies to the currencies of mana/energy/matter; whenever a worker gains resources for them, a number appears, and whenever the player buys a card from a market, a negative number also appears. 
+This isn't as critical to the game infrastructure as the other changes, but is nevertheless important for game feel and responsiveness.
+
+Markets are an important part of the game (they are the only way to acquire new cards for your deck), and so the player needs to be able to tell what markets are selling what card, as well as know when they are and aren't allowed to buy. 
+I added functionality for the player being able to mouse over a market and hold the Examine key to display the detailed version of the card the market is selling. 
+On this detailed version is the price of the card in mana, energy, and matter. 
+If the player purchases the card, it immediately goes to their discard pile, and an appropriate message pops up telling them they bought a card. 
+A cooldown is then instantiated, preventing the player from buying cards for the duration. 
+If they try to do so (or they try to buy a card when they don't have the resources necessary), an error message appears. 
+This error message cannot appear while the successful card purchase message is on screen, to prevent overlap.
+
+At this point, the UI was largely feature complete. 
+Last thing that needs to be added is audio effects: playing a sound when the player draws a card, plays a card, and moves their discard back into their deck. 
+I was waiting on Navya to provide audio files, however.
+
+Navya eventually procured some audio clips for me to use, so I added functionality within them for the game. 
+Each card within its CardInfo struct now also holds an AudioSource to play whenever that card is used (so each card has a unique sound on play to go with their effect). 
+I also added sound for drawing a card and replacing the discard into the draw deck, as well as set up game over and victory fanfare when the appropriate events occur.
 
 **Jackson:** I added the main menu UI and the display health/damage text to the swarmlings.
 
