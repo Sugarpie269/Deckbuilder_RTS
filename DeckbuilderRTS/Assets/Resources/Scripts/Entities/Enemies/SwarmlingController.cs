@@ -11,7 +11,7 @@ namespace DeckbuilderRTS
     {
         private IUnitCommand CurrentCommand;
         private int CurrentHealth;
-        [SerializeField] private int MaxHealth = 50; // 10;
+        [SerializeField] private int MaxHealth = 50;
 
         private Transform Target;
         private Transform PlayerTarget;
@@ -92,7 +92,6 @@ namespace DeckbuilderRTS
                 this.DefaultPositions[i] = new Vector2(depots[i].transform.position.x, depots[i].transform.position.y);
                 this.Depots.Add(depots[i].transform);
             }
-            // this.CurrentCommand = ScriptableObject.CreateInstance<???>();
             this.CurrentHealth = this.MaxHealth;
 
             // Get the player's posiiton.
@@ -101,11 +100,6 @@ namespace DeckbuilderRTS
             this.Target = this.PlayerTarget;
 
             float step = this.Speed * Time.deltaTime;
-
-            // Set Default values for swarmling movement from SerializeField Values.
-            /*DefaultPositions = new Vector2[2];
-            DefaultPositions[0] = DefaultPosition0;  //new Vector2(9.0f, 2.5f);
-            DefaultPositions[1] = DefaultPosition1;*/  //new Vector2(1.5f, 9.5f);
 
             // Default path: move towards Default 0.
             DefaultIdx = this.GetRandomPositionID();
@@ -178,26 +172,16 @@ namespace DeckbuilderRTS
             if (!this.loaded)
             {
                 this.loaded = true;
-                //var sampleText = GameObject.Find("TestText");
-                //var newCanvas = Object.Instantiate(this.)
                 var canvas = GameObject.Find("Canvas");
-                //sampleText.transform.position = new Vector3(canvas.transform.position.x - this.transform.position.x, canvas.transform.position.y - this.transform.position.y, this.transform.position.z);
                 this.HealthText = Object.Instantiate(this.HealthTextPrefab, this.transform.parent) as GameObject;
                 var damageText = this.HealthText.transform.GetChild(1);
                 damageText.GetComponent<TextMeshProUGUI>().text = "";
-                //this.HealthText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z+5);
             }
             if (this.HealthText != null)
             {
                 this.HealthText.transform.position = this.transform.position;
                 var text = this.HealthText.transform.GetChild(0);
                 text.GetComponent<TextMeshProUGUI>().text = this.CurrentHealth.ToString() + "/" + this.MaxHealth.ToString();
-                //var rectTransform = this.HealthText.GetComponent<RectTransform>();
-                //rectTransform.
-                //this.HealthText.transform.position = this.transform.position;
-                //var canvas = GameObject.Find("Canvas");
-                //var rectTransform = this.HealthText.GetComponent<RectTransform>();//.position = new Vector3(this.transform.position.x - canvas.transform.position.x, this.transform.position.y - canvas.transform.position.y, this.transform.position.z);
-                //rectTransform.transform.position = new Vector3(this.transform.position.x - canvas.transform.position.x, this.transform.position.y - canvas.transform.position.y, this.transform.position.z);
             }
 
             if (this.DisplayingDamage)
@@ -251,69 +235,6 @@ namespace DeckbuilderRTS
                 }
             }
             
-            // Case 1: Swarmling is within determined range of player. Enable seeking mode.
-            /*if (Distance < this.SeekingRange)
-            {
-                this.CurrentResetPathTime = 0f;
-                // Switch Target position to be the player's position.
-                this.Destination = Target.position;
-                var PossiblePath = Pathfinder.FindPath(transform.position, this.Destination, Config);
-                
-                // Check that this new path is valid.
-                if (PossiblePath != null) 
-                {
-                    path = PossiblePath;
-                }
-                this.destPoint = 0;
-
-                // Disable Default pathfinding.
-                if (this.DefaultIdx != -1)
-                {
-                    this.PrevDefaultIdx = this.DefaultIdx;
-                }
-                
-                this.DefaultIdx = -1;
-
-            }
-            // Case 2: Swarmling is outside of determined range. Enable pathfinding mode.
-            else 
-            {
-                this.CurrentResetPathTime += Time.deltaTime;
-                
-                // Case 1: Returning to pathfinding from Seeking stage.
-                if (this.DefaultIdx == -1 || this.CurrentResetPathTime >= this.ResetPathTime) 
-                {
-                    this.CurrentResetPathTime = 0f;
-                    this.DefaultIdx = this.PrevDefaultIdx; 
-                    this.Destination = DefaultPositions[this.DefaultIdx];
-                    path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-                    this.destPoint = 0;
-                }
-                else if (this.path == null)
-                {
-                    this.PrevDefaultIdx = this.DefaultIdx;
-                    this.DefaultIdx = this.GetRandomPositionID();
-                    this.Destination = DefaultPositions[this.DefaultIdx];
-                    path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-                    this.destPoint = 0;
-                }
-                // Case 2: Reached end point of Default position. Swap to another Default.
-                else if (this.destPoint == path.Length - 1)
-                {
-                    this.DefaultIdx = this.GetRandomPositionID();
-                    this.PrevDefaultIdx = this.DefaultIdx;
-                    this.Destination = DefaultPositions[this.DefaultIdx];
-                    path = Pathfinder.FindPath(transform.position, this.Destination, Config);
-                    this.destPoint = 0;
-                }
-            }*/
-
-            // Move the swarmling.
-            //this.MoveSwarmling();
-
-            // Rotate the swarmling.
-            //this.UpdateRotation();
-
             // Swarmling is within determined range of player. Shoot projectiles.
             if (Distance < this.SeekingRange)
             {
@@ -327,66 +248,6 @@ namespace DeckbuilderRTS
             }
         }
 
-        private void MoveSwarmling()
-        {
-            // Ignore if invaild path.
-            if (path == null)
-            {
-                Debug.Log("NO PATH!");
-            }
-            else if (path.Length == 0)
-            {
-                return;
-            }
-
-            float step = this.Speed * Time.deltaTime;
-            
-            // Move towards the current step in the path.
-            if (path != null)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, path[destPoint], step);
-
-                // Update to the following step in the path if has reached the current step.
-                if (Vector2.Distance(transform.position, path[destPoint]) < 1.0f)
-                {
-                    destPoint = (destPoint + 1) % path.Length;
-                }
-            }
-            
-            
-            
-        }
-
-        private void UpdateRotation()
-        {
-            
-            var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
-            if (this.path != null && this.DefaultIdx != -1 && this.path.Length > 0)
-            {
-                dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
-            }
-            
-            
-
-            var multiplier = 0f;
-            if (dirVec.x > 0)
-            {
-                multiplier = 1f;
-            }
-            if (dirVec.x != 0)
-            {
-                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90);
-            }
-            else if (dirVec.y > 0)
-            {
-                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 0);
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 180);
-            }
-            
-        }
 
         public void TakeDamage(float damage)
         {
