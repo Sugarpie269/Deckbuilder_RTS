@@ -52,7 +52,7 @@ If the player dies in-game, a button appears to take them back to the main menu.
 *Credits Scene* - When the player kills the boss, a button appears to take them to a small credits scene where all 5 of our names are listed.
 There is a button to return to the main menu as well.
 
-**The following section explains the general process I (Liam) underwent in creating the UI. It's quite long.**
+**The following section explains the general process I (Liam) underwent in creating the UI. It's quite long, and I'm unsure if it's necessary, but I'm including it to be safe. I added to this over the course of the project.**
 
 Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
 The majority of my scripting was done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs). To start from the beginning:
@@ -237,10 +237,11 @@ The game controller that I created also provided the logic for alerting swarmlin
 **Liam:** I'm not quite sure what category these contributions fall under, so I'm listing them here.
 
 I implemented code for:
-- Displaying the information stored within Jackson's Inventory class to the player via the UI
-- The CardInfo struct, which stores all necessary information about a card for various scripts to utilize.
+- Displaying the information stored within Jackson's Inventory class to the player via the UI (done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs) )
+- The [CardInfo struct](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/CardInfo.cs), which stores all necessary information about a card for various scripts to utilize.
 - A simplified version of cards to display to the UI, since the fully detailed cards contained too much information to fit on screen at once
-- The ice spike & force bolt card logic.
+- The [Ice Spike card script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/IceSpikeCard.cs) and [controller script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/IceSpikeController.cs), primarily adapted from Jackson's implementation of Leafblade.
+- The [Force Bolt card script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/ForceBoltCard.cs) and [controller script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/ForceBoltController.cs), primarily adapted from Jackson's implementation of Fireball.
 - The entirety of the Instructions scene & Credits scene.
 
 **Navya:** For the game logic, I worked on the market controller which allowed for the user to buy a card from a market (when near) if the user had sufficient funds. Following that, the card was then added to the deck of the user.
@@ -255,7 +256,7 @@ I implemented code for the LightningBlast card and controller, which is designed
 
 **Jackson:** I did nothing for this role.
 
-**Liam:** Using the assets found by Navya, I implemented them into the game by adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play().
+**Liam:** Using the assets found by Navya, I implemented them into the game by simply adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play() when needed.
 The sound effects I added functionality for include:
 
 - When the player draws a card
@@ -277,7 +278,7 @@ freesounds.org
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
-The sound style was similar to a midtown rpg fanatsy game. Hence, all the magic cards have a loud bancg and fantasy element to it. 
+The sound style was similar to a fantasy rpg game. Hence, all the magic cards have a loud bang and a fantasy element to them. 
 
 ## Gameplay Testing
 
@@ -354,7 +355,7 @@ Similarly, the press kit has images of various parts of the gameplay experience,
 - The correspondance of colors in the UI text to the game elements (matter currency label should be in the color of matter resource nodes, for example)
 - Screen shakes on damage.
 
-**Liam:** Many of the changes I did would fall under this category, I would say:
+**Liam:** Some of my work would fall under this category, I would say:
 
 *Audio implementation in general* - While Navya procured the audio assets, I added the actual code needed to make them play at proper times. 
 See the Audio section for what sound effects I specifically implemented.
