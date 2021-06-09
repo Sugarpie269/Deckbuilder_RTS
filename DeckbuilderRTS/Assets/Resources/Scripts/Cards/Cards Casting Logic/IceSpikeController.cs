@@ -52,7 +52,7 @@ namespace DeckbuilderRTS
             {
                 collision.collider.GetComponent<SlimelingController>().TakeDamage(this.Damage);
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                GameObject.Destroy(this.gameObject);
+                //GameObject.Destroy(this.gameObject);
             }
             else if (collision.collider.tag == "Boss")
             {
