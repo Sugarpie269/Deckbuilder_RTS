@@ -30,7 +30,7 @@ namespace DeckbuilderRTS
             {
                 // We are using a linear curve.~Jackson
                 var attackRatio = this.CurrentMovementAttackTime / this.MaxMovementAttackTime;
-                var speedPercentage = attackRatio;//Mathf.Log(attackRatio + 1f, 2f);
+                var speedPercentage = attackRatio;
                 return speedPercentage * this.Multiplier;
             }
             else if (this.CurrentMovementMode == MovementADSR.Sustain)
@@ -41,7 +41,7 @@ namespace DeckbuilderRTS
             {
                 // We are using a linear curve again.~Jackson
                 var releaseRatio = 1 - this.CurrentMovementReleaseTime / this.MaxMovementReleaseTime;
-                var speedPercentage = releaseRatio;//Mathf.Log(releaseRatio + 1f, 2f);
+                var speedPercentage = releaseRatio;
                 return speedPercentage * this.Multiplier;
             }
             return 0.0f;
@@ -54,10 +54,6 @@ namespace DeckbuilderRTS
 
         public void Update(float input, float time, bool otherSustaining)
         {
-            /*if (otherSustaining && input != 0.0f)
-            {
-                this.CurrentMovementMode = MovementADSR.Sustain;
-            }*/
             if (this.CurrentMovementMode == MovementADSR.None)
             {
                 if (input != 0.0f)
