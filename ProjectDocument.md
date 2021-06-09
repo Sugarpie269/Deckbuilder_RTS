@@ -299,6 +299,57 @@ Implemented a few, rest of the implementation was done by Liam.
 
 **List your assets including their sources and licenses.**
 freesounds.org
+
+### Assets ###
+- https://assetstore.unity.com/packages/2d/environments/tiny-rpg-town-environment-88293
+- https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
+
+### Audios ###
+- https://freesound.org/people/eggdeng/sounds/502658/
+(Creative Commons 0 License)
+- https://freesound.org/people/VKProduktion/sounds/217502/
+(Creative Commons 0 License)
+- https://freesound.org/people/f4ngy/sounds/240776/
+(Attribution License)
+- https://freesound.org/people/JoelAudio/sounds/77691/
+(Attribution License)
+- https://freesound.org/people/EminYILDIRIM/sounds/563662/
+(Attribution License)
+- https://freesound.org/people/Milky0519/sounds/506626/
+(Creative Commons 0 License)
+- https://freesound.org/people/lulyc/sounds/346116/
+(Creative Commons 0 License)
+- https://freesound.org/people/Deathscyp/sounds/443806/
+(Creative Commons 0 License)
+- https://freesound.org/people/Timbre/sounds/452540/
+(Attribution NonCommercial License)
+- https://freesound.org/people/gamebalance/sounds/455228/
+(Attribution License)
+- https://freesound.org/people/NewEonOrchestra/sounds/170602/
+(Creative Commons 0 License)
+- https://freesound.org/people/Daleonfire/sounds/376694/
+(Creative Commons 0 License)
+- https://freesound.org/people/ihitokage/sounds/552038/
+(Creative Commons 0 License)
+- https://freesound.org/people/nsstudios/sounds/321107/
+(Attribution License)
+- https://freesound.org/people/humanoide9000/sounds/466133/
+(Attribution License)
+- https://freesound.org/people/TheZero/sounds/368367/
+(Creative Commons 0 License)
+- https://freesound.org/people/Euphrosyyn/sounds/380493/
+(Creative Commons 0 License)
+- https://freesound.org/people/broumbroum/sounds/50543/
+(Attribution License)
+- https://freesound.org/people/Hoggington/sounds/536603/
+(Creative Commons 0 License)
+- https://freesound.org/people/tonsil5/sounds/416839/
+(Creative Commons 0 License)
+- https://freesound.org/people/scorpion67890/sounds/396805/
+(Attribution License)  
+  
+  
+  
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
