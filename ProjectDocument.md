@@ -138,7 +138,15 @@ We used a mix of the Unity physics system and our own scripted physics to modify
 **Liam:** I did nothing for this role.
 
 **Jarod:**
-I implemented the 
+I implemented a few of the projectile logics, adjusting them with colliders that were triggers or composites. Built and updated the following
+Built:
+- LaserbeamController.cs
+- Forcebolt (mostly done by Liam)
+Updated:
+- Fireball
+- LightningStrike
+- ForceBolt
+- LeafBlade
 
 **Amy:**  
 This was originally assigned as my main role. I implemented the player directional movement based on the WASD input keys. I also added movement for the enemy swarmlings, which by default follows a pathfinding movement between two chosen endpoints, or follows a seeking movement towards the player in the case that the player moves within a designated range of the swarmling. This was done with SAP2D as suggested by Jackson, which has built-in pathfinding and obstacle avoiding. This was helpful since we also had obstacles within our map that our sprites would need to maneuver around.
@@ -153,12 +161,22 @@ This relates to the movement concepts that we learned from Exercise 1, as well a
 ## Animation and Visuals
 
 **List your assets including their sources and licenses.**
-TODO
+- https://assetstore.unity.com/packages/2d/gui/icons/spellbook-preface-111069
+- https://assetstore.unity.com/packages/2d/textures-materials/2d-free-crystal-set-175156
+- https://assetstore.unity.com/packages/2d/gui/icons/rpg-inventory-icons-56687
+- https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256
+- https://assetstore.unity.com/packages/2d/gui/icons/basic-rpg-icons-181301
+- https://assetstore.unity.com/packages/2d/gui/icons/elemental-potions-175338
+- https://assetstore.unity.com/packages/2d/characters/slime-character-157405
+- https://assetstore.unity.com/packages/2d/characters/2d-monster-wizard-184692
+- https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605
 
+- https://www.vecteezy.com/vector-art/338569-printed-circuit-board-vector
+- https://www.vecteezy.com/vector-art/344822-printed-circuit-board-vector-illustration
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-** Jarod ** This was my primary role.
+** Jarod: ** This was my primary role.
 I sourced numerous assets for use in the User Interface, Card art, map art, and more (see above). 
 After *exhaustive* searches of the free assets in the Unity Asset store, I found several assets that would eventually be used in the live build. I also worked with Liam to help build the UI, with most of my work being the tedium of formatting several canvas elements.
 With UI, card design, and asset selection or creation, I contributed to game feel and graphic design, as well as world building, giving character to the entities we build as a team.
@@ -168,18 +186,15 @@ Tweaked animations and sprites from imported assets and own created assets.
 - Sap2d: Specialized 2-dimensional A-Star pathfinding algorithm asset free on the asset store.
 - Monster Wizard 2D: Sprites and animations used for the player character
 - Slime Asset: sprites and animations used for slimelings
-- 
+- Basic RPG icons: icons used in card art
 
 I was in charge of Card Design, and custom-made the card bases and formats. 
 ***Specific stuff I made***
-- laser bolt assetss/animation sprites - made using adobe after effects and adobe photoshop
+- laser bolt assets/animation sprites - made using adobe after effects (VideoCopilot Saber Plugin) and adobe photoshop
 - Card Back designs (Blue and Green) traced from source images found via google and bing.
 - Card Base designs - made with adobe illustrator
 - Game icon and splash screen
 - ice spike
-
-
-
 
 **Jackson:** I contributed by providing the programmer art for the Swarmlings, Player (remove later if someone finds something better?), Workers, Boss/Dead-boss, Resource Depots, Fireball projectiles, Leafblade projectiles, and Miniboss. Leafblade image that I created was also used for the temporary ice spike art (remove if it gets replaced). 
 

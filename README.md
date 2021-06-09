@@ -28,6 +28,7 @@
 ### Assets ###
 - https://assetstore.unity.com/packages/2d/environments/tiny-rpg-town-environment-88293
 - https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
+- https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605
 
 ### Audios ###
 - https://freesound.org/people/eggdeng/sounds/502658/
@@ -130,7 +131,6 @@ Assets used (I did not import any assets myself; I used those that were found by
 - https://assetstore.unity.com/packages/2d/gui/icons/spellbook-preface-111069
 - https://assetstore.unity.com/packages/2d/textures-materials/2d-free-crystal-set-175156
 - https://assetstore.unity.com/packages/2d/gui/icons/rpg-inventory-icons-56687
-- https://assetstore.unity.com/packages/2d/gui/icons/free-ui-pack-170878
 - https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256
 - https://assetstore.unity.com/packages/2d/gui/icons/basic-rpg-icons-181301
 - https://assetstore.unity.com/packages/2d/gui/icons/elemental-potions-175338
