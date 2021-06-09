@@ -4,16 +4,11 @@ using UnityEngine;
 
 namespace DeckbuilderRTS
 {
-    // PositionLockLerp CameraController Implementation.
+    // CameraController Implementation.
     public class CameraController : AbstractCameraController
     {
-        //[SerializeField] public float LerpDuration;
         private Camera ManagedCamera;
         private LineRenderer CameraLineRenderer;
-        //private float timecounter;
-        //private Vector3 PreviousPosition;
-        //private float ElapsedTime = 0.0f;
-        //[SerializeField] private float ComparisonDistance = .0005f;
         [SerializeField] private float DisplacementFraction = .75f;
         [SerializeField] private float MaxDistance = 5f;
 
@@ -34,9 +29,6 @@ namespace DeckbuilderRTS
             this.ManagedCamera = this.gameObject.GetComponent<Camera>();
             this.CameraLineRenderer = this.gameObject.GetComponent<LineRenderer>();
             this.DisplacementPos = new Vector2(0f, 0f);
-            //this.PreviousPosition = this.ManagedCamera.transform.position;
-
-            //this.ManagedCamera.transform.position = new Vector3(0, 0, this.ManagedCamera.transform.position.z);
         }
 
         private float GetDistanceBetween(Vector3 pos1, Vector3 pos2)
@@ -99,7 +91,6 @@ namespace DeckbuilderRTS
                 var playerController = this.Target.GetComponent<PlayerController>();
                 Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mousePos = (Vector2)((worldMousePos - this.Target.transform.position));
-                //var displacement = new Vector2(mousePos.x - targetPosition.x, mousePos.y - targetPosition.y);
                 var displacedFrac = mousePos * this.DisplacementFraction;
                 var displacedFracDir = new Vector2(displacedFrac.x, displacedFrac.y);
                 displacedFracDir.Normalize();
@@ -130,41 +121,6 @@ namespace DeckbuilderRTS
                 return;
             }
             
-            
-
-            /*this.ElapsedTime += Time.deltaTime;
-
-            var lerpRatio = this.ElapsedTime / this.LerpDuration;
-
-            
-            
-            //Debug.Log("Distance: " + this.GetDistanceBetween(targetPosition, this.PreviousPosition).ToString());
-            if (this.GetDistanceBetween(targetPosition, this.PreviousPosition) >= this.ComparisonDistance)//targetPosition != this.PreviousPosition)
-            {
-                Debug.Log("hi " + Time.deltaTime.ToString());
-                this.ElapsedTime = 0.0f;
-                this.PreviousPosition = targetPosition;
-            }
-            else
-            {
-                Debug.Log("not hi");
-            }
-
-            Vector3 newposition = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z);
-            newposition.y = Mathf.Lerp(cameraPosition.y, targetPosition.y,  lerpRatio);//3/LerpDuration * Time.deltaTime);
-            newposition.x = Mathf.Lerp(cameraPosition.x, targetPosition.x,  lerpRatio);//3/LerpDuration * Time.deltaTime);
-        
-            this.ManagedCamera.transform.position= newposition;
-
-            if (this.DrawLogic)
-            {
-                this.CameraLineRenderer.enabled = true;
-                this.DrawCameraLogic();
-            }
-            else
-            {
-                this.CameraLineRenderer.enabled = false;
-            }*/
         }
 
         public override void DrawCameraLogic()
