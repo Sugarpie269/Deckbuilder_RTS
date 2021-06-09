@@ -42,18 +42,19 @@ Being a deckbuilder, the UI is a key element of game feel and flow, as the art o
 
 **Liam:**
 
-(Most of my work here involves GameObjects in the scene hierarchy, so is hard to link meaningful evidence for them. Best to view the project in the Unity editor if needed.)
+(Most of my work here involves GameObjects in the scene hierarchy, so is hard to link meaningful evidence for them. Best to view the project in the Unity editor if needed.
+Code that I created should have fairly comprehensive comments, as well as my signature after each comment to help identify exactly which parts of the project I worked on.)
 
 *Resource Display* - The in-game UI contains counters for the 3 resources (Mana, Energy, & Matter), an HP counter, and the deck setup which consists of a draw pile, 3 card slots for the player's hand, and a discard pile.
 
 *Playing/Drawing Cards* - The player can right click to draw a card from the draw pile (placing it into the leftmost open hand slot), or if their draw pile is empty, the discard pile is flipped over and placed on the draw pile.
-Casting a card places it on top of the discard pile.
+Casting a card places it on top of the discard pile. While Jackson programmed the Inventory.cs script that the game uses to track the player's cards, I set up the infrastructure to render those cards on-screen for the player.
 
 *Examining Cards* - At any time when the player mouses over a card in the UI, they can hold R to view a more detailed version of the card that explains exactly what it does and how strong the effect is.
 This functionality also extends to markets; the player can mouse over a market in the world and hold R to view a detailed version of the card being sold.
 
 *Notifications* - The player is notified in the UI when their health is low, when they take damage, or when they gain or lose the various resources.
-They are also notified when their mouse is over an object that can be examined.
+They are also notified when their mouse is over an object that can be examined. These notifications last for 1.5 seconds before disappearing, and multiple notifications should not overlap.
 
 *Main Menu and Instructions Scenes* - Jackson implemented the main menu of the game, but I altered it to include a button that takes you to an instructions scene, as well as a button to allow you to close the game.
 Within the instructions are buttons that reveal information explaining the controls, the layout of cards, how to gain resources, the purposes of the markets, and the general player objective (along with a straightfoward story). 
@@ -230,7 +231,7 @@ However, I didn't do much for this category other than set the card buttons to 1
 **Jackson:** This was my assigned main role
 
 Created the design and first draft for:
-- Player Controller
+- Player Controller (referenced the CaptainController.cs script from Exercise 1 for basic structure)
 - Swarmling Controller
 - Worker Controller
 - Inventory class

@@ -5,8 +5,6 @@ using DeckbuilderRTS;
 
 using System;
 
-// Temporary citation = CaptainController.cs
-
 namespace DeckbuilderRTS
 {
     public class PlayerController : MonoBehaviour
@@ -424,7 +422,7 @@ namespace DeckbuilderRTS
             
         }
 
-        // Inputs for the game
+        // Inputs for the game.
         void ProcessInput()
         {
             // Input should only be recognized if the player has not died. ~Liam
@@ -542,7 +540,7 @@ namespace DeckbuilderRTS
                 // instead of separate horizontal or vertical movement in individual movement scripts.
                 Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-                // Jackson's ADSR code handles the speed modifiers.~Jackson
+                // Jackson's ADSR code handles the speed modifiers. ~Jackson
                 this.HorizontalADSR.Update(movement.x, Time.fixedDeltaTime, this.VerticalADSR.IsSustaining());
                 this.VerticalADSR.Update(movement.y, Time.fixedDeltaTime, this.HorizontalADSR.IsSustaining());
 
@@ -739,8 +737,6 @@ namespace DeckbuilderRTS
             }
         }
 
-        
-
         // UI FUNCTION: Updates the health text when called. Also governs whether or not low HP or game over text is displayed. ~Liam
         void SetHealthText()
         {
@@ -807,9 +803,6 @@ namespace DeckbuilderRTS
             // Only show this error if the success message isn't present. ~Liam
             if (!this.PurchaseSuccess)
             {
-                // Play the error noise. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
-
                 this.PurchaseErrorText.SetActive(true);
                 this.PurchaseErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
             }
@@ -913,32 +906,24 @@ namespace DeckbuilderRTS
             }
             if (this.PlayerInventory.GetErrorCardSlot1())
             {
-                // Play audio for attempting an invalid command. ~Liam
-
                 this.Slot1ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard1ErrorText(true);
                 this.PlayerInventory.SetErrorCardSlot1(false);
             }
             if (this.PlayerInventory.GetErrorCardSlot2())
             {
-                // Play audio for attempting an invalid command. ~Liam
-
                 this.Slot2ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard2ErrorText(true);
                 this.PlayerInventory.SetErrorCardSlot2(false);
             }
             if (this.PlayerInventory.GetErrorCardSlot3())
             {
-                // Play audio for attempting an invalid command. ~Liam
-
                 this.Slot3ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard3ErrorText(true);
                 this.PlayerInventory.SetErrorCardSlot3(false);
             }
             if (this.PlayerInventory.GetDrawError())
             {
-                // Play audio for attempting an invalid command. ~Liam
-
                 this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetDrawErrorText(true);
                 this.PlayerInventory.SetDrawError(false);
