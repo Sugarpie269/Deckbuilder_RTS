@@ -243,7 +243,7 @@ The whole logic for a market was pretty simple as each market sold only one card
 
 **Jackson:** I did nothing for this role.
 
-**Liam:** Using the assets found by Navya, I implemented them into the game by adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play().
+**Liam:** Using the assets found by Navya, I implemented them into the game by simply adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play() when needed.
 The sound effects I added functionality for include:
 
 - When the player draws a card
@@ -265,7 +265,7 @@ freesounds.org
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
-The sound style was similar to a midtown rpg fanatsy game. Hence, all the magic cards have a loud bancg and fantasy element to it. 
+The sound style was similar to a fantasy rpg game. Hence, all the magic cards have a loud bang and a fantasy element to them. 
 
 ## Gameplay Testing
 
