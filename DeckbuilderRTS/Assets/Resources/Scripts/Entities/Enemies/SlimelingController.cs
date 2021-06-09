@@ -13,7 +13,7 @@ namespace DeckbuilderRTS
     {
         private IUnitCommand CurrentCommand;
         private int CurrentHealth;
-        [SerializeField] private int MaxHealth = 50; // 10;
+        [SerializeField] private int MaxHealth = 50;
 
         private Transform Target;
         private Transform PlayerTarget;
@@ -104,11 +104,6 @@ namespace DeckbuilderRTS
 
             float step = this.Speed * Time.deltaTime;
 
-            // Set Default values for swarmling movement from SerializeField Values.
-            /*DefaultPositions = new Vector2[2];
-            DefaultPositions[0] = DefaultPosition0;  //new Vector2(9.0f, 2.5f);
-            DefaultPositions[1] = DefaultPosition1;*/  //new Vector2(1.5f, 9.5f);
-
             // Default path: move towards Default 0.
             DefaultIdx = this.GetRandomPositionID();
             this.PrevDefaultIdx = this.DefaultIdx;
@@ -180,14 +175,10 @@ namespace DeckbuilderRTS
             if (!this.loaded)
             {
                 this.loaded = true;
-                //var sampleText = GameObject.Find("TestText");
-                //var newCanvas = Object.Instantiate(this.)
                 var canvas = GameObject.Find("Canvas");
-                //sampleText.transform.position = new Vector3(canvas.transform.position.x - this.transform.position.x, canvas.transform.position.y - this.transform.position.y, this.transform.position.z);
                 this.HealthText = Object.Instantiate(this.HealthTextPrefab, this.transform.parent) as GameObject;
                 var damageText = this.HealthText.transform.GetChild(1);
                 damageText.GetComponent<TextMeshProUGUI>().text = "";
-                //this.HealthText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z+5);
             }
             if (this.HealthText != null)
             {
@@ -258,81 +249,10 @@ namespace DeckbuilderRTS
                     this.ElapsedTime = 0;
                 }
             }
-
-            // Set the facing direction of the slimeling? ~Liam
-            //this.UpdateRotation();
         }
 
-        private void MoveSwarmling()
-        {
-            // Ignore if invaild path.
-            if (path == null)
-            {
-                Debug.Log("NO PATH!");
-            }
-            else if (path.Length == 0)
-            {
-                return;
-            }
 
-            float step = this.Speed * Time.deltaTime;
-            
-            // Move towards the current step in the path.
-            if (path != null)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, path[destPoint], step);
-
-                // Update to the following step in the path if has reached the current step.
-                if (Vector2.Distance(transform.position, path[destPoint]) < 1.0f)
-                {
-                    destPoint = (destPoint + 1) % path.Length;
-                }
-            }
-            
-            
-            
-        }
-
-        private void UpdateRotation()
-        {
-            
-            var dirVec = new Vector2(this.Target.position.x - this.gameObject.transform.position.x, this.Target.position.y - this.gameObject.transform.position.y);
-            if (this.path != null && this.DefaultIdx != -1 && this.path.Length > 0)
-            {
-                dirVec = new Vector2(this.path[destPoint].x - this.gameObject.transform.position.x, this.path[destPoint].y - this.gameObject.transform.position.y);
-            }
-            
-            
-
-            var multiplier = 0f;
-            if (dirVec.x > 0)
-            {
-                multiplier = 1f;
-            }
-            if (dirVec.x != 0)
-            {
-                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90);
-            }
-            else if (dirVec.y > 0)
-            {
-                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 0);
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 180);
-            }
-            // Using the original rotation code to determine if the sprite should be facing left or right? ~Liam
-            /*if ((multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90) > 180)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            }
-            else
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            }*/
-            
-        }
-
+        
         public void TakeDamage(float damage)
         {
             this.CurrentHealth -= Mathf.FloorToInt(damage);
