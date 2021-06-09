@@ -162,11 +162,12 @@ TODO
 I sourced numerous assets for use in the User Interface, Card art, map art, and more (see above). 
 After *exhaustive* searches of the free assets in the Unity Asset store, I found several assets that would eventually be used in the live build. I also worked with Liam to help build the UI, with most of my work being the tedium of formatting several canvas elements.
 With UI, card design, and asset selection or creation, I contributed to game feel and graphic design, as well as world building, giving character to the entities we build as a team.
+Tweaked animations and sprites from imported assets and own created assets.
 
 ***Key assets***
 - Sap2d: Specialized 2-dimensional A-Star pathfinding algorithm asset free on the asset store.
 - Monster Wizard 2D: Sprites and animations used for the player character
-- Slime Asset: sprites and animations used for swarmlings
+- Slime Asset: sprites and animations used for slimelings
 - 
 
 I was in charge of Card Design, and custom-made the card bases and formats. 
@@ -175,6 +176,8 @@ I was in charge of Card Design, and custom-made the card bases and formats.
 - Card Back designs (Blue and Green) traced from source images found via google and bing.
 - Card Base designs - made with adobe illustrator
 - Game icon and splash screen
+- ice spike
+
 
 
 
@@ -267,6 +270,11 @@ I implemented code for:
 - The [Ice Spike card script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/IceSpikeCard.cs) and [controller script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/IceSpikeController.cs), primarily adapted from Jackson's implementation of Leafblade.
 - The [Force Bolt card script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/ForceBoltCard.cs) and [controller script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/ForceBoltController.cs), primarily adapted from Jackson's implementation of Fireball.
 - The entirety of the Instructions scene & Credits scene.
+
+** Jarod: **
+I helped devise and debug many of the core game systems at a surface level.
+I completely implemented code for Laserbeam, and contributed to or completed the logic of the higher tier cards.
+Code implemented for Pause Menu.
 
 **Navya:** For the game logic, I worked on the market controller which allowed for the user to buy a card from a market (when near) if the user had sufficient funds. Following that, the card was then added to the deck of the user.
 The whole logic for a market was pretty simple as each market sold only one card. Hence, we designated particular markets to particular instancs of a card statically before run.
@@ -373,7 +381,19 @@ Based on player experience, we removed the stipulation that the player could not
 We realized at this point that the error noises upon trying to draw a card while on cooldown, trying to play a card from an empty slot, or purchasing a new card on cooldown were too annoying and were often spammed, so we removed these audio effects and instead repurposed the error noise to loop while the player is on low health.
 Lastly, to address the easier gameplay, we set an increasing difficulty scale so that swarmlings spawned faster as time went on, capping out at 7 minutes into a game (which should be more than enough time for the player to defeat the boss). v0.1.3 ended up containing a mix of balance and quality of life adjustments.
 
+** Jarod **
+two key points: 
+- visual design did not always match with intuition, leading players to struggle and stumble
+- balance obviously needs tweaking.
+
+
+
 ## Narrative Design
+**Jarod: **
+Assigned Role.
+Narrative was baked into the game mechanics and character design. 
+Narrative is relatively short and simple, and is detailed in the instructions text in the instructions scene.
+Comedy in card design and linking the flavortext to the "world" of the game was key. I worked with Liam to build them.
 
 **Jackson:** Gave input on names and card narrative flavor.
 
