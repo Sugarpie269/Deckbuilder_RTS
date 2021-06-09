@@ -144,14 +144,10 @@ namespace DeckbuilderRTS
             if (!this.loaded)
             {
                 this.loaded = true;
-                //var sampleText = GameObject.Find("TestText");
-                //var newCanvas = Object.Instantiate(this.)
                 var canvas = GameObject.Find("Canvas");
-                //sampleText.transform.position = new Vector3(canvas.transform.position.x - this.transform.position.x, canvas.transform.position.y - this.transform.position.y, this.transform.position.z);
                 this.HealthText = Object.Instantiate(this.HealthTextPrefab, this.transform.parent) as GameObject;
                 var damageText = this.HealthText.transform.GetChild(1);
                 damageText.GetComponent<TextMeshProUGUI>().text = "";
-                //this.HealthText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z+5);
             }
             if (this.HealthText != null)
             {
@@ -176,7 +172,6 @@ namespace DeckbuilderRTS
             }
             if (!this.LoadedData)
             {
-                //this.EnemyPlayerController = this.EnemyPlayer.GetComponent<PlayerController>();
                 this.LoadedData = true;
             }
 
@@ -246,7 +241,6 @@ namespace DeckbuilderRTS
                 {
                     this.LaserStage++;
                     // Create laser
-                    //Debug.Log("get lasered!");
                     this.ShootLaser();
                 }
                 else if (this.CurrentLaserTime >= this.LaserAttackTime)
@@ -272,7 +266,6 @@ namespace DeckbuilderRTS
         {
             var dirVec = new Vector2(this.EnemyPlayer.transform.position.x - this.gameObject.transform.position.x, this.EnemyPlayer.transform.position.y - this.gameObject.transform.position.y);
 
-            //dirVec.Normalize();
 
             var multiplier = 0f;
             if (dirVec.x > 0)
@@ -291,8 +284,6 @@ namespace DeckbuilderRTS
             {
                 transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 180);
             }
-            //transform.SetPositionAndRotation(this.transform.position, new Quaternion(0f, 0f, Mathf.Atan(dirVec.y / dirVec.x), 0f));
-            //transform.Rotate(Vector3.forward * Mathf.Atan(dirVec.y/dirVec.x));
         }
 
         private void ShootProjectiles()

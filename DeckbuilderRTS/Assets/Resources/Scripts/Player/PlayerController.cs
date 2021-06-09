@@ -64,16 +64,11 @@ namespace DeckbuilderRTS
 
         // FIXME: Add option for speed changes?
         [SerializeField] private float Speed = 5.0f;
-
-        //private enum MovementADSR {None, Attack, Sustain, Release};
-        //private float CurrentMovementAttackTime = 0.0f;
+        
         [SerializeField] private float MaxMovementAttackTime = 1f;
-        //private float CurrentMovementReleaseTime = 0.0f;
         [SerializeField] private float MaxMovementReleaseTime = 0.1f;
         private PlayerADSR HorizontalADSR = null;
         private PlayerADSR VerticalADSR = null;
-        //private MovementADSR CurrentMovementMode = MovementADSR.None;
-        //private Vector2 LastDirectionVec = new Vector2(0.0f, 0.0f);
 
         private Sprite EmptyCardSlotImage;
         private Sprite FacedownCardImage;
@@ -494,8 +489,6 @@ namespace DeckbuilderRTS
                     }
                     else
                     {
-                        // Play audio for attempting an invalid command. ~Liam
-                        //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                         this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                         this.SetDrawErrorText(true);
@@ -577,9 +570,6 @@ namespace DeckbuilderRTS
 
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
                 rigidBody.MovePosition(rigidBody.position + this.GetPlayerSpeed() * Time.fixedDeltaTime);
-
-
-                //this.UpdateRotation();
 
             }
         }
@@ -945,7 +935,6 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetErrorCardSlot1())
             {
                 // Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot1ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard1ErrorText(true);
@@ -954,7 +943,6 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetErrorCardSlot2())
             {
                 // Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot2ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard2ErrorText(true);
@@ -963,7 +951,6 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetErrorCardSlot3())
             {
                 // Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.Slot3ErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetCard3ErrorText(true);
@@ -972,7 +959,6 @@ namespace DeckbuilderRTS
             if (this.PlayerInventory.GetDrawError())
             {
                 // Play audio for attempting an invalid command. ~Liam
-                //this.ErrorSound.GetComponent<AudioSource>().Play();
 
                 this.DrawErrorMessageDuration = PLAYER_ERROR_MESSAGE_DURATION;
                 this.SetDrawErrorText(true);

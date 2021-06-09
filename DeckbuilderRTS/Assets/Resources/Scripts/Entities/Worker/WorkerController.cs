@@ -18,7 +18,6 @@ namespace DeckbuilderRTS
                 
         void Start()
         {
-            // this.CurrentCommand = ScriptableObject.CreateInstance<???>();
             if (this.Player != null)
             {
                 this.PlayerController = this.Player.GetComponent<PlayerController>();

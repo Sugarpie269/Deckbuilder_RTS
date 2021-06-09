@@ -40,15 +40,9 @@ namespace DeckbuilderRTS
             if (collision.collider.tag == "Swarmling")
             {
                 collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
-                // TODO: Add knockback to it
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                 GameObject.Destroy(this.gameObject);
             }
-            /*else if (collision.collider.tag == "Player")
-            {
-                collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
-                GameObject.Destroy(this.gameObject);
-            }*/
             else if (collision.collider.tag == "Slimeling")
             {
                 collision.collider.GetComponent<SlimelingController>().TakeDamage(this.Damage);

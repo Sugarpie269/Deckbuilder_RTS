@@ -40,9 +40,6 @@ namespace DeckbuilderRTS
             this.Delay = delay;
 
             this.Lifetime = lifetime;
-            //this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        
-            //this.Velocity = velocity;
         }
 
         public void Update()
@@ -58,12 +55,10 @@ namespace DeckbuilderRTS
                 this.CanDamage = false;
                 this.gameObject.SetActive(false);
             }
-            //this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(this.Velocity.x, this.Velocity.y);
         }
 
         IEnumerator FadeIn()
         {
-            // todo change fadein effect to exponential?
             for (float ft = 0.0f; ft <= 1f; ft += 0.1f)
             {
                 var renderer = this.gameObject.GetComponent<Renderer>();
@@ -83,34 +78,21 @@ namespace DeckbuilderRTS
                 // If the fireball collides with a swarmling, the swarmling takes damage and knocks it back. Otherwise, the forcebolt is destroyed.
                 if (collision.CompareTag("Swarmling"))
                 {
-                    //Debug.Log("Hit Swarmling for " + this.Damage);
                     collision.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
-                    // TODO: Add knockback to it
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
-                    //GameObject.Destroy(this.gameObject);
                 }
-                /*else if (collision.collider.tag == "Player")
-                {
-                    collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
-                    GameObject.Destroy(this.gameObject);
-                }*/
                 else if (collision.CompareTag("Slimeling"))
                 {
-                    //Debug.Log("Hit Boss for " + this.Damage);
                     collision.GetComponent<SlimelingController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
-                    //GameObject.Destroy(this.gameObject);
                 }
                 else if (collision.CompareTag("Boss"))
                 {
-                    //Debug.Log("Hit Boss for " + this.Damage);
                     collision.GetComponent<BossController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
-                    //GameObject.Destroy(this.gameObject);
                 }
                 else if (collision.CompareTag("Obstacle"))
                 {
-                    //GameObject.Destroy(collision.gameObject);
                     collision.gameObject.SetActive(false);
                 }
                 else

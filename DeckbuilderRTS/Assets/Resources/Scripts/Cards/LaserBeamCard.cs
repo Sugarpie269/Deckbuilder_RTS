@@ -11,8 +11,6 @@ namespace DeckbuilderRTS
         [SerializeField]
         private Object LaserBeamPrefab;
         private float SummonDistance = 7.0f;
-        // private float Direction;
-        // private float Length = 100.0f;
         [SerializeField]
         private float Delay = 1.0f;
         [SerializeField]
@@ -40,12 +38,10 @@ namespace DeckbuilderRTS
 
         public void OnCardPlayed(GameObject player, Vector2 target)
         {
-            //Debug.Log("Playing Laser Beam");
             var playerController = player.GetComponent<PlayerController>();
             var playerPos = player.transform.position;
             var direction = playerController.GetMousePosition();
             var position = new Vector3(playerPos.x + direction.x * this.SummonDistance, playerPos.y + direction.y * this.SummonDistance, player.transform.position.z);
-            // TODO: instantiate then use delay to prevent effects from happening until timer is up
             var laserbeam = Object.Instantiate(this.LaserBeamPrefab) as GameObject;
             laserbeam.transform.position = position;
 
