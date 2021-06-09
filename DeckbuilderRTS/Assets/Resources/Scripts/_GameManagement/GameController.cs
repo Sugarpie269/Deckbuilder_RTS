@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using DeckbuilderRTS;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 namespace DeckbuilderRTS
 {
@@ -19,11 +20,11 @@ namespace DeckbuilderRTS
         // Other Cards/Entities
         [SerializeField] public Object WorkerPrefab;
         [SerializeField] public Object SwarmlingPrefab;
+        [SerializeField] public Object SlimelingPrefab;
         [SerializeField] private bool SummonSwarmlings = true;
+        [SerializeField] private bool SummonSlimelings = true;
         [SerializeField] private bool IncreaseDifficulty = true;
-        [SerializeField] public GameObject Miniboss1;
-        [SerializeField] public GameObject Miniboss2;
-        [SerializeField] public GameObject Miniboss3;
+        [SerializeField] public List<GameObject> MiniBosses;
         [SerializeField] public GameObject Boss;
 
         [SerializeField] private GameObject Player;
@@ -40,6 +41,7 @@ namespace DeckbuilderRTS
         private float CurrentSummonSwarmlingDelay = 0.0f;
 
         private Collection<SwarmlingController> Swarmlings;
+        private Collection<SlimelingController> Slimelings;
         private Collection<GameObject> Workers;
         
         [SerializeField] private float WorkerNoise = 5f;
@@ -48,6 +50,7 @@ namespace DeckbuilderRTS
         public void Start()
         {
             this.Swarmlings = new Collection<SwarmlingController>();
+            this.Slimelings = new Collection<SlimelingController>();
             this.Workers = new Collection<GameObject>();
         }
 
@@ -78,6 +81,10 @@ namespace DeckbuilderRTS
             {
                 controller.SetDisabled();
             }
+            foreach (var controller in this.Slimelings)
+            {
+                controller.SetDisabled();
+            }
             var bossController = this.Boss.GetComponent<BossController>();
             bossController.SetDisabled();
         }
@@ -103,6 +110,18 @@ namespace DeckbuilderRTS
                     if (Vector3.Distance(swarmlingController.gameObject.transform.position, worker.transform.position) <= this.WorkerNoise)
                     {
                         swarmlingController.SetTarget(worker.transform);
+                    }
+                }
+                foreach (var slimelingController in this.Slimelings)
+                {
+                    if (slimelingController == null)
+                    {
+                        foundNullSwarmling = true;
+                        continue;
+                    }
+                    if (Vector3.Distance(slimelingController.gameObject.transform.position, worker.transform.position) <= this.WorkerNoise)
+                    {
+                        slimelingController.SetTarget(worker.transform);
                     }
                 }
             }
@@ -152,10 +171,25 @@ namespace DeckbuilderRTS
             if (this.CurrentSummonSwarmlingDelay >= this.SummonSwarmlingDelay)
             {
                 this.CurrentSummonSwarmlingDelay -= this.SummonSwarmlingDelay;
-
+                if (this.SummonSwarmlings && this.SummonSlimelings)
+                {
+                    int randomInt = Random.Range(0, 8);
+                    switch (randomInt) {
+                        case 0:                            
+                            this.SummonNewSlimeling();
+                            break;
+                        default: 
+                            this.SummonNewSwarmling();
+                            break;
+                    }
+                }
                 if (this.SummonSwarmlings)
                 {
                     this.SummonNewSwarmling();
+                }
+                if (this.SummonSlimelings)
+                {
+                    this.SummonNewSlimeling();
                 }
             }
 
@@ -164,19 +198,8 @@ namespace DeckbuilderRTS
 
         private GameObject GetRandomMiniboss()
         {
-            var randomInt = Random.Range(0, 4);
-            if (randomInt == 0)
-            {
-                return this.Miniboss1;
-            }
-            else if (randomInt == 1)
-            {
-                return this.Miniboss2;
-            }
-            else
-            {
-                return this.Miniboss3;
-            }
+            var randomInt = Random.Range(0, this.MiniBosses.Count);
+            return this.MiniBosses[randomInt];
         }
 
         private void SummonNewSwarmling()
@@ -188,6 +211,17 @@ namespace DeckbuilderRTS
             var swarmlingController = newSwarmling.GetComponent<SwarmlingController>();
             swarmlingController.AddMaxHealth(this.GameDifficulty - 1);
             this.Swarmlings.Add(swarmlingController);
+        }
+
+        private void SummonNewSlimeling()
+        {
+            var chosenMiniboss = this.GetRandomMiniboss();
+            var summonLoc = chosenMiniboss.transform.position;
+            var newSlimeling = Object.Instantiate(this.SlimelingPrefab) as GameObject;
+            newSlimeling.transform.position = summonLoc;
+            var slimelingController = newSlimeling.GetComponent<SlimelingController>();
+            slimelingController.AddMaxHealth(this.GameDifficulty - 1);
+            this.Slimelings.Add(slimelingController);
         }
 
         public ICard GenerateCardFireball()

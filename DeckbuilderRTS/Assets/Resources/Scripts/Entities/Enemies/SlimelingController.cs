@@ -7,6 +7,8 @@ using SAP2D;
 
 namespace DeckbuilderRTS
 {
+    // TODO: Ideally, this, swarmling, and worker should inherit from a more generic entity class
+
     public class SlimelingController : MonoBehaviour
     {
         private IUnitCommand CurrentCommand;
@@ -28,7 +30,7 @@ namespace DeckbuilderRTS
         public Vector2[] path;
         private SAP2DPathfinder Pathfinder;
 
-        // Allow user to choose properties for swarmlings.
+        // Allow editor to choose properties for swarmlings.
         [SerializeField]
         public Vector2 DefaultPosition0;
         [SerializeField]

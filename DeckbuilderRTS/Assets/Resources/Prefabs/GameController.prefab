@@ -59,11 +59,15 @@ MonoBehaviour:
     type: 3}
   SwarmlingPrefab: {fileID: 4370800884632310675, guid: 618d598958c16714aa91519d4c4834e3,
     type: 3}
+  SlimelingPrefab: {fileID: 773614451363456244, guid: 1e2ee90a5f442a44683a598bdc052c62,
+    type: 3}
   SummonSwarmlings: 1
+  SummonSlimelings: 1
   IncreaseDifficulty: 1
-  Miniboss1: {fileID: 0}
-  Miniboss2: {fileID: 0}
-  Miniboss3: {fileID: 0}
+  MiniBosses:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Boss: {fileID: 0}
   Player: {fileID: 0}
   CurrentState: 1
