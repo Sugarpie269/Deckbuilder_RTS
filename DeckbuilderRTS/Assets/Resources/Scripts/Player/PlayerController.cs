@@ -53,11 +53,6 @@ namespace DeckbuilderRTS
         [SerializeField] private GameObject GameController;
 
         private Inventory PlayerInventory;
-        private IPlayerCommand DrawCard;
-        private IPlayerCommand PlayCard1;
-        private IPlayerCommand PlayCard2;
-        private IPlayerCommand PlayCard3;
-
         [SerializeField] private float Speed = 5.0f;
         
         [SerializeField] private float MaxMovementAttackTime = 1f;
@@ -152,10 +147,6 @@ namespace DeckbuilderRTS
         void Start()
         {
             this.PlayerInventory = this.gameObject.GetComponent<Inventory>();
-            this.DrawCard = ScriptableObject.CreateInstance<PlayerDrawCardCommand>();
-            this.PlayCard1 = ScriptableObject.CreateInstance<PlayerCard1Command>();
-            this.PlayCard2 = ScriptableObject.CreateInstance<PlayerCard2Command>();
-            this.PlayCard3 = ScriptableObject.CreateInstance<PlayerCard3Command>();
 
             this.HorizontalADSR = new PlayerADSR(this.MaxMovementAttackTime, this.MaxMovementReleaseTime);
             this.VerticalADSR = new PlayerADSR(this.MaxMovementAttackTime, this.MaxMovementReleaseTime);
