@@ -12,13 +12,14 @@ These cards, when played, will allow the player to send damaging projectiles or 
 ## Gameplay Explanation ##
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
+
 The player can move around the map using the WASD keys, where W is up, A is left, S is down, and D is right. The keys for 1, 2, and 3 map to the according card slots in the player's hand. The player can use these keys to play the cards in each respective card slot. 
 
 The player can use the Fire2 command (Right click) to draw a card from the deck, or to reload the deck from the discard pile. 
 
 The R key can be used to examine a card when the player's mouse is hovered over that card. This allows the player to learn more about the card's description and capabilities. Additionally, the R key can be used to view a market when the player's mouse is hovered over a building. This allows the player to view what cards are being sold. 
 
-**If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+**If you did work that should be factored in to your grade that does not fit easily into the prescribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
 # Main Roles #
 
@@ -29,20 +30,22 @@ Below is a template for you to highlight items of your work. These provide the e
 *Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
 
 Here is an example:  
+
 *Procedural Terrain* - The background of the game consists of procedurally-generated terrain that is produced with Perlin noise. This terrain can be modified by the game at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
 
 You should replace any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-**Please note that our game was highly ambitious. To accommodate for this, we had to share many different duties across the different roles. This document will show who did what part of the corresponding roles.**
+**PLEASE NOTE that our game was highly ambitious. To accommodate for this, we had to share many different duties across the different roles. This document will show who did what part of the corresponding roles.**
 
 ## User Interface
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+
 Being a deckbuilder, the UI is a key element of game feel and flow, as the art on the cards make up the bulk of the player's primary actions.
 
 **Liam:**
 
-This was my main role. Here's a (hopefully exhaustive) list of scripts I created, or contributed to, over the course of the project. Not all of them are necessarily related to UI:
+This was my main role. Here's a (hopefully exhaustive) list of scripts I created, or significantly contributed to, over the course of the project. Not all of them are necessarily related to UI:
 
 - Scripts/Player/[PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs)
 - Scripts/Player/[ExamineDisplay.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/ExamineDisplay.cs)
