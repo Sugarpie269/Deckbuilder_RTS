@@ -24,12 +24,10 @@ namespace DeckbuilderRTS
         {
             if (this.CurrentMovementMode == MovementADSR.None)
             {
-                //Debug.Log("none");
                 return 0.0f;
             }
             else if (this.CurrentMovementMode == MovementADSR.Attack)
             {
-                //Debug.Log("attack");
                 // We are using a linear curve.~Jackson
                 var attackRatio = this.CurrentMovementAttackTime / this.MaxMovementAttackTime;
                 var speedPercentage = attackRatio;//Mathf.Log(attackRatio + 1f, 2f);
@@ -37,12 +35,10 @@ namespace DeckbuilderRTS
             }
             else if (this.CurrentMovementMode == MovementADSR.Sustain)
             {
-                //Debug.Log("sustain");
                 return this.Multiplier;
             }
             else if (this.CurrentMovementMode == MovementADSR.Release)
             {
-                //Debug.Log("release");
                 // We are using a linear curve again.~Jackson
                 var releaseRatio = 1 - this.CurrentMovementReleaseTime / this.MaxMovementReleaseTime;
                 var speedPercentage = releaseRatio;//Mathf.Log(releaseRatio + 1f, 2f);

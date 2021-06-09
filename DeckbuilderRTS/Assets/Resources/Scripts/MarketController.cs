@@ -62,14 +62,12 @@ namespace DeckbuilderRTS {
             
         }
         void rtnFireballInfo() {
-            Debug.Log("New FireballCard!");
             this.FireballPrefab = prefab;
             // Instantiate each piece of information about the card. ~Liam
             this.cardinfo = this.gameController.GetCardInfo("Card_Fireball");
         }
 
         void rtnSumWorkInfo() {
-            Debug.Log("New Summon worker!");
             this.WorkerPrefab = prefab;
 
             // Instantiate each piece of information about the card. ~Liam
@@ -77,7 +75,6 @@ namespace DeckbuilderRTS {
         }
 
         void rtnInstHealInfo() {
-            Debug.Log("New instant heal!");
             this.cardinfo = this.gameController.GetCardInfo("Card_InstantHeal");
         }
         void getCardInfo() {
@@ -156,7 +153,6 @@ namespace DeckbuilderRTS {
                 && !GameObject.Find("Card3").GetComponent<ExamineDisplay>().IsPointerHovering()
                 && !GameObject.Find("DiscardPile").GetComponent<ExamineDisplay>().IsPointerHovering())
                 {
-                    //Debug.Log("Mouse is over the market, and NOT over any other UI examine elements.");
                     this.ExamineText.SetActive(true);
                 }
                 this.PointerHovering = true;
