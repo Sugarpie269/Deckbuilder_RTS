@@ -24,6 +24,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Instructions Screen");
     }
 
+    public void ClickQuitGameButton()
+    {
+        Application.Quit();
+    }
+
     
 
     // Update is called once per frame
