@@ -44,6 +44,14 @@ This functionality also extends to markets; the player can mouse over a market i
 *Notifications* - The player is notified in the UI when their health is low, when they take damage, or when they gain or lose the various resources.
 They are also notified when their mouse is over an object that can be examined.
 
+*Main Menu and Instructions Scenes* - Jackson implemented the main menu of the game, but I altered it to include a button that takes you to an instructions scene.
+Within the instructions are buttons that reveal information explaining the controls, the layout of cards, how to gain resources, the purposes of the markets, and the general player objective (along with a straightfoward story). 
+You can start playing at any time from within the instructions scene.
+If the player dies in-game, a button appears to take them back to the main menu.
+
+*Credits Scene* - When the player kills the boss, a button appears to take them to a small credits scene where all 5 of our names are listed.
+There is a button to return to the main menu as well.
+
 **The following section explains the general process I (Liam) underwent in creating the UI. It's quite long.**
 
 Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
@@ -101,6 +109,8 @@ Navya eventually procured some audio clips for me to use, so I added functionali
 Each card within its CardInfo struct now also holds an AudioSource to play whenever that card is used (so each card has a unique sound on play to go with their effect). 
 I also added sound for drawing a card and replacing the discard into the draw deck, as well as set up game over and victory fanfare when the appropriate events occur.
 
+At this point I created and implemented the Instructions & Credits scenes. The Instructions scene utilizes an [InstructionController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/InstructionController.cs) script to display the correct information when certain buttons are pressed.
+
 **Jackson:** I added the main menu UI and the display health/damage text to the swarmlings.
 
 **Jarod:** See Animations and Visuals. I helped with UI scaling in the main scene, as well as built most of the sprites for cards.
@@ -113,6 +123,8 @@ I also added sound for drawing a card and replacing the discard into the draw de
 **Jackson:** I contributed by adding the collision functions and rigidbody/boxcollider logic for the player, workers, swarmlings, fireballs, leafblades, minibosses, boss, and resource depots.
 
 We used a mix of the Unity physics system and our own scripted physics to modify it when it did not serve our purposes (ignoring collisions and rotations). The game is top down and 2d, so we had to ensure that gravity was disabled.
+
+**Liam:** I did nothing for this role.
 
 **Jarod:**
 I implemented the 
@@ -148,19 +160,27 @@ I was in charge of Card Design, and custom-made the card bases and formats.
 
 We knew we wanted something magical, mechanical, and perhaps organic for the bad guys (and even player) so the swarmlings and boss were designed with the idea of mutated cyborgs. Bosses and swarmlings follow a similar style of green flesh and orange eyes so that the player easily recognizes the connection between the two different enemies.
 
+**Liam:** I did nothing except provide opinions on what looked good and what didn't, for this role.
+
 **Navya:** I contributed to this role by building a tile set map for our game (basically worl-building). I got an asset from the unity store which had the feeling of an "rpg midtown". I felt like that would be the best for our game as it was quite an open-ended theme when we had not decided a story line for our game. I made the map in a way which would allow for the "SAP2D" to calculate colliders easily and kept on making changes on the map as the game progressed because of the colliders not wokring properly.
 
 ## Input
 
 **Describe the default input configuration.**
 
+Keyboard and mouse: WASD movement, mouse+r for hovering over cards for information, mouse for optional camera controller panning, left-click enable optional camera controller, right click draw card, [1,2,3] for using the corresponding card slot.
+
 **Add an entry for each platform or input style your project supports.**
+
+Our game only supports the specific keyboard & mouse controls assigned.
 
 **Jackson:** I contributed to the input role by offering my insights into how we will need our input logic to match the capabilities of the player. I created the camera controller that focuses the mouse position.
 
-Keyboard and mouse: WASD movement, mouse+r for hovering over cards for information, mouse for optional camera controller panning, left-click enable optional camera controller, right click draw card, [1,2,3] for using the corresponding card slot.
+**Liam:** Input was fairly critical to my main role as it affects how the player interacts with UI. 
+However, I didn't do much for this category other than set the card buttons to 1/2/3 and the examine and purchase buttons to R and B.
 
 **Navya:** My main role was input. I implementedd this role by implemting a WASD input for the player and a function which gets the mouse positions. Expect that, this role didn't demand much work in our game.
+
 ## Game Logic
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
