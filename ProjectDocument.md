@@ -12,11 +12,49 @@ These cards, when played, will allow the player to send damaging projectiles or 
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
 
-The player can move around the map using the WASD keys, where W is up, A is left, S is down, and D is right. The keys for 1, 2, and 3 map to the according card slots in the player's hand. The player can use these keys to play the cards in each respective card slot. 
+The player can move around the map using the WASD keys, where W is up, A is left, S is down, and D is right. The keys for 1, 2, and 3 map to the according card slots in the player's hand. The player can use these keys to play the cards in each respective card slot.
 
-The player can use the Fire2 command (Right click) to draw a card from the deck, or to reload the deck from the discard pile. 
+The player can use the Fire2 command (Right click) to draw a card from the deck, or to reload the deck from the discard pile.
 
-The R key can be used to examine a card when the player's mouse is hovered over that card. This allows the player to learn more about the card's description and capabilities. Additionally, the R key can be used to view a market when the player's mouse is hovered over a building. This allows the player to view what cards are being sold. 
+The R key can be used to examine a card slot when the player's mouse is hovered over that card. This allows the player to learn more about the card's description and capabilities. Additionally, the R key can be used to view a market when the player's mouse is hovered over a building. This allows the player to view what cards are being sold.
+
+The goal of the game is to power down the King Slime-mech. The beginning cards of the game do not have enough damage to overcome the King Slime-mech's innate damage resistance, so the player will need to purchase better cards from the market to begin to harm it.
+
+By killing swarmlings and slimelings, the player can gain little bits of the three resources: matter, energy, and mana. However, it is more efficient to use the Summon Worker card when standing over a resource node to generate the corresponding resource (green is matter, yellow is energy, blue is mana). Additional Summon Worker cards can be bought for free from corresponding market, if desired. Swarmlings that spawn from the spawn zones will patrol between the resource deposits so the player will need to place many workers across the map to keep up resource generation or defend the ones they have placed. The resource nodes can be found across the map so exporation is encouraged, though players should be careful because the King Slime-mech lurks in the northern portion of the map.
+
+Once the player has gained enough resources to buy the cards that they desire, they can return to the markets and buy the cards they desire. A commonly purchased card is Void, because it destroys the top card of the player's discard pile when it is played. This is important because it allows the player to purge themselves of the basic attack cards the clog up the deck and cannot harm the boss. It also will allow them to cut down on the number of Summon Worker if desired. Below are a list of the cards:
+
+- Summon Worker: Summons a worker at the current location. If the worker stands in a resource node, it will generate resources for the player.
+
+- Void: Destroys the top card of the discard pile.
+
+- Leafblade: Deals small damage to enemies in a piercing trajectory.
+
+- Force Bolt: Deals small damage to a single enemy in short range.
+
+- Instant Heal: Restores a small amount of health to the player.
+
+- Fireball: Deals medium damage to a single enemy in long range.
+
+- Ice Spike: Deals medium damage to enemies in short range piercing trajectory.
+
+- Lightning Strike: Deals high damage to enemies at the cursor location after a brief delay.
+
+- Laser Beam (this market is hidden): Deals high damage to enemies in a large area of effect after a long charge up delay.
+
+
+Some general strategy tips:
+Buy a secondary summon worker card early. Use some starting currency to buy the Void card. Head for resource nodes immediately after. On the way, use Void to destroy a Force Bolt in the deck. Generate at least about 20 of each resource if possible, then return to the markets and buy two Fireball/Ice Spike, and use the rest of the currency to buy some Voids to destroy more of the starting damage cards (Force Bolt and Leafblade).
+
+Go generate more resources, using the new cards to kill swarmlings and slimelings that threaten your workers quicker. Then return to the markets to buy Lightning Strike cards (and Void cards to destroy the remaining starter damage cards).
+
+If you have found the Laser Beam market, buy one.
+
+Then, use Fireball/Ice Spike/Lightning Strike/Laser Beam to damage the boss. Save any starter cards you may have such as Force Bolt or Leafblade to damage Swarmlings that try to defend the King Slime-mech. Remaining Summon Worker cards can be used as decoys to distract incoming Swarmlings.
+
+The King Slime-mech has two attacks: a basic projectile strike for 4 damage and a double projectile strike that leads into a laser beam that deals 5 damage. Avoiding both of the double projectile strike will be nearly impossible, but it will warn the player that the laser is coming next.
+
+
 
 **If you did work that should be factored in to your grade that does not fit easily into the prescribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
