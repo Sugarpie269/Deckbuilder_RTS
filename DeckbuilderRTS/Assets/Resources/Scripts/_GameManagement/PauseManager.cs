@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
         } 
         else
         {
-            // Debug.Log("No Pause Menu Given");
+            
         }
     }
 

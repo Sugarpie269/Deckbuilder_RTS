@@ -32,7 +32,6 @@ namespace DeckbuilderRTS
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            //Debug.Log(collision.collider.name + " is the thing");
             if (collision.gameObject.CompareTag("Worker"))
             {
                 var workerController = collision.GetComponent<WorkerController>();
@@ -58,7 +57,6 @@ namespace DeckbuilderRTS
                     workerController.SetWorkingMana();
                 }
                 
-                //Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                 
             }
             else

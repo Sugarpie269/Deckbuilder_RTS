@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class InstructionController : MonoBehaviour
 {
-    //private AssetBundle LoadedAssetBundle;
-    //private string[] ScenePaths;
     // Start is called before the first frame update
     private GameObject[] AllTextInstructions;
     private GameObject[] AllImageInstructions;

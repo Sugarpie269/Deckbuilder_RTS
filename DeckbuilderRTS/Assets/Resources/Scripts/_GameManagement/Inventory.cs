@@ -124,7 +124,6 @@ namespace DeckbuilderRTS
                 this.DiscardSlotUpdated = true;
                 return false;
             }
-            //Debug.Log("I ran");
             // If the deck is not empty, add a card to the first available slot, if possible. ~Jackson
             var cardAdded = false;
             if (this.CardSlot1 == null)
@@ -173,32 +172,8 @@ namespace DeckbuilderRTS
                 // Set the ErrorCardSlot1 flag to true and return. ~Liam
                 this.ErrorCardSlot1 = true;
                 return;
-                /*// Draw a card from the deck and remove it from the deck. ~Jackson
-                if (this.Deck.Count > 0)
-                {
-                    this.CardSlot1 = this.Deck[0];
-                    this.Deck.RemoveAt(0);
-                }
-                else
-                {
-                    // if the discard is empty, return. ~Jackson
-                    if (this.Discard.Count == 0)
-                    {
-                        return;
-                    }
-
-                    // The deck is empty, so shuffle the discard. ~Jackson
-                    for (var discardIndex = 0; discardIndex < this.Discard.Count; discardIndex++)
-                    {
-                        this.Deck.Add(this.Discard[discardIndex]);
-                    }
-                    this.Discard.Clear();
-                    this.PlayCard1();
-                }
-                return;*/
             }
-
-            //Debug.Log("Playing Card 1");
+            
             // Play the sound corresponding to the card in slot 1. If the card is Lightning Strike or Laser Beam, do not play sound (they will be played later). ~Liam
             if (!(this.CardSlot1.GetCardInfo().CardName == "Lightning Strike" || this.CardSlot1.GetCardInfo().CardName == "Laser Beam"))
             {
@@ -234,29 +209,6 @@ namespace DeckbuilderRTS
                 // Set the ErrorCardSlot2 flag to true and return. ~Liam
                 this.ErrorCardSlot2 = true;
                 return;
-                /*// Draw a card from the deck and remove it from the deck. ~Jackson
-                if (this.Deck.Count > 0)
-                {
-                    this.CardSlot2 = this.Deck[0];
-                    this.Deck.RemoveAt(0);
-                }
-                else
-                {
-                    // if the discard is empty, return. ~Jackson
-                    if (this.Discard.Count == 0)
-                    {
-                        return;
-                    }
-
-                    // The deck is empty, so shuffle the discard. ~Jackson
-                    for (var discardIndex = 0; discardIndex < this.Discard.Count; discardIndex++)
-                    {
-                        this.Deck.Add(this.Discard[discardIndex]);
-                    }
-                    this.Discard.Clear();
-                    this.PlayCard1();
-                }
-                return;*/
             }
 
             // Play the sound corresponding to the card in slot 2. ~Liam
@@ -264,8 +216,7 @@ namespace DeckbuilderRTS
             {
                 this.CardSlot2.GetCardInfo().PlaySound.Play();
             }
-
-            //Debug.Log("Playing Card 2");
+            
             // Play the card in card slot 2. ~Jackson
             this.CardSlot2.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -295,29 +246,6 @@ namespace DeckbuilderRTS
                 // Set the ErrorCardSlot3 flag to true and return. ~Liam
                 this.ErrorCardSlot3 = true;
                 return;
-                /*// Draw a card from the deck and remove it from the deck. ~Jackson
-                if (this.Deck.Count > 0)
-                {
-                    this.CardSlot3 = this.Deck[0];
-                    this.Deck.RemoveAt(0);
-                }
-                else
-                {
-                    // if the discard is empty, return. ~Jackson
-                    if (this.Discard.Count == 0)
-                    {
-                        return;
-                    }
-
-                    // The deck is empty, so shuffle the discard. ~Jackson
-                    for (var discardIndex = 0; discardIndex < this.Discard.Count; discardIndex++)
-                    {
-                        this.Deck.Add(this.Discard[discardIndex]);
-                    }
-                    this.Discard.Clear();
-                    this.PlayCard1();
-                }
-                return;*/
             }
 
             // Play the sound corresponding to the card in slot 3. ~Liam
@@ -325,8 +253,7 @@ namespace DeckbuilderRTS
             {
                 this.CardSlot3.GetCardInfo().PlaySound.Play();
             }
-
-            //Debug.Log("Playing Card 3");
+            
             // Play the card in card slot 3. ~Jackson
             this.CardSlot3.OnCardPlayed(this.gameObject, new Vector2(0.0f, 0.0f));
 
@@ -348,7 +275,6 @@ namespace DeckbuilderRTS
 
         public void GainCard(ICard card)
         {
-            //Debug.Log("Gained card" + card.GetCardInfo().CardName);
             this.Discard.Add(card);
             this.DiscardSlotUpdated = true;
         }
@@ -493,7 +419,7 @@ namespace DeckbuilderRTS
         // Update is called once per frame
         void Update()
         {
-            //Debug.Log("Deck:" + this.Deck.Count.ToString() + ";Discard:" + this.Discard.Count.ToString());
+            
         }
     }
 }
