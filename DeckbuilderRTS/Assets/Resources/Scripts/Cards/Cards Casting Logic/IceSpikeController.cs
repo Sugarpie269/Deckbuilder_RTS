@@ -41,24 +41,16 @@ namespace DeckbuilderRTS
             {
                 collision.collider.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                //GameObject.Destroy(this.gameObject);
             }
-            /*else if (collision.collider.tag == "Player")
-            {
-                collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
-                GameObject.Destroy(this.gameObject);
-            }*/
             else if (collision.collider.tag == "Slimeling")
             {
                 collision.collider.GetComponent<SlimelingController>().TakeDamage(this.Damage);
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                //GameObject.Destroy(this.gameObject);
             }
             else if (collision.collider.tag == "Boss")
             {
                 collision.collider.GetComponent<BossController>().TakeDamage(this.Damage);
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                //GameObject.Destroy(this.gameObject);
             }
             else if (collision.collider.tag == "Obstacle")
             {

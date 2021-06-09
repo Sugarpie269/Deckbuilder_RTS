@@ -54,7 +54,6 @@ namespace DeckbuilderRTS
                 {
                     this.DamageDelayCounter += this.TimeBetweenDamageTick;
                     this.CanDamage = true;
-                    //Debug.Log("set candamage to true.");
                 }
             }
 
@@ -69,7 +68,6 @@ namespace DeckbuilderRTS
                     this.EnableTickCounter = true;
                     this.DelayCounter -= Delay;
                     this.DamageDelayCounter -= this.DelayCounter;
-                    //Debug.Log("Laser can start doing Damage now.");
                 }
             }
             
@@ -100,34 +98,13 @@ namespace DeckbuilderRTS
             // once delay counter reaches threshold, enable damage for this frame
             if (this.CanDamage)
             {
-                // StartCoroutine("DamageTick");
-                // this.CanDamage = false;
-                // Debug.Log("YAY we can damage things!");
+                
             }
         }
-
-        /*
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            Debug.Log("I am touching " + other.gameObject.name);
-
-            if (this.CanDamage)
-            {
-                if (other.gameObject.CompareTag("Swarmling"))
-                {
-                    other.gameObject.GetComponent<SwarmlingController>().TakeDamage(this.Damage);
-                }
-                else if (other.gameObject.CompareTag("Boss"))
-                {
-                    //Debug.Log("Boss boi.");
-                    other.gameObject.GetComponent<BossController>().TakeDamage(this.Damage);
-                }
-            }
-        }*/
+        
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            //Debug.Log("I am touching " + other.gameObject.name);
             if (this.CanDamage)
             {
                 if (other.gameObject.CompareTag("Swarmling"))
@@ -138,21 +115,17 @@ namespace DeckbuilderRTS
                 }
                 else if (other.CompareTag("Slimeling"))
                 {
-                    //Debug.Log("Hit Boss for " + this.Damage);
                     other.GetComponent<SlimelingController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(other, this.GetComponent<Collider2D>());
-                    //GameObject.Destroy(this.gameObject);
                 }
                 else if (other.gameObject.CompareTag("Boss"))
                 {
-                    //Debug.Log("Boss boi.");
                     other.gameObject.GetComponent<BossController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
 
                 }
                 else if (other.gameObject.CompareTag("Worker"))
                 {
-                    //Debug.Log("Worker");
                     other.gameObject.GetComponent<WorkerController>().TakeDamage(this.Damage);
                     Physics2D.IgnoreCollision(other, this.gameObject.GetComponent<Collider2D>());
 
@@ -165,7 +138,6 @@ namespace DeckbuilderRTS
                 }
                 else if (other.gameObject.CompareTag("Obstacle"))
                 {
-                    //GameObject.Destroy(collision.gameObject);
                     Debug.Log("Disabled Obstacle " + other.gameObject.name);
                     other.gameObject.SetActive(false);
                 }
