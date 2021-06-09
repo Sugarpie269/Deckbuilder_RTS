@@ -6,10 +6,11 @@ namespace DeckbuilderRTS
 {
     public struct CardInfo
     {
+        // All information about a card fits into this struct. ~Liam
         public GameObject CardReference;
         public Sprite CardArt;
         public string CardName;
-        public string CardType; // POTENTIALLY UNNEEDED? ~Liam
+        public string CardType;
         public string DescriptionHeader;
         public string DescriptionContent;
         public string FlavorText;
