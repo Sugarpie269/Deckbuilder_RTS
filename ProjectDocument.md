@@ -407,7 +407,7 @@ The Contact page highlights the contact information and social media links for t
 
 **Include links to your presskit materials and trailer.**  
 Press Kit: https://technodeckgame.wixsite.com/press
-Trailer: https://youtu.be/DQYreX_8rtQ (FIXME)
+Trailer: https://youtu.be/fUFxNVJltTk 
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**  
 I chose specific screenshots and sequences from the game that I thought were the most important to highlight in a short trailer clip and as images in the press kit. 
