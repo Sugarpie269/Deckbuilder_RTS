@@ -55,7 +55,7 @@ This functionality also extends to markets; the player can mouse over a market i
 *Notifications* - The player is notified in the UI when their health is low, when they take damage, or when they gain or lose the various resources.
 They are also notified when their mouse is over an object that can be examined.
 
-*Main Menu and Instructions Scenes* - Jackson implemented the main menu of the game, but I altered it to include a button that takes you to an instructions scene.
+*Main Menu and Instructions Scenes* - Jackson implemented the main menu of the game, but I altered it to include a button that takes you to an instructions scene, as well as a button to allow you to close the game.
 Within the instructions are buttons that reveal information explaining the controls, the layout of cards, how to gain resources, the purposes of the markets, and the general player objective (along with a straightfoward story). 
 You can start playing at any time from within the instructions scene.
 If the player dies in-game, a button appears to take them back to the main menu.
