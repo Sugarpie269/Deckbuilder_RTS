@@ -204,6 +204,15 @@ I also managed the game data such as spawning timing and logic for swarmlings (t
 
 The game controller that I created also provided the logic for alerting swarmlings to nearby workers and switching their current target. The swarmling controller picks the nearby player as a target first, then a nearby worker, then a random resource depot to patrol to if no enemies are nearby. 
 
+**Liam:** I'm not quite sure what category these contributions fall under, so I'm listing them here.
+
+I implemented code for:
+- Displaying the information stored within Jackson's Inventory class to the player via the UI
+- The CardInfo struct, which stores all necessary information about a card for various scripts to utilize.
+- A simplified version of cards to display to the UI, since the fully detailed cards contained too much information to fit on screen at once
+- The ice spike & force bolt card logic.
+- The entirety of the Instructions scene & Credits scene.
+
 **Navya:** For the game logic, I worked on the market controller which allowed for the user to buy a card from a market (when near) if the user had sufficient funds. Following that, the card was then added to the deck of the user.
 The whole logic for a market was pretty simple as each market sold only one card. Hence, we designated particular markets to particular instancs of a card statically before run.
 
@@ -212,6 +221,20 @@ The whole logic for a market was pretty simple as each market sold only one card
 ## Audio
 
 **Jackson:** I did nothing for this role.
+
+**Liam:** Using the assets found by Navya, I implemented them into the game by adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play().
+The sound effects I added functionality for include:
+
+- When the player draws a card
+- When the player replaces their discard pile into their draw pile
+- When the player casts a card (every card has a unique sound effect)
+- When the player purchases a card
+- When the player gets hit by an attack
+- When the player is killed by an attack
+- When a swarmling gets hit by an attack
+- When a swarmling is killed by an attack
+- When the boss is hit by an attack
+- When the boss is killed by an attack
 
 **Navya:** I downloaded and created audios for the game. The sounds used were for the cards, game over, win and overall game feel. The sounds created were the error, flip a card and suffle because these sounds were not readily available online. 
 Implemented a few, rest of the implementation was done by Liam.
@@ -222,6 +245,7 @@ freesounds.org
 
 **Document the sound style.** 
 The sound style was similar to a midtown rpg fanatsy game. Hence, all the magic cards have a loud bancg and fantasy element to it. 
+
 ## Gameplay Testing
 
 **Jackson:** Besides testing our builds during dev time, I did not contribute to this role (yet?).
@@ -274,10 +298,8 @@ I also set up the game over and credits screens to contribute to this approach.
 
 **Liam:** Many of the changes I did would fall under this category, I would say:
 
-*Audio implementation in general* - While Navya procured the audio assets, I added the actual code needed to make them play at proper times. This includes 
-when a swarmling/boss/player gets hit,
-when a card is drawn or the discard is added back to the draw pile,
-and when a card is played (each card type has a unique sound).
+*Audio implementation in general* - While Navya procured the audio assets, I added the actual code needed to make them play at proper times. 
+See the Audio section for what sound effects I specifically implemented.
 This kind of audio is critical for game feel, increasing the satisfaction the player gets from general input and actions.
 
 *UI indicators when resources/HP are gained/lost* - Not only is it important for the player to know exactly how much they've gained/lost of a particular resource, but it's also important for that knowledge to be imparted in such a way that the player notices it immediately.
