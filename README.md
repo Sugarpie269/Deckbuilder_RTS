@@ -1,6 +1,6 @@
 # Deckbuilder_RTS
 
-##Jackson's Citations:##
+## Jackson's Citations: ##
 
 - https://forum.unity.com/threads/scriptableobject-createinstance-vs-instantiate.515757/ Was used to figure how to use ScriptableObject.CreateInstance()
 
@@ -23,33 +23,58 @@
 - https://forum.unity.com/threads/attaching-text-to-a-gameobject.523189/ for attaching text objects to swarmlings
 
 
-##Navya's Citations:##
+## Navya's Citations: ##
+
+### Assets ###
 - https://assetstore.unity.com/packages/2d/environments/tiny-rpg-town-environment-88293
 - https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
+
+### Audios ###
 - https://freesound.org/people/eggdeng/sounds/502658/
+(Creative Commons 0 License)
 - https://freesound.org/people/VKProduktion/sounds/217502/
+(Creative Commons 0 License)
 - https://freesound.org/people/f4ngy/sounds/240776/
+(Attribution License)
 - https://freesound.org/people/JoelAudio/sounds/77691/
+(Attribution License)
 - https://freesound.org/people/EminYILDIRIM/sounds/563662/
+(Attribution License)
 - https://freesound.org/people/Milky0519/sounds/506626/
+(Creative Commons 0 License)
 - https://freesound.org/people/lulyc/sounds/346116/
+(Creative Commons 0 License)
 - https://freesound.org/people/Deathscyp/sounds/443806/
+(Creative Commons 0 License)
 - https://freesound.org/people/Timbre/sounds/452540/
+(Attribution NonCommercial License)
 - https://freesound.org/people/gamebalance/sounds/455228/
+(Attribution License)
 - https://freesound.org/people/NewEonOrchestra/sounds/170602/
+(Creative Commons 0 License)
 - https://freesound.org/people/Daleonfire/sounds/376694/
+(Creative Commons 0 License)
 - https://freesound.org/people/ihitokage/sounds/552038/
+(Creative Commons 0 License)
 - https://freesound.org/people/nsstudios/sounds/321107/
+(Attribution License)
 - https://freesound.org/people/humanoide9000/sounds/466133/
+(Attribution License)
 - https://freesound.org/people/TheZero/sounds/368367/
+(Creative Commons 0 License)
 - https://freesound.org/people/Euphrosyyn/sounds/380493/
+(Creative Commons 0 License)
 - https://freesound.org/people/broumbroum/sounds/50543/
+(Attribution License)
 - https://freesound.org/people/Hoggington/sounds/536603/
+(Creative Commons 0 License)
 - https://freesound.org/people/tonsil5/sounds/416839/
+(Creative Commons 0 License)
 - https://freesound.org/people/scorpion67890/sounds/396805/
+(Attribution License)
 
 
-##Liam's Citations:##
+## Liam's Citations: ##
 
 - https://gamedevtraum.com/en/game-development/unity-tutorials-and-solutions/unity-fundamental-series/different-methods-to-find-the-references-of-scene-objects-from-a-script-in-unity/how-to-get-the-child-of-a-gameobject-from-a-script-in-unity/
 (How to access a child GameObject in Unity)
@@ -88,7 +113,7 @@ Assets used (I did not import any assets myself; I used those that were found by
 \* These sounds were procured by Navya, I assume under different names. Refer to her citations; I don't know where she got them from.
 
 
-##Amy's Citations:##
+## Amy's Citations: ##
 
 - https://docs.google.com/document/d/19EHWHNtg6IVCvH8amks_r92F4WkGCKlTTMcD0CvYYrQ/mobilebasic# (SAP2D Documentation for Pathfinding.)
 - https://docs.unity3d.com/Manual/class-Rigidbody2D.html (Understanding 2D rigidbodies for player and other sprite / obstacles within the game.)
@@ -97,7 +122,7 @@ Assets used (I did not import any assets myself; I used those that were found by
 - https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html (Utilized for player or enemy rotation.)
 - https://docs.unity3d.com/Manual/class-CircleCollider2D.html (Circle Collider for more varied and unique collisions within the game.)
 
-##Jarod's Citations:##
+## Jarod's Citations: ##
 
 ### Assets: ###
 - https://assetstore.unity.com/packages/tools/ai/sap2d-beta-109184
