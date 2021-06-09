@@ -94,6 +94,7 @@ This was my main role. Here's a (hopefully exhaustive) list of scripts I created
 - Scripts/Cards/[IceSpikeController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/IceSpikeController.cs)
 - Scripts/[MarketController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/MarketController.cs)
 
+(Refer to README.md for relevant coding citations)
 
 (Most of my UI work here involves GameObjects in the scene hierarchy, so is hard to link meaningful evidence for them. Best to view the project in the Unity editor if needed.
 Code that I created should have fairly comprehensive comments, as well as my signature after each comment to help identify exactly which parts of the project I worked on.)
