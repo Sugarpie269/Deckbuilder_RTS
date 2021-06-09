@@ -227,10 +227,11 @@ The game controller that I created also provided the logic for alerting swarmlin
 **Liam:** I'm not quite sure what category these contributions fall under, so I'm listing them here.
 
 I implemented code for:
-- Displaying the information stored within Jackson's Inventory class to the player via the UI
-- The CardInfo struct, which stores all necessary information about a card for various scripts to utilize.
+- Displaying the information stored within Jackson's Inventory class to the player via the UI (done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs) )
+- The [CardInfo struct](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/CardInfo.cs), which stores all necessary information about a card for various scripts to utilize.
 - A simplified version of cards to display to the UI, since the fully detailed cards contained too much information to fit on screen at once
-- The ice spike & force bolt card logic.
+- The [Ice Spike card script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/IceSpikeCard.cs) and [controller script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/IceSpikeController.cs), primarily adapted from Jackson's implementation of Leafblade.
+- The [Force Bolt card script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/ForceBoltCard.cs) and [controller script](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/ForceBoltController.cs), primarily adapted from Jackson's implementation of Fireball.
 - The entirety of the Instructions scene & Credits scene.
 
 **Navya:** For the game logic, I worked on the market controller which allowed for the user to buy a card from a market (when near) if the user had sufficient funds. Following that, the card was then added to the deck of the user.
@@ -316,7 +317,7 @@ I also set up the game over and credits screens to contribute to this approach.
 - The correspondance of colors in the UI text to the game elements (matter currency label should be in the color of matter resource nodes, for example)
 - Screen shakes on damage.
 
-**Liam:** Many of the changes I did would fall under this category, I would say:
+**Liam:** Some of my work would fall under this category, I would say:
 
 *Audio implementation in general* - While Navya procured the audio assets, I added the actual code needed to make them play at proper times. 
 See the Audio section for what sound effects I specifically implemented.
