@@ -383,7 +383,7 @@ The sound style was similar to a fantasy rpg game. Hence, all the magic cards ha
 
 ## Gameplay Testing
 
-**Jackson:** Besides testing our builds during dev time, I did not contribute to this role (yet?).
+**Jackson:** Besides testing our builds during dev time, the most work I did was providing input and guidance during Liam's main game testing session.
 
 **Liam:** This was my subrole, so I gathered several people to test out the game and provide feedback. The results are too long to list here, and so I compiled them within this document (should be open to comment by anyone with the link): https://docs.google.com/document/d/1tpUaciaweEwHjLk7jGraNJTr-MNyhMOIsSD4SJJkF2M/edit?usp=sharing
 
