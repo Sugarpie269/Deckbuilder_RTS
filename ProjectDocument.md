@@ -42,7 +42,23 @@ Being a deckbuilder, the UI is a key element of game feel and flow, as the art o
 
 **Liam:**
 
-(Most of my work here involves GameObjects in the scene hierarchy, so is hard to link meaningful evidence for them. Best to view the project in the Unity editor if needed.
+This was my main role. Here's a (hopefully exhaustive) list of scripts I created, or contributed to, over the course of the project. Not all of them are necessarily related to UI:
+
+- Scripts/Player/[PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs)
+- Scripts/Player/[ExamineDisplay.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/ExamineDisplay.cs)
+- Scripts/_GameManagement/[ButtonController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/ButtonController.cs)
+- Scripts/_GameManagement/[ImageRotation.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/ImageRotation.cs)
+- Scripts/_GameManagement/[InstructionController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/InstructionController.cs)
+- Scripts/Cards/[CardInfo.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/CardInfo.cs)
+- Scripts/Cards/[ForceBoltCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/ForceBoltCard.cs)
+- Scripts/Cards/[IceSpikeCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/IceSpikeCard.cs)
+- Scripts/Cards/[InstantHealCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/InstantHealCard.cs)
+- Scripts/Cards/[ForceBoltController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/ForceBoltController.cs)
+- Scripts/Cards/[IceSpikeController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/IceSpikeController.cs)
+- Scripts/[MarketController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/MarketController.cs)
+
+
+(Most of my UI work here involves GameObjects in the scene hierarchy, so is hard to link meaningful evidence for them. Best to view the project in the Unity editor if needed.
 Code that I created should have fairly comprehensive comments, as well as my signature after each comment to help identify exactly which parts of the project I worked on.)
 
 *Resource Display* - The in-game UI contains counters for the 3 resources (Mana, Energy, & Matter), an HP counter, and the deck setup which consists of a draw pile, 3 card slots for the player's hand, and a discard pile.

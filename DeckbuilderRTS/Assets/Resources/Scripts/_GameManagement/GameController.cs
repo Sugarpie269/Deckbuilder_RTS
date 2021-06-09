@@ -14,8 +14,8 @@ namespace DeckbuilderRTS
         [SerializeField] public Object LeafbladePrefab;
         [SerializeField] public Object ForceBoltPrefab;
         [SerializeField] public Object IceSpikePrefab;
-        [SerializeField] public Object LightningStrikerPrefab; // TODO 
-        [SerializeField] public Object LaserBeamPrefab; // TODO 
+        [SerializeField] public Object LightningStrikerPrefab;
+        [SerializeField] public Object LaserBeamPrefab;
 
         // Other Cards/Entities
         [SerializeField] public Object WorkerPrefab;
