@@ -1,8 +1,7 @@
-# Game Basic Information #
+# Technodeck Project Documentation #
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
 Technodeck is a deck-builder real-time strategy game in which the player’s objective is to defeat an enemy and its minions in a magical and technologically mechanical themed game setting.
 
 The player, a technomancer, must gather resources to build their own strength to defeat the boss enemy and keep the dark magic at bay. Once the player has acquired upgrades for their ability card deck, they will have the means to finally power down the boss enemy once and for all.
@@ -39,15 +38,13 @@ You should replace any **bold text** with your relevant information. Liberally u
 
 ## User Interface
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-
 Being a deckbuilder, the UI is a key element of game feel and flow, as the art on the cards make up the bulk of the player's primary actions.
 
 **Liam:**
 
 This was my main role. Here's a (hopefully exhaustive) list of scripts I created, or significantly contributed to, over the course of the project. Not all of them are necessarily related to UI:
 
-- Scripts/Player/[PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs)
+- Scripts/Player/[PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs) (The bulk of UI scripting was done here)
 - Scripts/Player/[ExamineDisplay.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/ExamineDisplay.cs)
 - Scripts/_GameManagement/[ButtonController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/ButtonController.cs)
 - Scripts/_GameManagement/[ImageRotation.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/ImageRotation.cs)
@@ -55,7 +52,6 @@ This was my main role. Here's a (hopefully exhaustive) list of scripts I created
 - Scripts/Cards/[CardInfo.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/CardInfo.cs)
 - Scripts/Cards/[ForceBoltCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/ForceBoltCard.cs)
 - Scripts/Cards/[IceSpikeCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/IceSpikeCard.cs)
-- Scripts/Cards/[InstantHealCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/InstantHealCard.cs)
 - Scripts/Cards/[ForceBoltController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/ForceBoltController.cs)
 - Scripts/Cards/[IceSpikeController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/IceSpikeController.cs)
 - Scripts/[MarketController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/MarketController.cs)
@@ -155,13 +151,12 @@ At this point I created and implemented the Instructions & Credits scenes. The I
 
 We used a mix of the Unity physics system and our own scripted physics to modify it when it did not serve our purposes (ignoring collisions and rotations). The game is top down and 2d, so we had to ensure that gravity was disabled.
 
-**Liam:** I did nothing for this role.
-
 **Jarod:**
 I implemented a few of the projectile logics, adjusting them with colliders that were triggers or composites. Built and updated the following
 Built:
 - LaserbeamController.cs
 - Forcebolt (mostly done by Liam)
+
 Updated:
 - Fireball
 - LightningStrike
@@ -198,7 +193,7 @@ This relates to the movement concepts that we learned from Exercise 1, the Camer
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-** Jarod: ** This was my primary role.
+**Jarod:** This was my primary role.
 I sourced numerous assets for use in the User Interface, Card art, map art, and more (see above). 
 After *exhaustive* searches of the free assets in the Unity Asset store, I found several assets that would eventually be used in the live build. I also worked with Liam to help build the UI, with most of my work being the tedium of formatting several canvas elements.
 With UI, card design, and asset selection or creation, I contributed to game feel and graphic design, as well as world building, giving character to the entities we build as a team.
@@ -222,8 +217,6 @@ I was in charge of Card Design, and custom-made the card bases and formats.
 
 We knew we wanted something magical, mechanical, and perhaps organic for the bad guys (and even player) so the swarmlings and boss were designed with the idea of mutated cyborgs. Bosses and swarmlings follow a similar style of green flesh and orange eyes so that the player easily recognizes the connection between the two different enemies.
 
-**Liam:** I did nothing except provide opinions on what looked good and what didn't, for this role.
-
 **Navya:** I contributed to this role by building a tile set map for our game (basically worl-building). I got an asset from the unity store which had the feeling of an "rpg midtown". I felt like that would be the best for our game as it was quite an open-ended theme when we had not decided a story line for our game. I made the map in a way which would allow for the "SAP2D" to calculate colliders easily and kept on making changes on the map as the game progressed because of the colliders not wokring properly.
 
 ## Input
@@ -238,7 +231,9 @@ Our game only supports the specific keyboard & mouse controls assigned.
 
 **Jackson:** I contributed to the input role by offering my insights into how we will need our input logic to match the capabilities of the player. I created the camera controller that focuses the mouse position.
 
-**Liam:** Input was fairly critical to my main role as it affects how the player interacts with UI. 
+**Liam:** 
+
+Input was fairly critical to my main role as it affects how the player interacts with UI. 
 However, I didn't do much for this category other than set the card buttons to 1/2/3 and the examine and purchase buttons to R and B.
 
 **Navya:** My main role was input. I implementedd this role by implemting a WASD input for the player and a function which gets the mouse positions. Expect that, this role didn't demand much work in our game.
@@ -298,7 +293,9 @@ The [BossController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9ac
 
 The [FireballController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/FireballController.cs#L1) and [FireballCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Cards/FireballCard.cs#L1) were almost completely my work. Their logic was commonly reused by myself and the others to make the other cards and projectiles functional.
 
-**Liam:** I'm not quite sure what category these contributions fall under, so I'm listing them here.
+**Liam:** 
+
+I'm not quite sure what category these contributions fall under, so I'm listing them here.
 
 I implemented code for:
 - Displaying the information stored within Jackson's Inventory class to the player via the UI (done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/main/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs) )
@@ -325,7 +322,9 @@ I implemented code for the LightningBlast card and controller, which is designed
 
 **Jackson:** I did nothing for this role.
 
-**Liam:** Using the assets found by Navya, I implemented them into the game by simply adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play() when needed.
+**Liam:** 
+
+Using the assets found by Navya, I implemented them into the game by simply adding them as AudioSources in various GameObjects, and then calling them with GetComponent<AudioSource>().Play() when needed.
 The sound effects I added functionality for include:
 
 - When the player draws a card
@@ -404,11 +403,15 @@ The sound style was similar to a fantasy rpg game. Hence, all the magic cards ha
 
 **Jackson:** Besides testing our builds during dev time, the most work I did was providing input and guidance during Liam's main game testing session.
 
-**Liam:** This was my subrole, so I gathered several people to test out the game and provide feedback. The results are too long to list here, and so I compiled them within this document (should be open to comment by anyone with the link): https://docs.google.com/document/d/1tpUaciaweEwHjLk7jGraNJTr-MNyhMOIsSD4SJJkF2M/edit?usp=sharing
+**Liam:** 
+
+This was my subrole, so I gathered several people to test out the game and provide feedback. The results are too long to list here, and so I compiled them within this document (should be open to comment by anyone with the link): https://docs.google.com/document/d/1tpUaciaweEwHjLk7jGraNJTr-MNyhMOIsSD4SJJkF2M/edit?usp=sharing
 
 **Summarize the key findings from your gameplay tests.**
 
-**Liam:** There were 3 versions of the game we tested with outside participants (v0.1.1, v0.1.2, and v0.1.3). Going into testing, I expected runs of the game to last around 5-10 minutes.
+**Liam:** 
+
+There were 3 versions of the game we tested with outside participants (v0.1.1, v0.1.2, and v0.1.3). Going into testing, I expected runs of the game to last around 5-10 minutes.
 
 However, the first run of v0.1.1 approached around 25 minutes or higher. It was pretty clear that the game was far too difficult and resource gains far too low, so v0.1.2 introduced several sweeping balance changes to remedy this.
 The cooldown of drawing a card was halved, and the delay on a worker generating resources from a node was halved (thereby doubling the rate of resource gain). The cost of several cards was decreased to make them faster to access. 
@@ -434,7 +437,9 @@ Comedy in card design and linking the flavortext to the "world" of the game was 
 
 **Jackson:** Gave input on names and card narrative flavor.
 
-**Liam:** I created and revised the majority of the descriptions and flavor text on the cards, opting for a step in the comedic direction when it came to tone. The primary narrative in the Objectives section of the instructions scene was devised by Jarod, though I tweaked and revised it a little to flow better.
+**Liam:** 
+
+I created and revised the majority of the descriptions and flavor text on the cards, opting for a step in the comedic direction when it came to tone. The primary narrative in the Objectives section of the instructions scene was devised by Jarod, though I tweaked and revised it a little to flow better.
 I also set up the game over and credits screens to contribute to this approach.
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
@@ -442,8 +447,6 @@ I also set up the game over and credits screens to contribute to this approach.
 ## Press Kit and Trailer
 
 **Jackson:** I did nothing for this role.
-
-**Liam:** I did nothing for this role.
 
 **Amy:**  
 I made a press kit for the game on a Wix site (https://technodeckgame.wixsite.com/press). This includes all of the necessary content from DoPressKit() and the sample Press Kit websites provided by the professor. The site has different pages for Home, Factsheet, Description, Videos & Media, Press Releases, Team, and Contact information.
@@ -487,7 +490,9 @@ Similarly, the press kit has images of various parts of the gameplay experience,
 - The correspondance of colors in the UI text to the game elements (matter currency label should be in the color of matter resource nodes, for example)
 - Screen shakes on damage.
 
-**Liam:** Some of my work would fall under this category, I would say:
+**Liam:** 
+
+Some of my work would fall under this category, I would say:
 
 *Audio implementation in general* - While Navya procured the audio assets, I added the actual code needed to make them play at proper times. 
 See the Audio section for what sound effects I specifically implemented.
