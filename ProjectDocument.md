@@ -52,7 +52,7 @@ If the player dies in-game, a button appears to take them back to the main menu.
 *Credits Scene* - When the player kills the boss, a button appears to take them to a small credits scene where all 5 of our names are listed.
 There is a button to return to the main menu as well.
 
-**The following section explains the general process I (Liam) underwent in creating the UI. It's quite long.**
+**The following section explains the general process I (Liam) underwent in creating the UI. It's quite long, and I'm unsure if it's necessary, but I'm including it to be safe. I added to this over the course of the project.**
 
 Very nearly everything in the Canvas prefab of our game project was designed and implemented by me. Jarod did come in and organize the Card prefab used in the UI several weeks back, but otherwise the UI is my doing.
 The majority of my scripting was done within [PlayerController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/097c84b74d0517a4735afedfad0746ea5a089940/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerController.cs). To start from the beginning:
