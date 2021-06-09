@@ -91,6 +91,7 @@ Assets used (I did not import any assets myself; I used those that were found by
 ##Amy's Citations:##
 
 - https://docs.google.com/document/d/19EHWHNtg6IVCvH8amks_r92F4WkGCKlTTMcD0CvYYrQ/mobilebasic# (SAP2D Documentation for Pathfinding.)
+- https://www.red-gate.com/simple-talk/dotnet/c-programming/pathfinding-unity-c/  (Pathfinding Documentation for player movement.)
 - https://docs.unity3d.com/Manual/class-Rigidbody2D.html (Understanding 2D rigidbodies for player and other sprite / obstacles within the game.)
 - https://docs.unity3d.com/ScriptReference/Rigidbody2D.MovePosition.html (Implementing movement for the player.)
 - https://docs.unity3d.com/ScriptReference/Rigidbody2D.MoveRotation.html (Researched into rotation for player or enemies.)
