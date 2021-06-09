@@ -130,6 +130,16 @@ We used a mix of the Unity physics system and our own scripted physics to modify
 
 **Jarod:**
 I implemented the 
+
+**Amy:** 
+This was originally assigned as my main role. I implemented the player directional movement based on the WASD input keys. I also added movement for the enemy swarmlings, which by default follows a pathfinding movement between two chosen endpoints, or follows a seeking movement towards the player in the case that the player moves within a designated range of the swarmling. This was done with SAP2D as suggested by Jackson, which has built-in pathfinding and obstacle avoiding. This was helpful since we also had obstacles within our map that our sprites would need to maneuver around.
+
+I also helped to implement the physics for projectile movement for the different card attacks along with the others in my team. The projectiles from each card have unique specifications including their damage capability, and have damage effects when they collide with other sprites such as the enemies or the player or the workers. The projectiles are also shot at a specific angle based on where the mouse is located in relation to the player. To do this, we made use of the transform.eulerAngle property to decide which angle the projectile should be.
+
+I also implemented the physics for projectiles shot from the swarmling enemies and boss enemy towards the player. This occurs in the case that the player comes within a certain distance of the enemies, or in the case that the enemies attack the worker sprites.
+
+
+
 ## Animation and Visuals
 
 **List your assets including their sources and licenses.**
@@ -239,6 +249,9 @@ I implemented code for:
 **Navya:** For the game logic, I worked on the market controller which allowed for the user to buy a card from a market (when near) if the user had sufficient funds. Following that, the card was then added to the deck of the user.
 The whole logic for a market was pretty simple as each market sold only one card. Hence, we designated particular markets to particular instancs of a card statically before run.
 
+**Amy:** 
+I implemented code for the LightningBlast card and controller, which is designed to shoot 4 lightning blasts at the mouse's position after some delay. This is similar to the LaserBeam card for the delay, and similar to the ForceBolt / FireBall / etc cards for the projectile like motions.
+
 # Sub-Roles
 
 ## Audio
@@ -302,10 +315,35 @@ I also set up the game over and credits screens to contribute to this approach.
 
 **Liam:** I did nothing for this role.
 
+**Amy:**
+I made a press kit for the game on a Wix site (https://technodeckgame.wixsite.com/press). This includes all of the necessary content from DoPressKit() and the sample Press Kit websites provided by the professor. The site has different pages for Home, Factsheet, Description, Videos & Media, Press Releases, Team, and Contact information.
+
+The Home page has some general overview about the mechanics of the game, as well as the storyline behind the purpose and objective of the game. 
+
+The Factsheet page has information about the location and date in which the game was released, as well as some brief contact information and social media links. This includes an email address, Twitch, Facebook, Wix Press Kit, and the Github repository where the code is hosted. 
+
+The Description page has further details on the game. This includes the Gameplay System, which describes how the game is set up and how to play the game. This page also details key features of the game, specifically the cards and the deck-building capability, the resources and potential to purchase new cards, and the markets which allow users to buy new cards. This page also contains details about the inspiration behind the game and other similar games.
+
+The Videos & Media page contains images of the game in play, including images of the latest version and previous versions. This page also features trailers for the game, and screenshots of the instructions pages from the game's UI. 
+
+The Press Releases page details the various version releases of the game, as well as links to Build files. 
+
+The Team page features the people in the team and a brief bio.
+
+The Contact page highlights the contact information and social media links for the game.
+
 **Include links to your presskit materials and trailer.**
+Press Kit: https://technodeckgame.wixsite.com/press
+Trailer: https://youtu.be/DQYreX_8rtQ (FIXME)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+I chose specific screenshots and sequences from the game that I thought were the most important to highlight in a short trailer clip and as images in the press kit. 
 
+This includes a brief overview of the game play rules and features that are included in the game UI. The trailer shows the player navigating the map and interacting with the enemy swarmlings and boss. A major part of the game is the deck-building aspect, so a large portion of the trailer shows many of the various cards in action as the player utilizes different attacks against the swarmlings or boss enemies. 
+
+The trailer also includes the sound effects as they would occur in the live gameplay. This is to provide an accurate representation of the game.
+
+Similarly, the press kit has images of various parts of the gameplay experience, which show the player navigating the map, the player utilizing the card attacks against the swarmlings, and the player fighting the boss enemy. 
 
 
 ## Game Feel
