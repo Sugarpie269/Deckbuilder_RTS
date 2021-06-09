@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770eeecb3f108af4f9032682f25fd650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 25
+  MaxHealth: 14
   Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
   path: []
   DefaultPosition0: {x: -12.5, y: 2.5}

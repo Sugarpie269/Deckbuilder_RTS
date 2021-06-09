@@ -258,6 +258,9 @@ namespace DeckbuilderRTS
                     this.ElapsedTime = 0;
                 }
             }
+
+            // Set the facing direction of the slimeling? ~Liam
+            //this.UpdateRotation();
         }
 
         private void MoveSwarmling()
@@ -318,6 +321,15 @@ namespace DeckbuilderRTS
             {
                 transform.eulerAngles = new Vector3(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.y, 180);
             }
+            // Using the original rotation code to determine if the sprite should be facing left or right? ~Liam
+            /*if ((multiplier * 180f + (180 / Mathf.PI) * Mathf.Atan(dirVec.y / dirVec.x) + 90) > 180)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }*/
             
         }
 
