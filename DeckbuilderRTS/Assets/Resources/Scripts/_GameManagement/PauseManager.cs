@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField]
     public GameObject PauseMenu;
     public static bool GameIsPaused = false;
+    
     // Start is called before the first frame update
     void Start()
     {

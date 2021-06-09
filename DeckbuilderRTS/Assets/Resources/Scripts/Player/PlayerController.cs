@@ -184,9 +184,6 @@ namespace DeckbuilderRTS
             this.MatterAddText.gameObject.SetActive(false);
             this.MatterSubtractText.gameObject.SetActive(false);
 
-
-
-
             
             this.EmptyCardSlotImage = GameObject.Find("EmptyCardSlot").GetComponent<Image>().sprite;
             this.FacedownCardImage = GameObject.Find("FacedownCard").GetComponent<Image>().sprite;

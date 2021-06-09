@@ -14,8 +14,6 @@ namespace DeckbuilderRTS
         private float Lifetime;
         private bool CanDamage;
 
-        private Vector2 Velocity;
-
         public LightningStrikerController()
         {
             this.Damage = 10.0f;
@@ -24,8 +22,6 @@ namespace DeckbuilderRTS
             this.DamageDelayCounter = 0.0f;
             this.Lifetime = 3.0f;
             this.CanDamage = false;
-
-            this.Velocity = new Vector2(10.0f, 0.0f);
         }
 
         // The start function will initialize our member variables.
