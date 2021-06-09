@@ -7,7 +7,7 @@ Technodeck is a deck-builder real-time strategy game in which the player’s obj
 
 The player, a technomancer, must gather resources to build their own strength to defeat the boss enemy and keep the dark magic at bay. Once the player has acquired upgrades for their ability card deck, they will have the means to finally power down the boss enemy once and for all.
 
-These cards, when played, will allow the player to send damaging projectiles or summon barriers of defense in their battle against the swarmling minions. The player must decide which cards to acquire first, in which the strategy of deck-building will be valuable in gaining power and winning the game.
+These cards, when played, will allow the player to send damaging projectiles or summon workers to gather resources to aid in their battle against the swarmling minions. The player must decide which cards to acquire first, in which the strategy of deck-building will be valuable in gaining power and winning the game.
 
 ## Gameplay Explanation ##
 
