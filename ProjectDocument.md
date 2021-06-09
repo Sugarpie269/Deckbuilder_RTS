@@ -3,11 +3,18 @@
 ## Summary ##
 
 **A paragraph-length pitch for your game.**
+Technodeck is a deck-builder real-time strategy game in which the player’s objective is to defeat an enemy and its minions in a magical and technologically mechanical themed game setting.
+
+The player, a technomancer, must gather resources to build their own strength to defeat the boss enemy and keep the dark magic at bay. Once the player has acquired upgrades for their ability card deck, they will have the means to finally power down the boss enemy once and for all.
+
+These cards, when played, will allow the player to send damaging projectiles or summon barriers of defense in their battle against the swarmling minions. The player must decide which cards to acquire first, in which the strategy of deck-building will be valuable in gaining power and winning the game.
 
 ## Gameplay Explanation ##
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
+The player can move around the map using the WASD keys, where W is up, A is left, S is down, and D is right. The keys for 1, 2, and 3 map to the according card slots in the player's hand. The player can use these keys to play the cards in each respective card slot. 
 
+The R key can be used to examine a card when the player's mouse is hovered over that card. This allows the player to learn more about the card's description and capabilities. Additionally, the R key can be used to view a market when the player's mouse is hovered over a building. This allows the player to view what cards are being sold. 
 
 **If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
