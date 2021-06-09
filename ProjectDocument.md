@@ -131,7 +131,7 @@ At this point I created and implemented the Instructions & Credits scenes. The I
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-**Jackson:** I contributed by adding the collision functions and rigidbody/boxcollider logic for the player, workers, swarmlings, fireballs, leafblades, minibosses, boss, and resource depots.
+**Jackson:** I contributed by adding the collision functions and rigidbody/boxcollider logic for the player, workers, swarmlings, fireballs, leafblades, minibosses, boss, and resource depots. 
 
 We used a mix of the Unity physics system and our own scripted physics to modify it when it did not serve our purposes (ignoring collisions and rotations). The game is top down and 2d, so we had to ensure that gravity was disabled.
 
@@ -228,7 +228,7 @@ Implemented most of the code for:
 - Worker Controller
 - Game states and tracking of swarmlings, updates to workers for depots, spawning swarmlings at minibosses, and workers signaling swarmlings to their location when nearby
 - Main Menu and scene loading
-- Inventory class
+- Inventory class (w/ Liam)
 - The fireball, leafblade, instant heal, and summon worker cards.
 - The fireball and leafblade projectile controllers
 - Player ADSR movement speed modifier factor for the move speed of the player
@@ -238,13 +238,25 @@ Helped with:
 - Market controller implementation and loading card info from the game objects Liam made to store their info
 - Card design and mechanics
 
-We tried to use the command pattern for the workers, player, and swarmlings, but eventually found that it would be too limiting to do so given how widely differen the classes were. In the end, all we did was have the workers use the command pattern. We probably should have kept the player with the command pattern because the player controller ended up unreasonably long, but we did keep the command pattern for the inventory/deck class.
+We tried to use the command pattern for the workers, player, and swarmlings, but eventually found that it would be too limiting to do so given how widely differen the classes were. In the end, all we did was have the workers use the command pattern. They do so by checking collisions with resource nodes and if they detect a change between resource types, they set their current command to a different resource generation command. We probably should have kept the player with the command pattern because the player controller ended up unreasonably long, but we did keep the command pattern for the inventory/deck class. The [Inventory.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/Inventory.cs#L8) was written primarily between myself and Liam. I worked on the deck logic end of things, while Liam added functionality to the UI data sharing. The deck is a collection of ICard objects where ICard is the interface for a card class. When the player plays a card from the inventory it calls the OnCardPlayed function of the corresponding hand slot's card.
 
 The main game state was the main menu versus game scene (eventually help screen or pause menu?). Within the game scene, the game controller managed whether the player had hit game over or victory.
 
 I also managed the game data such as spawning timing and logic for swarmlings (they spawn at the miniboss locations) as well as difficulty increase (the game controller has a setting to allow newly-spawned swarmlings to have higher max health over time). 
 
 The game controller that I created also provided the logic for alerting swarmlings to nearby workers and switching their current target. The swarmling controller picks the nearby player as a target first, then a nearby worker, then a random resource depot to patrol to if no enemies are nearby. 
+
+The fireball and other projectile controllers generally fly in the direction they were casted until they hit something or outlive themselves. The other logic pertaining to the projectiles mostly included the hit-detection system and resulting logic, which I implemented.
+
+The card system
+
+You can see my work on the game controller here [GameController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/GameController.cs#L1)
+
+My work with the workers can be obserbed at [WorkerController.cs]() [WorkerBasicMatterCommand.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Entities/Worker/WorkBasicMatterCommand.cs#L1) [WorkerMatterCommand.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Entities/Worker/WorkMatterCommand.cs#L1) [WorkerEnergyCommand.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Entities/Worker/WorkEnergyCommand.cs#L1) and [WorkerManaCommand.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Entities/Worker/WorkManaCommand.cs#L1)
+
+The [BossController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Entities/Enemies/BossController.cs#L1) was also primarily written by me, with Amy writing the logic for its basic projectile shoot command.
+
+The [FireballController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Cards/Cards%20Casting%20Logic/FireballController.cs#L1) and [FireballCard.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Cards/FireballCard.cs#L1) were almost completely my work. Their logic was commonly reused by myself and the others to make the other cards and projectiles functional.
 
 **Liam:** I'm not quite sure what category these contributions fall under, so I'm listing them here.
 
@@ -361,9 +373,9 @@ Similarly, the press kit has images of various parts of the gameplay experience,
 **Document what you added to and how you tweaked your game to improve its game feel.**
 
 **Jackson:** This was my assigned sub role. I implemented:
-- The ADSR class to make movement feel smoother. 
+- The ADSR class to make movement feel smoother. [PlayerADSR](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/Player/PlayerADSR.cs#L1). This was done without a delay phase for simplification.
 - The health/damage display to swarmlings so that the player can see how close they are to death. 
-- The two camera controller types and their logic. We had issues with position lock limiting the player view, but the mouse-focus camera was too fast for some players and we could not get lerping to work, so we allowed the user to switch between them.
+- The two camera controller types and their logic. We had issues with position lock limiting the player view, but the mouse-focus camera was too fast for some players and we could not get lerping to work, so we allowed the user to switch between them. [CameraController.cs](https://github.com/Sugarpie269/Deckbuilder_RTS/blob/f9acf6fb83b0d1b00a84f4d92c95ab980b589725/DeckbuilderRTS/Assets/Resources/Scripts/_GameManagement/CameraController.cs#L71)
 - The correspondance of colors in the UI text to the game elements (matter currency label should be in the color of matter resource nodes, for example)
 - Screen shakes on damage.
 
