@@ -94,6 +94,13 @@ namespace DeckbuilderRTS
                     collision.collider.GetComponent<PlayerController>().TakeDamage(this.Damage);
                     GameObject.Destroy(this.gameObject);
                 }*/
+                else if (collision.CompareTag("Slimeling"))
+                {
+                    //Debug.Log("Hit Boss for " + this.Damage);
+                    collision.GetComponent<SlimelingController>().TakeDamage(this.Damage);
+                    Physics2D.IgnoreCollision(collision, this.GetComponent<Collider2D>());
+                    //GameObject.Destroy(this.gameObject);
+                }
                 else if (collision.CompareTag("Boss"))
                 {
                     //Debug.Log("Hit Boss for " + this.Damage);

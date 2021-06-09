@@ -174,22 +174,26 @@ namespace DeckbuilderRTS
                 if (this.SummonSwarmlings && this.SummonSlimelings)
                 {
                     int randomInt = Random.Range(0, 8);
-                    switch (randomInt) {
-                        case 0:                            
+                    switch (randomInt)
+                    {
+                        case 0:
                             this.SummonNewSlimeling();
                             break;
-                        default: 
+                        default:
                             this.SummonNewSwarmling();
                             break;
                     }
                 }
-                if (this.SummonSwarmlings)
+                else
                 {
-                    this.SummonNewSwarmling();
-                }
-                if (this.SummonSlimelings)
-                {
-                    this.SummonNewSlimeling();
+                    if (this.SummonSwarmlings)
+                    {
+                        this.SummonNewSwarmling();
+                    }
+                    if (this.SummonSlimelings)
+                    {
+                        this.SummonNewSlimeling();
+                    }
                 }
             }
 

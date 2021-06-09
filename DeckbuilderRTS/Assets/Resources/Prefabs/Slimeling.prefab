@@ -12,14 +12,13 @@ GameObject:
   - component: {fileID: 773614451363456776}
   - component: {fileID: 773614451363456247}
   - component: {fileID: 773614451363456246}
-  - component: {fileID: 773614451363456245}
   - component: {fileID: 6366192281497967469}
   - component: {fileID: 262450987873114351}
   - component: {fileID: 3896838541796734820}
   - component: {fileID: 1695327803741289275}
   m_Layer: 0
   m_Name: Slimeling
-  m_TagString: Swarmling
+  m_TagString: Slimeling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,34 +142,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29919052, y: 0.25048447}
   m_EdgeRadius: 0
---- !u!114 &773614451363456245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 773614451363456244}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a8e65f249b67d747bacd248d977f226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 10
-  Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-  path: []
-  DefaultPosition0: {x: -12.5, y: 2.5}
-  DefaultPosition1: {x: 15.5, y: 5.5}
-  Speed: 1.5
-  SeekingRange: 5
-  ResetPathTime: 2
-  AttackPrefab: {fileID: 330330278010826320, guid: bcb881c3db2a65842b306bc4161c5c6f,
-    type: 3}
-  AttackRate: 2
-  HealthTextPrefab: {fileID: 7392525086033785062, guid: abd6e7a6545c0e544b9c6bda69ffd51d,
-    type: 3}
-  DisplayDamageTime: 1.5
-  HurtNoise: {fileID: 0}
-  DeathNoise: {fileID: 0}
 --- !u!114 &6366192281497967469
 MonoBehaviour:
   m_ObjectHideFlags: 0
