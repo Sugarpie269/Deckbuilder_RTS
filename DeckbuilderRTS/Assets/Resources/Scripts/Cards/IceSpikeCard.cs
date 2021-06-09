@@ -44,8 +44,12 @@ namespace DeckbuilderRTS
             var newIceSpike = Object.Instantiate(this.IceSpikePrefab) as GameObject;
             newIceSpike.transform.position = iceSpikePos;
 
+            // Set the IceSpike's rotation by calculating angle between the 2 points. ~Liam
+            var vec = Input.mousePosition - Camera.main.WorldToScreenPoint(player.transform.position);
+            var angle = (Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg) + 90;
+
             var iceSpikeController = newIceSpike.GetComponent<IceSpikeController>();
-            iceSpikeController.SetAttributes(this.Info.CardPower, new Vector2(this.IceSpikeSpeed * iceSpikeDirection.x, this.IceSpikeSpeed * iceSpikeDirection.y));
+            iceSpikeController.SetAttributes(this.Info.CardPower, new Vector2(this.IceSpikeSpeed * iceSpikeDirection.x, this.IceSpikeSpeed * iceSpikeDirection.y), angle);
 
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), newIceSpike.GetComponent<BoxCollider2D>());
             GameObject.Destroy(newIceSpike, 2f);

@@ -21,11 +21,12 @@ namespace DeckbuilderRTS
         {
         }
 
-        public void SetAttributes(float damage, Vector2 velocity)
+        public void SetAttributes(float damage, Vector2 velocity, float angle)
         {
             this.Damage = damage;
             this.Velocity = velocity;
 
+            this.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         public void Update()
