@@ -1,4 +1,6 @@
-# Deckbuilder_RTS
+# Technodeck
+
+See ProjectDocument.md for our project document for the ECS189L class.
 
 ## Jackson's Citations: ##
 
